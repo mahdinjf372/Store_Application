@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<section id="extended">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title-wrap bar-success">
+                        <h4 class="card-title">دسته یندی ها</h4>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <input type="button" onclick="ShowCreateCategoryModal()" class="btn btn-info col-12 col-sm-4 col-md-5" value="ایجاد دسته بندی" />
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    <div class="card-block" id="dt-CategoriesData">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts
+{
+    <link href="~/Sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/Sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/js/Admin/category.js"></script>
+
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+@section Modals
+{
+    <partial name="_CreateCategoryModal" />
+    <partial name="_EditCategoryModal" />
+    <partial name="_EditSubCategoriesModal" />
+    <partial name="_AddSubCategoryModal" />
+
+}

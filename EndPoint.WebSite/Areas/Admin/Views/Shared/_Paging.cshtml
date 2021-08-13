@@ -1,0 +1,74 @@
+﻿@model EndPoint.WebSite.Areas.Admin.Models.Common.PagingViewModel
+
+<div class="row">
+
+    <div class="col-lg-12 col-md-12">
+        <nav aria-label="Page navigation mb-3">
+            <ul class="pagination justify-content-center">
+
+                @if (Model.CurrentPage > 1)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="?searchKey=@ViewBag.searchKey&&page=@(Model.CurrentPage-1)" aria-label="Previous">
+                            <span aria-hidden="true">« قبلی</span>
+                            <span class="sr-only">قبلی</span>
+                        </a>
+                    </li>
+                }
+
+                @{
+                    int j = 0;
+                    if (Model.CurrentPage <= 2)
+                    {
+                        j = 1;
+                    }
+                    else
+                    {
+                        j = Model.CurrentPage - 2;
+
+                    }
+
+                }
+
+                @if ((Model.CurrentPage - 2) > 1)
+                {
+                    <li class="page-item"><a class="page-link"> ... </a></li>
+                }
+
+                @for (int i = j; i <= (Model.CurrentPage + 2); i++)
+                {
+
+                    if (Model.PageCount < i)
+                        break;
+
+                    if (Model.CurrentPage.Equals(i))
+                    {
+                        <li class="page-item active"><a class="page-link">@i</a></li>
+                    }
+                    else
+                    {
+                        <li class="page-item"><a class="page-link" href="?searchKey=@ViewBag.searchKey&&page=@i">@i</a></li>
+                    }
+
+
+                }
+
+                @if ((Model.CurrentPage + 2) < Model.PageCount)
+                {
+                    <li class="page-item"><a class="page-link"> ... </a></li>
+                }
+
+                @if (Model.CurrentPage < Model.PageCount)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="?searchKey=@ViewBag.searchKey&&page=@(Model.CurrentPage+1)" aria-label="Next">
+                            <span aria-hidden="true">بعدی »</span>
+                            <span class="sr-only">بعدی</span>
+                        </a>
+                    </li>
+                }
+
+            </ul>
+        </nav>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+﻿<div data-active-color="white" data-background-color="black" data-image="/Admin/img/sidebar-bg/01.jpg" class="app-sidebar">
+    <div class="sidebar-header">
+        <div class="logo clearfix">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="logo-text float-right">
+                <div class="logo-img">
+                    <img src="~/Admin/img/logo.png" alt="Digi Market Logo" />
+                </div>
+                <span class="text align-middle">هکز مارکت</span>
+            </a>
+            <a id="sidebarToggle" href="javascript:;" class="nav-toggle d-none d-sm-none d-md-none d-lg-block">
+                <i data-toggle="expanded" class="ft-disc toggle-icon"></i>
+            </a>
+            <a id="sidebarClose" href="javascript:;" class="nav-close d-block d-md-block d-lg-none d-xl-none">
+                <i class="ft-circle"></i>
+            </a>
+        </div>
+    </div>
+    <div class="sidebar-content">
+        <div class="nav-container">
+            <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
+                <li class="has-sub nav-item">
+                    <a href="#">
+                        <i class="icon-home">
+                        </i>
+                        <span data-i18n="" class="menu-title">داشبورد</span>
+                        <span class="tag badge badge-pill badge-danger mt-1">0</span>
+                    </a>
+                    <ul class="menu-content">
+                        <li class="">
+                            <a href="" class="menu-item">تجارت الکترونیک</a>
+                        </li>
+                        <li>
+                            <a href="" class="menu-item">تجزیه و تحلیل</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a asp-area="Admin" asp-controller="Users" asp-action="Index">
+                        <i class="icon-user">
+                        </i>
+                        <span data-i18n="" class="menu-title">مدیریت کاربران</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-area="Admin" asp-controller="Category" asp-action="Index" >
+                        <i class="ft-list">
+                        </i>
+                        <span data-i18n="" class="menu-title">دسته بندی ها</span>
+                    </a>
+                </li>
+                <li class="has-sub nav-item">
+                    <a href="#">
+                        <i class="ft-list">
+                        </i>
+                        <span data-i18n="" class="menu-title">محصولات</span>
+                    </a>
+                    <ul class="menu-content">
+                        <li>
+                            <a asp-area="Admin" asp-controller="Feature" asp-action="Index" class="menu-item">ویژگی های محصولات</a>
+                        </li>
+                    </ul>
+                    <ul class="menu-content">
+                        <li>
+                            <a asp-area="Admin" asp-controller="Product" asp-action="Index" class="menu-item">محصولات</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="has-sub nav-item">
+                    <a href="#">
+                        <i class="ft-sliders">
+                        </i>
+                        <span data-i18n="" class="menu-title">اسلایدرها</span>
+                    </a>
+                    <ul class="menu-content">
+                        <li>
+                            <a asp-area="Admin" asp-controller="MainSlider" asp-action="Index" class="menu-item">اسلایدر اصلی سایت</a>
+                        </li>
+                    </ul>
+                    <ul class="menu-content">
+                        <li>
+                            <a asp-area="Admin" asp-controller="BrandSlider" asp-action="Index" class="menu-item">اسلایدر برند ها</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-area="Admin" asp-controller="Ads" asp-action="Index">
+                        <i class="icon-user">
+                        </i>
+                        <span data-i18n="" class="menu-title">مدیریت تبلیغات</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="sidebar-background"></div>
+</div>

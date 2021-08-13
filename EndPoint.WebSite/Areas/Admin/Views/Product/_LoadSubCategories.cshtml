@@ -1,0 +1,18 @@
+﻿@using Store_Application.Application.Services.Categories.Queries.GetCategories
+@using Store_Application.Common.ViewModels
+
+@model ResultDto<List<ResultGetCategoriesDto>>
+
+@if (Model.Data.Any())
+{
+    <option value="0">انتخاب زیرگروه</option>
+    foreach (var cat in Model.Data)
+    {
+        <option value="@cat.Id">@cat.Title</option>
+    }
+}
+else
+{
+    <option value="0">ابتدا باید برای این دسته بندی زیرگروه ایجاد کنید</option>
+}
+

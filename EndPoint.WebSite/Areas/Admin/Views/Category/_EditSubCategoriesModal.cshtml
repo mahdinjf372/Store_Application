@@ -1,0 +1,71 @@
+﻿<div class="modal fade text-left" id="EditSubCategoriesModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel34" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel34">ویرایش گروه ها و زیر گروه ها</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <form class="">
+                        <div class="row">
+
+                            <div class="col-md-3 d-inline-block"></div>
+                            <input type="hidden" id="EditSubCategories_CategoryId" value="" />
+                            <input type="hidden" id="EditSubCategories_SubCategoryId" value="" />
+                            <div class="col-md-9 d-inline-block d-sm-block">
+                                <div class="col-5 d-inline-block text-center">
+                                    <input class="btn btn-info m-1" type="button" value="ایجاد گروه جدید" onclick="ShowAddSubCategoryModal($('#EditSubCategories_CategoryId').val())" />
+                                </div>
+                                <div class="col-6 d-inline-block text-center">
+                                    <input class="btn btn-info m-1" type="button" value="ایجاد زیرگروه جدید" onclick="ShowAddSubCategoryModal($('#EditSubCategories_SubCategoryId').val())" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                    <div class="card-body">
+                        <div class="card-block">
+                            <div class="table-responsive-md">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>نام دسته بندی</th>
+                                            <th>گروه های دسته بندی</th>
+                                            <th>زیر گروه های دسته بندی</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td id="EditSubCategories_CategoryName"></td>
+                                            <td>
+                                                <select onchange="LoadSubGroups('EditSubCategories_SubGroups')" id="EditSubCategories_SubCategories" class="form-control"></select>
+                                            </td>
+                                            <td>
+                                                <select id="EditSubCategories_SubGroups" class="form-control"></select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <input class="btn btn-danger m-1" type="button" value="حذف گروه انتخاب شده" 
+                                                       onclick="RemoveCategory($('#EditSubCategories_SubCategories').val(),$('#EditSubCategories_SubCategories :selected').text(),true)" />
+
+                                            </td>
+                                            <td>
+                                                <input class="btn btn-danger m-1" type="button" value="حذف زیرگروه انتخاب شده" 
+                                                       onclick="RemoveCategory($('#EditSubCategories_SubGroups').val(),$('#EditSubCategories_SubGroups :selected').text(),true)" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "مديريت كاربران";
+}
+
+<section id="extended">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title-wrap bar-success">
+                        <h4 class="card-title">کاربران</h4>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <a asp-area="Admin" asp-controller="Users" asp-action="Register" class="btn btn-info col-6">کاربر جدید</a>
+                        </div>
+
+                        <div class="float-left col-md-6 col-12">
+                            <form asp-area="Admin" asp-controller="UsersAccount" asp-action="Index">
+                                <div class="form-group">
+                                    <div class="position-relative has-icon-right">
+                                        <input name="searchKey" value="@ViewBag.searchKey" id="search-users-input" type="text" class="form-control round" placeholder="جست و جو کاربران">
+                                        <input name="page" value="@ViewBag.page" id="page-number" type="hidden" />
+                                        <div class="form-control-position">
+                                            <a onclick="LoadUsers()">
+                                                <i class="ft-search info"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    <div class="card-block" id="dt-UsersData">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts
+{
+    <link href="~/Sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/Sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/js/Admin/Users.js"></script>
+
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

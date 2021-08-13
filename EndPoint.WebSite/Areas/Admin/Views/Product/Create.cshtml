@@ -1,0 +1,290 @@
+﻿@using EndPoint.WebSite.Areas.Admin.Models.Product.Create
+@model CreateProductViewModel
+
+@section HeaderRefrences{
+
+    <link rel="stylesheet" type="text/css" href="~/Admin/vendors/css/pickadate/pickadate.css">
+    <link rel="stylesheet" type="text/css" href="~/Admin/vendors/css/wizard.css">
+    <link href="~/Admin/vendors/css/content-styles.css" rel="stylesheet" />
+}
+
+<!-- Wizard Starts -->
+<div class="row">
+    <div class="col-sm-12">
+        <h2 class="content-header">فرم جادویی</h2>
+    </div>
+</div>
+<section id="icon-tabs">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">فرم جادوگر با زبانه آیکون</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-block">
+                        <form id="myform" asp-area="Admin" asp-controller="Product" asp-action="Create" method="post" enctype="multipart/form-data" class="icons-tab-steps wizard-circle">
+                            <div asp-validation-summary="ModelOnly"></div>
+
+                            <!-- Step 1 -->
+                            <h6>مرحله 1</h6>
+                            <fieldset>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label asp-for="Title">نام محصول</label>
+                                            <input asp-for="Title" type="text" class="form-control" placeholder="نام محصول">
+                                            <span asp-validation-for="Title" class="display-block text-danger"></span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label asp-for="ShortDescription">توضیحات مختصر</label>
+                                            <textarea asp-for="ShortDescription" class="form-control"></textarea>
+                                            <span asp-validation-for="ShortDescription" class="display-block text-danger"></span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label asp-for="Description">توضیحات کامل</label>
+                                            <span asp-validation-for="Description" class="display-block text-danger"></span>
+                                            <textarea asp-for="Description" id="Description">
+
+                                        </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <!-- Step 2 -->
+                            <h6>مرحله 2</h6>
+                            <fieldset>
+                                <div class="row">
+
+                                    <div class="form-group col-12 col-md-4">
+                                        <h5>دسته بندی ها </h5>
+                                        <div class="controls">
+                                            <select asp-for="CategoryId" id="categories" class="form-control" asp-items="@ViewBag.Categories" onchange="LoadSubCategories('groups','categories')">
+                                                <option value="0">انتخاب دسته بندی</option>
+                                            </select>
+                                            <div class="help-block">
+                                                <span asp-validation-for="CategoryId" class="display-block text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-12 col-md-4">
+                                        <h5>گروه ها </h5>
+                                        <div class="controls">
+                                            <select asp-for="GroupId" id="groups" class="form-control" asp-items="@ViewBag.Groups" onchange="LoadSubCategories('subGroups','groups')">
+                                                <option value="0">انتخاب گروه</option>
+                                            </select>
+                                            <div class="help-block">
+                                                <span asp-validation-for="GroupId" class="display-block text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-12 col-md-4">
+                                        <h5>زیرگروه ها </h5>
+                                        <div class="controls">
+                                            <select asp-for="SubGroupId" id="subGroups" asp-items="@ViewBag.SubGroups" class="form-control">
+                                                <option value="0">انتخاب زیرگروه</option>
+                                            </select>
+                                            <div class="help-block">
+                                                <span asp-validation-for="SubGroupId" class="display-block text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </fieldset>
+
+                            <!-- Step 3 -->
+                            <h6>مرحله 3</h6>
+                            <fieldset>
+                                <div class="row">
+
+                                    <div class="col-12 col-md-6 form-group">
+                                        <h5>قیمت محصول</h5>
+                                        <div class="">
+                                            <div class="input-group">
+                                                <input asp-for="Price" value="@Model?.Price" type="text" class="form-control" oninput="this.value = SeparateNum(this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'));">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">تومان</span>
+                                                </div>
+                                                <span asp-validation-for="Price" class="display-block text-danger"></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-md-6 form-group validate">
+                                        <h5>تخفیف محصول</h5>
+                                        <div class="controls">
+                                            <div class="input-group">
+                                                <input asp-for="DiscountAmount" value="@Model?.DiscountAmount" type="text" class="form-control" oninput="this.value = SeparateNum(this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'));">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">تومان</span>
+                                                </div>
+                                                <span asp-validation-for="DiscountAmount" class="display-block text-danger"></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </fieldset>
+
+                            <!-- Step 4 -->
+                            <h6>مرحله 4</h6>
+                            <fieldset>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="col-12">
+                                            <label>انتخاب تصویر اصلی</label>
+                                            <div class="input-group mb-3">
+                                                <div class="custom-file">
+                                                    <input asp-for="MainImage" onchange="LoadMainImage(this)" value="@Model?.MainImage" type="file" class="custom-file-input" id="input-Image">
+                                                    <label class="custom-file-label" for="input-Image">انتخاب فایل</label>
+                                                </div>
+                                                <span asp-validation-for="MainImage" class="display-block text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="uploaded-imgs text-center">
+                                            <img class="" id="productImage" src="/ProductImages/default.jpg" width="411">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="col-12">
+                                            <label>انتخاب تصاویر</label>
+                                            <div class="input-group mb-3">
+                                                <div class="custom-file">
+                                                    <input asp-for="GalleryImages" onchange="LoadGalleryImages(this)" value="@Model?.GalleryImages" type="file" class="custom-file-input" id="input-galleryImages" multiple>
+                                                    <label class="custom-file-label" for="input-galleryImages">انتخاب فایل</label>
+                                                </div>
+                                                <span asp-validation-for="GalleryImages" class="display-block text-danger"></span>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="grid-hover">
+                                            <div class="text-center" id="galleryImages">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </fieldset>
+
+                            <!-- Step 5 -->
+                            <h6>مرحله 5</h6>
+                            <fieldset>
+                                <div class="row">
+
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <h5>برند</h5>
+                                            <div class="controls">
+                                                <select asp-for="BrandId" class="form-control" asp-items="@ViewBag.Brands">
+                                                    <option value="0">انتخاب برند</option>
+
+                                                </select>
+                                                <div class="help-block">
+                                                    <span asp-validation-for="BrandId" class="display-block text-danger"></span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+
+                                        <div class="form-group">
+                                            <h5>موجودی محصول</h5>
+                                            <div class="controls">
+                                                <div class="input-group">
+                                                    <input asp-for="Inventory" type="number" min="0" max="999999" class="form-control" value="@Model?.Inventory">
+                                                </div>
+                                            </div>
+                                            <span asp-validation-for="Inventory" class="display-block text-danger"></span>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <hr>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label class="font-medium-1">آیا این محصول در سایت نشان داده شود؟</label>
+                                            <div class="custom-control custom-checkbox ">
+                                                <input asp-for="Displayed" type="checkbox" class="custom-control-input" id="Displayed">
+                                                <label class="custom-control-label font-medium-1" for="Displayed">بله</label>
+                                            </div>
+                                            <span asp-validation-for="Displayed" class="display-block text-danger"></span>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
+
+
+                                        <span asp-validation-for="Title" class="display-block text-danger border-buttom "></span>
+                                        <span asp-validation-for="ShortDescription" class="display-block text-danger border-buttom">
+                                        </span>
+                                        <span asp-validation-for="Description" class="display-block text-danger border-buttom">
+                                        </span>
+                                        <span asp-validation-for="CategoryId" class="display-block text-danger border-buttom">
+                                        </span>
+                                        <span asp-validation-for="GroupId" class="display-block text-danger border-buttom">
+                                        </span>
+                                        <span asp-validation-for="SubGroupId" class="display-block text-danger border-buttom">
+                                        </span>
+                                        <span asp-validation-for="Price" class="display-block text-danger border-buttom">
+                                        </span>
+                                        <span asp-validation-for="DiscountAmount" class="display-block text-danger border-buttom">
+                                        </span>
+                                        <span asp-validation-for="MainImage" class="display-block text-danger border-buttom">
+                                        </span>
+                                        <span asp-validation-for="GalleryImages" class="display-block text-danger border-buttom">
+                                        </span>
+                                        <span asp-validation-for="BrandId" class="display-block text-danger border-buttom">
+                                        </span>
+                                        <span asp-validation-for="Inventory" class="display-block text-danger border-buttom">
+                                        </span>
+                                        <span asp-validation-for="Displayed" class="display-block text-danger border-buttom">
+                                        </span>
+
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Wizard Ends -->
+
+@section Scripts{
+
+    <script src="~/Admin/js/wizard-steps.js"></script>
+    <script src="~/Admin/lib/ckeditor5/build/ckeditor.js"></script>
+    <script src="~/js/Admin/CreateProduct.js"></script>
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+
+
+}

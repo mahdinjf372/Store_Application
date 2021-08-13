@@ -1,0 +1,65 @@
+﻿@using Store_Application.Application.Services.Features.Queries.GetFeatures
+@model List<ResultGetFeaturesDto>
+
+@{ 
+    Layout = null;
+}
+
+<table class="table table-responsive-sm text-center">
+    <thead>
+        <tr>
+            <th>نام ویژگی</th>
+            <th>ویرایش/حذف</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model.Any())
+        {
+            foreach (var feature in Model)
+            {
+                if (feature.isRemoved)
+                {
+                    <tr class="bg-red bg-lighten-4" id="row-feature-data@(feature.Id)">
+                        <td>@feature.Title</td>
+                        <td>
+                            <a class="darken-1 p-0" title="ویرایش نام">
+                                <i class="fa fa-pencil font-medium-3 mr-2"></i>
+                            </a>
+
+                            <a class="darken-1 p-0" title="غیرفعال(حذف) کردن">
+                                <i class="fa fa-trash-o font-medium-3 mr-2"></i>
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr id="row-category-data@(feature.Id)">
+                        <td>@feature.Title</td>
+                        <td>
+                            <a onclick="ShowEditFeatureNameModal('@feature.Title', @feature.Id)" class="success p-0" title="ویرایش نام">
+                                <i class="fa fa-pencil font-medium-3 mr-2"></i>
+                            </a>
+
+                            <a onclick="DeleteFeature('@feature.Title',@feature.Id)" class="danger p-0" title="غیرفعال(حذف) کردن">
+                                <i class="fa fa-trash-o font-medium-3 mr-2"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="2">
+                    هیچ دسته بندی یافت نشد!
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

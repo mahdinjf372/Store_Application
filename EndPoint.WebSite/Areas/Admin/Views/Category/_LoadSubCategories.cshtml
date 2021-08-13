@@ -1,0 +1,12 @@
+﻿@using Store_Application.Application.Services.Categories.Queries.GetCategories;
+@model List<ResultGetCategoriesDto>;
+
+<option selected="selected" value="0">انتخاب گروه</option>
+
+@if (Model.Any())
+{
+    foreach (var cat in Model)
+    {
+<option class="@((cat.isRemoved)?"bg-red bg-lighten-4":"")" value="@cat.Id">@cat.Title@((cat.isRemoved)?" (حذف شده)":"")</option>
+    }
+}

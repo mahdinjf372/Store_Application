@@ -1,0 +1,761 @@
+﻿
+
+
+<section id="shopping-cart">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title-wrap bar-warning">
+                        <h4 class="card-title">محصولات</h4>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <a asp-area="Admin" asp-controller="Product" asp-action="Create" class="btn btn-info col-md-4 ">ایجاد محصول</a>
+                        </div>
+
+                        <div class="float-left col-md-6 col-12">
+                            <form asp-area="Admin" asp-controller="Product" asp-action="Index">
+                                <div class="form-group">
+                                    <div class="position-relative has-icon-right">
+                                        <input name="searchKey" value="@ViewBag.searchKey" id="search-products-input" type="text" class="form-control round" placeholder="جست و جو کاربران">
+                                        <input name="page" value="@ViewBag.page" id="page-number" type="hidden" />
+                                        <div class="form-control-position">
+                                            <a onclick="LoadProducts()">
+                                                <i class="ft-search info"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="table-responsive-md text-center" id="dt-ProductsData">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--@section Scripts
+{
+
+    <link href="~/Sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/Sweetalert2/sweetalert2.min.js"></script>
+
+    <script src="~/lib/ckeditor5/build/ckeditor.js"></script>
+
+    <script>
+
+
+        function LoadProducts(searchKeyy = "", pageNumber = 1) {
+
+            var searchKey = $("#search-products-input").val();
+            var page = $("#page-number").val();
+
+            var postData = {
+                'page': page,
+                'searchKey': searchKey
+            };
+
+            $("#dt-ProductsData").load("/Admin/Product/LoadProducts", postData);
+            /*
+            $.ajax({
+                contentType: 'application/x-www-form-urlencoded',
+                dataType: 'json',
+                type: 'POST',
+                url: '/Admin/Product/LoadProducts',
+                data: postData,
+                success: function (data) {
+
+                    var DataRow = "";
+                    $("#dt-ProductsData").empty();
+                    var obj = jQuery.parseJSON(data);
+
+                    $.each(obj,
+                        function (i, item) {
+
+                            DataRow = "" +
+                                "<tr " + ((item.IsRemove) ? "class=\"my-bg-danger\"" : "") + " >" +
+                                "<td>" +
+                                "<img class=\"my-img-thumbnail no-border-top-radius no-border-bottom-radius\" src=\"/ProductImages/" + item.ImageName + "\">" +
+                                "</td>" +
+                                "<td>" +
+                                "<a onclick=\"ShowProductGalleryModal(" + item.ProductId + ",\'" + item.Title + "\')\">" +
+                                "<i class=\"fa fa-dot-circle-o info font-medium-1 mr-1\">" +
+                                "</i>" +
+                                "</a>" +
+                                "</td>" +
+                                "<td>" + item.Title + "</td>" +
+                                "<td><button class=\"btn btn-sm btn-outline-info round mb-1\">" + item.Category.CategoryTitle + "</button><br/><button class=\"btn btn-sm btn-outline-warning round mb-1\">" + item.Group.GroupTitle + "</button><br/><button class=\"btn btn-sm btn-outline-danger round mb-1\">" + item.SubGroup.SubGroupTitle + "</button></td>" +
+                                "<td>" + item.Price + "</td>" +
+                                "<td>" + item.Inventory + "</td>";
+
+                                DataRow += "" +
+                                "<td>" +
+                                "<a onclick=\"ShowProductSlidersModal(" + item.ProductId + ")\">" +
+                                "<i class=\"fa fa-dot-circle-o warning font-medium-1 mr-1\"></i>" +
+                                "</a>" +
+                                "</td>" +
+                                "<td>" +
+                                "<a href=\"/Admin/ProductFeatures/Index/" + item.ProductId + "\">" +
+                                "<i class=\"fa fa-dot-circle-o info font-medium-1 mr-1\"></i>" +
+                                "</a>" +
+                                "</td>" +
+                                "<td>" +
+                                "<a onclick=\"ShowEditProductModal(" + item.ProductId + ")\">" +
+                                "<i class=\"fa fa-dot-circle-o success font-medium-1 mr-1\"></i>" +
+                                "</a>" +
+                                "<a " + ((item.IsRemove) ? "" : "onclick=\"DeleteProduct('" + item.Title + "'," + item.ProductId + ")\"") + " class=\" " + ((item.IsRemove) ? "dark" : "danger") + " p-0\" data-original-title=\"\" title=\"\"><i class=\"fa fa-trash-o font-medium-3 mr-2\">" +
+                                "</i>" +
+                                "</a>" +
+                                "</td>" +
+                                "</tr>";
+                            $("#dt-ProductsData").append(DataRow);
+                        }
+                    );
+                }
+            });
+            */
+        }
+
+        function DeleteProduct(productTitle, productId) {
+            swal.fire({
+                title: 'حذف  محصول',
+                text: 'آیا از حذف' + '" ' + productTitle + ' "' + 'مطمئن هستید؟',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'بله، مطمئن هستم',
+                cancelButtonText: 'خیر'
+            }).then((result) => {
+                if (result.value) {
+                    var postData = {
+                        'productId': productId
+                    };
+
+                    $.ajax({
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+                        type: 'POST',
+                        url: '/Admin/Product/DeleteProduct',
+                        data: postData,
+                        success: function (data) {
+                            if (data == true) {
+                                swal.fire({
+                                    title: 'موفق',
+                                    icon: 'success'
+                                });
+                                LoadProducts();
+                            } else {
+                                swal.fire({
+                                    title: 'ناموفق',
+                                    icon: 'warning'
+                                });
+                            }
+                        },
+                        error: function (request, status, error) {
+                            alert(request.responseText);
+                        }
+                    });
+                }
+            });
+        }
+
+        function ShowEditProductModal(productId) {
+            //Clear modal
+            $(".EditModal-Inputs").val(null);
+            $("#uploaded-img").attr('src', null);
+            $(".ck-editor").remove();
+
+            initCKEditor();
+
+            var product;
+            $.ajaxSetup({ async: false });
+            $.post("/Admin/Product/GetProductById/" + productId,
+                function (data) {
+                    product = jQuery.parseJSON(data);
+                }
+            );
+
+
+            //load category dropdown
+            $.getJSON("/Admin/Product/LoadCategories",
+                function (data) {
+                    $("#Edit_Categories").empty();
+                    var obj = jQuery.parseJSON(data);
+                    var item = "";
+                    $.each(obj,
+                        function (i, category) {
+                            item += "<option " + ((category.CategoryId == product.CategoryId) ? "selected=\"selected\"" : "") + " value=\"" + category.CategoryId + "\">" + category.CategoryTitle + "</option>";
+                        });
+                    $("#Edit_Categories").append(item);
+                }
+            );
+
+            //load group dropdown
+            $.getJSON("/Admin/Product/LoadGroups/" + product.CategoryId,
+                function (data) {
+                    $("#Edit_Groups").empty();
+                    var obj = jQuery.parseJSON(data);
+                    var item = "";
+
+                    $.each(obj,
+                        function (i, group) {
+
+                            item += "<option " + ((group.GroupId == product.GroupId) ? "selected=\"selected\"" : "") + " value=\"" + group.GroupId + "\">" + group.GroupTitle + "</option>";
+                        });
+                    $("#Edit_Groups").append(item);
+                }
+            );
+
+            //load subGroup dropdown
+            $.getJSON("/Admin/Product/LoadSubGroups/" + product.GroupId,
+                function (data) {
+                    $("#Edit_SubGroups").empty();
+                    var obj = jQuery.parseJSON(data);
+                    var item = "";
+                    $.each(obj,
+                        function (i, subGroup) {
+                            item += "<option " + ((subGroup.SubGroupId == product.SubGroupId) ? "selected=\"selected\"" : "") + " value=\"" + subGroup.SubGroupId + "\">" + subGroup.SubGroupTitle + "</option>";
+                        });
+                    $("#Edit_SubGroups").append(item);
+                }
+            );
+
+
+            //init inputs
+            $("#Edit_ProductName").val(product.Title);
+            $("#Edit_ShortDescription").val(product.ShortDescription);
+            $("#Edit_Tags").val(product.Tags);
+            $("#Edit_Price").val(product.Price);
+            $("#Edit-uploaded-img").attr('src', "/ProductImages/" + product.ImageName);
+            $("#Edit_Description").val(product.Description);
+            $("#Edit_ProductId").val(product.ProductId);
+            $("#Edit_ImageName").val(product.ImageName);
+            $("#Edit_CreateDate").val(product.CreateDate);
+            $("#Edit_DiscountAmount").val(product.DiscountAmount);
+            $("#Edit_DiscountPercent_Value").empty();
+            $("#Edit_DiscountPercent_Value").append(product.DiscountPercent+"%");
+            $("#Edit_DiscountPercent").val(product.DiscountPercent);
+            $("#Edit_Inventory").val(product.Inventory);
+
+
+            $('#EditProductModal').modal('show');
+        }
+
+        function ShowCreateProductModal() {
+            //Clear modal
+            $(".CreateModal-Inputs").val(null);
+
+            $(".ck-editor").remove();
+
+            initCKEditor();
+            //load category dropdown
+            $(function () {
+
+                $.getJSON("/Admin/Product/LoadCategories",
+                    function (data) {
+                        $("#Create_Categories").empty();
+                        var obj = jQuery.parseJSON(data);
+                        var item = "<option value=\"0\" selected=\"\" disabled=\"\">انتخاب دسته بندی</option>";
+                        $.each(obj,
+                            function (i, category) {
+                                item += "<option value=\"" + category.CategoryId + "\">" + category.CategoryTitle + "</option>";
+                            });
+                        $("#Create_Categories").append(item);
+                    }
+                );
+            });
+
+            $(function () {
+                $("#Create_Groups").empty();
+                var opt = "<option value=\"0\" selected=\"\" disabled=\"\">لطفا ابتدا دسته بندی را انتخاب کنید</option>";
+                $("#Create_Groups").append(opt);
+            });
+
+            $(function () {
+                $("#Create_SubGroups").empty();
+                var opt = "<option value=\"0\" selected=\"\" disabled=\"\">لطفا ابتدا گروه را انتخاب کنید</option>";
+                $("#Create_SubGroups").append(opt);
+            });
+
+            $("#uploaded-img").attr('src', null);
+
+            $('#CreateProductModal').modal('show');
+        }
+
+
+        //Gallery
+
+        function LoadProductGalleryImages(productId) {
+            var postData = {
+                'productId': productId
+            }
+
+            $.ajax({
+                url: '/Admin/Product/LoadProductGalleryImages',
+                type: 'post',
+                data: postData,
+                dataType: 'json',
+                contentType: 'application/x-www-form-urlencoded',
+                success: function (data) {
+                    $('#ProductGallery_Images').empty();
+                    var obj = jQuery.parseJSON(data);
+                    $.each(obj,
+                        function (i, item) {
+                            var dataRow = "<div id=\"ProductGalleryImage" + item.GalleryId + "\" class=\"col-12 col-md-12 col-lg-6\">" +
+                                "<figure class=\"effect-winston\">" +
+                                "<img class=\"GalleryImages\" src=\"\\ProductsGallery\\" + item.ImageName + "\" alt=\"img03\">" +
+                                "<figcaption>" +
+                                "<p>" +
+                                "<a onclick=\"DeleteProductGalleryImage(" + item.GalleryId + ")\" class=\"danger p-3\">" +
+                                "<i class=\"fa fa-trash-o font-large-2 mr-0\"></i>" +
+                                "</a>" +
+                                "</p>" +
+                                "</figcaption>" +
+                                "</figure>" +
+                                "</div>";
+                            $('#ProductGallery_Images').append(dataRow);
+                        });
+                }
+            });
+        }
+
+        function ShowProductGalleryModal(productId, productTitle) {
+
+            $("#Gallery_ProductId").val(productId);
+            $("#Gallery_ProductTitle").html(productTitle);
+            $("#Gallery_ImgUps").val(null);
+
+            LoadProductGalleryImages(productId);
+
+            $("#ProductGalleryModal").modal('show');
+        }
+
+        function AddImageToProductGallery() {
+
+            var imagesData = new FormData();
+            var productId = $("#Gallery_ProductId").val();
+
+            var totalfiles = document.getElementById('Gallery_ImgUps').files.length;
+
+            for (var index = 0; index < totalfiles; index++) {
+                imagesData.append("images", document.getElementById('Gallery_ImgUps').files[index]);
+            }
+
+            imagesData.append("productId", productId);
+
+            $.ajax({
+                contentType: false,
+                processData: false,
+                url: '/Admin/Product/AddImageToProductGallery',
+                type: 'POST',
+                data: imagesData,
+                dataType: 'json',
+                success: function (data) {
+                    LoadProductGalleryImages(productId);
+                    $("#Gallery_ImgUps").val(null);
+                }
+            });
+        }
+
+        function DeleteProductGalleryImage(galleryId) {
+            swal.fire({
+                title: 'حذف  تصویر',
+                text: 'آیا از حذف این تصویر مطمئن هستید؟',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'بله، مطمئن هستم',
+                cancelButtonText: 'خیر'
+            }).then((result) => {
+                if (result.value) {
+                    var postData = {
+                        'galleryId': galleryId
+                    };
+                    var productId = $("#Gallery_ProductId").val();
+                    $.ajax({
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+                        type: 'POST',
+                        url: '/Admin/Product/DeleteImageFromProductGallery',
+                        data: postData,
+                        success: function (data) {
+                            if (data != true) {
+                                swal.fire({
+                                    title: 'ناموفق',
+                                    icon: 'warning'
+                                });
+                            }
+                            $("#ProductGalleryImage" + galleryId).hide('2000');
+                        },
+                        error: function (request, status, error) {
+                            alert(request.responseText);
+                        }
+                    });
+                }
+            });
+        }
+
+
+        //ProductSliders
+        function ShowProductSlidersModal(productId) {
+
+            var productSliders;
+
+            $.ajaxSetup({ async: false });
+            $.post("/Admin/Product/LoadProductSliders/" + productId,
+                function (data) {
+                    productSliders = jQuery.parseJSON(data);
+                }
+            );
+
+            $("#ProductSlider_ProductId").val(productId);
+
+            $(".ProductSlider_Id").prop('checked', false);
+
+            $.each(productSliders,
+                function (i, item) {
+                    $("#ProductSlider_" + item).prop('checked', true);
+                }
+            );
+
+            $("#ProductSlidersModal").modal('show');
+        }
+
+        function ChangeProductSliders() {
+
+            var productId = $("#ProductSlider_ProductId").val();
+
+            var PS_1 = $("#ProductSlider_1").prop('checked');
+            var PS_2 = $("#ProductSlider_2").prop('checked');
+            var PS_3 = $("#ProductSlider_3").prop('checked');
+            var PS_4 = $("#ProductSlider_4").prop('checked');
+
+            var sliders = [
+                { SliderId: 1, Value: PS_1 },
+                { SliderId: 2, Value: PS_2 },
+                { SliderId: 3, Value: PS_3 },
+                { SliderId: 4, Value: PS_4 }
+            ];
+
+            var postData = {
+                'productId': productId,
+                'sliders': sliders
+            };
+
+            $.ajaxSetup({ async: true });
+            $.ajax({
+                contentType: 'application/x-www-form-urlencoded',
+                dataType: 'json',
+                type: 'POST',
+                url: '/Admin/Product/ChangeProductSliders',
+                data: postData,
+                success: function (data) {
+                    if (data == true) {
+                        $("#ProductSlidersModal").modal('hide');
+                        swal.fire({
+                            title: 'موفق',
+                            icon: 'success'
+                        }).then((confirm) => {
+                            ShowProductSlidersModal(productId);
+                        });
+                    } else {
+                        swal.fire({
+                            title: 'ناموفق',
+                            icon: 'warning'
+                        });
+                    }
+                },
+                error: function (request, status, error) {
+                    alert(request.responseText);
+                }
+            });
+        }
+
+        $(document).ready(LoadProducts());
+
+        //create modal
+        $(function () {
+
+            $("#Create_Categories").change(function () {
+                var categoryId = $("#Create_Categories").val();
+
+                $.getJSON("/Admin/Product/LoadGroups/" + categoryId,
+                    function (data) {
+                        var obj = jQuery.parseJSON(data);
+                        var item = "<option value=\"0\">انتخاب زیرگروه</option>";
+                        $.each(obj,
+                            function (i, group) {
+
+                                item += "<option value=\"" + group.GroupId + "\">" + group.GroupTitle + "</option>";
+                            });
+                        $("#Create_Groups").html(item);
+                    }
+                );
+            });
+        });
+        $(function () {
+            $("#Create_Groups").change(function () {
+                var groupId = $("#Create_Groups").val();
+                $.getJSON("/Admin/Product/LoadSubGroups/" + groupId,
+                    function (data) {
+                        var obj = jQuery.parseJSON(data);
+                        var item = "<option value=\"0\">انتخاب گروه</option>";
+                        $.each(obj,
+                            function (i, subGroup) {
+                                item += "<option value=\"" + subGroup.SubGroupId + "\">" + subGroup.SubGroupTitle + "</option>";
+                            });
+                        $("#Create_SubGroups").html(item);
+                    }
+                );
+            });
+        });
+
+        //edit modal
+        $(function () {
+
+            $("#Edit_Categories").change(function () {
+                var categoryId = $("#Edit_Categories").val();
+
+                $.getJSON("/Admin/Product/LoadGroups/" + categoryId,
+                    function (data) {
+                        var obj = jQuery.parseJSON(data);
+                        var item = "<option value=\"0\">انتخاب گروه</option>";
+                        $.each(obj,
+                            function (i, group) {
+
+                                item += "<option value=\"" + group.GroupId + "\">" + group.GroupTitle + "</option>";
+                            });
+                        $("#Edit_Groups").html(item);
+                    }
+                );
+            });
+        });
+        $(function () {
+            $("#Edit_Groups").change(function () {
+                var groupId = $("#Edit_Groups").val();
+                $.getJSON("/Admin/Product/LoadSubGroups/" + groupId,
+                    function (data) {
+                        var obj = jQuery.parseJSON(data);
+                        var item = "<option value=\"0\">انتخاب زیرگروه</option>";
+                        $.each(obj,
+                            function (i, subGroup) {
+                                item += "<option value=\"" + subGroup.SubGroupId + "\">" + subGroup.SubGroupTitle + "</option>";
+                            });
+                        $("#Edit_SubGroups").html(item);
+                    }
+                );
+            });
+        });
+
+    </script>
+
+}
+
+@section Modals
+{-->@*
+    <partial name="_CreateProductModal" />
+    <partial name="_EditProductModal" />
+    <partial name="_ProductGalleryModal" />
+    <partial name="_ProductSlidersModal" />*@
+<!--}
+
+@section ModalScript
+{
+
+    <script>
+        $("#Create_Image").change(function () {
+
+            readUrl_Create(this);
+        });
+
+        function readUrl_Create(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $("#uploaded-img").attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#Edit_Image").change(function () {
+
+            readUrl_Edit(this);
+        });
+
+        function readUrl_Edit(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $("#Edit-uploaded-img").attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+
+        $("#Create_DiscountPercent").change(function () {
+
+            DiscountPercentChanged("create", this.value);
+        });
+
+        $("#Create_DiscountAmount").change(function () {
+
+            DiscountAmountChanged("create", this.value);
+        });
+
+        $("#Edit_DiscountPercent").change(function () {
+
+            DiscountPercentChanged("edit", this.value);
+        });
+
+        $("#Edit_DiscountAmount").change(function () {
+
+            DiscountAmountChanged("edit", this.value);
+        });
+
+        function DiscountAmountChanged(CreateOrEdit,discountAmount) {
+
+            var price;
+            var discountPercent;
+            if (CreateOrEdit == "create") {
+
+                price = $("#Create_Price").val();
+                discountPercent = (discountAmount / price) * 100;
+                $("#Create_DiscountPercent").val(discountPercent);
+                $("#Create_DiscountPercent_Value").empty();
+                $("#Create_DiscountPercent_Value").append(discountPercent + "%");
+
+            } else if (CreateOrEdit == "edit") {
+
+                price = $("#Edit_Price").val();
+                discountPercent = (discountAmount / price) * 100;
+                $("#Edit_DiscountPercent").val(discountPercent);
+                $("#Edit_DiscountPercent_Value").empty();
+                $("#Edit_DiscountPercent_Value").append(discountPercent + "%");
+
+            }
+        }
+
+        function DiscountPercentChanged(CreateOrEdit, DiscountPercent) {
+
+            var price;
+            var discountAmount;
+
+            if (CreateOrEdit == "create") {
+
+                price = $("#Create_Price").val();
+                discountAmount = price * (DiscountPercent / 100);
+                $("#Create_DiscountAmount").val(discountAmount);
+                $("#Create_DiscountPercent_Value").empty();
+                $("#Create_DiscountPercent_Value").append(DiscountPercent + "%");
+
+            } else if (CreateOrEdit == "edit") {
+
+                price = $("#Edit_Price").val();
+                discountAmount = (DiscountPercent / 100) * price;
+                $("#Edit_DiscountAmount").val(discountAmount);
+                $("#Edit_DiscountPercent_Value").empty();
+                $("#Edit_DiscountPercent_Value").append(DiscountPercent + "%");
+
+            }
+        }
+
+
+
+        var ck = ClassicEditor;
+        function initCKEditor() {
+            ck
+                .create(document.querySelector('.ckEditorPlace'),
+                    {
+                        toolbar: {
+                            items: [
+                                'heading',
+                                '|',
+                                'bold',
+                                'italic',
+                                'link',
+                                '|',
+                                'fontSize',
+                                'fontColor',
+                                '|',
+                                'imageUpload',
+                                'blockQuote',
+                                'insertTable',
+                                'undo',
+                                'redo',
+                                'codeBlock'
+                            ]
+                        },
+                        language: 'fa',
+                        table: {
+                            contentToolbar: [
+                                'tableColumn',
+                                'tableRow',
+                                'mergeTableCells'
+                            ]
+                        },
+                        licenseKey: '',
+                        simpleUpload: {
+                            // The URL that the images are uploaded to.
+                            uploadUrl: '/up-img-new'
+                        }
+
+                    })
+                .then(editor => {
+                    window.editor = editor;
+
+
+                })
+                .catch(error => {
+                    console.error(error);
+                }
+                );
+
+        }
+
+    </script>
+}
+
+@section Style
+{
+    <style>
+        .ck-editor__editable_inline {
+            min-height: 400px;
+        }
+
+        .my-bg-danger {
+            background-color: #f7aeb8 !important;
+        }
+
+        .GalleryImages {
+            width: 400px;
+            height: auto;
+        }
+    </style>
+}-->

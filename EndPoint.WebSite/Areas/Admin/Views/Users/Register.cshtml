@@ -1,0 +1,92 @@
+﻿@model EndPoint.WebSite.Areas.Admin.Models.Users.RegisterUser.RegisterUserViewModel
+
+@{
+    ViewData["Title"] = "ایجاد کاربر جدید";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row justify-content-md-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title-wrap bar-danger">
+                    <h4 class="card-title" id="horz-layout-card-center">فرم ثبت نام کاربر</h4>
+                    @if (ViewBag.RegisterationResult != null)
+                    {
+                        <span class="text text-danger">ثبت نام کاربر با شکست مواجه شد</span>
+                    }
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="px-3">
+                    <form asp-area="admin" asp-controller="Users" asp-action="Register" method="post" class="form">
+                        <div asp-validation-summary="ModelOnly"></div>
+                        <div class="form-body">
+
+                            <span asp-validation-for="Username" class="text text-danger"></span>
+                            <div class="position-relative has-icon-left">
+                                <input asp-for="Username" type="text" class="form-control round forRegister" id="userName" placeholder="نام کاربری">
+                                <div class="form-control-position">
+                                    <i class="ft-user danger"></i>
+                                </div>
+                            </div>
+                            <div style="margin-bottom:50px;"></div>
+                            
+                            <span asp-validation-for="Email" class="text text-danger"></span>
+                            <div class="position-relative has-icon-left">
+                                <input asp-for="Email" type="text" class="form-control round forRegister" id="email" placeholder="ایمیل">
+                                <div class="form-control-position">
+                                    <i class="ft-at-sign danger"></i>
+                                </div>
+                                
+                            </div>
+                            <div style="margin-bottom:50px;"></div>
+                            
+                            <span asp-validation-for="Password" class="text text-danger"></span>
+                            <div class="position-relative has-icon-left">
+                                <input asp-for="Password" type="text" class="form-control round forRegister" id="password" placeholder="پسورد">
+                                <div class="form-control-position">
+                                    <i class="ft-lock danger"></i>
+                                </div>
+                                
+                            </div>
+                            <div style="margin-bottom:20px;"></div>
+
+                            <span asp-validation-for="RePassword" class="text text-danger"></span>
+                            <div class="position-relative has-icon-left">
+                                <input asp-for="RePassword" type="text" class="form-control round forRegister" id="rePassword" placeholder="تکرار پسورد">
+                                <div class="form-control-position">
+                                    <i class="ft-lock danger"></i>
+                                </div>
+                            </div>
+                            <div style="margin-bottom:50px;"></div>
+                            
+                            <span asp-validation-for="RoleId" class="text text-danger"></span>
+                            <fieldset class="form-group position-relative has-icon-left">
+                                <select asp-for="RoleId" class="form-control has-icon-left form-control round" id="roleId" asp-items="@ViewBag.Roles">
+                                </select>
+                                <div class="form-control-position">
+                                    <i class="ft-shield danger"></i>
+                                </div>
+                            </fieldset>
+                            
+                            <div style="margin-bottom:50px;"></div>
+                            <div class="form-actions center">
+                                <button type="submit" class="btn btn-success w-100">
+                                    <i class="icon-note"></i> ثبت کاربر
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
