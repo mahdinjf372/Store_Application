@@ -13,33 +13,32 @@ function LoadMainImage(input) {
 
 }
 
-//function LoadGalleryImages(input) {
+function LoadGalleryImages(input) {
 
-//    for (var i = 0; i < input.files.length; i++) {
+    for (var i = 0; i < input.files.length; i++) {
 
-//        if (input.files && input.files[i]) {
+        if (input.files && input.files[i]) {
 
-//            var reader = new FileReader();
-//            reader.onload = function (e) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
 
-//                var el = '<div id="container-galleryImages-' + e.loaded + '" class="col-md-5 col-sm-5 d-inline-block p-0">' +
-//                    '<figure class="effect-winston">' +
-//                    '<img name="gallery" id="galleryImages-' + e.loaded + '" width="250" alt="img06">' +
-//                    '<figcaption>' +
-//                    '<p><a onclick="DeleteGalleryImage(' + e.loaded + ')" class="danger p-3"><i class="fa fa-trash-o font-large-2 mr-0"></i></a></p>' +
-//                    '</figcaption>' +
-//                    '</figure>' +
-//                    '</div>';
+                var el = '<div id="container-galleryImages-' + e.loaded + '" class="col-md-5 col-sm-5 d-inline-block p-0">' +
+                    '<figure class="effect-winston">' +
+                    '<img name="gallery" id="galleryImages-' + e.loaded + '" width="250" alt="img06">' +
+                    '<figcaption>' +
+                    '<p><a onclick="DeleteGalleryImage(' + e.loaded + ')" class="danger p-3"><i class="fa fa-trash-o font-large-2 mr-0"></i></a></p>' +
+                    '</figcaption>' +
+                    '</figure>' +
+                    '</div>';
 
-//                $("#galleryImages").append(el);
-//                $('#galleryImages-' + e.loaded).attr('src', e.target.result);
-//            }
+                $("#galleryImages").append(el);
+                $('#galleryImages-' + e.loaded).attr('src', e.target.result);
+            }
 
-//            reader.readAsDataURL(input.files[i]);
-//        }
-//    }
-
-//}
+            reader.readAsDataURL(input.files[i]);
+        }
+    }
+}
 
 function DeleteGalleryImage(id) {
 
