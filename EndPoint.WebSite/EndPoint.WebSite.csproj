@@ -24,6 +24,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Cach\ProductImage\" />
     <Folder Include="wwwroot\images\menu-main\card\" />
+    <Folder Include="wwwroot\js\Admin\" />
   </ItemGroup>
 
   <ItemGroup>

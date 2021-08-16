@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using Store_Application.Domain.Entities.Product;
 using Store_Application.Application.Services.Products.Commands.AddProduct;
 
+
 namespace EndPoint.WebSite.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -58,7 +59,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Create(CreateProductViewModel req)
         {
-            var RequestValidator = new CreateProductViewModelValidator(_categoryFacad,_brandFacad);
+            var RequestValidator = new CreateProductViewModelValidator(_categoryFacad, _brandFacad);
             var Validator = RequestValidator.Validate(req);
             Validator.AddToModelState(ModelState, null);
 
@@ -82,7 +83,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
             }
 
             //return View(req);
-
+            
             List<Image> images = new List<Image>();
 
             //Main image
@@ -94,7 +95,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
                     Name = name,
                     isMainImage = true
                 });
-                string savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ProductImages",
+                string savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/page-single-product/product-img",
                     name);
                 using (var stream = new FileStream(savePath, FileMode.Create))
                 {
@@ -103,7 +104,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
             }
 
             //gallery images
-            if (req.GalleryImages!=null)
+            if (req.GalleryImages != null)
             {
                 foreach (var image in req.GalleryImages)
                 {
@@ -115,7 +116,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
                             Name = name,
                             isMainImage = false
                         });
-                        string savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ProductImages",
+                        string savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/page-single-product/product-img/",
                             name);
                         using (var stream = new FileStream(savePath, FileMode.Create))
                         {
@@ -127,6 +128,43 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
 
             //description images
             var des = req.Description;
+            while (des.Contains("<figure class=\"image\"><img src=\"data:image"))
+            {
+                var figureIndex = des.IndexOf("<figure class=\"image\"><img src=\"data:image/jpeg;base64,");
+                //                             12345678901234 567890 12345678901 2
+                var startFromFigure = des.Substring(figureIndex);
+
+                var dataindex = startFromFigure.IndexOf("data:");
+                var startFromData = startFromFigure.Substring(dataindex);
+
+                var endIndex = startFromData.IndexOf("\"")-1;
+                var base64str = startFromData.Substring(0, endIndex);
+
+                var imgFormat = base64str.Substring(11, 10).Split(";")[0];
+                var name = Guid.NewGuid() + Path.GetExtension(imgFormat);
+                
+                des = des.Substring(0, figureIndex + 33);
+                des = des +"/images/page-single-product/tab-content/"+ name + startFromData.Substring(endIndex);
+
+
+                byte[] bytes = Convert.FromBase64String(base64str);
+                using (MemoryStream ms = new MemoryStream(bytes))
+                {
+                    System.Drawing.Image pic = System.Drawing.Image.FromStream(ms);
+                    var savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/page-single-product/tab-content/", name);
+                    pic.Save(savePath);
+                }
+            }
+
+            /*
+            using (MemoryStream ms = new MemoryStream(bytes))
+            {
+                Image pic = Image.FromStream(ms);
+
+                pic.Save(DefaultImagePath);
+            }
+            */
+
 
             RequestAddProductDto product = new RequestAddProductDto()
             {
@@ -141,12 +179,12 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
                 Price = req.Price,
                 ShortDescription = req.ShortDescription,
                 Title = req.Title,
-                Images = images
+                //Images = images
             };
 
             //_productFacad.AddProductService.Execute(product);
             return View(req);
-           //return Redirect("/Admin/Product");
+            //return Redirect("/Admin/Product");
         }
 
         public PartialViewResult LoadSubCategories(int id)

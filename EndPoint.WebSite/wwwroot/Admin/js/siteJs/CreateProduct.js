@@ -86,10 +86,6 @@ function LoadSubCategories(tagId, parentTagId) {
         };
         $("#" + tagId).load("/Admin/Product/loadsubcategories", postData);
     }
-
-
-    console.log(window.editor.getData());
-
 }
 
 function dataURLtoFile(dataurl, filename) {
@@ -109,29 +105,30 @@ function dataURLtoFile(dataurl, filename) {
 
 function myfunction(e) {
 
-    e.preventDefault();
-    console.log(window.editor.getData());
 
-    //var x = document.(".ck-content figure.image image").("src")
 
-    var fiqures = $(".ck-content").children("figure.image");
-    console.log(fiqures);
-    for (var i = 0; i < fiqures.length; i++) {
+    //console.log(window.editor.getData());
 
-        var figure = fiqures[i];
+    ////var x = document.(".ck-content figure.image image").("src")
 
-        console.log(figure);
+    //var fiqures = $(".ck-content").children("figure.image");
+    //console.log(fiqures);
+    //for (var i = 0; i < fiqures.length; i++) {
 
-        var images = figure.children("img");
-        console.log(images);
+    //    var figure = fiqures[i];
 
-        for (var j = 0; j < images.length; j++) {
+    //    console.log(figure);
 
-            var image = images[j];
+    //    var images = figure.children("img");
+    //    console.log(images);
 
-            console.log(images.attr("src"));
-        }
-    }
+    //    for (var j = 0; j < images.length; j++) {
+
+    //        var image = images[j];
+
+    //        console.log(images.attr("src"));
+    //    }
+    //}
 
     //$("#myform").submit();
 }
@@ -139,8 +136,8 @@ function myfunction(e) {
 $(document).ready(function () {
 
     $("#myform").on("submit", function (e) {
-
-        myfunction(e);
+    //    e.preventDefault();
+    //    myfunction(e);
     })
 });
 
@@ -191,8 +188,12 @@ $(document).ready(function () {
                     'imageStyle:full',
                     'imageStyle:side',
                     'linkImage'
-                ]
+                ],
+                upload: {
+                    types: ['png', 'jpeg'],
+                }
             },
+            
             table: {
                 contentToolbar: [
                     'tableColumn',

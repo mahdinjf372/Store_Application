@@ -1,8 +1,5 @@
 ﻿
-function LoadUsers() {
-
-    var searchKey = $("#search-users-input").val();
-    var pageNumber = $("#page-number").val();
+function LoadUsers(searchKey= "", pageNumber=1) {
 
     var postData = {
         'searchKey': searchKey,
@@ -42,7 +39,7 @@ function ChangeStatus(userId, username, isActive) {
                             'کاربر با موفقیت فعال شد',
                             'success'
                         ).then(function (isConfirm) {
-                            LoadUsers();
+                            LoadUsers($("#search-users-hidden").val(), $("#page-number").val());
                         });
                     }
                     else {
@@ -52,7 +49,7 @@ function ChangeStatus(userId, username, isActive) {
                             'کاربر با موفقیت غیرفعال شد',
                             'success'
                         ).then(function (isConfirm) {
-                            LoadUsers();
+                            LoadUsers($("#search-users-hidden").val(), $("#page-number").val());
                         });
                     }
                 });
@@ -82,11 +79,11 @@ function DeleteUser(username, userId) {
                     'کاربر با موفقیت حذف شد',
                     'success'
                 ).then(function (isConfirm) {
-                    LoadUsers();
+                    LoadUsers($("#search-users-hidden").val(), $("#page-number").val());
                 });
             });
         }
     });
 }
 
-$(document).ready(LoadUsers());
+$(document).ready(LoadUsers($("#search-users-hidden").val(), $("#page-number").val()));

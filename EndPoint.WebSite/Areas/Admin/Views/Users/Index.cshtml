@@ -18,14 +18,17 @@
                             <a asp-area="Admin" asp-controller="Users" asp-action="Register" class="btn btn-info col-6">کاربر جدید</a>
                         </div>
 
+                        <input name="page" value="@ViewBag.page" id="page-number" type="hidden" />
+                        <input name="searched" value="@ViewBag.searchKey" id="search-users-hidden" type="hidden" />
+
                         <div class="float-left col-md-6 col-12">
-                            <form asp-area="Admin" asp-controller="UsersAccount" asp-action="Index">
+                            <form asp-area="Admin" asp-controller="Users" asp-action="Index" method="get">
                                 <div class="form-group">
                                     <div class="position-relative has-icon-right">
                                         <input name="searchKey" value="@ViewBag.searchKey" id="search-users-input" type="text" class="form-control round" placeholder="جست و جو کاربران">
-                                        <input name="page" value="@ViewBag.page" id="page-number" type="hidden" />
+                                        <input name="page" value="1" type="hidden" />
                                         <div class="form-control-position">
-                                            <a onclick="LoadUsers()">
+                                            <a onclick="$('form').submit();">
                                                 <i class="ft-search info"></i>
                                             </a>
                                         </div>
@@ -52,7 +55,7 @@
 {
     <link href="~/Sweetalert2/sweetalert2.min.css" rel="stylesheet" />
     <script src="~/Sweetalert2/sweetalert2.min.js"></script>
-    <script src="~/js/Admin/Users.js"></script>
+    <script src="~/Admin/js/siteJs/Users.js"></script>
 
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
