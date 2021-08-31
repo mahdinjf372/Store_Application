@@ -1,5 +1,5 @@
 ﻿@using EndPoint.WebSite.Areas.Admin.Models.Common
-@using EndPoint.WebSite.Areas.Admin.Models.Users.LoadUsers; 
+@using EndPoint.WebSite.Areas.Admin.Models.Users.LoadUsers;
 @model LoadUsersViewModel
 
 @if (Model.Users.Any())
@@ -71,6 +71,7 @@
             }
         </tbody>
     </table>
+    <partial name="/Areas/Admin/Views/Shared/_Paging.cshtml" model="Model.Paging" />
 }
 else
 {
@@ -88,12 +89,12 @@ else
         <tbody>
         </tbody>
     </table>
-    <div class="text text-center font-medium-2">کاربری یافت نشد</div>
+    <div class="text text-center font-medium-2 mb-3">کاربری یافت نشد</div>
 }
 
-<partial name="/Areas/Admin/Views/Shared/_Paging.cshtml" model="Model.Paging" />
 
-    
+
+
 
 
 

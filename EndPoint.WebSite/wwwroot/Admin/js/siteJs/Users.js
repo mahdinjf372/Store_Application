@@ -1,9 +1,10 @@
 ﻿
-function LoadUsers(searchKey= "", pageNumber=1) {
+function LoadUsers(searchKey= "", pageNumber=1, takeNumber=10) {
 
     var postData = {
         'searchKey': searchKey,
-        'page': pageNumber
+        'page': pageNumber,
+        'take': takeNumber
     };
 
     $("#dt-UsersData").load("/Admin/Users/LoadUsers", postData);
@@ -39,7 +40,7 @@ function ChangeStatus(userId, username, isActive) {
                             'کاربر با موفقیت فعال شد',
                             'success'
                         ).then(function (isConfirm) {
-                            LoadUsers($("#search-users-hidden").val(), $("#page-number").val());
+                            LoadUsers($("#search-users-hidden").val(), $("#page-number").val(), $("#take-number").val());
                         });
                     }
                     else {
@@ -49,7 +50,7 @@ function ChangeStatus(userId, username, isActive) {
                             'کاربر با موفقیت غیرفعال شد',
                             'success'
                         ).then(function (isConfirm) {
-                            LoadUsers($("#search-users-hidden").val(), $("#page-number").val());
+                            LoadUsers($("#search-users-hidden").val(), $("#page-number").val(), $("#take-number").val());
                         });
                     }
                 });
@@ -79,11 +80,17 @@ function DeleteUser(username, userId) {
                     'کاربر با موفقیت حذف شد',
                     'success'
                 ).then(function (isConfirm) {
-                    LoadUsers($("#search-users-hidden").val(), $("#page-number").val());
+                    LoadUsers($("#search-users-hidden").val(), $("#page-number").val(), $("#take-number").val());
                 });
             });
         }
     });
 }
 
-$(document).ready(LoadUsers($("#search-users-hidden").val(), $("#page-number").val()));
+function TakeNumberChanged(value) {
+
+    $("#take").val(value);
+    LoadUsers($("#search-users-hidden").val(), 1, value);
+}
+
+$(document).ready(LoadUsers($("#search-users-hidden").val(), $("#page-number").val(), $("#take").val()));

@@ -13,9 +13,5 @@
     <ProjectReference Include="..\Store_Application.Common\Store_Application.Common.csproj" />
     <ProjectReference Include="..\Store_Application.Domain\Store_Application.Domain.csproj" />
   </ItemGroup>
-  
-  <ItemGroup>
-    <Folder Include="Services\Products\Queries\" />
-  </ItemGroup>
 
 </Project>

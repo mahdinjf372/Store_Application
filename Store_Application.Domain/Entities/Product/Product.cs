@@ -36,6 +36,9 @@ namespace Store_Application.Domain.Entities.Product
 
         public ICollection<ProductImage> Images { get; set; }
         
+        public ICollection<ProductSlider> ProductSliders { get; set; }
+
+
         #endregion
     }
 }

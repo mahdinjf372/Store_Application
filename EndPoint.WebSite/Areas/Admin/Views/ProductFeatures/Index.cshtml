@@ -1,0 +1,45 @@
+﻿
+<section id="extended">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title-wrap bar-success">
+                        <h4 class="card-title">ویژگی های محصول</h4>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input id="productId" type="hidden" value="@ViewBag.ProductId" />
+                            <input type="button" onclick="ShowAddProductFeatureModal()" class="btn btn-info col-6 col-sm-4 col-md-4 col-lg-5" value="افزودن ویژگی به محصول" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="card-block" id="dt-ProductFeaturesData">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts
+{
+    <link href="~/Sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/Sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/Admin/js/siteJs/ProductFeatures.js"></script>
+}
+
+@section Modals
+{
+    <partial name="_CreateModal" />
+    <partial name="_EditModal" />
+    
+}
+
+

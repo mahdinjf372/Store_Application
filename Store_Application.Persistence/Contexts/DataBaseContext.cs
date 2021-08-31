@@ -33,6 +33,9 @@ namespace Store_Application.Persistence.Contexts
         public DbSet<Feature> Features { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Brand> Brands { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
+        public DbSet<ProductSlider> ProductSliders { get; set; }
+
 
         #endregion
 
@@ -50,19 +53,30 @@ namespace Store_Application.Persistence.Contexts
 
         private void ApplyQueryFilters(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().HasQueryFilter(u => u.isRemoved != true);
-            modelBuilder.Entity<Role>().HasQueryFilter(r => r.isRemoved != true);
-            modelBuilder.Entity<Category>().HasQueryFilter(c => c.isRemoved != true);
-
+            modelBuilder.Entity<User>().HasQueryFilter(u => !u.isRemoved);
+            modelBuilder.Entity<Role>().HasQueryFilter(r => !r.isRemoved);
+            modelBuilder.Entity<Category>().HasQueryFilter(c => !c.isRemoved);
+            modelBuilder.Entity<Product>().HasQueryFilter(u => !u.isRemoved);
         }
 
         private void SeedData(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Role>().HasData(new Role { Id = 1, Name = nameof(UserRoles.Admin) });
-            modelBuilder.Entity<Role>().HasData(new Role { Id = 2, Name = nameof(UserRoles.Operator) });
-            modelBuilder.Entity<Role>().HasData(new Role { Id = 3, Name = nameof(UserRoles.Customer) });
+            modelBuilder.Entity<Role>().HasData(new List<Role>
+            {
+                new Role { Id = 1, Name = nameof(UserRoles.Admin) },
+                new Role { Id = 2, Name = nameof(UserRoles.Operator) },
+                new Role { Id = 3, Name = nameof(UserRoles.Customer) }
+            });
 
-            modelBuilder.Entity<Brand>().HasData(new Brand { Id = 1, Title = "بدون برند",InsertTime = DateTime.Now });
+            modelBuilder.Entity<Brand>().HasData(new Brand { Id = 1, Title = "بدون برند", InsertTime = DateTime.Now });
+
+            modelBuilder.Entity<Slider>().HasData(new List<Slider>
+            {
+                new Slider { Id = 1, Title = "پیشنهاد لحظه ای", InsertTime=DateTime.Now },
+                new Slider { Id = 2, Title = "دوربین", InsertTime=DateTime.Now },
+                new Slider { Id = 3, Title = "موبایل", InsertTime=DateTime.Now },
+                new Slider { Id = 4, Title = "لپ تاپ", InsertTime=DateTime.Now },
+            });
 
         }
 
@@ -71,21 +85,14 @@ namespace Store_Application.Persistence.Contexts
             #region User
 
             modelBuilder.Entity<User>()
+                 .HasKey(u => u.Id);
+
+            modelBuilder.Entity<User>()
                 .Property(u => u.FullName)
-                .HasColumnName("نام کامل")
                 .HasMaxLength(200);
 
             modelBuilder.Entity<User>()
-                .Property(u => u.Phone)
-                .HasColumnName("تلفن همراه");
-
-            modelBuilder.Entity<User>()
-                .Property(u => u.Address)
-                .HasColumnName("آدرس");
-
-            modelBuilder.Entity<User>()
                 .Property(u => u.age)
-                .HasColumnName("سن")
                 .HasDefaultValue(null);
 
             modelBuilder.Entity<User>()
@@ -94,22 +101,18 @@ namespace Store_Application.Persistence.Contexts
 
             modelBuilder.Entity<User>()
                 .Property(u => u.Password)
-                .HasColumnName("کلمه عبور")
                 .IsRequired();
 
             modelBuilder.Entity<User>()
                 .Property(u => u.ActiveCode)
-                .HasColumnName("کدفعالسازی")
                 .IsRequired();
 
             modelBuilder.Entity<User>()
                 .Property(u => u.isActive)
-                .HasColumnName("وضعیت حساب")
                 .HasDefaultValue(false);
 
             modelBuilder.Entity<User>()
                 .Property(u => u.RoleId)
-                .HasColumnName("نقش")
                 .HasDefaultValue(false);
 
             modelBuilder.Entity<User>()
@@ -121,118 +124,105 @@ namespace Store_Application.Persistence.Contexts
             #region Role
 
             modelBuilder.Entity<Role>()
-                .Property(r => r.Name)
-                .HasColumnName("نام نقش");
+                .HasKey(r => r.Id);
 
             #endregion
 
             #region Category
 
             modelBuilder.Entity<Category>()
-                .Property(u => u.Title)
-                .HasColumnName("نام دسته بندی");
-
-            modelBuilder.Entity<Category>()
-                .Property(u => u.ImageName)
-                .HasColumnName("تصویر");
+                .HasKey(u => u.Id);
 
             #endregion
 
             #region Brand
 
             modelBuilder.Entity<Brand>()
-                .Property(u => u.Title)
-                .HasColumnName("نام برند");
-
-            modelBuilder.Entity<Brand>()
-                .Property(u => u.ImageName)
-                .HasColumnName("تصویر برند");
+                .HasKey(u => u.Id);
 
             #endregion
 
             #region Feature
 
             modelBuilder.Entity<Feature>()
-                .Property(u => u.Title)
-                .HasColumnName("نام ویژگی");
+                .HasKey(u => u.Id);
 
             #endregion
 
             #region Product
 
             modelBuilder.Entity<Product>()
-                .Property(p => p.Title)
-                .HasColumnName("نام محصول");
-
-            modelBuilder.Entity<Product>()
-                .Property(p => p.ShortDescription)
-                .HasColumnName("توضیح مختصر");
-
-            modelBuilder.Entity<Product>()
-                .Property(p => p.Description)
-                .HasColumnName("توضیحات");
+                .HasKey(p => p.Id);
 
             modelBuilder.Entity<Product>()
                 .Property(p => p.Price)
-                .HasColumnName("قیمت")
                 .HasDefaultValue(0);
 
             modelBuilder.Entity<Product>()
                 .Property(p => p.DiscountAmount)
-                .HasColumnName("مقدار تخفیف")
                 .HasDefaultValue(0);
 
             modelBuilder.Entity<Product>()
                 .Property(p => p.Inventory)
-                .HasColumnName("موجودی")
                 .HasDefaultValue(0);
 
             modelBuilder.Entity<Product>()
                 .Property(p => p.Displayed)
-                .HasColumnName("نمایش در فروشگاه")
                 .HasDefaultValue(true);
 
-            modelBuilder.Entity<Product>()
-                .Property(p => p.CategoryId)
-                .HasColumnName("دسته بندی");
-
-            modelBuilder.Entity<Product>()
-                .Property(p => p.BrandId)
-                .HasColumnName("برند");
-
             #endregion
+
         }
 
         private void ApplyRelations(ModelBuilder modelBuilder)
         {
 
+            #region User-Role
+
             modelBuilder.Entity<User>()
-                .HasOne(u => u.Role)
-                .WithMany(r => r.Users)
-                .HasForeignKey(u => u.RoleId)
-                .IsRequired();
-               
+                            .HasOne(u => u.Role)
+                            .WithMany(r => r.Users)
+                            .HasForeignKey(u => u.RoleId)
+                            .IsRequired();
+
+            #endregion
+
+            #region Product-ProductImage-Image
+
             modelBuilder.Entity<Product>()
                 .HasMany(p => p.Images)
                 .WithOne(i => i.Product);
-
-            modelBuilder.Entity<Product>()
-                 .HasOne(p => p.Brand)
-                 .WithMany(b => b.Product)
-                 .HasForeignKey(p => p.BrandId);
-
-            modelBuilder.Entity<Product>()
-                .HasOne(p => p.Category)
-                .WithMany(c => c.Products)
-                .IsRequired();
 
             modelBuilder.Entity<ProductImage>()
                 .HasOne(pi => pi.Product)
                 .WithMany(p => p.Images)
                 .HasForeignKey(pi => pi.ProductId);
 
+            #endregion
+
+            #region Product-Brand
+
+            modelBuilder.Entity<Product>()
+                 .HasOne(p => p.Brand)
+                 .WithMany(b => b.Product)
+                 .HasForeignKey(p => p.BrandId);
+
+            #endregion
+
+            #region Product-Category
+
+            modelBuilder.Entity<Product>()
+                .HasOne(p => p.Category)
+                .WithMany(c => c.Products)
+                .IsRequired();
+
+            #endregion
+
+            #region Product-productFeature-Feature
+
             modelBuilder.Entity<ProductFeature>()
                 .HasKey(pf => pf.Id);
+
 
             modelBuilder.Entity<ProductFeature>()
                 .HasOne(pf => pf.Product)
@@ -244,10 +234,30 @@ namespace Store_Application.Persistence.Contexts
                 .WithMany(f => f.Values)
                 .HasForeignKey(pf => pf.FeatureId);
 
+            #endregion
+
+            #region Category-Category
+
             modelBuilder.Entity<Category>()
                 .HasOne(c => c.ParentCategory)
                 .WithMany(c => c.SubCategories)
                 .HasForeignKey(c => c.ParentCategoryId);
+
+            #endregion
+
+            #region Product-productSliders-slider
+
+            modelBuilder.Entity<ProductSlider>()
+                .HasOne(ps => ps.Product)
+                .WithMany(p => p.ProductSliders)
+                .HasForeignKey(pi => pi.ProductId);
+
+            modelBuilder.Entity<ProductSlider>()
+                .HasOne(ps => ps.Slider)
+                .WithMany(p => p.ProductSliders)
+                .HasForeignKey(pi => pi.SliderId);
+
+            #endregion
 
         }
 

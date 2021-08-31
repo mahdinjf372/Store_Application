@@ -1,0 +1,24 @@
+﻿@model EndPoint.WebSite.Areas.Admin.Models.Product.LoadProductSliders.LoadProductSlidersViewModel
+
+<form onsubmit="ChangeProductSliders()">
+    <hr class="m-0" />
+    <div class="modal-body">
+        <input type="hidden" id="ProductSlider_ProductId" value="@ViewBag.ProductId" />
+        @foreach (var slider in Model.Sliders)
+        {
+            <div class="row">
+                <div class="col-9">
+                    <label>اسلایدر @slider.Title :</label>
+                </div>
+                <div class="col-3">
+                    <input type="checkbox" @((Model.productSliders.Any(ps=>ps.SliderId.Equals(slider.Id)))?"checked='checked'":"") id="ProductSlider_@slider.Id" class="sliders float-left">
+                </div>
+            </div>
+            <hr class="m-2">
+        }
+    </div>
+    <div class="modal-footer">
+        <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="بستن">
+        <input type="button" onclick="ChangeProductSliders()" class="btn btn-outline-primary btn-lg" value="ثبت">
+    </div>
+</form>

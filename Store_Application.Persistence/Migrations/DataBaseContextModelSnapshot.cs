@@ -27,8 +27,7 @@ namespace Store_Application.Persistence.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("ImageName")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("تصویر برند");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("InsertTime")
                         .HasColumnType("datetime2");
@@ -37,8 +36,7 @@ namespace Store_Application.Persistence.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("نام برند");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdateTime")
                         .HasColumnType("datetime2");
@@ -54,7 +52,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            InsertTime = new DateTime(2021, 6, 30, 13, 35, 46, 440, DateTimeKind.Local).AddTicks(8745),
+                            InsertTime = new DateTime(2021, 8, 23, 15, 47, 3, 605, DateTimeKind.Local).AddTicks(5981),
                             Title = "بدون برند",
                             isRemoved = false
                         });
@@ -68,8 +66,7 @@ namespace Store_Application.Persistence.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("ImageName")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("تصویر");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("InsertTime")
                         .HasColumnType("datetime2");
@@ -81,8 +78,7 @@ namespace Store_Application.Persistence.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("نام دسته بندی");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdateTime")
                         .HasColumnType("datetime2");
@@ -111,8 +107,7 @@ namespace Store_Application.Persistence.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("نام ویژگی");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdateTime")
                         .HasColumnType("datetime2");
@@ -133,28 +128,23 @@ namespace Store_Application.Persistence.Migrations
                         .UseIdentityColumn();
 
                     b.Property<int>("BrandId")
-                        .HasColumnType("int")
-                        .HasColumnName("برند");
+                        .HasColumnType("int");
 
                     b.Property<int>("CategoryId")
-                        .HasColumnType("int")
-                        .HasColumnName("دسته بندی");
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("توضیحات");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("DiscountAmount")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("decimal(18,2)")
-                        .HasDefaultValue(0m)
-                        .HasColumnName("مقدار تخفیف");
+                        .HasDefaultValue(0m);
 
                     b.Property<bool>("Displayed")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
-                        .HasDefaultValue(true)
-                        .HasColumnName("نمایش در فروشگاه");
+                        .HasDefaultValue(true);
 
                     b.Property<DateTime>("InsertTime")
                         .HasColumnType("datetime2");
@@ -162,25 +152,21 @@ namespace Store_Application.Persistence.Migrations
                     b.Property<int>("Inventory")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasDefaultValue(0)
-                        .HasColumnName("موجودی");
+                        .HasDefaultValue(0);
 
                     b.Property<decimal>("Price")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("decimal(18,2)")
-                        .HasDefaultValue(0m)
-                        .HasColumnName("قیمت");
+                        .HasDefaultValue(0m);
 
                     b.Property<DateTime?>("RemovedTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ShortDescription")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("توضیح مختصر");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("نام محصول");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdateTime")
                         .HasColumnType("datetime2");
@@ -272,6 +258,100 @@ namespace Store_Application.Persistence.Migrations
                     b.ToTable("ProductImages");
                 });
 
+            modelBuilder.Entity("Store_Application.Domain.Entities.Product.ProductSlider", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("RemovedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SliderId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("isRemoved")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("SliderId");
+
+                    b.ToTable("ProductSliders");
+                });
+
+            modelBuilder.Entity("Store_Application.Domain.Entities.Product.Slider", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("RemovedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("isRemoved")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Sliders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            InsertTime = new DateTime(2021, 8, 23, 15, 47, 3, 611, DateTimeKind.Local).AddTicks(1508),
+                            Title = "پیشنهاد لحظه ای",
+                            isRemoved = false
+                        },
+                        new
+                        {
+                            Id = 2,
+                            InsertTime = new DateTime(2021, 8, 23, 15, 47, 3, 611, DateTimeKind.Local).AddTicks(1658),
+                            Title = "دوربین",
+                            isRemoved = false
+                        },
+                        new
+                        {
+                            Id = 3,
+                            InsertTime = new DateTime(2021, 8, 23, 15, 47, 3, 611, DateTimeKind.Local).AddTicks(1668),
+                            Title = "موبایل",
+                            isRemoved = false
+                        },
+                        new
+                        {
+                            Id = 4,
+                            InsertTime = new DateTime(2021, 8, 23, 15, 47, 3, 611, DateTimeKind.Local).AddTicks(1673),
+                            Title = "لپ تاپ",
+                            isRemoved = false
+                        });
+                });
+
             modelBuilder.Entity("Store_Application.Domain.Entities.User.Role", b =>
                 {
                     b.Property<int>("Id")
@@ -283,8 +363,7 @@ namespace Store_Application.Persistence.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("نام نقش");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("RemovedTime")
                         .HasColumnType("datetime2");
@@ -332,12 +411,10 @@ namespace Store_Application.Persistence.Migrations
 
                     b.Property<string>("ActiveCode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("کدفعالسازی");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("آدرس");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -345,20 +422,17 @@ namespace Store_Application.Persistence.Migrations
 
                     b.Property<string>("FullName")
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)")
-                        .HasColumnName("نام کامل");
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<DateTime>("InsertTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("کلمه عبور");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("تلفن همراه");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("RemovedTime")
                         .HasColumnType("datetime2");
@@ -366,8 +440,7 @@ namespace Store_Application.Persistence.Migrations
                     b.Property<int>("RoleId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasDefaultValue(0)
-                        .HasColumnName("نقش");
+                        .HasDefaultValue(0);
 
                     b.Property<DateTime?>("UpdateTime")
                         .HasColumnType("datetime2");
@@ -376,14 +449,12 @@ namespace Store_Application.Persistence.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte?>("age")
-                        .HasColumnType("tinyint")
-                        .HasColumnName("سن");
+                        .HasColumnType("tinyint");
 
                     b.Property<bool>("isActive")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
-                        .HasDefaultValue(false)
-                        .HasColumnName("وضعیت حساب");
+                        .HasDefaultValue(false);
 
                     b.Property<bool>("isRemoved")
                         .HasColumnType("bit");
@@ -456,6 +527,25 @@ namespace Store_Application.Persistence.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("Store_Application.Domain.Entities.Product.ProductSlider", b =>
+                {
+                    b.HasOne("Store_Application.Domain.Entities.Product.Product", "Product")
+                        .WithMany("ProductSliders")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Store_Application.Domain.Entities.Product.Slider", "Slider")
+                        .WithMany("ProductSliders")
+                        .HasForeignKey("SliderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Slider");
+                });
+
             modelBuilder.Entity("Store_Application.Domain.Entities.User.User", b =>
                 {
                     b.HasOne("Store_Application.Domain.Entities.User.Role", "Role")
@@ -489,6 +579,13 @@ namespace Store_Application.Persistence.Migrations
                     b.Navigation("Features");
 
                     b.Navigation("Images");
+
+                    b.Navigation("ProductSliders");
+                });
+
+            modelBuilder.Entity("Store_Application.Domain.Entities.Product.Slider", b =>
+                {
+                    b.Navigation("ProductSliders");
                 });
 
             modelBuilder.Entity("Store_Application.Domain.Entities.User.Role", b =>

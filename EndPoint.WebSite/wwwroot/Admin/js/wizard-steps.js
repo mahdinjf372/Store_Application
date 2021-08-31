@@ -17,8 +17,9 @@
             bodyTag: "fieldset",
             transitionEffect: "fade",
             titleTemplate: '<span class="step">#index#</span> #title#',
+            enableKeyNavigation: false,
             labels: {
-                finish: 'پیش نمایش',
+                finish: 'ثبت محصول',
             },
             onFinished: function (event, currentIndex) {
 

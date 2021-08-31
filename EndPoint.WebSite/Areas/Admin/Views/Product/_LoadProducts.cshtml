@@ -1,0 +1,102 @@
+﻿@using Store_Application.Common.Extentions;
+@model EndPoint.WebSite.Areas.Admin.Models.Product.LoadProducts.LoadProductsViewModel
+
+
+@if (Model.Products.Any())
+{
+    <table id="recent-orders" class="table table-hover table-xl mb-0 btn-xs">
+        <thead>
+            <tr>
+                <th class="border-top-0">کد</th>
+                <th class="border-top-0">تصویر اصلی</th>
+                <th class="border-top-0">گالری تصاویر</th>
+                <th class="border-top-0">عنوان محصول</th>
+                <th class="border-top-0">دسته‌بندی</th>
+                <th class="border-top-0">قیمت</th>
+                <th class="border-top-0">تعداد موجودی</th>
+                <th class="border-top-0">افزودن به اسلایدر</th>
+                <th class="border-top-0">ویژگی ها</th>
+                <th class="border-top-0">ویرایش</th>
+                <th class="border-top-0">حذف</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.Products)
+            {
+                <tr @((product.IsRemoved) ? "class=my-bg-danger" : "")>
+                    <td class="align-middle">
+                        <i class="fa success font-medium-1 mr-1">@product.Id</i>
+                    </td>
+                    <td class="align-middle">
+                        <img class="my-img-thumbnail no-border-top-radius no-border-bottom-radius" src="/images/page-single-product/product-img/@product.ImageTitle">
+                    </td>
+                    <td class="align-middle">
+                        <a onclick="ShowGalleryModal(@product.Id, '@product.Title')">
+                            <i class="fa fa-dot-circle-o info font-medium-1 mr-1"></i>
+                        </a>
+                    </td>
+                    <td class="align-middle">@product.Title</td>
+                    <td class="align-middle">
+                        <button class="btn btn-sm btn-outline-info round mb-1 font-small-1">@product.CategoryTitle</button>
+                        <br>
+                        <button class="btn btn-sm btn-outline-warning round mb-1 font-small-1">@product.GroupTitle</button>
+                        <br>
+                        <button class="btn btn-sm btn-outline-danger round mb-1 font-small-1">@product.SubgroupTitle</button>
+                    </td>
+                    <td class="align-middle">@product.Price.FixedToView()</td>
+                    <td class="align-middle">@product.Inventory</td>
+                    <td class="align-middle">
+                        <a onclick="ShowSlidersModal(@product.Id)">
+                            <i class="fa fa-dot-circle-o warning font-medium-1 mr-1"></i>
+                        </a>
+                    </td>
+                    <td class="align-middle">
+                        <a href="/Admin/ProductFeatures/Index?productId=@product.Id">
+                            <i class="fa fa-dot-circle-o info font-medium-1 mr-1"></i>
+                        </a>
+                    </td>
+                    <td class="align-middle">
+                        <a href="/Admin/Product/Edit?productId=@product.Id" title="ویرایش">
+                            <i class="fa fa-dot-circle-o success font-medium-1 mr-1"></i>
+                        </a>
+                    </td>
+                    <td class="align-middle">
+                        <a onclick="@((product.IsRemoved)?"":$"DeleteProduct('{product.Title}',{product.Id})")" class="@((product.IsRemoved)?"dark":"danger") p-0" title="حذف">
+                            <i class="fa fa-trash-o font-medium-3 mr-2"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <partial name="/Areas/Admin/Views/Shared/_Paging.cshtml" model="Model.Paging" />
+
+}
+else
+{
+    <table id="recent-orders" class="table table-hover table-xl mb-0">
+        <thead>
+            <tr>
+                <th class="border-top-0">تصویر اصلی</th>
+                <th class="border-top-0">گالری تصاویر</th>
+                <th class="border-top-0">عنوان محصول</th>
+                <th class="border-top-0">دسته‌بندی</th>
+                <th class="border-top-0">قیمت</th>
+                <th class="border-top-0">تعداد موجودی</th>
+                <th class="border-top-0">افزودن به اسلایدر</th>
+                <th class="border-top-0">ویژگی ها</th>
+                <th class="border-top-0">ویرایش</th>
+                <th class="border-top-0">حذف</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="text text-center font-medium-2 mb-3">محصولی یافت نشد</div>
+}
+
+
+
+
+
+

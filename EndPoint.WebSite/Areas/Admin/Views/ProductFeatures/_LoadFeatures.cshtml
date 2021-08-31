@@ -1,0 +1,14 @@
+﻿
+@model List<EndPoint.WebSite.Areas.Admin.Models.ProductFeatures.LoadFeatures.LoadFeaturesViewModel>
+
+@if (Model.Any())
+{
+    foreach (var feature in Model)
+    {
+        <option value="@feature.Id">@feature.Title</option>
+    }
+}
+else
+{
+    <option value="0">هیچ ویژگی یافت نشد</option>
+}

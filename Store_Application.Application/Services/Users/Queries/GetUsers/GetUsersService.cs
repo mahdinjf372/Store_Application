@@ -26,7 +26,7 @@ namespace Store_Application.Application.Services.Users.Queries.GetUsers
                     users = users.Where(u => u.Username.Contains(req.Searchkey) || u.Email.Contains(req.Searchkey));
                 }
 
-                int pageCount = 0;
+                int rowCount = 0;
                 var usersViewModel = users.Include(u => u.Role)
                     .Select(u => new GetUsersDto()
                     {
@@ -37,8 +37,10 @@ namespace Store_Application.Application.Services.Users.Queries.GetUsers
                         RoleName = u.Role.Name,
                         isActive = u.isActive
                     })
-                    .ToPaged(req.Page, req.Take, out pageCount).ToList();
-
+                    .ToPaged(req.Page, req.Take, out rowCount).ToList();
+                
+                double ee = ((double)rowCount) / ((double)req.Take);
+                int pageCount = (int) Math.Ceiling(ee);
 
                 var resultGetUsers = new ResultGetUsersDto()
                 {
@@ -59,8 +61,8 @@ namespace Store_Application.Application.Services.Users.Queries.GetUsers
                 return new ResultDto<ResultGetUsersDto>()
                 {
                     Data = null,
-                    IsSuccess = true,
-                    Message = "عملیات واکشی کاربران با شگست مواجه شد"
+                    IsSuccess = false,
+                    Message = "عملیات واکشی کاربران با شکست مواجه شد"
                 };
             }
         }

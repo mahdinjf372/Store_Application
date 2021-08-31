@@ -1,6 +1,4 @@
-﻿
-
-function LoadMainImage(input) {
+﻿function LoadMainImage(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function (e) {
@@ -47,10 +45,11 @@ function DeleteGalleryImage(id) {
 }
 
 function SeparateNum(number_input) {
-    if (number_input[0] == 0) {
 
+    if (number_input[0] == 0 && number_input.length > 1) {
         return "";
     }
+
     number_input += '';
     number_input = number_input.replace(',', ''); number_input = number_input.replace(',', ''); number_input = number_input.replace(',', '');
     number_input = number_input.replace(',', ''); number_input = number_input.replace(',', ''); number_input = number_input.replace(',', '');
@@ -88,64 +87,11 @@ function LoadSubCategories(tagId, parentTagId) {
     }
 }
 
-function dataURLtoFile(dataurl, filename) {
-
-    var arr = dataurl.split(','),
-        mime = arr[0].match(/:(.*?);/)[1],
-        bstr = atob(arr[1]),
-        n = bstr.length,
-        u8arr = new Uint8Array(n);
-
-    while (n--) {
-        u8arr[n] = bstr.charCodeAt(n);
-    }
-
-    return new File([u8arr], filename, { type: mime });
-}
-
-function myfunction(e) {
-
-
-
-    //console.log(window.editor.getData());
-
-    ////var x = document.(".ck-content figure.image image").("src")
-
-    //var fiqures = $(".ck-content").children("figure.image");
-    //console.log(fiqures);
-    //for (var i = 0; i < fiqures.length; i++) {
-
-    //    var figure = fiqures[i];
-
-    //    console.log(figure);
-
-    //    var images = figure.children("img");
-    //    console.log(images);
-
-    //    for (var j = 0; j < images.length; j++) {
-
-    //        var image = images[j];
-
-    //        console.log(images.attr("src"));
-    //    }
-    //}
-
-    //$("#myform").submit();
-}
-
-$(document).ready(function () {
-
-    $("#myform").on("submit", function (e) {
-    //    e.preventDefault();
-    //    myfunction(e);
-    })
-});
-
 $(document).ready(function () {
 
     ClassicEditor
         .create(document.querySelector('#Description'), {
-            removePlugins: ['title'],
+            removePlugins: ['Title'],
             toolbar: {
                 items: [
                     'heading',
@@ -180,6 +126,13 @@ $(document).ready(function () {
                     'mediaEmbed'
                 ],
                 shouldNotGroupWhenFull: true
+            },
+            heading: {
+                options: [
+                    //{ model: 'paragraph', title:'Paragraph', class: ''},
+                    { model: 'heading2', view: 'h2', title: 'Heading 1', class: 'params-headline'},
+                    { model: 'heading3', view: 'h3', title: 'Heading 2', class: 'content-expert-title'}
+                ]
             },
             language: 'en',
             image: {

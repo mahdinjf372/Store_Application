@@ -31,19 +31,22 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
 
 
         [HttpGet]
-        public IActionResult Index(string searchKey = null, int page = 1)
+        public IActionResult Index(string searchKey = null, int page = 1, int take = 10)
         {
             ViewBag.searchKey = searchKey;
             ViewBag.page = page;
+            ViewBag.take = take;
             return View();
         }
 
         [HttpPost]
-        public PartialViewResult LoadUsers(string searchKey = null, int page = 1, int take = 1)
+        public PartialViewResult LoadUsers(string searchKey = null, int page = 1, int take = 10)
         {
             searchKey = searchKey?.Trim();
             ViewBag.searchKey = searchKey;
             ViewBag.page = page;
+            ViewBag.take = take;
+
             var res = _userFacad.GetUsersService.Execute(new RequestGetUsersDto() { Page = page, Searchkey = searchKey, Take = take });
 
             LoadUsersViewModel model = new LoadUsersViewModel();

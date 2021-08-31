@@ -7,16 +7,18 @@ namespace EndPoint.WebSite.Areas.Admin.Models.Product.Create
 {
     public class CreateProductViewModelValidator : AbstractValidator<CreateProductViewModel>
     {
+        private readonly IProductFacad _productFacad;
         private readonly ICategoryFacad _categoryFacad;
         private readonly IBrandFacad _brandFacad;
 
         private int catId = 0;
         private int grpId = 0;
 
-        public CreateProductViewModelValidator(ICategoryFacad categoryFacad, IBrandFacad brandFacad)
+        public CreateProductViewModelValidator(IProductFacad productFacad, ICategoryFacad categoryFacad, IBrandFacad brandFacad)
         {
             _categoryFacad = categoryFacad;
             _brandFacad = brandFacad;
+            _productFacad = productFacad;
 
             RuleFor(p => p.Title)
                 .NotNull().WithMessage("نام محصول اجباریست")
@@ -54,6 +56,8 @@ namespace EndPoint.WebSite.Areas.Admin.Models.Product.Create
             RuleFor(p => p.BrandId)
                  .Must(BrandIdValidation).WithMessage("لطفا برند محصول را انتخاب نمایید");
 
+            RuleFor(p => p.Title)
+                 .Must(TitleValidation).WithMessage("محصولی با این نام قبلا ثبت شده");
         }
 
         private bool CategoryIdValidation(int id)
@@ -77,6 +81,10 @@ namespace EndPoint.WebSite.Areas.Admin.Models.Product.Create
         private bool BrandIdValidation(int id)
         {
             return _brandFacad.IsExistBrandService.Execute(id).Data;
+        }
+        private bool TitleValidation(string title)
+        {
+            return !_productFacad.isExistProductService.Execute(title).Data;
         }
     }
 }

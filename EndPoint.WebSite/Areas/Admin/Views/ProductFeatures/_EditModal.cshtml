@@ -1,0 +1,37 @@
+﻿
+
+<div class="modal fade text-left" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel34" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel34">ویرایش ویژگی محصول</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+
+            <form onsubmit="Edit(event)" >
+                <hr class="m-0" />
+                <div class="modal-body">
+                    <div class="row ">
+                        <div class="col-md-6">
+                            <label>ویرایش مقدار ویژگی محصول:</label>
+                            <div class="form-group  position-relative has-icon-left">
+                                <input type="hidden" id="Edit_ProductFeatureId" value="0" />
+                                <input type="text" placeholder="ویرایش مقدار ویژگی" class="form-control" id="Edit_Value" autofocus>
+                                <div class="my-icons form-control-position">
+                                    <i class="fa fa-user font-medium-5 line-height-1 text-muted icon-align"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="بستن">
+                    <input type="submit" class="btn btn-outline-primary btn-lg" value="ثبت">
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

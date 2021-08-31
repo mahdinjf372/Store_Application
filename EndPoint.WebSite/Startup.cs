@@ -7,15 +7,7 @@ using EndPoint.WebSite.Models.Authentication.Login;
 using EndPoint.WebSite.Models.Authentication.PasswordForget;
 using EndPoint.WebSite.Models.Authentication.PasswordRecovery;
 using EndPoint.WebSite.Models.Authentication.Register;
-using FluentValidation;
-using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using EndPoint.WebSite.Areas.Admin.Models.Product.Create;
 using Store_Application.Application.Interfaces.Context;
 using Store_Application.Application.Interfaces.FacadPattern;
 using Store_Application.Application.Senders.Email.ActivationCode;
@@ -24,11 +16,23 @@ using Store_Application.Application.Senders.Email.Common;
 using Store_Application.Application.Services.Features.FacadPattern;
 using Store_Application.Application.Services.Categories.FacadPattern;
 using Store_Application.Application.Services.Users.FacadPattern;
-using Store_Application.Persistence.Contexts;
-using System;
 using Store_Application.Application.Services.Products.FacadPattern;
 using Store_Application.Application.Services.Brands.FacadPattern;
-using EndPoint.WebSite.Areas.Admin.Models.Product.Create;
+using Store_Application.Application.Services.ProductFeatures.FacadPattern;
+using Store_Application.Persistence.Contexts;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using System;
+using Store_Application.Application.Services.Sliders.FacadPattern;
+using Store_Application.Application.Services.ProductSliders.FacadPattern;
+using EndPoint.WebSite.Areas.Admin.Models.Product.Edit;
 
 namespace EndPoint.WebSite
 {
@@ -57,6 +61,9 @@ namespace EndPoint.WebSite
             services.AddScoped<IFeatureFacad, FeatureFacad>();
             services.AddScoped<IProductFacad, ProductFacad>();
             services.AddScoped<IBrandFacad, BrandFacad>();
+            services.AddScoped<IProductFeaturesFacad, ProductFeaturesFacad>(); 
+            services.AddScoped<ISlidersFacad, SlidersFacad>();
+            services.AddScoped<IProductSlidersFacad, ProductSlidersFacad>();
 
             #endregion
 
@@ -74,7 +81,8 @@ namespace EndPoint.WebSite
             services.AddTransient<IValidator<CreateCategoryViewModel>, CreateCategoryViewModelValidator>();
             services.AddTransient<IValidator<EditCategoryViewModel>, EditCategoryViewModelValidator>();
 
-            //services.AddTransient<IValidator<CreateProductViewModel>, CreateProductViewModelValidator>();
+            services.AddTransient<IValidator<CreateProductViewModel>, CreateProductViewModelValidator>();
+            services.AddTransient<IValidator<EditProductViewModel>, EditProductViewModelValidator>();
 
             #endregion
 

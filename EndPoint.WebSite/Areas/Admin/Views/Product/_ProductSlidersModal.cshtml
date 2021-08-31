@@ -1,0 +1,36 @@
+﻿
+<div class="modal fade text-left" id="ProductSlidersModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel34" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel34">ایجاد ویژگی جدید</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form onsubmit="ChangeProductSliders()">
+                <hr class="m-0" />
+                <div class="modal-body">
+                    <input type="hidden" id="ProductSlider_ProductId" />
+                    @*@foreach (var slider in ViewBag.Sliders as IEnumerable<PSlider>)
+                    {
+                        <div class="row">
+                            <div class="col-9">
+                                <label>اسلایدر @slider.Title :</label>
+                            </div>
+                            <div class="col-3">
+                                <input type="checkbox" id="ProductSlider_@slider.PSliderId" class="float-left ProductSlider_Id">
+                            </div>
+                        </div>
+                        <hr class="m-2">
+                    }*@
+
+                </div>
+                <div class="modal-footer">
+                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="بستن">
+                    <input type="button" onclick="ChangeProductSliders()" class="btn btn-outline-primary btn-lg" value="ثبت">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

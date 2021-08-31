@@ -6889,6 +6889,24 @@ a.bg-base:hover, a.bg-base:focus, button.bg-base:hover, button.bg-base:focus {
   display :         inline-flex !important;
 }
 
+@media (min-width: 300px) {
+    .d-xs-none {
+        display: none !important;
+    }
+
+    .d-xm-inline {
+        display: inline !important;
+    }
+
+    .d-xs-inline-block {
+        display: inline-block !important;
+    }
+
+    .d-xs-block {
+        display: block !important;
+    }
+}
+
 @media (min-width: 576px) {
   .d-sm-none {
     display : none !important;
@@ -47396,7 +47414,7 @@ ul.no-list-style {
 }
 
 .main-panel {
-  margin-top : 85px;
+  margin-top : 5px;
 }
 
 .navbar .show > .dropdown-menu .arrow_box_right {
@@ -53595,4 +53613,8 @@ input[type='checkbox'].switch, input[type='radio'].switch {
     border-radius: .25rem;
     max-width: 120px;
     height: auto;
+}
+
+.ck-editor__main .ck-editor__editable.ck-content {
+    min-height: 200px;
 }

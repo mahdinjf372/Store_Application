@@ -9,17 +9,12 @@
 }
 
 <!-- Wizard Starts -->
-<div class="row">
-    <div class="col-sm-12">
-        <h2 class="content-header">فرم جادویی</h2>
-    </div>
-</div>
 <section id="icon-tabs">
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">فرم جادوگر با زبانه آیکون</h4>
+                <div class="card-header text-center">
+                    <h4 class="card-title">ایجاد محصول</h4>
                 </div>
                 <div class="card-body">
                     <div class="card-block">
@@ -73,7 +68,7 @@
                                             <select asp-for="CategoryId" id="categories" class="form-control" asp-items="@ViewBag.Categories" onchange="LoadSubCategories('groups','categories')">
                                                 <option value="0">انتخاب دسته بندی</option>
                                             </select>
-                                            <div class="help-block">
+                                            <div class="help-block mt-3">
                                                 <span asp-validation-for="CategoryId" class="display-block text-danger"></span>
                                             </div>
                                         </div>
@@ -84,7 +79,7 @@
                                             <select asp-for="GroupId" id="groups" class="form-control" asp-items="@ViewBag.Groups" onchange="LoadSubCategories('subGroups','groups')">
                                                 <option value="0">انتخاب گروه</option>
                                             </select>
-                                            <div class="help-block">
+                                            <div class="help-block mt-3">
                                                 <span asp-validation-for="GroupId" class="display-block text-danger"></span>
                                             </div>
                                         </div>
@@ -95,7 +90,7 @@
                                             <select asp-for="SubGroupId" id="subGroups" asp-items="@ViewBag.SubGroups" class="form-control">
                                                 <option value="0">انتخاب زیرگروه</option>
                                             </select>
-                                            <div class="help-block">
+                                            <div class="help-block mt-3">
                                                 <span asp-validation-for="SubGroupId" class="display-block text-danger"></span>
                                             </div>
                                         </div>
@@ -113,13 +108,12 @@
                                         <h5>قیمت محصول</h5>
                                         <div class="">
                                             <div class="input-group">
-                                                <input asp-for="Price" value="@Model?.Price" type="text" class="form-control" oninput="this.value = SeparateNum(this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'));">
+                                                <input asp-for="Price" value="0" type="text" class="form-control" oninput="this.value = SeparateNum(this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'));">
                                                 <div class="input-group-append">
                                                     <span class="input-group-text">تومان</span>
                                                 </div>
-                                                <span asp-validation-for="Price" class="display-block text-danger"></span>
-
                                             </div>
+                                            <span asp-validation-for="Price" class="display-block text-danger"></span>
                                         </div>
                                     </div>
 
@@ -127,13 +121,12 @@
                                         <h5>تخفیف محصول</h5>
                                         <div class="controls">
                                             <div class="input-group">
-                                                <input asp-for="DiscountAmount" value="@Model?.DiscountAmount" type="text" class="form-control" oninput="this.value = SeparateNum(this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'));">
+                                                <input asp-for="DiscountAmount" value="0" type="text" class="form-control" oninput="this.value = SeparateNum(this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'));">
                                                 <div class="input-group-append">
                                                     <span class="input-group-text">تومان</span>
                                                 </div>
-                                                <span asp-validation-for="DiscountAmount" class="display-block text-danger"></span>
-
                                             </div>
+                                            <span asp-validation-for="DiscountAmount" class="display-block text-danger"></span>
                                         </div>
                                     </div>
 
@@ -156,8 +149,7 @@
                                             </div>
                                         </div>
                                         <div class="uploaded-imgs text-center">
-                                            <img class="" id="productImage" src="/ProductImages/default.jpg" width="411">
-
+                                            <img class="" id="productImage" src="/images/page-single-product/product-img/default.jpg" width="411">
                                         </div>
                                     </div>
 
@@ -197,7 +189,7 @@
                                                     <option value="0">انتخاب برند</option>
 
                                                 </select>
-                                                <div class="help-block">
+                                                <div class="help-block mt-3">
                                                     <span asp-validation-for="BrandId" class="display-block text-danger"></span>
 
                                                 </div>
@@ -210,7 +202,8 @@
                                             <h5>موجودی محصول</h5>
                                             <div class="controls">
                                                 <div class="input-group">
-                                                    <input asp-for="Inventory" type="number" min="0" max="999999" class="form-control" value="@Model?.Inventory">
+                                                    <input asp-for="Inventory" type="number" min="0" max="999999" class="form-control" value="0">
+                                                    
                                                 </div>
                                             </div>
                                             <span asp-validation-for="Inventory" class="display-block text-danger"></span>

@@ -1,4 +1,10 @@
-﻿using EndPoint.WebSite.Areas.Admin.Models.Product.Create;
+﻿using EndPoint.WebSite.Areas.Admin.Models.Common;
+using EndPoint.WebSite.Areas.Admin.Models.Product.ChangeProductSliders;
+using EndPoint.WebSite.Areas.Admin.Models.Product.Create;
+using EndPoint.WebSite.Areas.Admin.Models.Product.Edit;
+using EndPoint.WebSite.Areas.Admin.Models.Product.LoadGalleryImages;
+using EndPoint.WebSite.Areas.Admin.Models.Product.LoadProducts;
+using EndPoint.WebSite.Areas.Admin.Models.Product.LoadProductSliders;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -7,16 +13,18 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Store_Application.Application.Interfaces.FacadPattern;
 using Store_Application.Application.Services.Brands.Queries.GetBrands;
 using Store_Application.Application.Services.Categories.Queries.GetCategories;
+using Store_Application.Application.Services.Products.Commands.AddGalleryImage;
+using Store_Application.Application.Services.Products.Commands.AddProduct;
+using Store_Application.Application.Services.Products.Commands.EditProduct;
+using Store_Application.Application.Services.Products.Queries.GetProductsForAdmin;
+using Store_Application.Application.Services.ProductSliders.Commands.AddProductSlider;
+using Store_Application.Application.Services.ProductSliders.Commands.DeleteProductSlider;
+using Store_Application.Common.Extentions;
 using Store_Application.Common.Security;
 using Store_Application.Common.ViewModels;
-using System;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using Store_Application.Domain.Entities.Product;
-using Store_Application.Application.Services.Products.Commands.AddProduct;
-
 
 namespace EndPoint.WebSite.Areas.Admin.Controllers
 {
@@ -27,21 +35,33 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         private readonly IProductFacad _productFacad;
         private readonly ICategoryFacad _categoryFacad;
         private readonly IBrandFacad _brandFacad;
+        private readonly IProductSlidersFacad _productSlidersFacad;
+        private readonly ISlidersFacad _slidersFacad;
 
-        public ProductController(IProductFacad productFacad, ICategoryFacad categoryFacad, IBrandFacad brandFacad)
+
+        public ProductController(IProductFacad productFacad,
+            ICategoryFacad categoryFacad,
+            IBrandFacad brandFacad,
+            IProductSlidersFacad productSlidersFacad,
+            ISlidersFacad slidersFacad)
         {
             _productFacad = productFacad;
             _categoryFacad = categoryFacad;
             _brandFacad = brandFacad;
+            _productSlidersFacad = productSlidersFacad;
+            _slidersFacad = slidersFacad;
         }
 
-        public IActionResult Index(string searchKey = "", int page = 1)
+        [HttpGet]
+        public IActionResult Index(string searchKey = "", int page = 1, int take =  10)
         {
             ViewBag.searchKey = searchKey;
             ViewBag.page = page;
-
+            ViewBag.take = take;
             return View();
         }
+
+        #region Product
 
         [HttpGet]
         public IActionResult Create()
@@ -59,15 +79,12 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Create(CreateProductViewModel req)
         {
-            var RequestValidator = new CreateProductViewModelValidator(_categoryFacad, _brandFacad);
+            var RequestValidator = new CreateProductViewModelValidator(_productFacad, _categoryFacad, _brandFacad);
             var Validator = RequestValidator.Validate(req);
             Validator.AddToModelState(ModelState, null);
 
-
-
             if (!ModelState.IsValid)
             {
-
                 ResultDto<List<ResultGetCategoriesDto>> cats = _categoryFacad.GetCategoriesService.Execute();
                 ViewBag.Categories = new SelectList(cats.Data, "Id", "Title", req.CategoryId);
 
@@ -80,91 +97,8 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
                 ResultDto<List<ResultGetBrandsDto>> brands = _brandFacad.GetBrandsService.Execute();
                 ViewBag.Brands = new SelectList(brands.Data, "Id", "Name", req.BrandId);
 
+                return View(req);
             }
-
-            //return View(req);
-            
-            List<Image> images = new List<Image>();
-
-            //Main image
-            if (req.MainImage != null && req.MainImage.OpenReadStream().IsImage())
-            {
-                var name = Guid.NewGuid() + Path.GetExtension(req.MainImage.FileName);
-                images.Add(new Image
-                {
-                    Name = name,
-                    isMainImage = true
-                });
-                string savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/page-single-product/product-img",
-                    name);
-                using (var stream = new FileStream(savePath, FileMode.Create))
-                {
-                    req.MainImage.CopyTo(stream);
-                }
-            }
-
-            //gallery images
-            if (req.GalleryImages != null)
-            {
-                foreach (var image in req.GalleryImages)
-                {
-                    if (image.OpenReadStream().IsImage())
-                    {
-                        var name = Guid.NewGuid() + Path.GetExtension(image.FileName);
-                        images.Add(new Image
-                        {
-                            Name = name,
-                            isMainImage = false
-                        });
-                        string savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/page-single-product/product-img/",
-                            name);
-                        using (var stream = new FileStream(savePath, FileMode.Create))
-                        {
-                            image.CopyTo(stream);
-                        }
-                    }
-                }
-            }
-
-            //description images
-            var des = req.Description;
-            while (des.Contains("<figure class=\"image\"><img src=\"data:image"))
-            {
-                var figureIndex = des.IndexOf("<figure class=\"image\"><img src=\"data:image/jpeg;base64,");
-                //                             12345678901234 567890 12345678901 2
-                var startFromFigure = des.Substring(figureIndex);
-
-                var dataindex = startFromFigure.IndexOf("data:");
-                var startFromData = startFromFigure.Substring(dataindex);
-
-                var endIndex = startFromData.IndexOf("\"")-1;
-                var base64str = startFromData.Substring(0, endIndex);
-
-                var imgFormat = base64str.Substring(11, 10).Split(";")[0];
-                var name = Guid.NewGuid() + Path.GetExtension(imgFormat);
-                
-                des = des.Substring(0, figureIndex + 33);
-                des = des +"/images/page-single-product/tab-content/"+ name + startFromData.Substring(endIndex);
-
-
-                byte[] bytes = Convert.FromBase64String(base64str);
-                using (MemoryStream ms = new MemoryStream(bytes))
-                {
-                    System.Drawing.Image pic = System.Drawing.Image.FromStream(ms);
-                    var savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/page-single-product/tab-content/", name);
-                    pic.Save(savePath);
-                }
-            }
-
-            /*
-            using (MemoryStream ms = new MemoryStream(bytes))
-            {
-                Image pic = Image.FromStream(ms);
-
-                pic.Save(DefaultImagePath);
-            }
-            */
-
 
             RequestAddProductDto product = new RequestAddProductDto()
             {
@@ -179,33 +113,310 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
                 Price = req.Price,
                 ShortDescription = req.ShortDescription,
                 Title = req.Title,
-                //Images = images
+                MainImage = req.MainImage,
+                GalleryImages = req.GalleryImages
             };
 
-            //_productFacad.AddProductService.Execute(product);
-            return View(req);
-            //return Redirect("/Admin/Product");
+            _productFacad.AddProductService.Execute(product);
+            return Redirect("/Admin/Product");
         }
 
+        [HttpGet]
+        public IActionResult Edit(int productId)
+        {
+            var res = _productFacad.GetProductForAdminService.Execute(productId);
+            if (res.IsSuccess)
+            {
+                var product = res.Data;
+                ResultDto<List<ResultGetCategoriesDto>> cats = _categoryFacad.GetCategoriesService.Execute();
+                ViewBag.Categories = new SelectList(cats.Data, "Id", "Title", product.CategoryId);
+
+                ResultDto<List<ResultGetCategoriesDto>> grps = _categoryFacad.GetCategoriesService.Execute(product.CategoryId);
+                ViewBag.Groups = new SelectList(grps.Data, "Id", "Title", product.GroupId);
+
+                ResultDto<List<ResultGetCategoriesDto>> subGrps = _categoryFacad.GetCategoriesService.Execute(product.GroupId);
+                ViewBag.SubGroups = new SelectList(subGrps.Data, "Id", "Title", product.SubgroupId);
+
+                ResultDto<List<ResultGetBrandsDto>> brands = _brandFacad.GetBrandsService.Execute();
+                ViewBag.Brands = new SelectList(brands.Data, "Id", "Name", product.BrandId);
+
+                var model = new EditProductViewModel()
+                {
+                    Id = product.Id,
+                    Title = product.Title,
+                    ShortDescription = product.ShortDescription,
+                    Description = product.Decription,
+                    Inventory = product.Inventory,
+                    Price = product.Price,
+                    DiscountAmount = product.DiscountAmount,
+                    CategoryId = product.CategoryId,
+                    GroupId = product.GroupId,
+                    SubgroupId = product.SubgroupId,
+                    BrandId = product.BrandId,
+                    Displayed = product.Displayed,
+                    Image = product.Images.SingleOrDefault(i => i.IsMainImages).Name,
+                };
+
+                return View(model);
+            }
+
+            return NotFound();
+        }
+
+        [HttpPost]
+        public IActionResult Edit(EditProductViewModel req)
+        {
+            var RequestValidator = new EditProductViewModelValidator(_productFacad, _categoryFacad, _brandFacad);
+            var Validator = RequestValidator.Validate(req);
+            Validator.AddToModelState(ModelState, null);
+
+            if (!ModelState.IsValid)
+            {
+                ResultDto<List<ResultGetCategoriesDto>> cats = _categoryFacad.GetCategoriesService.Execute();
+                ViewBag.Categories = new SelectList(cats.Data, "Id", "Title", req.CategoryId);
+
+                ResultDto<List<ResultGetCategoriesDto>> grps = _categoryFacad.GetCategoriesService.Execute(req.CategoryId);
+                ViewBag.Groups = new SelectList(grps.Data, "Id", "Title", req.GroupId);
+
+                ResultDto<List<ResultGetCategoriesDto>> subGrps = _categoryFacad.GetCategoriesService.Execute(req.GroupId);
+                ViewBag.SubGroups = new SelectList(subGrps.Data, "Id", "Title", req.SubgroupId);
+
+                ResultDto<List<ResultGetBrandsDto>> brands = _brandFacad.GetBrandsService.Execute();
+                ViewBag.Brands = new SelectList(brands.Data, "Id", "Name", req.BrandId);
+
+                return View(req);
+            }
+
+            RequestEditProductDto product = new RequestEditProductDto()
+            {
+                Id = req.Id,
+                BrandId = req.BrandId,
+                CategoryId = req.CategoryId,
+                GroupId = req.GroupId,
+                SubGroupId = req.SubgroupId,
+                Description = req.Description,
+                Displayed = req.Displayed,
+                DiscountAmount = req.DiscountAmount,
+                Inventory = req.Inventory,
+                Price = req.Price,
+                ShortDescription = req.ShortDescription,
+                Title = req.Title,
+                Image = req.Image,
+                MainImage = req.MainImage
+            };
+
+            _productFacad.EditProductService.Execute(product);
+            return Redirect("/Admin/Product");
+        }
+
+        [HttpPost]
+        public IActionResult DeleteProduct(int id)
+        {
+            var isExist = _productFacad.isExistProductService.Execute(id);
+            if (isExist.Data)
+            {
+                var res = _productFacad.DeleteProductService.Execute(id);
+                return Json(res);
+            }
+
+            return Json(false);
+        }
+
+        [HttpPost]
+        public PartialViewResult LoadProducts(string searchKey = null, int page = 1, int take = 10)
+        {
+            ViewBag.searchKey = searchKey;
+            ViewBag.page = page;
+            ViewBag.take = take;
+
+            var res = _productFacad.GetProductsForAdminService.Execute(new RequestGetProductsDto { Searchkey = searchKey, Page = page, Take = take });
+
+            LoadProductsViewModel model = new LoadProductsViewModel();
+            model.Products = res.Data.Products.Select(p => new ProductViewModel
+            {
+                Id = p.Id,
+                Title = p.Title,
+                Displayed = p.Displayed,
+                ImageTitle = p.ImageTitle,
+                Inventory = p.Inventory,
+                IsRemoved = p.IsRemoved,
+                Price = p.Price,
+                CategoryTitle = p.CategoryTitle,
+                GroupTitle = p.GroupTitle,
+                SubgroupTitle = p.SubgroupTitle
+            }).ToList();
+
+            model.Paging = new PagingViewModel
+            {
+                CurrentPage = res.Data.CurrentPage,
+                PageCount = res.Data.PageCount
+            };
+
+            return PartialView("/Areas/Admin/Views/Product/_LoadProducts.cshtml", model);
+        }
+
+        #endregion
+
+
+        #region Gallery
+
+        [HttpPost]
+        public IActionResult AddImageToGallery(int productId, List<IFormFile> images)
+        {
+            if (_productFacad.isExistProductService.Execute(productId).Data)
+            {
+                List<requestAddGalleryImageDto> galleryImages = new List<requestAddGalleryImageDto>();
+
+                foreach (var image in images)
+                {
+                    var galleryImage = new requestAddGalleryImageDto();
+                    galleryImage.ProductId = productId;
+                    galleryImage.Name = "default.jpg";
+
+                    if (image.OpenReadStream().IsImage())
+                    {
+                        galleryImage.Name = Generator.GetImageName() + Path.GetExtension(image.FileName);
+                        string savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images\\page-single-product\\product-img",
+                            galleryImage.Name);
+                        using (var stream = new FileStream(savePath, FileMode.Create))
+                        {
+                            image.CopyTo(stream);
+                        }
+                        galleryImages.Add(galleryImage);
+                    }
+                    else
+                    {
+                        return Json(false);
+                    }
+                }
+
+                var res = _productFacad.AddGalleryImageService.Execute(galleryImages);
+                return Json(res);
+            }
+
+            return Json(false);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteImageFromGallery(int imageId)
+        {
+            var isExist = _productFacad.isExistImageService.Execute(imageId);
+            if (isExist.Data)
+            {
+                var res = _productFacad.DeleteImageService.Execute(imageId);
+                var image = _productFacad.GetGalleryImageService.Execute(imageId).Data;
+                if (image.Name != "default.jpg")
+                {
+                    string deletePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images\\page-single-product\\product-img",
+                        image.Name);
+                    //if (System.IO.File.Exists(deletePath))
+                    //  System.IO.File.Delete(deletePath);
+                }
+
+                return Json(res);
+            }
+            else
+            {
+                return Json(isExist);
+            }
+        }
+
+        [HttpPost]
+        public PartialViewResult LoadGalleryImages(int productId)
+        {
+            var res = _productFacad.GetGalleryImagesService.Execute(productId);
+            List<GalleryImageViewModel> model = res.Data.Select(i => new GalleryImageViewModel
+            {
+                Id = i.Id,
+                Name = i.Name
+            }).ToList();
+            return PartialView("/Areas/Admin/Views/Product/_LoadGalleryImages.cshtml", model);
+
+        }
+
+        #endregion
+
+
+        #region Category
+
+        [HttpPost]
         public PartialViewResult LoadSubCategories(int id)
         {
             var model = _categoryFacad.GetCategoriesService.Execute(id);
             return PartialView("_LoadSubCategories", model);
         }
 
-        private System.Drawing.Image Base64ToImage(string base64)
-        {
-            byte[] bytes = Convert.FromBase64String(base64);
-            System.Drawing.Image image = System.Drawing.Image.FromStream(new MemoryStream(bytes));
+        #endregion
 
-            return image;
+        #region ProductSliders
+
+        [HttpPost]
+        public PartialViewResult LoadProductSliders(int productId)
+        {
+            LoadProductSlidersViewModel model = new LoadProductSlidersViewModel();
+            ViewBag.ProductId = productId;
+
+            var productSliders = _productSlidersFacad.GetProductSlidersService.Execute(productId);
+
+            var sliders = _slidersFacad.GetSlidersService.Execute();
+
+            model.Sliders = sliders.Data.Select(s=> new Models.Product.LoadProductSliders.SliderViewModel
+            {
+                Id = s.Id,
+                Title = s.Title
+            }).ToList();
+
+            model.productSliders = productSliders.Data.Select(ps => new ProductSlidersViewModel
+            {
+                Id = ps.Id,
+                SliderId = ps.SliderId
+            }).ToList();
+
+            return PartialView("/Areas/Admin/Views/Product/_LoadProductSliders.cshtml", model);
         }
 
-        //private string[] FindDescriptionImages(string description)
-        //{
-        //    int first = description.IndexOf("<img ") + "methods".Length;
-        //    int last = description.LastIndexOf("methods");
-        //    string str2 = description.Substring(first, last - first);
-        //}
+
+        public IActionResult ChangeProductSliders(ChangeProductSlidersViewModel req)
+        {
+            ResultDto res = new ResultDto();
+
+            if (req.Sliders.Any())
+            {
+                foreach (var slider in req.Sliders)
+                {
+                    if (slider.Checked)
+                    {
+                        if (!_productSlidersFacad.IsExistProductSliderService.Execute(req.ProductId,slider.SliderId).Data)
+                        {
+                            _productSlidersFacad.AddProductSliderService.Execute(new RequestAddProductSliderDto
+                            {
+                                ProductId = req.ProductId,
+                                SliderId = slider.SliderId
+                            });
+                        }
+                    }
+                    else
+                    {
+                        if (_productSlidersFacad.IsExistProductSliderService.Execute(req.ProductId, slider.SliderId).Data)
+                        {
+                            _productSlidersFacad.DeleteProductSliderService.Execute(new RequestDeleteProductSliderDto
+                            {
+                                ProductId = req.ProductId,
+                                SliderId = slider.SliderId
+                            });
+                        }
+                    }
+                }
+            }
+            res.IsSuccess = true;
+            res.Message = "اسلایدر های محصول با موفقیت تغییر یافت";
+            return Json(res);
+        }
+
+
+        #endregion
+
     }
+
+
 }

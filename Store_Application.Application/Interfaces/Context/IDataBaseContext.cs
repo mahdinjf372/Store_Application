@@ -29,6 +29,8 @@ namespace Store_Application.Application.Interfaces.Context
         DbSet<Feature> Features { get; set; }
         DbSet<ProductImage> ProductImages { get; set; }
         DbSet<Brand> Brands { get; set; }
+        DbSet<Slider> Sliders { get; set; }
+        DbSet<ProductSlider> ProductSliders { get; set; }
 
         #endregion
 

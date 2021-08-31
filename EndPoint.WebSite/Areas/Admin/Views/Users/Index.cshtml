@@ -2,7 +2,7 @@
     ViewData["Title"] = "مديريت كاربران";
 }
 
-<section id="extended">
+<section>
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
@@ -18,15 +18,16 @@
                             <a asp-area="Admin" asp-controller="Users" asp-action="Register" class="btn btn-info col-6">کاربر جدید</a>
                         </div>
 
-                        <input name="page" value="@ViewBag.page" id="page-number" type="hidden" />
-                        <input name="searched" value="@ViewBag.searchKey" id="search-users-hidden" type="hidden" />
+                        <input value="@ViewBag.page" id="page-number" type="hidden" />
+                        <input value="@ViewBag.searchKey" id="search-users-hidden" type="hidden" />
 
-                        <div class="float-left col-md-6 col-12">
+                        <div class="float-left col-md-6 col-12 d-in">
                             <form asp-area="Admin" asp-controller="Users" asp-action="Index" method="get">
                                 <div class="form-group">
                                     <div class="position-relative has-icon-right">
                                         <input name="searchKey" value="@ViewBag.searchKey" id="search-users-input" type="text" class="form-control round" placeholder="جست و جو کاربران">
                                         <input name="page" value="1" type="hidden" />
+                                        <input value="@ViewBag.take" name="take" id="take" type="hidden" />
                                         <div class="form-control-position">
                                             <a onclick="$('form').submit();">
                                                 <i class="ft-search info"></i>

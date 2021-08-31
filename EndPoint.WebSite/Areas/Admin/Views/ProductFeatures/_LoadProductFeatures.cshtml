@@ -1,0 +1,71 @@
+﻿
+@model List<EndPoint.WebSite.Areas.Admin.Models.ProductFeatures.LoadProductFeatures.LoadProductFeaturesViewModel>
+
+
+@if (Model.Any())
+{
+    <table class="table table-responsive-md text-center">
+        <thead>
+            <tr>
+                <th>نام ویژگی محصول</th>
+                <th>مقدار</th>
+                <th>ویژگی برجسته</th>
+                <th>ویرایش/حذف</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pf in Model)
+            {
+                <tr style="@((pf.IsRemoved)?"background: #ff000042;":"")">
+                    <td>@pf.FeatureName</td>
+                    <td>@pf.Value</td>
+                    <td>
+                        <a onclick="ChangeBoldStatus(@pf.Id, '@(pf.FeatureName)', '@pf.Value',@((pf.IsBold)?"true":"false"))" class="info p-0" title="تغییر برجسته بودن ویژگی">
+                            <i class="fa @((pf.IsBold)? "fa-check" : "fa-times") font-medium-3 mr-2"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="success p-0" title="ویرایش مقدار ویژگی" onclick="ShowEditModal('@(pf.Value)',@pf.Id)">
+                            <i class="fa fa-pencil font-medium-3 mr-2"></i>
+                        </a>
+                        @if (pf.IsRemoved)
+                        {
+                            <a class="dark p-0" title="حذف ویژگی" >
+                                <i class="fa fa-trash-o font-medium-3 mr-2"></i>
+                            </a>
+                        }
+                        else
+                        {
+                            <a class="danger p-0" title="حذف ویژگی" onclick="Delete('@(pf.FeatureName)','@(pf.Value)',@pf.Id)">
+                                <i class="fa fa-trash-o font-medium-3 mr-2"></i>
+                            </a>
+                        }
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <table class="table table-responsive-md text-center">
+        <thead>
+            <tr>
+                <th>نام ویژگی محصول</th>
+                <th>مقدار</th>
+                <th>ویژگی برجسته</th>
+                <th>ویرایش/حذف</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="text text-center font-medium-2 mb-3">هیچ ویژگی یافت نشد</div>
+}
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+﻿
+@model List<EndPoint.WebSite.Areas.Admin.Models.Product.LoadGalleryImages.GalleryImageViewModel>
+
+@if (Model.Any())
+{
+    foreach (var image in Model)
+    {
+        <div id="ProductGalleryImage@(image.Id)" class="col-12 col-md-12 col-lg-6">
+            <figure class="effect-winston">
+                <img class="GalleryImages" src="\images\page-single-product\product-img\@image.Name" alt="img03">
+                <figcaption>
+                    <p>
+                        <a onclick="DeleteGalleryImage(@image.Id)" class="danger p-3">
+                            <i class="fa fa-trash-o font-large-2 mr-0"></i>
+                        </a>
+                    </p>
+                </figcaption>
+            </figure>
+        </div>
+
+    }
+}

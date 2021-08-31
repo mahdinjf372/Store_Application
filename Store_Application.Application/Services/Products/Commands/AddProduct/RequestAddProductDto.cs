@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 using Store_Application.Domain.Entities.Product;
 
 namespace Store_Application.Application.Services.Products.Commands.AddProduct
@@ -25,8 +26,11 @@ namespace Store_Application.Application.Services.Products.Commands.AddProduct
 
         public int BrandId { get; set; }
 
-        public List<Image> Images { get; set; }
         public ICollection<ProductFeature> Features { get; set; }
+
+        public IFormFile MainImage { get; set; }
+
+        public List<IFormFile> GalleryImages { get; set; }
 
     }
 }
