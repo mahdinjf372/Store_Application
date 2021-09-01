@@ -23,7 +23,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\menu-main\card\" />
-    <Folder Include="wwwroot\js\Admin\" />
+    <Folder Include="wwwroot\images\slider-brand\" />
   </ItemGroup>
 
   <ItemGroup>

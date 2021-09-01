@@ -34,6 +34,7 @@ using Store_Application.Application.Services.Sliders.FacadPattern;
 using Store_Application.Application.Services.ProductSliders.FacadPattern;
 using EndPoint.WebSite.Areas.Admin.Models.Product.Edit;
 using Store_Application.Application.Services.MainSlider.FacadPattern;
+using Store_Application.Application.Services.BrandSlider.FacadPattern;
 
 namespace EndPoint.WebSite
 {
@@ -66,10 +67,10 @@ namespace EndPoint.WebSite
             services.AddScoped<ISlidersFacad, SlidersFacad>();
             services.AddScoped<IProductSlidersFacad, ProductSlidersFacad>();
             services.AddScoped<IMainSliderFacad, MainSliderFacad>();
+            services.AddScoped<IBrandSliderFacad, BrandSliderFacad>();
 
 
             #endregion
-
 
             #region validation services
 

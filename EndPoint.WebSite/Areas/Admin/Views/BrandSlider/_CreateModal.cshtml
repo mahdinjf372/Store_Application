@@ -1,0 +1,48 @@
+﻿
+<div class="modal fade text-left" id="CreateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel34" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel34">ایجاد بنر جدید</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form onsubmit="Create()" action="#">
+                <hr class="m-0" />
+                <div class="modal-body">
+                    <div class="row ">
+                        <div class="col-12">
+
+                            <label>تیتر برند جدید :</label>
+                            <div class="form-group  position-relative">
+                                <input type="text" placeholder="تیتر برند" class="form-control" id="Create_title">
+                            </div>
+
+                            <label>لینک ارجاع اسلاید :</label>
+                            <div class="form-group  position-relative">
+                                <input type="url" placeholder="https://Google.com" class="form-control dir-ltr" id="Create_SlideLink" value="http://">
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>تصویر برند را انتخاب کنید</label>
+                                    <input type="file" class="form-control-file CreateModal-Inputs" id="Create_Content">
+                                </div>
+                            </div>
+
+                            <div class="row uploaded-imgs">
+                                <img src="" class="min-slider__CreateModal CreateModal-Inputs" id="Create_uploaded_img" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="بستن">
+                    <input type="button" onclick="Create()" class="btn btn-outline-primary btn-lg" value="ثبت">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

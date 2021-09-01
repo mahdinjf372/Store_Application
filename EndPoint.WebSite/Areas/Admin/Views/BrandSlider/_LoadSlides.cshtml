@@ -1,0 +1,18 @@
+﻿
+@model IEnumerable<EndPoint.WebSite.Areas.Admin.Models.BrandSlider.LoadSlides.LoadSlideViewModel>
+
+@if (Model.Any())
+{
+    foreach (var slide in Model)
+    {
+        <div id="Brand@(slide.Id)" class="col-12 col-sm-6 col-md-3 col-lg-2">
+            <img class="img-thumbnail w-100" src="/images/slider-brand/@slide.ImageName">
+            <input type="button" class="btn btn-sm btn-danger w-100" onclick="Delete(@slide.Id)" value="حذف">
+        </div>
+    }
+}
+else
+{
+    <div class="col-12 ">اسلایدی موجود نیست</div>
+}
+

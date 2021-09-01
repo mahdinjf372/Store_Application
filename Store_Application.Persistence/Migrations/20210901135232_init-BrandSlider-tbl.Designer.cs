@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Store_Application.Persistence.Contexts;
 
 namespace Store_Application.Persistence.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20210901135232_init-BrandSlider-tbl")]
+    partial class initBrandSlidertbl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,7 +51,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            InsertTime = new DateTime(2021, 9, 1, 19, 20, 13, 212, DateTimeKind.Local).AddTicks(6343),
+                            InsertTime = new DateTime(2021, 9, 1, 18, 22, 31, 366, DateTimeKind.Local).AddTicks(3127),
                             Title = "بدون برند",
                             isRemoved = false
                         });
@@ -322,77 +324,31 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            InsertTime = new DateTime(2021, 9, 1, 19, 20, 13, 218, DateTimeKind.Local).AddTicks(1591),
+                            InsertTime = new DateTime(2021, 9, 1, 18, 22, 31, 373, DateTimeKind.Local).AddTicks(1222),
                             Title = "پیشنهاد لحظه ای",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 2,
-                            InsertTime = new DateTime(2021, 9, 1, 19, 20, 13, 218, DateTimeKind.Local).AddTicks(1696),
+                            InsertTime = new DateTime(2021, 9, 1, 18, 22, 31, 373, DateTimeKind.Local).AddTicks(1327),
                             Title = "دوربین",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 3,
-                            InsertTime = new DateTime(2021, 9, 1, 19, 20, 13, 218, DateTimeKind.Local).AddTicks(1707),
+                            InsertTime = new DateTime(2021, 9, 1, 18, 22, 31, 373, DateTimeKind.Local).AddTicks(1337),
                             Title = "موبایل",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 4,
-                            InsertTime = new DateTime(2021, 9, 1, 19, 20, 13, 218, DateTimeKind.Local).AddTicks(1711),
+                            InsertTime = new DateTime(2021, 9, 1, 18, 22, 31, 373, DateTimeKind.Local).AddTicks(1342),
                             Title = "لپ تاپ",
                             isRemoved = false
                         });
-                });
-
-            modelBuilder.Entity("Store_Application.Domain.Entities.Site.Advertising", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ImageName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("InsertTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LinkTo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Place")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("RemovedTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Title")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<DateTime?>("UpdateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("isRemoved")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Advertisings");
                 });
 
             modelBuilder.Entity("Store_Application.Domain.Entities.Site.BrandSlider", b =>

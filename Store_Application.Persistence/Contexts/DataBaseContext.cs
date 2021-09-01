@@ -43,6 +43,8 @@ namespace Store_Application.Persistence.Contexts
         #region Site
 
         public DbSet<MainSlider> MainSlides { get; set; }
+        public DbSet<BrandSlider> BrandSlides { get; set; }
+        public DbSet<Advertising> Advertisings { get; set; }
 
         #endregion
 
@@ -65,6 +67,8 @@ namespace Store_Application.Persistence.Contexts
             modelBuilder.Entity<Category>().HasQueryFilter(c => !c.isRemoved);
             modelBuilder.Entity<Product>().HasQueryFilter(p => !p.isRemoved);
             modelBuilder.Entity<MainSlider>().HasQueryFilter(s => !s.isRemoved);
+            modelBuilder.Entity<BrandSlider>().HasQueryFilter(s => !s.isRemoved);
+            modelBuilder.Entity<Advertising>().HasQueryFilter(s => !s.isRemoved);
         }
 
         private void SeedData(ModelBuilder modelBuilder)
@@ -187,6 +191,20 @@ namespace Store_Application.Persistence.Contexts
 
             #endregion
 
+            #region BrandSlider
+
+            modelBuilder.Entity<BrandSlider>()
+                .Property(s => s.Title).HasMaxLength(200);
+
+            #endregion
+
+            #region Advertising
+
+            modelBuilder.Entity<Advertising>()
+                .Property(a => a.Title).HasMaxLength(200);
+
+            #endregion
+
         }
 
         private void ApplyRelations(ModelBuilder modelBuilder)
@@ -275,7 +293,6 @@ namespace Store_Application.Persistence.Contexts
             #endregion
 
         }
-
 
     }
 }

@@ -37,6 +37,8 @@ namespace Store_Application.Application.Interfaces.Context
         #region Site
 
         public DbSet<MainSlider> MainSlides { get; set; }
+        public DbSet<BrandSlider> BrandSlides { get; set; }
+        public DbSet<Advertising> Advertisings { get; set; }
 
         #endregion
 

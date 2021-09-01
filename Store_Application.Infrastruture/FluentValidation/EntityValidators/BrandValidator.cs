@@ -12,9 +12,6 @@ namespace Store_Application.Infrastruture.FluentValidation.EntityValidators
                 .NotEmpty().WithMessage("نام برند اجباریست")
                 .MaximumLength(50).WithMessage("نام برند نمی تواند بیشتر از 50 کاراکتر باشد");
 
-            RuleFor(p => p.ImageName)
-                .NotNull().WithMessage("تصویر اجباریست")
-                .NotEmpty().WithMessage("تصویر اجباریست");
         }
     }
 }
