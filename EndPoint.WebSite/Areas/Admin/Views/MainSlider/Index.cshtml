@@ -1,0 +1,76 @@
+﻿
+@model IEnumerable<EndPoint.WebSite.Areas.Admin.Models.MainSlider.Index.MainSlideViewModel>
+<div class="row">
+    <div class="col-12 col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title-wrap bar-success">
+                    <h4 class="card-title">شبیه ساز اسلایدر اصلی</h4>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="button" onclick="ShowCreateSlideModal()" class="btn btn-info col-7 col-sm-4 col-md-6 col-lg-5" value="ایجاد اسلاید جدید" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="card-block">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <ol id="SlidesButtonList" class="carousel-indicators">
+                            @for (var i = 0; i < Model.Count(); i++)
+                            {
+                                <li data-target="#carousel-example-generic" data-slide-to="@i" class="@((i==0)?"active":"")"></li>
+                            }
+                        </ol>
+                        <div id="SlidesImagesList" class="carousel-inner" role="listbox">
+                            @{ var j = 0; }
+                            @foreach (var slide in Model)
+                            {
+                                <div class="carousel-item text-center @((j == 0) ? "active" : "")">
+                                    <input onclick="ShowEditSlideModal(@slide.Id,'@slide.Title','@slide.ImageName','@slide.LinkTo')" class="btn btn-orange col-6 col-sm-2" type="button" value="ویرایش" />
+                                    <input onclick="DeleteSlide(@slide.Id,'@slide.Title')" class="btn btn-danger col-6 col-sm-2" type="button" value="حذف" />
+                                    <img onclick="MainSliderImageLink(@slide.Id)" src="/images/slider-main/@slide.ImageName">
+                                    <input id="MainSlider-Slide@(slide.Id)-input" type="hidden" value="@slide.LinkTo" />
+                                </div>
+                                j++;
+                            }
+                        </div>
+                        <a class="carousel-control-prev" href="#carousel-example-generic" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">قبلی</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel-example-generic" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">بعدی</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <link href="~/Sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/Sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/Admin/js/siteJs/MainSlider.js"></script>
+}
+
+@section Modals
+{
+    <partial name="_CreateSlideModal" />
+    <partial name="_EditSlideModal" />
+}
+
+@section ModalScript
+{
+    <script src="~/Admin/js/siteJs/MainSlider-Modal.js"></script>
+}
+
+

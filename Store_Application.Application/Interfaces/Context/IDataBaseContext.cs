@@ -7,6 +7,7 @@ using Store_Application.Domain.Entities.User;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using Store_Application.Domain.Entities.Product;
+using Store_Application.Domain.Entities.Site;
 
 namespace Store_Application.Application.Interfaces.Context
 {
@@ -20,7 +21,6 @@ namespace Store_Application.Application.Interfaces.Context
 
         #endregion
 
-
         #region Product
 
         DbSet<Category> Categories { get; set; }
@@ -31,6 +31,12 @@ namespace Store_Application.Application.Interfaces.Context
         DbSet<Brand> Brands { get; set; }
         DbSet<Slider> Sliders { get; set; }
         DbSet<ProductSlider> ProductSliders { get; set; }
+
+        #endregion
+
+        #region Site
+
+        public DbSet<MainSlider> MainSlides { get; set; }
 
         #endregion
 

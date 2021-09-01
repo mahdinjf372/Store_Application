@@ -1,0 +1,53 @@
+﻿
+<div class="modal fade text-left" id="EditSlideModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel34" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel34">ایجاد اسلاید جدید</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form onsubmit="EditSlide()" action="#">
+                <input type="hidden" id="Edit_SlideId">
+
+                <hr class="m-0" />
+                <div class="modal-body">
+                    <div class="row ">
+                        <div class="col-sm-12 col-md-6">
+                            <label>نام اسلاید :</label>
+                            <div class="form-group  position-relative">
+                                <input type="text" placeholder="نام اسلاید" class="form-control" id="Edit_SlideName" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <label>تصویر :</label>
+                            <div class="form-group  position-relative">
+                                <input type="file" id="Edit_SlideImage" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-12">
+                            <label>لینک ارجاع اسلاید :</label>
+                            <div class="form-group  position-relative">
+                                <input type="url" placeholder="https://Google.com" class="form-control dir-ltr" id="Edit_SlideLink" value="http://">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-12">
+                            <img src="" class="min-slider__CreateModal" id="Edit-uploaded-img" />
+                            <input type="hidden" id="Edit_SlideImageName">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="بستن">
+                    <input type="button" onclick="EditSlide()" class="btn btn-outline-primary btn-lg" value="ثبت">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

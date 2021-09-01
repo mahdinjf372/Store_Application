@@ -53618,3 +53618,12 @@ input[type='checkbox'].switch, input[type='radio'].switch {
 .ck-editor__main .ck-editor__editable.ck-content {
     min-height: 200px;
 }
+
+.min-slider__CreateModal {
+    padding: 0.2rem;
+    background-color: #F4F5FA;
+    border: 1px solid #DEE2E6;
+    border-radius: .25rem;
+    max-width: 100%;
+    max-height: 400px;
+}

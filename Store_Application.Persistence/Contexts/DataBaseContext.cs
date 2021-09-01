@@ -9,6 +9,7 @@ using Store_Application.Domain.Entities.User;
 using Store_Application.Application.Interfaces.Context;
 using Store_Application.Common.Roles;
 using Store_Application.Domain.Entities.Product;
+using Store_Application.Domain.Entities.Site;
 
 namespace Store_Application.Persistence.Contexts
 {
@@ -39,6 +40,12 @@ namespace Store_Application.Persistence.Contexts
 
         #endregion
 
+        #region Site
+
+        public DbSet<MainSlider> MainSlides { get; set; }
+
+        #endregion
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
@@ -56,7 +63,8 @@ namespace Store_Application.Persistence.Contexts
             modelBuilder.Entity<User>().HasQueryFilter(u => !u.isRemoved);
             modelBuilder.Entity<Role>().HasQueryFilter(r => !r.isRemoved);
             modelBuilder.Entity<Category>().HasQueryFilter(c => !c.isRemoved);
-            modelBuilder.Entity<Product>().HasQueryFilter(u => !u.isRemoved);
+            modelBuilder.Entity<Product>().HasQueryFilter(p => !p.isRemoved);
+            modelBuilder.Entity<MainSlider>().HasQueryFilter(s => !s.isRemoved);
         }
 
         private void SeedData(ModelBuilder modelBuilder)
@@ -169,6 +177,13 @@ namespace Store_Application.Persistence.Contexts
             modelBuilder.Entity<Product>()
                 .Property(p => p.Displayed)
                 .HasDefaultValue(true);
+
+            #endregion
+
+            #region MainSlider
+
+            modelBuilder.Entity<MainSlider>()
+                .Property(s => s.Title).HasMaxLength(200);
 
             #endregion
 
