@@ -62,5 +62,8 @@ namespace Store_Application.Application.Services.MainSlider.FacadPattern
                 return _getSlideService = _getSlideService ?? new GetSlideService(_db);
             }
         }
+        
+
+
     }
 }

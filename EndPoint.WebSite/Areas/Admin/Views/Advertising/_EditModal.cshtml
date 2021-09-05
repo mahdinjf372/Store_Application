@@ -1,0 +1,77 @@
+﻿@using Store_Application.Domain.Enums
+
+<div class="modal fade text-left" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel34" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel34">ویرایش بنر</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form onsubmit="Edit()" action="#">
+                <input id="Edit_id" type="hidden" value="" />
+                <input id="Edit_imageName" type="hidden" value="" />
+                <hr class="m-0" />
+                <div class="modal-body">
+                    <div class="row ">
+                        <div class="col-12">
+
+                            <div class="form-group">
+                                <label>محل بنر</label>
+                                <select id="Edit_places" class="form-control" data-val="true">
+                                    <option selected="selected" value="0">انتخاب محل نمایش بنر</option>
+                                    @foreach (var place in Enum.GetValues(typeof(AdvertisingPlaces)))
+                                    {
+                                        <option>@place</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <label>تیتر بنر :</label>
+                            <div class="form-group  position-relative">
+                                <input type="text" placeholder="تیتر بنر" class="form-control" id="Edit_title">
+                            </div>
+
+                            <label>تاریخ شروع نمایش :</label>
+                            <div class="form-group  position-relative">
+                                <input type="text" placeholder="تاریخ شروع نمایش" class="form-control" id="Edit_startDate">
+                            </div>
+
+                            <label>تاریخ پایان نمایش :</label>
+                            <div class="form-group  position-relative">
+                                <input type="text" placeholder="تاریخ پایان نمایش" class="form-control" id="Edit_endDate">
+                            </div>
+
+                            <label>لینک بنر جدید :</label>
+                            <div class="form-group  position-relative">
+                                <input type="text" placeholder="https://google.com" class="form-control" id="Edit_linkTo">
+                            </div>
+
+                            <label>توضیحات :</label>
+                            <div class="form-group  position-relative">
+                                <textarea type="text" placeholder="توضیحات" class="form-control" id="Edit_description"></textarea>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>فایل محتوای بنر را انتخاب کنید</label>
+                                    <input type="file" class="form-control-file CreateModal-Inputs" id="Edit_Content">
+                                </div>
+                            </div>
+
+                            <div class="row uploaded-imgs">
+                                <img src="" class="col-12 CreateModal-Inputs" id="Edit_uploaded_img" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="بستن">
+                    <input type="button" onclick="Edit()" class="btn btn-outline-primary btn-lg" value="ثبت">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

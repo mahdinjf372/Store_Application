@@ -1,0 +1,79 @@
+﻿@using Store_Application.Common.Extentions
+@using EndPoint.WebSite.Areas.Admin.Models.Advertising.LoadAdvertisings
+@model LoadAdvertisingViewModel
+
+<table class="table table-responsive-sm text-center">
+    <thead>
+        <tr>
+            <th>تیتر بنر</th>
+            <th>تاریخ شروع نمایش بنر</th>
+            <th>تاریخ پایان نمایش بنر</th>
+            <th>محل بنر در سایت</th>
+            <th>توضیحات</th>
+            <th>ویرایش/حذف</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model.ads.Any())
+        {
+            foreach (var ad in Model.ads)
+            {
+                if (!ad.isRemoved)
+                {
+                    <tr>
+                        <td>@ad.Title</td>
+                        <td>@ad.StartDate.ToShamsi()</td>
+                        <td>@ad.EndDate.ToShamsi()</td>
+                        <td>@ad.Place.ToString()</td>
+                        <td>@ad.Description</td>
+
+                        <td>
+                            <a class="success p-0" onclick="ShowEditModal(@ad.Id,'@ad.Title','@ad.ImageName','@ad.StartDate.ToShamsi()','@ad.EndDate.ToShamsi()','@ad.Description','@ad.Place')" title="ویرایش">
+                                <i class="fa fa-pencil font-medium-3 mr-2"></i>
+                            </a>
+                            <a class="danger p-0" title="حذف" onclick="Delete(@ad.Id,'@ad.Title')">
+                                <i class="fa fa-trash-o font-medium-3 mr-2"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr class="bg-red bg-lighten-4">
+                        <td>@ad.Title</td>
+                        <td>@ad.StartDate.ToShamsi()</td>
+                        <td>@ad.EndDate.ToShamsi()</td>
+                        <td>@ad.Place.ToString()</td>
+                        <td>@ad.Description</td>
+                        <td>
+                            <a class="darken-1 p-0" onclick="ShowEditModal(@ad.Id,'@ad.Title','@ad.ImageName','@ad.StartDate.ToShamsi()','@ad.EndDate.ToShamsi()','@ad.Description','@ad.Place', '@ad.LinkTo')" title="ویرایش">
+                                <i class="fa fa-pencil font-medium-3 mr-2"></i>
+                            </a>
+
+                            <a class="darken-1 p-0" title="حذف">
+                                <i class="fa fa-trash-o font-medium-3 mr-2"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+            }
+
+        }
+        else
+        {
+            <tr>
+                <td colspan="2">
+                    هیچ بنری یافت نشد!
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+@if (Model.ads.Any())
+{
+    <partial name="/Areas/Admin/Views/Shared/_Paging.cshtml" model="Model.Paging" />
+}

@@ -95,6 +95,7 @@
     <None Include="wwwroot\Admin\lib\ckeditor5\README.md" />
     <None Include="wwwroot\Admin\lib\ckeditor5\src\ckeditor.js" />
     <None Include="wwwroot\Admin\lib\ckeditor5\webpack.config.js" />
+    <None Include="wwwroot\Admin\lib\PersianCalender\kamadatepicker.min.js" />
   </ItemGroup>
 
   <ItemGroup>

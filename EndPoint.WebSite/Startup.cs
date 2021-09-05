@@ -35,6 +35,7 @@ using Store_Application.Application.Services.ProductSliders.FacadPattern;
 using EndPoint.WebSite.Areas.Admin.Models.Product.Edit;
 using Store_Application.Application.Services.MainSlider.FacadPattern;
 using Store_Application.Application.Services.BrandSlider.FacadPattern;
+using Store_Application.Application.Services.Advertinig.FacadPattern;
 
 namespace EndPoint.WebSite
 {
@@ -68,6 +69,7 @@ namespace EndPoint.WebSite
             services.AddScoped<IProductSlidersFacad, ProductSlidersFacad>();
             services.AddScoped<IMainSliderFacad, MainSliderFacad>();
             services.AddScoped<IBrandSliderFacad, BrandSliderFacad>();
+            services.AddScoped<IAdvertisingFacad, AdvertisingFacad>();
 
 
             #endregion

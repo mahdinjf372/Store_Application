@@ -1,0 +1,75 @@
+﻿@using Store_Application.Domain.Enums
+<div class="modal fade text-left" id="CreateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel34" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel34">ایجاد بنر جدید</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form onsubmit="Create()" action="#">
+                <hr class="m-0" />
+                <div class="modal-body">
+                    <div class="row ">
+                        <div class="col-12">
+
+                            <div class="form-group">
+                                <label>انتخاب محل بنر</label>
+                                <select id="Create_Places" class="form-control" data-val="true">
+                                    <option selected="selected" value="0">انتخاب محل نمایش بنر</option>
+
+                                    @foreach (var place in Enum.GetValues(typeof(AdvertisingPlaces)))
+                                    {
+                                        <option>@place</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <label>تیتر بنر جدید :</label>
+                            <div class="form-group  position-relative">
+                                <input type="text" placeholder="تیتر بنر" class="form-control" id="Create_title">
+                            </div>
+
+                            <label>تاریخ شروع نمایش :</label>
+                            <div class="form-group  position-relative">
+                                <input type="text" placeholder="تاریخ شروع نمایش" class="form-control" id="Create_StartDate">
+                            </div>
+
+                            <label>تاریخ پایان نمایش :</label>
+                            <div class="form-group  position-relative">
+                                <input type="text" placeholder="تاریخ پایان نمایش" class="form-control" id="Create_EndDate">
+                            </div>
+
+                            <label>لینک بنر جدید :</label>
+                            <div class="form-group  position-relative">
+                                <input type="text" placeholder="https://google.com" class="form-control" id="Create_linkTo">
+                            </div>
+
+                            <label>توضیحات :</label>
+                            <div class="form-group  position-relative">
+                                <textarea type="text" placeholder="توضیحات" class="form-control" id="Create_Description"></textarea>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>فایل محتوای بنر را انتخاب کنید</label>
+                                    <input type="file" class="form-control-file CreateModal-Inputs" id="Create_Content">
+                                </div>
+                            </div>
+
+                            <div class="row uploaded-imgs">
+                                <img src="" class="col-12 CreateModal-Inputs" id="Create_uploaded_img" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="بستن">
+                    <input type="button" onclick="Create()" class="btn btn-outline-primary btn-lg" value="ثبت">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
