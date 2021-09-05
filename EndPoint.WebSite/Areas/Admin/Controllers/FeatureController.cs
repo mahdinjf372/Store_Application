@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EndPoint.WebSite.Areas.Admin.Models.Feature.LoadFeatures;
+using Microsoft.AspNetCore.Mvc;
 using Store_Application.Application.Interfaces.FacadPattern;
 using System;
 using System.Collections.Generic;
@@ -24,8 +25,16 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult LoadFeatures(string searchKey, int page)
         {
-            var res = _featureFacad.GetFeaturesService.Execute();
-            return View("Areas/Admin/Views/Feature/_LoadFeatures.cshtml",res.Data);
+            var res = _featureFacad.GetFeaturesForAdminService.Execute();
+
+            List<FeatureViewModel> model = res.Data.Select(f => new FeatureViewModel
+            {
+                Id = f.Id,
+                isRemoved = f.isRemoved,
+                Title = f.Title
+            }).ToList();
+
+            return View("Areas/Admin/Views/Feature/_LoadFeatures.cshtml",model);
         }
         
         [HttpPost]

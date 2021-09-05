@@ -1,8 +1,8 @@
 ﻿
 using Store_Application.Application.Services.BrandSlider.Commands.Add;
 using Store_Application.Application.Services.BrandSlider.Commands.Delete;
-using Store_Application.Application.Services.BrandSlider.Queries.GetSlide;
-using Store_Application.Application.Services.BrandSlider.Queries.GetSlides;
+using Store_Application.Application.Services.BrandSlider.Queries.GetSlideForAdmin;
+using Store_Application.Application.Services.BrandSlider.Queries.GetSlidesForAdmin;
 
 namespace Store_Application.Application.Interfaces.FacadPattern
 {
@@ -10,8 +10,8 @@ namespace Store_Application.Application.Interfaces.FacadPattern
     {
         IAddSlideService AddSlideService { get; }
         IDeleteSlideService DeleteSlideService { get; }
-        IGetSlidesService GetSlidesService { get; }
-        IGetSlideService GetSlideService { get; }
+        IGetSlidesForAdminService GetSlidesForAdminService { get; }
+        IGetSlideForAdminService GetSlideForAdminService { get; }
 
     }
 }

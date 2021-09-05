@@ -3,8 +3,8 @@ using Store_Application.Application.Interfaces.FacadPattern;
 using Store_Application.Application.Services.Features.Commands.AddFeature;
 using Store_Application.Application.Services.Features.Commands.DeleteFeature;
 using Store_Application.Application.Services.Features.Commands.EditFeature;
-using Store_Application.Application.Services.Features.Queries.GetFeature;
-using Store_Application.Application.Services.Features.Queries.GetFeatures;
+using Store_Application.Application.Services.Features.Queries.GetFeatureForAdmin;
+using Store_Application.Application.Services.Features.Queries.GetFeaturesForAdmin;
 using Store_Application.Application.Services.Features.Queries.IsExistFeature;
 
 namespace Store_Application.Application.Services.Features.FacadPattern
@@ -18,12 +18,12 @@ namespace Store_Application.Application.Services.Features.FacadPattern
             _db = db;
         }
 
-        private IGetFeaturesService _getFeaturesService;
-        public IGetFeaturesService GetFeaturesService
+        private IGetFeaturesForAdminService _getFeaturesForAdminService;
+        public IGetFeaturesForAdminService GetFeaturesForAdminService
         {
             get
             {
-                return _getFeaturesService = _getFeaturesService ?? new GetFeaturesService(_db);
+                return _getFeaturesForAdminService = _getFeaturesForAdminService ?? new GetFeaturesForAdminService(_db);
             }
         }
 
@@ -45,12 +45,12 @@ namespace Store_Application.Application.Services.Features.FacadPattern
             }
         }
 
-        private IGetFeatureService _getFeatureService;
-        public IGetFeatureService GetFeatureService
+        private IGetFeatureForAdminService _getFeatureForAdminService;
+        public IGetFeatureForAdminService GetFeatureForAdminService
         {
             get
             {
-                return _getFeatureService = _getFeatureService ?? new GetFeatureService(_db);
+                return _getFeatureForAdminService = _getFeatureForAdminService ?? new GetFeatureForAdminService(_db);
             }
         }
 

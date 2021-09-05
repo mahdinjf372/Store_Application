@@ -1,4 +1,52 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <partial name="_MetaTags" />
+    <title>@ViewData["Title"]</title>
+    <partial name="_HeaderReferences" />
+    @RenderSection("HeaderReferences", false)
+
+</head>
+<body>
+
+    <partial name="_Header" />
+
+    <div class="nav-categories-overlay"></div>
+
+    @RenderSection("Slider", false)
+    @RenderSection("MiddleAds", false)
+    @RenderSection("ProductsSliders", false)
+    @RenderBody()
+
+    <partial name="_Footer" />
+
+    <partial name="_ScrollProgress" />
+    <!-- file js---------------------------------------------------->
+    <script src="~/js/vendor/jquery-3.2.1.min.js"></script>
+    <script src="~/js/vendor/bootstrap.js"></script>
+    <!-- plugin----------------------------------------------------->
+    <script src="~/js/vendor/owl.carousel.min.js"></script>
+    <script src="~/js/vendor/jquery.countdown.js"></script>
+    <script src="~/js/vendor/jquery.nice-select.min.js"></script>
+    <!-- main js---------------------------------------------------->
+    <script src="~/js/main.js"></script>
+    <script src="~/js/Layout.js"></script>
+    @RenderSection("Scripts", false)
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+@*
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -1152,3 +1200,6 @@
 <!-- main js---------------------------------------------------->
 <script src="~/js/main.js"></script>
 </html>
+
+
+*@

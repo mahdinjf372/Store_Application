@@ -8,10 +8,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Store_Application.Application.Interfaces.FacadPattern;
-using Store_Application.Application.Services.Users.Commands.EditUser;
-using Store_Application.Application.Services.Users.Commands.RegisterUser;
-using Store_Application.Application.Services.Users.Queries.GetUserById;
-using Store_Application.Application.Services.Users.Queries.GetUsers;
+using Store_Application.Application.Services.Users.Commands.EditUserForAdmin;
+using Store_Application.Application.Services.Users.Commands.RegisterUserForAdmin;
+using Store_Application.Application.Services.Users.Queries.GetUserByIdForAdmin;
+using Store_Application.Application.Services.Users.Queries.GetUsersForAdmin;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -47,7 +47,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
             ViewBag.page = page;
             ViewBag.take = take;
 
-            var res = _userFacad.GetUsersService.Execute(new RequestGetUsersDto() { Page = page, Searchkey = searchKey, Take = take });
+            var res = _userFacad.GetUsersForAdminService.Execute(new RequestGetUsersForAdminDto() { Page = page, Searchkey = searchKey, Take = take });
 
             LoadUsersViewModel model = new LoadUsersViewModel();
 
@@ -73,7 +73,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Register()
         {
-            ViewBag.Roles = new SelectList(_userFacad.GetRolesService.Execute().Data, "Id", "Name");
+            ViewBag.Roles = new SelectList(_userFacad.GetRolesForAdminService.Execute().Data, "Id", "Name");
             return View();
         }
 
@@ -83,20 +83,20 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
             var RequestValidator = new RegisterUserViewModelValidator();
             var Validator = RequestValidator.Validate(req);
 
-            if (!_userFacad.isExistRoleService.Execute(req.RoleId).Data)
+            if (!_userFacad.isExistRoleForAdminService.Execute(req.RoleId).Data)
             {
                 Validator.Errors.Add(new ValidationFailure("RoleId", "لطفا يكي از نقش هاي زير را براي كاربر انتخاب نماييد"));
             }
 
             Validator.AddToModelState(ModelState, null);
-            ViewBag.Roles = new SelectList(_userFacad.GetRolesService.Execute().Data, "Id", "Name");
+            ViewBag.Roles = new SelectList(_userFacad.GetRolesForAdminService.Execute().Data, "Id", "Name");
 
             if (!Validator.IsValid)
             {
                 return View(req);
             }
 
-            var dbRes = _userFacad.RegisterUserService.Execute(new RequestRegisterUserDto
+            var dbRes = _userFacad.RegisterUserForAdminService.Execute(new RequestRegisterUserForAdminDto
             {
                 Email = req.Email,
                 Password = req.Password,
@@ -125,12 +125,12 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Edit(int id, string searchKey, int page)
         {
-            if (!_userFacad.isExistUserService.Execute(id).Data)
+            if (!_userFacad.isExistUserForAdminService.Execute(id).Data)
             {
                 return NotFound();
             }
 
-            ResultGetUserByIdDto user = _userFacad.GetUserByIdService.Execute(id).Data;
+            ResultGetUserByIdForAdminDto user = _userFacad.GetUserByIdForAdminService.Execute(id).Data;
 
             EditUserViewModel model = new EditUserViewModel()
             {
@@ -147,7 +147,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
             ViewBag.searchKey = searchKey;
             ViewBag.page = page;
 
-            ViewBag.Roles = new SelectList(_userFacad.GetRolesService.Execute().Data, "Id", "Name");
+            ViewBag.Roles = new SelectList(_userFacad.GetRolesForAdminService.Execute().Data, "Id", "Name");
             return View(model);
         }
 
@@ -158,18 +158,18 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
             var Validator = RequestValidator.Validate(req);
             Validator.AddToModelState(ModelState, null);
 
-            if (!_userFacad.isExistRoleService.Execute(req.RoleId).Data)
+            if (!_userFacad.isExistRoleForAdminService.Execute(req.RoleId).Data)
             {
                 Validator.Errors.Add(new ValidationFailure("RoleId", "لطفا يكي از نقش هاي زير را براي كاربر انتخاب نماييد"));
             }
 
             if (!Validator.IsValid)
             {
-                ViewBag.Roles = new SelectList(_userFacad.GetRolesService.Execute().Data, "Id", "Name");
+                ViewBag.Roles = new SelectList(_userFacad.GetRolesForAdminService.Execute().Data, "Id", "Name");
                 return View(req);
             }
 
-            _userFacad.EditUserService.Execute(new RequestEditUserDto()
+            _userFacad.EditUserForAdminService.Execute(new RequestEditUserForAdminDto()
             {
                 Address = req.Address,
                 age = req.age,
@@ -187,14 +187,14 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Delete(int userId)
         {
-            return Json(_userFacad.RemoveUserService.Execute(userId).IsSuccess);
+            return Json(_userFacad.RemoveUserForAdminService.Execute(userId).IsSuccess);
         }
 
         [HttpPost]
         public IActionResult ChangeStatus(int userId)
         {
 
-            return Json(_userFacad.ChangeUserStatusService.Execute(userId).Data);
+            return Json(_userFacad.ChangeUserStatusForAdminService.Execute(userId).Data);
         }
     }
 }

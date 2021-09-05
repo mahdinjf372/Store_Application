@@ -4,7 +4,7 @@ using Store_Application.Application.Services.ProductFeatures.Commands.AddProduct
 using Store_Application.Application.Services.ProductFeatures.Commands.ChangeBoldStatus;
 using Store_Application.Application.Services.ProductFeatures.Commands.DeleteProductFeature;
 using Store_Application.Application.Services.ProductFeatures.Commands.EditProductFeature;
-using Store_Application.Application.Services.ProductFeatures.Queries.GetProductFeatures;
+using Store_Application.Application.Services.ProductFeatures.Queries.GetProductFeaturesForAdmin;
 using Store_Application.Application.Services.ProductFeatures.Queries.IsExistProductFeature;
 using System;
 using System.Collections.Generic;
@@ -22,12 +22,12 @@ namespace Store_Application.Application.Services.ProductFeatures.FacadPattern
             _db = db;
         }
 
-        private IGetProductFeaturesService _getProductFeaturesService;
-        public IGetProductFeaturesService GetProductFeaturesService
+        private IGetProductFeaturesForAdminService _getProductFeaturesForAdminService;
+        public IGetProductFeaturesForAdminService GetProductFeaturesForAdminService
         {
             get
             {
-                return _getProductFeaturesService = _getProductFeaturesService ?? new GetProductFeaturesService(_db);
+                return _getProductFeaturesForAdminService = _getProductFeaturesForAdminService ?? new GetProductFeaturesForAdminService(_db);
             }
         }
 

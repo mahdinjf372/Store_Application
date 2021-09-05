@@ -1,7 +1,7 @@
 ﻿using Store_Application.Application.Services.Categories.Commands.AddCategory;
 using Store_Application.Application.Services.Categories.Commands.EditCategory;
 using Store_Application.Application.Services.Categories.Commands.RemoveCategory;
-using Store_Application.Application.Services.Categories.Queries.GetCategories;
+using Store_Application.Application.Services.Categories.Queries.GetCategoriesForAdmin;
 using Store_Application.Application.Services.Categories.Queries.IsExistCategory;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace Store_Application.Application.Interfaces.FacadPattern
 {
     public interface ICategoryFacad
     {
-        IGetCategoriesService GetCategoriesService { get; }
+        IGetCategoriesForAdminService GetCategoriesForAdminService { get; }
         IAddCategoryService AddCategoryService { get; }
         IEditCategoryService EditCategoryService { get; }
         IisExistCategoryService isExistCategoryService { get; }

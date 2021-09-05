@@ -128,7 +128,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         [HttpPost]
         public PartialViewResult LoadProductFeatures(int productId)
         {
-            var res = _pfFacad.GetProductFeaturesService.Execute(productId);
+            var res = _pfFacad.GetProductFeaturesForAdminService.Execute(productId);
 
             List<LoadProductFeaturesViewModel> model = new List<LoadProductFeaturesViewModel>();
             if (res.IsSuccess)
@@ -147,7 +147,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         [HttpGet]
         public PartialViewResult LoadFeatures()
         {
-            var res = _featureFacad.GetFeaturesService.Execute();
+            var res = _featureFacad.GetFeaturesForAdminService.Execute();
 
             List<LoadFeaturesViewModel> model = res.Data.Where(f => !f.isRemoved).Select(f => new LoadFeaturesViewModel
             {

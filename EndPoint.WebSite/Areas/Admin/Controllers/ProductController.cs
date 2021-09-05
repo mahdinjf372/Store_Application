@@ -5,14 +5,15 @@ using EndPoint.WebSite.Areas.Admin.Models.Product.Edit;
 using EndPoint.WebSite.Areas.Admin.Models.Product.LoadGalleryImages;
 using EndPoint.WebSite.Areas.Admin.Models.Product.LoadProducts;
 using EndPoint.WebSite.Areas.Admin.Models.Product.LoadProductSliders;
+using EndPoint.WebSite.Areas.Admin.Models.Product.LoadSubCategories;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Store_Application.Application.Interfaces.FacadPattern;
-using Store_Application.Application.Services.Brands.Queries.GetBrands;
-using Store_Application.Application.Services.Categories.Queries.GetCategories;
+using Store_Application.Application.Services.Brands.Queries.GetBrandsForAdmin;
+using Store_Application.Application.Services.Categories.Queries.GetCategoriesForAdmin;
 using Store_Application.Application.Services.Products.Commands.AddGalleryImage;
 using Store_Application.Application.Services.Products.Commands.AddProduct;
 using Store_Application.Application.Services.Products.Commands.EditProduct;
@@ -67,10 +68,10 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         public IActionResult Create()
         {
 
-            ResultDto<List<ResultGetCategoriesDto>> cats = _categoryFacad.GetCategoriesService.Execute();
+            ResultDto<List<ResultGetCategoriesForAdminDto>> cats = _categoryFacad.GetCategoriesForAdminService.Execute(IgnoreFilters: false);
             ViewBag.Categories = new SelectList(cats.Data, "Id", "Title");
 
-            ResultDto<List<ResultGetBrandsDto>> brands = _brandFacad.GetBrandsService.Execute();
+            ResultDto<List<ResultGetBrandsForAdminDto>> brands = _brandFacad.GetBrandsForAdminService.Execute(IgnoreFilters: false);
             ViewBag.Brands = new SelectList(brands.Data, "Id", "Name");
 
             return View();
@@ -85,16 +86,16 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
 
             if (!ModelState.IsValid)
             {
-                ResultDto<List<ResultGetCategoriesDto>> cats = _categoryFacad.GetCategoriesService.Execute();
+                ResultDto<List<ResultGetCategoriesForAdminDto>> cats = _categoryFacad.GetCategoriesForAdminService.Execute(IgnoreFilters: true);
                 ViewBag.Categories = new SelectList(cats.Data, "Id", "Title", req.CategoryId);
 
-                ResultDto<List<ResultGetCategoriesDto>> grps = _categoryFacad.GetCategoriesService.Execute(req.CategoryId);
+                ResultDto<List<ResultGetCategoriesForAdminDto>> grps = _categoryFacad.GetCategoriesForAdminService.Execute(req.CategoryId, IgnoreFilters: true);
                 ViewBag.Groups = new SelectList(grps.Data, "Id", "Title", req.GroupId);
 
-                ResultDto<List<ResultGetCategoriesDto>> subGrps = _categoryFacad.GetCategoriesService.Execute(req.GroupId);
+                ResultDto<List<ResultGetCategoriesForAdminDto>> subGrps = _categoryFacad.GetCategoriesForAdminService.Execute(req.GroupId, IgnoreFilters: true);
                 ViewBag.SubGroups = new SelectList(subGrps.Data, "Id", "Title", req.SubGroupId);
 
-                ResultDto<List<ResultGetBrandsDto>> brands = _brandFacad.GetBrandsService.Execute();
+                ResultDto<List<ResultGetBrandsForAdminDto>> brands = _brandFacad.GetBrandsForAdminService.Execute(IgnoreFilters: false);
                 ViewBag.Brands = new SelectList(brands.Data, "Id", "Name", req.BrandId);
 
                 return View(req);
@@ -128,16 +129,16 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
             if (res.IsSuccess)
             {
                 var product = res.Data;
-                ResultDto<List<ResultGetCategoriesDto>> cats = _categoryFacad.GetCategoriesService.Execute();
+                ResultDto<List<ResultGetCategoriesForAdminDto>> cats = _categoryFacad.GetCategoriesForAdminService.Execute(IgnoreFilters: false);
                 ViewBag.Categories = new SelectList(cats.Data, "Id", "Title", product.CategoryId);
 
-                ResultDto<List<ResultGetCategoriesDto>> grps = _categoryFacad.GetCategoriesService.Execute(product.CategoryId);
+                ResultDto<List<ResultGetCategoriesForAdminDto>> grps = _categoryFacad.GetCategoriesForAdminService.Execute(product.CategoryId, IgnoreFilters: false);
                 ViewBag.Groups = new SelectList(grps.Data, "Id", "Title", product.GroupId);
 
-                ResultDto<List<ResultGetCategoriesDto>> subGrps = _categoryFacad.GetCategoriesService.Execute(product.GroupId);
+                ResultDto<List<ResultGetCategoriesForAdminDto>> subGrps = _categoryFacad.GetCategoriesForAdminService.Execute(product.GroupId, IgnoreFilters: false);
                 ViewBag.SubGroups = new SelectList(subGrps.Data, "Id", "Title", product.SubgroupId);
 
-                ResultDto<List<ResultGetBrandsDto>> brands = _brandFacad.GetBrandsService.Execute();
+                ResultDto<List<ResultGetBrandsForAdminDto>> brands = _brandFacad.GetBrandsForAdminService.Execute(IgnoreFilters: false);
                 ViewBag.Brands = new SelectList(brands.Data, "Id", "Name", product.BrandId);
 
                 var model = new EditProductViewModel()
@@ -172,16 +173,16 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
 
             if (!ModelState.IsValid)
             {
-                ResultDto<List<ResultGetCategoriesDto>> cats = _categoryFacad.GetCategoriesService.Execute();
+                ResultDto<List<ResultGetCategoriesForAdminDto>> cats = _categoryFacad.GetCategoriesForAdminService.Execute(IgnoreFilters: true);
                 ViewBag.Categories = new SelectList(cats.Data, "Id", "Title", req.CategoryId);
 
-                ResultDto<List<ResultGetCategoriesDto>> grps = _categoryFacad.GetCategoriesService.Execute(req.CategoryId);
+                ResultDto<List<ResultGetCategoriesForAdminDto>> grps = _categoryFacad.GetCategoriesForAdminService.Execute(req.CategoryId, IgnoreFilters: true);
                 ViewBag.Groups = new SelectList(grps.Data, "Id", "Title", req.GroupId);
 
-                ResultDto<List<ResultGetCategoriesDto>> subGrps = _categoryFacad.GetCategoriesService.Execute(req.GroupId);
+                ResultDto<List<ResultGetCategoriesForAdminDto>> subGrps = _categoryFacad.GetCategoriesForAdminService.Execute(req.GroupId, IgnoreFilters: true);
                 ViewBag.SubGroups = new SelectList(subGrps.Data, "Id", "Title", req.SubgroupId);
 
-                ResultDto<List<ResultGetBrandsDto>> brands = _brandFacad.GetBrandsService.Execute();
+                ResultDto<List<ResultGetBrandsForAdminDto>> brands = _brandFacad.GetBrandsForAdminService.Execute(IgnoreFilters: false);
                 ViewBag.Brands = new SelectList(brands.Data, "Id", "Name", req.BrandId);
 
                 return View(req);
@@ -229,7 +230,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
             ViewBag.page = page;
             ViewBag.take = take;
 
-            var res = _productFacad.GetProductsForAdminService.Execute(new RequestGetProductsDto { Searchkey = searchKey, Page = page, Take = take });
+            var res = _productFacad.GetProductsForAdminService.Execute(new RequestGetProductsForAdminDto { Searchkey = searchKey, Page = page, Take = take });
 
             LoadProductsViewModel model = new LoadProductsViewModel();
             model.Products = res.Data.Products.Select(p => new ProductViewModel
@@ -256,7 +257,6 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         }
 
         #endregion
-
 
         #region Gallery
 
@@ -304,7 +304,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
             if (isExist.Data)
             {
                 var res = _productFacad.DeleteImageService.Execute(imageId);
-                var image = _productFacad.GetGalleryImageService.Execute(imageId).Data;
+                var image = _productFacad.GetGalleryImageForAdminService.Execute(imageId).Data;
                 if (image.Name != "default.jpg")
                 {
                     string deletePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images\\page-single-product\\product-img",
@@ -324,7 +324,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         [HttpPost]
         public PartialViewResult LoadGalleryImages(int productId)
         {
-            var res = _productFacad.GetGalleryImagesService.Execute(productId);
+            var res = _productFacad.GetGalleryImagesForAdminService.Execute(productId);
             List<GalleryImageViewModel> model = res.Data.Select(i => new GalleryImageViewModel
             {
                 Id = i.Id,
@@ -336,13 +336,22 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
 
         #endregion
 
-
         #region Category
 
         [HttpPost]
         public PartialViewResult LoadSubCategories(int id)
         {
-            var model = _categoryFacad.GetCategoriesService.Execute(id);
+            var categories = _categoryFacad.GetCategoriesForAdminService.Execute(id, IgnoreFilters: false);
+
+            List<SubCategoryViewModel> model = categories.Data.Select(c => new SubCategoryViewModel
+            {
+                Id = c.Id,
+                ImageName = c.ImageName,
+                isRemoved = c.isRemoved,
+                ParentCategoryId = c.ParentCategoryId,
+                Title = c.Title
+            }).ToList();
+
             return PartialView("_LoadSubCategories", model);
         }
 
@@ -358,7 +367,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
 
             var productSliders = _productSlidersFacad.GetProductSlidersService.Execute(productId);
 
-            var sliders = _slidersFacad.GetSlidersService.Execute();
+            var sliders = _slidersFacad.GetSlidersForAdminService.Execute();
 
             model.Sliders = sliders.Data.Select(s=> new Models.Product.LoadProductSliders.SliderViewModel
             {
@@ -374,7 +383,6 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
 
             return PartialView("/Areas/Admin/Views/Product/_LoadProductSliders.cshtml", model);
         }
-
 
         public IActionResult ChangeProductSliders(ChangeProductSlidersViewModel req)
         {

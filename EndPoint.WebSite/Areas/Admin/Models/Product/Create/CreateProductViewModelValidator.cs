@@ -69,13 +69,13 @@ namespace EndPoint.WebSite.Areas.Admin.Models.Product.Create
         private bool GroupIdValidation(int id)
         {
             grpId = id;
-            var categories = _categoryFacad.GetCategoriesService.Execute(catId).Data;
+            var categories = _categoryFacad.GetCategoriesForAdminService.Execute(catId,IgnoreFilters: false).Data;
             return categories.Any(c => c.Id.Equals(id));
         }
 
         private bool SubGroupIdValidation(int id)
         {
-            var categories = _categoryFacad.GetCategoriesService.Execute(grpId).Data;
+            var categories = _categoryFacad.GetCategoriesForAdminService.Execute(grpId, IgnoreFilters: false).Data;
             return categories.Any(c => c.Id.Equals(id));
         }
         private bool BrandIdValidation(int id)

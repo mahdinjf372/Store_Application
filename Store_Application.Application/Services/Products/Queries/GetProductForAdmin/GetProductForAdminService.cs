@@ -13,12 +13,12 @@ namespace Store_Application.Application.Services.Products.Queries.GetProductForA
             _db = db;
         }
 
-        public ResultDto<ResultGetProductDto> Execute(int productId)
+        public ResultDto<ResultGetProductForAdminDto> Execute(int productId)
         {
             var query = _db.Products.IgnoreQueryFilters().AsQueryable();
             query = query.Include(p => p.Category).ThenInclude(c => c.ParentCategory).ThenInclude(c => c.ParentCategory);
             query = query.Include(p => p.Images);
-            var product = query.Select(p=> new ResultGetProductDto
+            var product = query.Select(p=> new ResultGetProductForAdminDto
             {
                 Id = p.Id,
                 Title = p.Title,
@@ -33,7 +33,7 @@ namespace Store_Application.Application.Services.Products.Queries.GetProductForA
                 Price = p.Price,
                 DiscountAmount = p.DiscountAmount,
                 Displayed = p.Displayed,
-                Images = p.Images.Where(i=> !i.isRemoved).Select(i=> new ProductImage
+                Images = p.Images.Where(i=> !i.isRemoved).Select(i=> new ProductImageForAdminDto
                         {
                             Id = i.Id,
                             Name = i.Name,
@@ -41,7 +41,7 @@ namespace Store_Application.Application.Services.Products.Queries.GetProductForA
                         }).ToList(),
             }).SingleOrDefault(p => p.Id.Equals(productId));
 
-            return new ResultDto<ResultGetProductDto>
+            return new ResultDto<ResultGetProductForAdminDto>
             {
                 Data = product,
                 IsSuccess = true,

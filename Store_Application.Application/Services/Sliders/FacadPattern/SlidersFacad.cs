@@ -1,6 +1,6 @@
 ﻿using Store_Application.Application.Interfaces.Context;
 using Store_Application.Application.Interfaces.FacadPattern;
-using Store_Application.Application.Services.Sliders.Queries.GetSliders;
+using Store_Application.Application.Services.Sliders.Queries.GetSlidersForAdmin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +17,12 @@ namespace Store_Application.Application.Services.Sliders.FacadPattern
             _db = db;
         }
 
-        private IGetSlidersService _getSlidersService;
-        public IGetSlidersService GetSlidersService
+        private IGetSlidersForAdminService _getSlidersForAdminService;
+        public IGetSlidersForAdminService GetSlidersForAdminService
         {
             get
             {
-                return _getSlidersService = _getSlidersService ?? new GetSlidersService(_db);
+                return _getSlidersForAdminService = _getSlidersForAdminService ?? new GetSlidersForAdminService(_db);
             }
         }
     }

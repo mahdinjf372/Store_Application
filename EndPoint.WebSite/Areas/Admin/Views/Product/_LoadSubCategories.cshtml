@@ -1,12 +1,10 @@
-﻿@using Store_Application.Application.Services.Categories.Queries.GetCategories
-@using Store_Application.Common.ViewModels
+﻿@using EndPoint.WebSite.Areas.Admin.Models.Product.LoadSubCategories
+@model List<SubCategoryViewModel>
 
-@model ResultDto<List<ResultGetCategoriesDto>>
-
-@if (Model.Data.Any())
+@if (Model.Any())
 {
     <option value="0">انتخاب زیرگروه</option>
-    foreach (var cat in Model.Data)
+    foreach (var cat in Model)
     {
         <option value="@cat.Id">@cat.Title</option>
     }

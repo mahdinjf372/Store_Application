@@ -1,11 +1,13 @@
 ﻿using EndPoint.WebSite.Areas.Admin.Models.Category.AddSubCategory;
 using EndPoint.WebSite.Areas.Admin.Models.Category.CreateCategory;
 using EndPoint.WebSite.Areas.Admin.Models.Category.EditCategory;
+using EndPoint.WebSite.Areas.Admin.Models.Category.LoadCategories;
+using EndPoint.WebSite.Areas.Admin.Models.Category.LoadSubCategories;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Store_Application.Application.Interfaces.FacadPattern;
 using Store_Application.Application.Services.Categories.Commands.AddCategory;
-using Store_Application.Application.Services.Categories.Queries.GetCategories;
+using Store_Application.Application.Services.Categories.Queries.GetCategoriesForAdmin;
 using Store_Application.Common.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,8 +31,18 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         }
         public PartialViewResult LoadCategories()
         {
-            List<ResultGetCategoriesDto> categories = _productFacad.GetCategoriesService.Execute().Data;
-            return PartialView("/Areas/Admin/Views/Category/_LoadCategories.cshtml", categories);
+            var categories = _productFacad.GetCategoriesForAdminService.Execute(IgnoreFilters:true);
+
+            List<CategoryViewModel> model = categories.Data.Select(c => new CategoryViewModel
+            {
+                Id = c.Id,
+                Title = c.Title,
+                ImageName = c.ImageName,
+                isRemoved = c.isRemoved,
+                ParentCategoryId = c.ParentCategoryId
+            }).ToList();
+
+            return PartialView("/Areas/Admin/Views/Category/_LoadCategories.cshtml", model);
         }
 
         [HttpPost]
@@ -48,7 +60,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
                 return Json(res);
             }
 
-            if (_productFacad.GetCategoriesService.Execute().Data.Where(c => !c.isRemoved).Count() >= 6)
+            if (_productFacad.GetCategoriesForAdminService.Execute(IgnoreFilters:false).Data.Count() >= 6)
             {
                 res.Message = "به دلیل محدودیت های قالب سایت نمیتوان بیش از ۶ دسته بندی ثبت کرد";
                 return Json(res);
@@ -98,9 +110,18 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
 
         public PartialViewResult LoadSubCategories(int? parentCategoryId = null)
         {
-            var categories = _productFacad.GetCategoriesService.Execute(parentCategoryId);
+            var categories = _productFacad.GetCategoriesForAdminService.Execute(parentCategoryId,IgnoreFilters:true);
 
-            return PartialView("Areas/Admin/Views/Category/_LoadSubCategories.cshtml", categories.Data);
+            List<SubCategoryViewModel> model = categories.Data.Select(c => new SubCategoryViewModel
+            {
+                Id = c.Id,
+                ImageName = c.ImageName,
+                Title = c.Title,
+                isRemoved = c.isRemoved,
+                ParentCategoryId = c.ParentCategoryId
+            }).ToList();
+
+            return PartialView("Areas/Admin/Views/Category/_LoadSubCategories.cshtml", model);
         }
 
         public IActionResult AddSubCategory(AddSubCategoryViewModel req)

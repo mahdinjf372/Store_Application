@@ -3,7 +3,7 @@ using Store_Application.Application.Interfaces.FacadPattern;
 using Store_Application.Application.Services.Advertinig.Commands.Add;
 using Store_Application.Application.Services.Advertinig.Commands.Delete;
 using Store_Application.Application.Services.Advertinig.Commands.Edit;
-using Store_Application.Application.Services.Advertinig.Queries.GetAdvertisings;
+using Store_Application.Application.Services.Advertinig.Queries.GetAdvertisingsForAdmin;
 using Store_Application.Application.Services.Advertinig.Queries.IsExist;
 
 namespace Store_Application.Application.Services.Advertinig.FacadPattern
@@ -16,12 +16,12 @@ namespace Store_Application.Application.Services.Advertinig.FacadPattern
             _db = db;
         }
 
-        private IGetAdvertisingsService _getAdvertisingsService;
-        public IGetAdvertisingsService GetAdvertisingsService
+        private IGetAdvertisingsForAdminService _getAdvertisingsForAdminService;
+        public IGetAdvertisingsForAdminService GetAdvertisingsForAdminService
         {
             get
             {
-                return _getAdvertisingsService = _getAdvertisingsService ?? new GetAdvertisingsService(_db);
+                return _getAdvertisingsForAdminService = _getAdvertisingsForAdminService ?? new GetAdvertisingsForAdminService(_db);
             }
         }
 

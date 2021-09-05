@@ -3,7 +3,7 @@ using Store_Application.Application.Interfaces.FacadPattern;
 using Store_Application.Application.Services.Categories.Commands.AddCategory;
 using Store_Application.Application.Services.Categories.Commands.EditCategory;
 using Store_Application.Application.Services.Categories.Commands.RemoveCategory;
-using Store_Application.Application.Services.Categories.Queries.GetCategories;
+using Store_Application.Application.Services.Categories.Queries.GetCategoriesForAdmin;
 using Store_Application.Application.Services.Categories.Queries.IsExistCategory;
 
 namespace Store_Application.Application.Services.Categories.FacadPattern
@@ -16,12 +16,12 @@ namespace Store_Application.Application.Services.Categories.FacadPattern
             _db = db;
         }
 
-        private IGetCategoriesService _getCategoriesService;
-        public IGetCategoriesService GetCategoriesService
+        private IGetCategoriesForAdminService _getCategoriesForAdminService;
+        public IGetCategoriesForAdminService GetCategoriesForAdminService
         {
             get
             {
-                return _getCategoriesService = _getCategoriesService ?? new GetCategoriesService(_db);
+                return _getCategoriesForAdminService = _getCategoriesForAdminService ?? new GetCategoriesForAdminService(_db);
             }
         }
 

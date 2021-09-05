@@ -2,26 +2,21 @@
 using Store_Application.Application.Interfaces.FacadPattern;
 using Store_Application.Application.Senders.Email.ActivationCode;
 using Store_Application.Application.Services.Users.Commands.ActiveUser;
-using Store_Application.Application.Services.Users.Commands.ChangeUserStatus;
-using Store_Application.Application.Services.Users.Commands.EditUser;
+using Store_Application.Application.Services.Users.Commands.ChangeUserStatusForAdmin;
+using Store_Application.Application.Services.Users.Commands.EditUserForAdmin;
 using Store_Application.Application.Services.Users.Commands.RecoveryPasswordByActivationCode;
-using Store_Application.Application.Services.Users.Commands.RegisterUser;
-using Store_Application.Application.Services.Users.Commands.RemoveUser;
+using Store_Application.Application.Services.Users.Commands.RegisterUserForAdmin;
+using Store_Application.Application.Services.Users.Commands.RemoveUserForAdmin;
 using Store_Application.Application.Services.Users.Queries.GetActivationCodeByEmail;
-using Store_Application.Application.Services.Users.Queries.GetRoles;
+using Store_Application.Application.Services.Users.Queries.GetRolesForAdmin;
 using Store_Application.Application.Services.Users.Queries.GetUserByEmail;
-using Store_Application.Application.Services.Users.Queries.GetUserById;
-using Store_Application.Application.Services.Users.Queries.GetUsers;
+using Store_Application.Application.Services.Users.Queries.GetUserByIdForAdmin;
+using Store_Application.Application.Services.Users.Queries.GetUsersForAdmin;
 using Store_Application.Application.Services.Users.Queries.IsExistActiveCode;
 using Store_Application.Application.Services.Users.Queries.IsExistEmail;
-using Store_Application.Application.Services.Users.Queries.IsExistRole;
-using Store_Application.Application.Services.Users.Queries.IsExistUser;
+using Store_Application.Application.Services.Users.Queries.IsExistRoleForAdmin;
+using Store_Application.Application.Services.Users.Queries.IsExistUserForAdmin;
 using Store_Application.Application.Services.Users.Queries.LoginUser;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Store_Application.Application.Services.Users.FacadPattern
 {
@@ -46,22 +41,22 @@ namespace Store_Application.Application.Services.Users.FacadPattern
         }
 
 
-        private IChangeUserStatusService _changeUserStatusService;
-        public IChangeUserStatusService ChangeUserStatusService
+        private IChangeUserStatusForAdminService _changeUserStatusForAdminService;
+        public IChangeUserStatusForAdminService ChangeUserStatusForAdminService
         {
             get
             {
-                return _changeUserStatusService = _changeUserStatusService ?? new ChangeUserStatusService(_db);
+                return _changeUserStatusForAdminService = _changeUserStatusForAdminService ?? new ChangeUserStatusForAdminService(_db);
             }
         }
 
 
-        private IEditUserService _editUserService;
-        public IEditUserService EditUserService
+        private IEditUserForAdminService _editUserForAdminService;
+        public IEditUserForAdminService EditUserForAdminService
         {
             get
             {
-                return _editUserService = _editUserService ?? new EditUserService(_db);
+                return _editUserForAdminService = _editUserForAdminService ?? new EditUserForAdminService(_db);
             }
         }
 
@@ -76,22 +71,22 @@ namespace Store_Application.Application.Services.Users.FacadPattern
         }
 
 
-        private IRegisterUserService _registerUserService;
-        public IRegisterUserService RegisterUserService
+        private IRegisterUserForAdminService _registerUserForAdminService;
+        public IRegisterUserForAdminService RegisterUserForAdminService
         {
             get
             {
-                return _registerUserService = _registerUserService ?? new RegisterUserService(_db, _sendActivationLinkEmailService);
+                return _registerUserForAdminService = _registerUserForAdminService ?? new RegisterUserForAdminService(_db, _sendActivationLinkEmailService);
             }
         }
 
 
-        private IRemoveUserService _removeUserService;
-        public IRemoveUserService RemoveUserService
+        private IRemoveUserForAdminService _removeUserForAdminService;
+        public IRemoveUserForAdminService RemoveUserForAdminService
         {
             get
             {
-                return _removeUserService = _removeUserService ?? new RemoveUserService(_db);
+                return _removeUserForAdminService = _removeUserForAdminService ?? new RemoveUserForAdminService(_db);
             }
         }
 
@@ -106,12 +101,12 @@ namespace Store_Application.Application.Services.Users.FacadPattern
         }
 
 
-        private IGetRolesService _getRolesService;
-        public IGetRolesService GetRolesService
+        private IGetRolesForAdminService _getRolesForAdminService;
+        public IGetRolesForAdminService GetRolesForAdminService
         {
             get
             {
-                return _getRolesService = _getRolesService ?? new GetRolesService(_db);
+                return _getRolesForAdminService = _getRolesForAdminService ?? new GetRolesForAdminService(_db);
             }
         }
 
@@ -126,22 +121,22 @@ namespace Store_Application.Application.Services.Users.FacadPattern
         }
 
 
-        private IGetUserByIdService _getUserByIdService;
-        public IGetUserByIdService GetUserByIdService
+        private IGetUserByIdForAdminService _getUserByIdForAdminService;
+        public IGetUserByIdForAdminService GetUserByIdForAdminService
         {
             get
             {
-                return _getUserByIdService = _getUserByIdService ?? new GetUserByIdService(_db);
+                return _getUserByIdForAdminService = _getUserByIdForAdminService ?? new GetUserByIdForAdminService(_db);
             }
         }
 
 
-        private IGetUsersService _getUsersService;
-        public IGetUsersService GetUsersService
+        private IGetUsersForAdminService _getUsersForAdminService;
+        public IGetUsersForAdminService GetUsersForAdminService
         {
             get
             {
-                return _getUsersService = _getUsersService ?? new GetUsersService(_db);
+                return _getUsersForAdminService = _getUsersForAdminService ?? new GetUsersForAdminService(_db);
             }
         }
 
@@ -166,22 +161,22 @@ namespace Store_Application.Application.Services.Users.FacadPattern
         }
 
 
-        private IisExistRoleService _isExistRoleService;
-        public IisExistRoleService isExistRoleService
+        private IisExistRoleForAdminService _isExistRoleForAdminService;
+        public IisExistRoleForAdminService isExistRoleForAdminService
         {
             get
             {
-                return _isExistRoleService = _isExistRoleService ?? new isExistRoleService(_db);
+                return _isExistRoleForAdminService = _isExistRoleForAdminService ?? new isExistRoleForAdminService(_db);
             }
         }
 
 
-        private IisExistUserService _isExistUserService;
-        public IisExistUserService isExistUserService
+        private IisExistUserForAdminService _isExistUserForAdminService;
+        public IisExistUserForAdminService isExistUserForAdminService
         {
             get
             {
-                return _isExistUserService = _isExistUserService ?? new isExistUserService(_db);
+                return _isExistUserForAdminService = _isExistUserForAdminService ?? new isExistUserForAdminService(_db);
             }
         }
 

@@ -16,7 +16,7 @@ namespace Store_Application.Application.Services.Products.Queries.GetProductsFor
             _db = db;
         }
 
-        public ResultDto<ResultGetProductsDto> Execute(RequestGetProductsDto req)
+        public ResultDto<ResultGetProductsForAdminDto> Execute(RequestGetProductsForAdminDto req)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace Store_Application.Application.Services.Products.Queries.GetProductsFor
 
                 var productsDto = products
                     .Include(p => p.Category).ThenInclude(c => c.ParentCategory).ThenInclude(c => c.ParentCategory)
-                    .Select(p => new GetProductsDto
+                    .Select(p => new GetProductsForAdminDto
                     {
                         Id = p.Id,
                         Title = p.Title,
@@ -48,14 +48,14 @@ namespace Store_Application.Application.Services.Products.Queries.GetProductsFor
                 double ee = ((double)rowCount) / ((double)req.Take);
                 int pageCount = (int)Math.Ceiling(ee);
 
-                ResultGetProductsDto res = new ResultGetProductsDto()
+                ResultGetProductsForAdminDto res = new ResultGetProductsForAdminDto()
                 {
                     Products = productsDto,
                     CurrentPage = req.Page,
                     PageCount = pageCount
                 };
 
-                return new ResultDto<ResultGetProductsDto>
+                return new ResultDto<ResultGetProductsForAdminDto>
                 {
                     Data = res,
                     IsSuccess = true,
@@ -64,7 +64,7 @@ namespace Store_Application.Application.Services.Products.Queries.GetProductsFor
             }
             catch (Exception)
             {
-                return new ResultDto<ResultGetProductsDto>()
+                return new ResultDto<ResultGetProductsForAdminDto>()
                 {
                     Data = null,
                     IsSuccess = false,

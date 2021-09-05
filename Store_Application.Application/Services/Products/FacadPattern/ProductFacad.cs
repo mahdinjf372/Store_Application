@@ -5,8 +5,8 @@ using Store_Application.Application.Services.Products.Commands.AddProduct;
 using Store_Application.Application.Services.Products.Commands.DeleteImage;
 using Store_Application.Application.Services.Products.Commands.DeleteProduct;
 using Store_Application.Application.Services.Products.Commands.EditProduct;
-using Store_Application.Application.Services.Products.Queries.GetGalleryImage;
-using Store_Application.Application.Services.Products.Queries.GetGalleryImages;
+using Store_Application.Application.Services.Products.Queries.GetGalleryImageForAdmin;
+using Store_Application.Application.Services.Products.Queries.GetGalleryImagesForAdmin;
 using Store_Application.Application.Services.Products.Queries.GetProductForAdmin;
 using Store_Application.Application.Services.Products.Queries.GetProductsForAdmin;
 using Store_Application.Application.Services.Products.Queries.IsExistImage;
@@ -54,12 +54,12 @@ namespace Store_Application.Application.Services.Products.FacadPattern
             }
         }
 
-        private IGetGalleryImagesService _getGalleryImagesService;
-        public IGetGalleryImagesService GetGalleryImagesService
+        private IGetGalleryImagesForAdminService _getGalleryImagesForAdminService;
+        public IGetGalleryImagesForAdminService GetGalleryImagesForAdminService
         {
             get
             {
-                return _getGalleryImagesService = _getGalleryImagesService ?? new GetGalleryImagesService(_db);
+                return _getGalleryImagesForAdminService = _getGalleryImagesForAdminService ?? new GetGalleryImagesForAdminService(_db);
             }
         }
 
@@ -91,12 +91,12 @@ namespace Store_Application.Application.Services.Products.FacadPattern
             }
         }
 
-        private IGetGalleryImageService _getGalleryImageService;
-        public IGetGalleryImageService GetGalleryImageService
+        private IGetGalleryImageForAdminService _getGalleryImageForAdminService;
+        public IGetGalleryImageForAdminService GetGalleryImageForAdminService
         {
             get
             {
-                return _getGalleryImageService = _getGalleryImageService ?? new GetGalleryImageService(_db);
+                return _getGalleryImageForAdminService = _getGalleryImageForAdminService ?? new GetGalleryImageForAdminService(_db);
             }
         }
         

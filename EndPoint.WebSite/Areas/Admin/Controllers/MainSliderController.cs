@@ -24,7 +24,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var model = _mainSliderFacad.GetSlidesService.Execute().Data.Select(s => new MainSlideViewModel
+            var model = _mainSliderFacad.GetSlidesForAdminService.Execute().Data.Select(s => new MainSlideViewModel
             {
                 Id = s.Id,
                 ImageName = s.ImageName,
@@ -77,7 +77,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
                 return Json(res);
             }
 
-            var slide = _mainSliderFacad.GetSlideService.Execute(req.Id).Data;
+            var slide = _mainSliderFacad.GetSlideForAdminService.Execute(req.Id).Data;
 
             if (slide == null)
             {
@@ -102,7 +102,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         public IActionResult Delete(int id)
         {
             var res = new ResultDto();
-            var slide = _mainSliderFacad.GetSlideService.Execute(id).Data;
+            var slide = _mainSliderFacad.GetSlideForAdminService.Execute(id).Data;
             if (slide == null)
             {
                 res.IsSuccess = false;

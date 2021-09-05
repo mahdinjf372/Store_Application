@@ -7,6 +7,6 @@ namespace Store_Application.Application.Services.Products.Queries.GetProductsFor
 {
     public interface IGetProductsForAdminService
     {
-        ResultDto<ResultGetProductsDto> Execute(RequestGetProductsDto req);
+        ResultDto<ResultGetProductsForAdminDto> Execute(RequestGetProductsForAdminDto req);
     }
 }

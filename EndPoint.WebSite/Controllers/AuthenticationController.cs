@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Store_Application.Application.Interfaces.FacadPattern;
 using Store_Application.Application.Senders.Email.ChangePassword;
-using Store_Application.Application.Services.Users.Commands.RegisterUser;
+using Store_Application.Application.Services.Users.Commands.RegisterUserForAdmin;
 using Store_Application.Application.Services.Users.Queries.LoginUser;
 using Store_Application.Domain.Enums;
 using System.Collections.Generic;
@@ -52,7 +52,7 @@ namespace EndPoint.WebSite.Controllers
                 return View(req);
             }
 
-            var dbRes = _userFacad.RegisterUserService.Execute(new RequestRegisterUserDto
+            var dbRes = _userFacad.RegisterUserForAdminService.Execute(new RequestRegisterUserForAdminDto
             {
                 Email = req.Email,
                 Password = req.Password,

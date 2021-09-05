@@ -1,18 +1,18 @@
 ﻿using Store_Application.Application.Services.Users.Commands.ActiveUser;
-using Store_Application.Application.Services.Users.Commands.ChangeUserStatus;
-using Store_Application.Application.Services.Users.Commands.EditUser;
+using Store_Application.Application.Services.Users.Commands.ChangeUserStatusForAdmin;
+using Store_Application.Application.Services.Users.Commands.EditUserForAdmin;
 using Store_Application.Application.Services.Users.Commands.RecoveryPasswordByActivationCode;
-using Store_Application.Application.Services.Users.Commands.RegisterUser;
-using Store_Application.Application.Services.Users.Commands.RemoveUser;
+using Store_Application.Application.Services.Users.Commands.RegisterUserForAdmin;
+using Store_Application.Application.Services.Users.Commands.RemoveUserForAdmin;
 using Store_Application.Application.Services.Users.Queries.GetActivationCodeByEmail;
-using Store_Application.Application.Services.Users.Queries.GetRoles;
+using Store_Application.Application.Services.Users.Queries.GetRolesForAdmin;
 using Store_Application.Application.Services.Users.Queries.GetUserByEmail;
-using Store_Application.Application.Services.Users.Queries.GetUserById;
-using Store_Application.Application.Services.Users.Queries.GetUsers;
+using Store_Application.Application.Services.Users.Queries.GetUserByIdForAdmin;
+using Store_Application.Application.Services.Users.Queries.GetUsersForAdmin;
 using Store_Application.Application.Services.Users.Queries.IsExistActiveCode;
 using Store_Application.Application.Services.Users.Queries.IsExistEmail;
-using Store_Application.Application.Services.Users.Queries.IsExistRole;
-using Store_Application.Application.Services.Users.Queries.IsExistUser;
+using Store_Application.Application.Services.Users.Queries.IsExistRoleForAdmin;
+using Store_Application.Application.Services.Users.Queries.IsExistUserForAdmin;
 using Store_Application.Application.Services.Users.Queries.LoginUser;
 
 namespace Store_Application.Application.Interfaces.FacadPattern
@@ -20,20 +20,20 @@ namespace Store_Application.Application.Interfaces.FacadPattern
     public interface IUserFacad
     {
         IActiveUserService ActiveUserService { get; }
-        IChangeUserStatusService ChangeUserStatusService { get; }
-        IEditUserService EditUserService { get; }
+        IChangeUserStatusForAdminService ChangeUserStatusForAdminService { get; }
+        IEditUserForAdminService EditUserForAdminService { get; }
         IRecoveryPasswordByActivationCodeService RecoveryPasswordByActivationCodeService { get; }
-        IRegisterUserService RegisterUserService { get; }
-        IRemoveUserService RemoveUserService { get; }
+        IRegisterUserForAdminService RegisterUserForAdminService { get; }
+        IRemoveUserForAdminService RemoveUserForAdminService { get; }
         IGetActivationCodeByEmailService GetActivationCodeByEmailService { get; }
-        IGetRolesService GetRolesService { get; }
+        IGetRolesForAdminService GetRolesForAdminService { get; }
         IGetUserByEmailService GetUserByEmailService { get; }
-        IGetUserByIdService GetUserByIdService { get; }
-        IGetUsersService GetUsersService { get; }
+        IGetUserByIdForAdminService GetUserByIdForAdminService { get; }
+        IGetUsersForAdminService GetUsersForAdminService { get; }
         IisExistActiveCodeService isExistActiveCodeService { get; }
         IisExistEmailService isExistEmailService { get; }
-        IisExistRoleService isExistRoleService { get; }
-        IisExistUserService isExistUserService { get; }
+        IisExistRoleForAdminService isExistRoleForAdminService { get; }
+        IisExistUserForAdminService isExistUserForAdminService { get; }
         ILoginUserService LoginUserService { get; }
 
     }

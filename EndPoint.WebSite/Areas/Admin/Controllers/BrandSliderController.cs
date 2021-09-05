@@ -59,7 +59,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         public IActionResult Delete(int id)
         {
             var res = new ResultDto();
-            var slide = _brandSliderFacad.GetSlideService.Execute(id).Data;
+            var slide = _brandSliderFacad.GetSlideForAdminService.Execute(id).Data;
             if (slide == null)
             {
                 res.IsSuccess = false;
@@ -75,7 +75,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         [HttpGet]
         public PartialViewResult LoadSlides()
         {
-            var model = _brandSliderFacad.GetSlidesService.Execute().Data.Select(s => new LoadSlideViewModel
+            var model = _brandSliderFacad.GetSlidesForAdminService.Execute().Data.Select(s => new LoadSlideViewModel
             {
                 Id = s.Id,
                 ImageName = s.ImageName,

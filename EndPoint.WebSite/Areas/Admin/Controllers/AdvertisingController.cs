@@ -40,7 +40,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         {
             ViewBag.page = page;
             ViewBag.take = take;
-            var res = _advertisingFacad.GetAdvertisingsService.Execeute(page,take);
+            var res = _advertisingFacad.GetAdvertisingsForAdminService.Execeute(page,take);
 
             var ads = res.Data.Ads.Select(a => new AdvertisingViewModel
             {

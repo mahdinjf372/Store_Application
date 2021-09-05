@@ -3,8 +3,8 @@ using Store_Application.Application.Interfaces.FacadPattern;
 using Store_Application.Application.Services.MainSlider.Commands.Add;
 using Store_Application.Application.Services.MainSlider.Commands.Delete;
 using Store_Application.Application.Services.MainSlider.Commands.Edit;
-using Store_Application.Application.Services.MainSlider.Queries.GetSlide;
-using Store_Application.Application.Services.MainSlider.Queries.GetSlides;
+using Store_Application.Application.Services.MainSlider.Queries.GetSlideForAdmin;
+using Store_Application.Application.Services.MainSlider.Queries.GetSlidesForAdmin;
 
 namespace Store_Application.Application.Services.MainSlider.FacadPattern
 {
@@ -44,22 +44,22 @@ namespace Store_Application.Application.Services.MainSlider.FacadPattern
             }
         }
 
-        private IGetSlidesService _getSlidesService;
-        public IGetSlidesService GetSlidesService
+        private IGetSlidesForAdminService _getSlidesForAdminService;
+        public IGetSlidesForAdminService GetSlidesForAdminService
         {
             get
             {
-                return _getSlidesService = _getSlidesService ?? new GetSlidesService(_db);
+                return _getSlidesForAdminService = _getSlidesForAdminService ?? new GetSlidesForAdminService(_db);
             }
         }
 
 
-        private IGetSlideService _getSlideService;
-        public IGetSlideService GetSlideService
+        private IGetSlideForAdminService _getSlideForAdminService;
+        public IGetSlideForAdminService GetSlideForAdminService
         {
             get
             {
-                return _getSlideService = _getSlideService ?? new GetSlideService(_db);
+                return _getSlideForAdminService = _getSlideForAdminService ?? new GetSlideForAdminService(_db);
             }
         }
         

@@ -1,6 +1,8 @@
 ﻿using EndPoint.WebSite.Models;
+using EndPoint.WebSite.Models.Home.Index;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Store_Application.Application.Interfaces.FacadPattern;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,27 +13,27 @@ namespace EndPoint.WebSite.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ICategoryFacad _categoryFacad;
+        public HomeController(ICategoryFacad categoryFacad)
         {
-            _logger = logger;
+            _categoryFacad = categoryFacad;
         }
 
         public IActionResult Index()
         {
+            HomeViewModel model = new HomeViewModel();
+
+            var categories = _categoryFacad.GetCategoriesForAdminService.Execute(IgnoreFilters: false);
+
+            model.Categories = categories.Data.Select(c => new CategoryViewModel
+            {
+                Id = c.Id,
+                Title = c.Title,
+                ParentId = c.ParentCategoryId
+            });
+
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }
