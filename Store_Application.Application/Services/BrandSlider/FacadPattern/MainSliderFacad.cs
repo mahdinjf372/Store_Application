@@ -4,6 +4,7 @@ using Store_Application.Application.Services.BrandSlider.Commands.Add;
 using Store_Application.Application.Services.BrandSlider.Commands.Delete;
 using Store_Application.Application.Services.BrandSlider.Queries.GetSlideForAdmin;
 using Store_Application.Application.Services.BrandSlider.Queries.GetSlidesForAdmin;
+using Store_Application.Application.Services.BrandSlider.Queries.GetSlides;
 
 namespace Store_Application.Application.Services.BrandSlider.FacadPattern
 {
@@ -50,6 +51,16 @@ namespace Store_Application.Application.Services.BrandSlider.FacadPattern
             get
             {
                 return _getSlideForAdminService = _getSlideForAdminService ?? new GetSlideForAdminService(_db);
+            }
+        }
+
+
+        private IGetSlidesService _getSlidesService;
+        public IGetSlidesService GetSlidesService
+        {
+            get
+            {
+                return _getSlidesService = _getSlidesService ?? new GetSlidesService(_db);
             }
         }
     }

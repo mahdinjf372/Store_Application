@@ -5,7 +5,7 @@ namespace Store_Application.Application.Interfaces.FacadPattern
 {
     public interface IBrandFacad
     {
-       IGetBrandsForAdminService GetBrandsForAdminService { get; }
-       IisExistBrandService IsExistBrandService { get; }
+        IGetBrandsForAdminService GetBrandsForAdminService { get; }
+        IisExistBrandService IsExistBrandService { get; }
     }
 }

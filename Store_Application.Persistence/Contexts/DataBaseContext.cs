@@ -66,6 +66,12 @@ namespace Store_Application.Persistence.Contexts
             modelBuilder.Entity<Role>().HasQueryFilter(r => !r.isRemoved);
             modelBuilder.Entity<Category>().HasQueryFilter(c => !c.isRemoved);
             modelBuilder.Entity<Product>().HasQueryFilter(p => !p.isRemoved);
+            modelBuilder.Entity<Feature>().HasQueryFilter(p => !p.isRemoved);
+            modelBuilder.Entity<ProductImage>().HasQueryFilter(p => !p.isRemoved);
+            modelBuilder.Entity<Brand>().HasQueryFilter(p => !p.isRemoved);
+            modelBuilder.Entity<Slider>().HasQueryFilter(p => !p.isRemoved);
+            modelBuilder.Entity<ProductSlider>().HasQueryFilter(p => !p.isRemoved);
+            modelBuilder.Entity<ProductFeature>().HasQueryFilter(p => !p.isRemoved);
             modelBuilder.Entity<MainSlider>().HasQueryFilter(s => !s.isRemoved);
             modelBuilder.Entity<BrandSlider>().HasQueryFilter(s => !s.isRemoved);
             modelBuilder.Entity<Advertising>().HasQueryFilter(s => !s.isRemoved);

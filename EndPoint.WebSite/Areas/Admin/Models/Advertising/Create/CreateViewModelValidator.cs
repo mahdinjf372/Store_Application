@@ -14,8 +14,8 @@ namespace EndPoint.WebSite.Areas.Admin.Models.Advertising.Create
                 .NotEmpty().WithMessage("نام بنر اجباریست");
 
             RuleFor(x => x.Description)
-                .NotNull().WithMessage("نام بنر اجباریست")
-                .NotEmpty().WithMessage("نام بنر اجباریست");
+                .NotNull().WithMessage("توضیح برای بنر اجباریست")
+                .NotEmpty().WithMessage("توضیح برای بنر اجباریست");
 
             RuleFor(x => x.Place)
                 .Must(PlaceValidator).WithMessage("لطفا مکان بنر را انتخاب نمایید");

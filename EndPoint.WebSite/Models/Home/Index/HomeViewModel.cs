@@ -16,5 +16,6 @@ namespace EndPoint.WebSite.Models.Home.Index
         public string Title { get; set; }
         public int? ParentId { get; set; }
         public CategoryViewModel Parent { get; set; }
+        public List<CategoryViewModel> SubCategories { get; set; }
     }
 }

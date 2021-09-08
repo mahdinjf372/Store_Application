@@ -1,0 +1,107 @@
+﻿@using EndPoint.WebSite.Models.Components.Banners_Middle;
+@using Store_Application.Domain.Enums;
+@model IEnumerable<BannerViewModel>
+@{
+    var Long = Model.SingleOrDefault(a => a.Place == AdvertisingPlaces.Long);
+    var Bottom1 = Model.SingleOrDefault(a => a.Place == AdvertisingPlaces.Bottom1);
+    var Bottom2 = Model.SingleOrDefault(a => a.Place == AdvertisingPlaces.Bottom2);
+    var Bottom3 = Model.SingleOrDefault(a => a.Place == AdvertisingPlaces.Bottom3);
+    var Bottom4 = Model.SingleOrDefault(a => a.Place == AdvertisingPlaces.Bottom4);
+}
+<div class="container-main">
+    <div class="d-block">
+        <div class="adplacement-container-row">
+            <div class="col-12">
+                @if (Long != null)
+                {
+                    <a href="@Long.LinkTo" class="adplacement-item mb-4">
+                        <div class="adplacement-sponsored_box">
+                            <img src="/images/adplacement/@Long.ImageName">
+                        </div>
+                    </a>
+                }
+                else
+                {
+                    <a class="adplacement-item mb-4">
+                        <div class="adplacement-sponsored_box">
+                            <img src="/images/adplacement/bottomLong_default.jpg">
+                        </div>
+                    </a>
+                }
+
+            </div>
+            <div class="col-6 col-lg-3 pr">
+                @if (Bottom4 != null)
+                {
+                    <a href="@Bottom4.LinkTo" class="adplacement-item mb-4">
+                        <div class="adplacement-sponsored_box">
+                            <img src="/images/adplacement/@Bottom4.ImageName">
+                        </div>
+                    </a>
+                }
+                else
+                {
+                    <a class="adplacement-item mb-4">
+                        <div class="adplacement-sponsored_box">
+                            <img src="/images/adplacement/bottom4_default.jpg">
+                        </div>
+                    </a>
+                }
+            </div>
+            <div class="col-6 col-lg-3 pr">
+                @if (Bottom3 != null)
+                {
+                    <a href="@Bottom3.LinkTo" class="adplacement-item mb-4">
+                        <div class="adplacement-sponsored_box">
+                            <img src="/images/adplacement/@Bottom3.ImageName">
+                        </div>
+                    </a>
+                }
+                else
+                {
+                    <a class="adplacement-item mb-4">
+                        <div class="adplacement-sponsored_box">
+                            <img src="/images/adplacement/bottom3_default.jpg">
+                        </div>
+                    </a>
+                }
+            </div>
+            <div class="col-6 col-lg-3 pr">
+                @if (Bottom2 != null)
+                {
+                    <a href="@Bottom2.LinkTo" class="adplacement-item mb-4">
+                        <div class="adplacement-sponsored_box">
+                            <img src="/images/adplacement/@Bottom2.ImageName">
+                        </div>
+                    </a>
+                }
+                else
+                {
+                    <a class="adplacement-item mb-4">
+                        <div class="adplacement-sponsored_box">
+                            <img src="/images/adplacement/bottom2_default.jpg">
+                        </div>
+                    </a>
+                }
+            </div>
+            <div class="col-6 col-lg-3 pr">
+                @if (Bottom1 != null)
+                {
+                    <a href="@Bottom1.LinkTo" class="adplacement-item mb-4">
+                        <div class="adplacement-sponsored_box">
+                            <img src="/images/adplacement/@Bottom1.ImageName">
+                        </div>
+                    </a>
+                }
+                else
+                {
+                    <a class="adplacement-item mb-4">
+                        <div class="adplacement-sponsored_box">
+                            <img src="/images/adplacement/bottom1_default.jpg">
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</div>

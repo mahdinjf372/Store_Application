@@ -1,0 +1,70 @@
+﻿@using EndPoint.WebSite.Models.Components.Banners_Top;
+@using Store_Application.Domain.Enums;
+@model IEnumerable<BannerViewModel>
+
+<div class="col-lg-4 col-md-4 col-xs-12 pl mt-1">
+    <div class="adplacement-container-column">
+        @{
+            var topLeft_1 = Model.SingleOrDefault(a => a.Place == AdvertisingPlaces.TopLeft1);
+            var topLeft_2 = Model.SingleOrDefault(a => a.Place == AdvertisingPlaces.TopLeft2);
+            var topRight = Model.SingleOrDefault(a => a.Place == AdvertisingPlaces.TopRight);
+
+        }
+        @if (topLeft_1 != null)
+        {
+            <a href="@topLeft_1.LinkTo" class="adplacement-item">
+                <div class="adplacement-sponsored-box">
+                    <img src="/images/adplacement/@topLeft_1.ImageName" alt="@topLeft_1.Title">
+                </div>
+            </a>
+        }
+        else
+        {
+            <a class="adplacement-item">
+                <div class="adplacement-sponsored-box">
+                    <img src="/images/adplacement/topLeft1_default.jpg" >
+                </div>
+            </a>
+        }
+
+        @if (topLeft_2 != null)
+        {
+            <a href="@topLeft_2.LinkTo" class="adplacement-item">
+                <div class="adplacement-sponsored-box">
+                    <img src="/images/adplacement/@topLeft_2.ImageName" alt="@topLeft_2.Title">
+                </div>
+            </a>
+        }
+        else
+        {
+            <a class="adplacement-item">
+                <div class="adplacement-sponsored-box">
+                    <img src="/images/adplacement/topLeft2_default.jpg">
+                </div>
+            </a>
+        }
+
+
+    </div>
+</div>
+<div class="col-lg-3 col-md-3 col-xs-12 pr">
+    <div class="adplacement-container-column mt-4">
+        @if (topRight != null)
+        {
+            <a href="@topRight.LinkTo" class="adplacement-item img-banner">
+                <div class="adplacement-sponsored-box">
+                    <img src="/images/adplacement/@topRight.ImageName" alt="@topRight.Title">
+                </div>
+            </a>
+        }
+        else
+        {
+            <a class="adplacement-item">
+                <div class="adplacement-sponsored-box">
+                    <img src="/images/adplacement/topRight_default.jpg" >
+                </div>
+            </a>
+        }
+
+    </div>
+</div>

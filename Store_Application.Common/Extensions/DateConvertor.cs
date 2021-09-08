@@ -20,7 +20,7 @@ namespace Store_Application.Common.Extentions
         public static DateTime ToMiladi(this DateTime date)
         {
             Calendar pc = new PersianCalendar();
-            DateTime dt = new DateTime(date.Year,date.Month,date.Day,pc);
+            DateTime dt = new DateTime(date.Year,date.Month,date.Day,date.Hour,date.Minute,date.Second,pc);
             return dt;
         }
     }

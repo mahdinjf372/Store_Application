@@ -2,6 +2,7 @@
 using Store_Application.Application.Services.MainSlider.Commands.Delete;
 using Store_Application.Application.Services.MainSlider.Commands.Edit;
 using Store_Application.Application.Services.MainSlider.Queries.GetSlideForAdmin;
+using Store_Application.Application.Services.MainSlider.Queries.GetSlides;
 using Store_Application.Application.Services.MainSlider.Queries.GetSlidesForAdmin;
 
 namespace Store_Application.Application.Interfaces.FacadPattern
@@ -13,6 +14,6 @@ namespace Store_Application.Application.Interfaces.FacadPattern
         IDeleteSlideService DeleteSlideService { get; }
         IGetSlidesForAdminService GetSlidesForAdminService { get; }
         IGetSlideForAdminService GetSlideForAdminService { get; }
-
+        IGetSlidesService GetSlidesService { get; }
     }
 }

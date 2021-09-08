@@ -5,6 +5,7 @@
 <table class="table table-responsive-sm text-center">
     <thead>
         <tr>
+            <th>کد</th>
             <th>تیتر بنر</th>
             <th>تاریخ شروع نمایش بنر</th>
             <th>تاریخ پایان نمایش بنر</th>
@@ -22,6 +23,7 @@
                 if (!ad.isRemoved)
                 {
                     <tr>
+                        <td class="success">@ad.Id</td>
                         <td>@ad.Title</td>
                         <td>@ad.StartDate.ToShamsi()</td>
                         <td>@ad.EndDate.ToShamsi()</td>
@@ -41,6 +43,7 @@
                 else
                 {
                     <tr class="bg-red bg-lighten-4">
+                        <td class="success">@ad.Id</td>
                         <td>@ad.Title</td>
                         <td>@ad.StartDate.ToShamsi()</td>
                         <td>@ad.EndDate.ToShamsi()</td>

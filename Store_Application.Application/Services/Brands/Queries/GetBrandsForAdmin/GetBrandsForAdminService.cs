@@ -24,7 +24,7 @@ namespace Store_Application.Application.Services.Brands.Queries.GetBrandsForAdmi
                 brands = brands.IgnoreQueryFilters();
             }
 
-            var res = _db.Brands.Select(b => new ResultGetBrandsForAdminDto
+            var res = brands.Select(b => new ResultGetBrandsForAdminDto
             {
                 Id = b.Id,
                 Name = b.Title

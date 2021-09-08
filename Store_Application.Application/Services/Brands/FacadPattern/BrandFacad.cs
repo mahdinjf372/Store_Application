@@ -23,6 +23,7 @@ namespace Store_Application.Application.Services.Brands.FacadPattern
                 return _getBrandsForAdminService = _getBrandsForAdminService ?? new GetBrandsForAdminService(_db);
             }
         }
+
         private IisExistBrandService _isExistBrandService;
         public IisExistBrandService IsExistBrandService
         {
