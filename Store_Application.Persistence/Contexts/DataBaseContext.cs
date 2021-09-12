@@ -10,6 +10,9 @@ using Store_Application.Application.Interfaces.Context;
 using Store_Application.Common.Roles;
 using Store_Application.Domain.Entities.Product;
 using Store_Application.Domain.Entities.Site;
+using Store_Application.Domain.Entities.Cart;
+using Store_Application.Domain.Entities.Order;
+using Store_Application.Domain.Entities.Finance;
 
 namespace Store_Application.Persistence.Contexts
 {
@@ -48,6 +51,26 @@ namespace Store_Application.Persistence.Contexts
 
         #endregion
 
+        #region Cart
+
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
+
+        #endregion
+
+        #region Order
+
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+
+        #endregion
+
+        #region Finance
+
+        public DbSet<RequestPay> RequestPays { get; set; }
+
+        #endregion
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
@@ -75,6 +98,8 @@ namespace Store_Application.Persistence.Contexts
             modelBuilder.Entity<MainSlider>().HasQueryFilter(s => !s.isRemoved);
             modelBuilder.Entity<BrandSlider>().HasQueryFilter(s => !s.isRemoved);
             modelBuilder.Entity<Advertising>().HasQueryFilter(s => !s.isRemoved);
+            modelBuilder.Entity<Cart>().HasQueryFilter(s => !s.isRemoved);
+            modelBuilder.Entity<CartItem>().HasQueryFilter(s => !s.isRemoved);
         }
 
         private void SeedData(ModelBuilder modelBuilder)
@@ -211,6 +236,28 @@ namespace Store_Application.Persistence.Contexts
 
             #endregion
 
+            #region CartItem
+
+            modelBuilder.Entity<CartItem>()
+                .HasKey(pf => pf.Id);
+
+            #endregion
+
+            #region Order
+
+            modelBuilder.Entity<Order>()
+                .HasOne(p => p.User)
+                .WithMany(p => p.Orders)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Order>()
+                .HasOne(p => p.RequestPay)
+                .WithMany(p => p.Orders)
+                .OnDelete(DeleteBehavior.NoAction);
+
+
+            #endregion
+
         }
 
         private void ApplyRelations(ModelBuilder modelBuilder)
@@ -295,6 +342,66 @@ namespace Store_Application.Persistence.Contexts
                 .HasOne(ps => ps.Slider)
                 .WithMany(p => p.ProductSliders)
                 .HasForeignKey(pi => pi.SliderId);
+
+            #endregion
+
+            #region Product-CartItem-Cart
+
+            modelBuilder.Entity<CartItem>()
+                .HasOne(ci => ci.Product)
+                .WithMany(p => p.CartItems)
+                .HasForeignKey(ci => ci.ProductId);
+
+            modelBuilder.Entity<CartItem>()
+                .HasOne(ci => ci.Cart)
+                .WithMany(c => c.CartItems)
+                .HasForeignKey(ci => ci.CartId);
+
+            #endregion
+
+            #region Cart-User
+
+            modelBuilder.Entity<Cart>()
+                .HasOne(c => c.User)
+                .WithMany(u => u.Carts)
+                .HasForeignKey(c => c.UserId);
+
+            #endregion
+
+            #region Product-OrderDetail-Order
+
+            modelBuilder.Entity<OrderDetail>()
+                .HasOne(od => od.Product)
+                .WithMany(p => p.OrderDetails)
+                .HasForeignKey(ci => ci.ProductId);
+
+            modelBuilder.Entity<OrderDetail>()
+                .HasOne(od => od.Order)
+                .WithMany(o => o.OrderDetails)
+                .HasForeignKey(od => od.OrderId);
+
+            #endregion
+
+            #region Order-User
+
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.User)
+                .WithMany(u => u.Orders)
+                .HasForeignKey(o => o.UserId);
+
+            #endregion
+
+            #region Order-RequestPay-User
+
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.RequestPay)
+                .WithMany(rp => rp.Orders)
+                .HasForeignKey(o => o.RequestPayId);
+
+            modelBuilder.Entity<RequestPay>()
+                .HasOne(rp => rp.User)
+                .WithMany(u => u.RequestPays)
+                .HasForeignKey(rp => rp.UserId);
 
             #endregion
 

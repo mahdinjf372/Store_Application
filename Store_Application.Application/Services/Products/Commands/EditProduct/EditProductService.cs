@@ -127,8 +127,16 @@ namespace Store_Application.Application.Services.Products.Commands.EditProduct
                     pic.Save(savePath);
                 }
             }
+            //encode Elements
+            des = des.Replace("<figure class=\"", "<div class=\"content-expert-img mr-auto ml-auto ");
+            des = des.Replace("</figure>", "</div>");
+            des = des.Replace("><img src=\"/images/page-single-product/tab-content/", "><img class=\"w-100\" src=\"/images/page-single-product/tab-content/");
+            des = des.Replace("<h3", "<h3 class=\"content-expert-title\"");
+            des = des.Replace("<p", "<p class=\"content-expert-title\"");
+
 
             return des;
+
         }
     }
 }

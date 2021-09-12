@@ -1,4 +1,6 @@
-﻿using Store_Application.Domain.Entities.Common;
+﻿using Store_Application.Domain.Entities.Cart;
+using Store_Application.Domain.Entities.Common;
+using Store_Application.Domain.Entities.Order;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -37,6 +39,8 @@ namespace Store_Application.Domain.Entities.Product
         public ICollection<ProductImage> Images { get; set; }
         
         public ICollection<ProductSlider> ProductSliders { get; set; }
+        public ICollection<CartItem> CartItems { get; set; }
+        public ICollection<OrderDetail> OrderDetails { get; set; }
 
 
         #endregion

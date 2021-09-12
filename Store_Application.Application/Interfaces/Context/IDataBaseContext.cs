@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using Store_Application.Domain.Entities.Product;
 using Store_Application.Domain.Entities.Site;
+using Store_Application.Domain.Entities.Finance;
+using Store_Application.Domain.Entities.Order;
+using Store_Application.Domain.Entities.Cart;
 
 namespace Store_Application.Application.Interfaces.Context
 {
@@ -42,6 +45,25 @@ namespace Store_Application.Application.Interfaces.Context
 
         #endregion
 
+        #region Cart
+
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
+
+        #endregion
+
+        #region Order
+
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+
+        #endregion
+
+        #region Finance
+
+        public DbSet<RequestPay> RequestPays { get; set; }
+
+        #endregion
 
         int SaveChanges(bool acceptAllChangesOnSuccess);
         int SaveChanges();

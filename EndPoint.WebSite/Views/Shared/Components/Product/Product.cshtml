@@ -1,0 +1,642 @@
+﻿@using Store_Application.Common.Extentions
+@using EndPoint.WebSite.Models.Components.Product
+@model ProductViewModel
+
+@section HeaderReferences
+{
+
+}
+
+<div class="d-block">
+    <div class="page-content page-row">
+        <div class="main-row">
+            <div id="breadcrumb">
+                <i class="mdi mdi-home"></i>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/Category/@Model.CategoryId?searchTitle=@Model.CategoryTitle">@Model.CategoryTitle</a></li>
+                        <li class="breadcrumb-item"><a href="/Group/@Model.GroupId?searchTitle=@Model.GroupTitle">    @Model.GroupTitle</a></li>
+                        <li class="breadcrumb-item"><a href="/SubGroup/@Model.SubgroupId?searchTitle=@Model.SubgroupTitle">@Model.SubgroupTitle</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">@Model.Title</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-lg">
+                <div class="product type-product">
+                    <div class="col-lg-5 col-xs-12 pr d-block" style="padding: 0;">
+                        <section class="product-gallery">
+                            <div class="gallery">
+                                <div class="gallery-item">
+                                    <div>
+                                        <ul class="gallery-actions">
+                                            @*<li>
+                                                    @if (User.Identity.IsAuthenticated)
+                                                    {
+                                                        if (ViewBag.IsFavorite)
+                                                        {
+                                                            <a id="changeFavorite" class="btn-option add-product-wishes active">
+                                                                <i class="mdi mdi-heart-outline"></i>
+                                                                <span>محبوب</span>
+                                                            </a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a id="changeFavorite" class="btn-option add-product-wishes">
+                                                                <i class="mdi mdi-heart-outline"></i>
+                                                                <span>محبوب</span>
+                                                            </a>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <a href="/Login?ReturnUrl=/Product/@Model.ProductId" class="btn-option add-product-wishes">
+                                                            <i class="mdi mdi-heart-outline"></i>
+                                                            <span>محبوب</span>
+                                                        </a>
+                                                    }
+                                                </li>*@
+                                            @*<li class="option-alarm">
+                                                    @if (Model.Inventory == 0)
+                                                    {
+                                                        @if (User.Identity.IsAuthenticated)
+                                                        {
+                                                            <a href="#" class="btn-option btn-option-alarm" data-toggle="modal" data-target="#btn-option-alarm">
+                                                                <i class="mdi mdi-bell-outline"></i>
+                                                                <span>اطلاع‌رسانی</span>
+                                                            </a>
+                                                            <!-- Modal-option-alarm -->
+                                                            <div class="modal fade" id="btn-option-alarm" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="exampleModalCenterTitle">به من اطلاع بده</h5>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">×</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="form-notification-title">از طریق:</div>
+                                                                            <div class="form-auth-row">
+                                                                                <label for="#" class="ui-checkbox mt-1">
+                                                                                    <input type="checkbox" value="1" name="login" id="exist-alarm-email">
+                                                                                    <span class="ui-checkbox-check" id="exist-alarm-email-span"></span>
+                                                                                </label>
+                                                                                <label for="remember" class="remember-me mr-0">ایمیل</label>
+                                                                            </div>
+                                                                            <div class="form-auth-row">
+                                                                                <label for="#" class="ui-checkbox mt-1">
+                                                                                    <input type="checkbox" value="1" name="login" id="exist-alarm-sms">
+                                                                                    <span class="ui-checkbox-check" id="exist-alarm-sms-span"></span>
+                                                                                </label>
+                                                                                <label for="remember" class="remember-me mr-0">پیامک</label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button id="exist-alarm" type="button" class="btn btn-primary ml-2">ثبت</button>
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">بازگشت</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="/Product/@Model.ProductId" class="btn-option btn-option-alarm">
+                                                                <i class="mdi mdi-bell-outline"></i>
+                                                                <span>اطلاع‌رسانی</span>
+                                                            </a>
+                                                        }
+                                                    }
+
+                                                </li>*@
+                                            <li class="Three-dimensional">
+                                                <a href="#" class="btn-option btn-Three-dimensional" data-toggle="modal" data-target="#more-product">
+                                                    <i class="mdi mdi-more"></i>
+                                                    <span>نمایش بیشتر</span>
+                                                </a>
+                                                <div class="modal fade" id="more-product" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered more-product" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-body">
+                                                                <div id="custom-events">
+                                                                    <a href="~/images/page-single-product/product-img/@Model.Images.Single(i=> i.IsMainImage).Name">
+                                                                        <img src="~/images/page-single-product/product-img/@Model.Images.Single(i=> i.IsMainImage).Name">
+                                                                    </a>
+                                                                    @if (Model.Images.Any())
+                                                                    {
+                                                                        foreach (var item in Model.Images)
+                                                                        {
+                                                                            <a href="~/images/page-single-product/product-img/@item.Name">
+                                                                                <img src="~/images/page-single-product/product-img/@item.Name">
+                                                                            </a>
+                                                                        }
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="Three-dimensional">
+
+                                                @if (User.Identity.IsAuthenticated)
+                                                {
+                                                    <a id="addToCompaire" asp-controller="Compaire" asp-action="AddToCompaire" asp-route-productId="@Model.Id" class="btn-option btn-compare">
+                                                        <i class="mdi mdi-compare"></i>
+                                                        <span>مقایسه</span>
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="/Login?ReturnUrl=/Product/@Model.Id" class="btn-option btn-compare">
+                                                        <i class="mdi mdi-compare"></i>
+                                                        <span>مقایسه</span>
+                                                    </a>
+                                                }
+                                                <div id="compaire-snack-bar" class="compaire-snack-bar"></div>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="gallery-item">
+                                    <div class="gallery-img">
+                                        <div id="">
+                                            <a>
+                                                <div class="zoomWrapper" style="height: 411px; width: 411px;">
+                                                    <img class="zoom-img" id="img-product-zoom" src="/images/page-single-product/product-img/@Model.Images.Single(i=> i.IsMainImage).Name" data-zoom-image="/images/page-single-product/product-img/@Model.Images.Single(i=> i.IsMainImage).Name" width="411" style="position: absolute;">
+                                                </div>
+                                            </a>
+                                            <div id="gallery_01f" style="width:420px;float:right;">
+                                                <a href="#">
+                                                </a>
+                                                <ul class="gallery-items owl-carousel owl-theme owl-rtl owl-loaded owl-drag" id="gallery-slider">
+
+                                                    <div class="owl-stage-outer">
+                                                        <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 800px;">
+                                                            <div class="owl-item active" style="width: 149.894px; margin-left: 10px;">
+                                                    <li class="item">
+                                                        <a href="#" class="elevatezoom-gallery active" data-update="" data-image="/images/page-single-product/product-img/@Model.Images.Single(i=> i.IsMainImage).Name" data-zoom-image="/images/page-single-product/product-img/@Model.Images.Single(i=> i.IsMainImage).Name">
+                                                            <img src="/images/page-single-product/product-img/@Model.Images.Single(i=> i.IsMainImage).Name" width="100">
+                                                        </a>
+                                                    </li>
+                                            </div>
+                                            @if (Model.Images.Any())
+                                            {
+                                                foreach (var item in Model.Images)
+                                                {
+                                                    <div class="owl-item active" style="width: 149.894px; margin-left: 10px;">
+                                                        <li class="item">
+                                                            <a href="#" class="elevatezoom-gallery active" data-update="" data-image="/images/page-single-product/product-img/@item.Name" data-zoom-image="/images/page-single-product/product-img/@item.Name">
+                                                                <img src="/images/page-single-product/product-img/@item.Name" width="100">
+                                                            </a>
+                                                        </li>
+                                                    </div>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+
+                                    <div class="owl-nav">
+                                        <button type="button" role="presentation" class="owl-prev disabled">
+                                            <i class="fa fa-angle-right"></i>
+                                        </button>
+                                        <button type="button" role="presentation" class="owl-next">
+                                            <i class="fa fa-angle-left"></i>
+                                        </button>
+                                    </div>
+                                    <div class="owl-dots disabled"></div>
+                                    </ul>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+        </div>
+        <div class="col-lg-7 col-xs-12 pl mt-5 d-block">
+            <section class="product-info">
+                <div class="product-headline">
+                    <h1 class="product-title">
+                        @Model.Title
+                    </h1>
+                    <div class="product-guaranteed text-success">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="product-attributes">
+                    <div class="product-config">
+                        <span class="product-title-en">@Model.Title</span>
+                        <div class="product-rate">
+                            <i class="fa fa-star active"></i>
+                            <i class="fa fa-star active"></i>
+                            <i class="fa fa-star active"></i>
+                            <i class="fa fa-star active"></i>
+                            <i class="fa fa-star active"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-config-wrapper">
+                    <div class="product-directory">
+                        <ul>
+                            <li>
+                                <span>
+                                    <i class="fa fa-archive"></i> دسته:
+                                </span>
+                                <a asp-controller="Search" asp-action="ShowProductByCategoryId" asp-route-searchTypeId="@Model.CategoryId" asp-route-searchTitle="@Model.CategoryTitle" class="product-link product-cat-title">@Model.CategoryTitle</a>
+                                ,
+                                <a asp-controller="Search" asp-action="ShowProductByGroupId" asp-route-searchTypeId="@Model.GroupId" asp-route-searchTitle="@Model.GroupTitle" class="product-link product-cat-title">@Model.GroupTitle</a>
+                                ,
+                                <a asp-controller="Search" asp-action="ShowProductBySubGroupId" asp-route-searchTypeId="@Model.SubgroupId" asp-route-searchTitle="@Model.SubgroupTitle" class="product-link product-cat-title">@Model.SubgroupTitle</a>
+                            </li>
+                            <li>
+                                <span>
+                                    <i class="fa fa-tags"></i> برچسب:
+                                </span>
+
+                                @*@foreach (var tag in Model.Tags.Split("-"))
+                                    {
+                                        <a asp-controller="Search" asp-action="Index" asp-route-searchTypeId="0" asp-route-searchTitle="@tag" class="product-link product-tag-title">@tag</a>
+                                    }*@
+
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col=lg-6 col-md-6 col-xs-12 pr">
+                        <div class="product-variants">
+
+                            @if (Model.ProductFeatures.Any(pf => pf.Feature.Title.Equals("رنگ")))
+                            {
+                                <ul class="js-product-variants">
+                                    <span>رنگ بندی: </span>
+
+                                    @foreach (var pf in Model.ProductFeatures.Where(f => f.Feature.Title.Equals("رنگ")))
+                                    {
+                                        <li class="ui-variant">
+                                            <label class="ui-variant-color w-100">@pf.Value</label>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                        </div>
+                        <div class="product-params pt-3">
+                            @if (Model.ProductFeatures.Any(p => p.IsBold == true))
+                            {
+                                <ul data-title="ویژگی‌های محصول">
+                                    @{
+                                        List<int> featuresId = Model.ProductFeatures.Where(pf => pf.IsBold).Select(pf => pf.Feature.Id).ToList();
+                                        var feat = featuresId.Distinct().ToList();
+                                    }
+                                    @foreach (var f in feat)
+                                    {
+
+                                        string PFValue = string.Join(" - ", Model.ProductFeatures.Where(pf => pf.FeatureId == f && pf.IsBold).Select(pf => pf.Value).ToList());
+
+                                        <li>
+                                            <span>@Model.ProductFeatures.First(pf => pf.IsBold && pf.FeatureId.Equals(f)).Feature.Title: </span>
+                                            <span>@PFValue</span>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                        </div>
+
+                    </div>
+                    <div class="col=lg-6 col-md-6 col-xs-12 pr">
+                        <div class="product-seller-info">
+                            <div class="seller-info-changable">
+                                <div class="product-seller-row vendor">
+                                    <span class="title"> فروشنده:</span>
+                                    <a href="#" class="product-name">هگز مارکت</a>
+                                </div>
+                                <div class="product-seller-row guarantee">
+                                    <span class="title"> گارانتی:</span>
+                                    <a href="#" class="product-name">۱۸ ماهه هگز مارکت</a>
+                                </div>
+                                <div class="product-seller-row price">
+                                    <span class="title"> قیمت:</span>
+                                    <span href="#" class="product-name text-center">
+                                        @if ((Model.Inventory > 0))
+                                        {
+                                            <del class="d-block text-danger font-small-3">
+                                                <span>@Model.Price.FixedToView()<span>تومان</span></span>
+                                            </del>
+                                            <ins class="text-info font-small-5">
+                                                <span>@((Model.Price - Model.DiscountAmount).FixedToView())<span>تومان</span></span>
+                                            </ins>
+                                        }
+                                        else
+                                        {
+                                            <span class="unavailable">ناموجود</span>
+                                        }
+
+                                    </span>
+                                </div>
+                                @if (Model.Inventory > 0)
+                                {
+                                    <div class="product-seller-row guarantee">
+                                        <span class="title mt-3">تعداد</span>
+                                        <div class="quantity pl">
+                                            <input id="product-count" readonly type="number" min="1" max="@Model.Inventory" step="1" value="1">
+                                            <div class="quantity-nav">
+                                                <div class="quantity-button quantity-up"></div>
+                                                <div class="quantity-button quantity-down"></div>
+                                            </div>
+                                            <div class="quantity-nav">
+                                                <div class="quantity-button quantity-up"></div>
+                                                <div class="quantity-button quantity-down"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                                <div class="product-seller-row add-to-cart">
+                                    @if (Model.Inventory > 0)
+                                    {
+                                        <a onclick="AddProductToBasket(@Model.Id)" class="btn-add-to-cart btn btn-primary">
+                                            <span class="btn-add-to-cart-txt">افزودن به سبد خرید</span>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn-add-to-cart Let-me-know btn btn-primary" data-toggle="modal" data-target="#btn-option-alarm">
+                                            <span class="btn-add-to-cart-txt">موجود شد به من اطلاع بده</span>
+                                        </a>
+                                    }
+                                    <div id="snack-bar" class="snack-bar">این محصول به سبد خرید شما اضافه شد</div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="product-usp">
+            <div class="product-feature">
+                <div class="product-feature-col">
+                    <a href="#" class="product-feature-item">
+                        <img src="~/images/page-single-product/delivery.svg">
+                        امکان تحویل
+                        <br>
+                        اکسپرس
+                    </a>
+                </div>
+                <div class="product-feature-col">
+                    <a href="#" class="product-feature-item">
+                        <img src="~/images/page-single-product/contact-us.svg">
+                        ۷ روز هفته
+                        <br>
+                        ۲۴ ساعته
+                    </a>
+                </div>
+                <div class="product-feature-col">
+                    <a href="#" class="product-feature-item">
+                        <img src="~/images/page-single-product/payment-terms.svg">
+                        امکان
+                        <br>
+                        پرداخت در محل
+                    </a>
+                </div>
+                <div class="product-feature-col">
+                    <a href="#" class="product-feature-item">
+                        <img src="~/images/page-single-product/return-policy.svg">
+                        هفت روز
+                        <br>
+                        ضمانت بازگشت کالا
+                    </a>
+                </div>
+                <div class="product-feature-col">
+                    <a href="#" class="product-feature-item">
+                        <img src="~/images/page-single-product/origin-guarantee.svg">
+                        ضمانت
+                        <br>
+                        اصل بودن کالا
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+
+<div class="tabs">
+    <div class="tab-box">
+        <ul class="tab nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="Review-tab" data-toggle="tab" href="#Review" role="tab" aria-controls="Review" aria-selected="true">
+                    <i class="mdi mdi-glasses"></i>
+                    نقد و بررسی
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="Specifications-tab" data-toggle="tab" href="#Specifications" role="tab" aria-controls="Specifications" aria-selected="false">
+                    <i class="mdi mdi-format-list-checks"></i>
+                    مشخصات
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="User-comments-tab" data-toggle="tab" href="#User-comments" role="tab" aria-controls="User-comments" aria-selected="false">
+                    <i class="mdi mdi-comment-text-multiple-outline"></i>
+                    نظرات کاربران
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="question-and-answer-tab" data-toggle="tab" href="#question-and-answer" role="tab" aria-controls="question-and-answer" aria-selected="false">
+                    <i class="mdi mdi-comment-question-outline"></i>
+                    پرسش و پاسخ
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-lg">
+        <div id="replay-scroll" class="tabs-content">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="Review" role="tabpanel" aria-labelledby="Review-tab">
+                    <h2 class="params-headline">نقد و بررسی اجمالی</h2>
+                    <section class="content-expert-summary mb-5">
+                        <div class="mask pm-3">
+                            <div class="mask-text">
+                                <p>
+                                    @Html.Raw(Model.ShortDescription)
+                                </p>
+                            </div>
+                            <a href="#" class="mask-handler">
+                                <span class="show-more">+ ادامه مطلب</span>
+                                <span class="show-less">- بستن</span>
+                            </a>
+                            <div class="shadow-box"></div>
+                        </div>
+                    </section>
+                    <div class="content-expert-articles">
+                        @Html.Raw(Model.Description)
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="Specifications" role="tabpanel" aria-labelledby="Specifications-tab">
+                    <article>
+                        <h2 class="params-headline">
+                            مشخصات فنی
+                            <span>@Model.Title</span>
+                        </h2>
+                        <section>
+                            <ul class="params-list">
+                                @if (Model.ProductFeatures.Any())
+                                {
+                                    List<int> featuresId = Model.ProductFeatures.Where(pf => pf.IsBold).Select(pf => pf.Feature.Id).ToList();
+                                    var feat = featuresId.Distinct().ToList();
+                                    foreach (var f in feat)
+                                    {
+                                        string PFValue = string.Join(" - ", Model.ProductFeatures.Where(pf => pf.FeatureId == f).Select(pf => pf.Value).ToList());
+                                        <li class="params-list-item">
+                                            <div class="params-list-key">
+                                                <span class="block">@Model.ProductFeatures.First(pf => pf.IsBold && pf.FeatureId.Equals(f)).Feature.Title</span>
+                                            </div>
+                                            <div class="params-list-value">
+                                                <span class="block">
+                                                    @PFValue
+                                                </span>
+                                            </div>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </section>
+                    </article>
+                </div>
+                <div class="tab-pane fade " id="User-comments" role="tabpanel" aria-labelledby="User-comments-tab">
+                    <div class="comments">
+                        <h2 class="params-headline">
+                            امتیاز و نظر کاربران به
+                            <span>@Model.Title</span>
+                        </h2>
+                        <div class="comments-summary">
+                            <div class="col-lg-6 mb-4">
+                                <h6 class="text-center">شما هم می‌توانید در مورد این کالا نظر بدهید.</h6>
+                            </div>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="comments-add">
+                                    <div class="comments-add-row">
+                                        <div class="col-lg-6 col-xs-12 pull-right">
+                                            <div class="comments-add-col-form">
+                                                <div class="form-comment">
+                                                    <div class="col-md-12 col-sm-12">
+                                                        <div class="form-ui">
+                                                            <div class="row">
+                                                                <div class="col-12 font-">
+                                                                    <div class="form-row-title mb-2">عنوان نظر شما (اجباری)</div>
+                                                                    <div class="form-row">
+                                                                        <input id="Comment-Title" class="input-ui pr-2" type="text" placeholder="عنوان نظر خود را بنویسید">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 mt-5">
+                                                                    <div class="form-row-title mb-2">متن نظر شما (اجباری)</div>
+                                                                    <div class="form-row">
+                                                                        <textarea id="Comment-Text" class="input-ui pr-2 pt-2" rows="5" placeholder="متن خود را بنویسید" style="height:120px;"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <br>
+                                                                <br>
+                                                                <br>
+                                                                <div class="col-12 col-md-6">
+                                                                    <div class="product-rate">
+                                                                        <div class="form-row-title mb-2">امتیاز شما به این محصول (اجباری)</div>
+                                                                        <div class="rating-rate">
+                                                                            <input type="radio" id="star5" name="rate" value="5" />
+                                                                            <label for="star5" title="text"></label>
+                                                                            <input type="radio" id="star4" name="rate" value="4" />
+                                                                            <label for="star4" title="text"></label>
+                                                                            <input type="radio" id="star3" name="rate" value="3" />
+                                                                            <label for="star3" title="text"></label>
+                                                                            <input type="radio" id="star2" name="rate" value="2" />
+                                                                            <label for="star2" title="text"></label>
+                                                                            <input type="radio" id="star1" name="rate" value="1" />
+                                                                            <label for="star1" title="text"></label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 col-md-6">
+                                                                    <div class="form-row-title mb-2">آیا این محصول را پیشنهاد میکینید؟ (اجباری)</div>
+                                                                    <div class="col-6 pl">
+                                                                        <div class="pr">
+                                                                            <label class="form-row-title" for="IRecommend">بله</label>
+                                                                            <input type="radio" id="IRecommend" name="recommend" value="بله" />
+                                                                        </div>
+                                                                        <div class="pl">
+                                                                            <label class="form-row-title" for="INotRecommend">خیر</label>
+                                                                            <input type="radio" id="INotRecommend" name="recommend" value="خیر" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-12 mt-5 px-0">
+                                                                    <button onclick="AddComment(@Model.Id)" class="btn comment-submit-button">
+                                                                        ثبت نظر
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <p>برای ثبت نظر، لازم است ابتدا <a asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="/Product/@Model.Id"><ins>وارد</ins></a> حساب کاربری خود شوید.</p>
+                            }
+                            <div class="product-comment-list">
+                                <!-- dynamic load -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="question-and-answer" role="tabpanel" aria-labelledby="question-and-answer-tab">
+                    <div class="faq">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <h2 class="params-headline">
+                                پرسش و پاسخ
+                                <span id="replay-question-text">پرسش خود را در مورد محصول مطرح نمایید</span>
+                            </h2>
+                            <form class="form-faq">
+                                <input id="question-id" type="hidden" />
+                                <input id="product-id" type="hidden" value="@Model.Id" />
+                                <div class="form-faq-row mt-4">
+                                    <div class="form-faq-col">
+                                        <div class="ui-textarea">
+                                            <textarea id="new-question-text" title="متن سوال" class="ui-textarea-field"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-faq-row mt-4">
+                                    <div class="form-faq-col form-faq-col-submit">
+                                        <button id="question-register-button" onclick="AddQuestion(@Model.Id)" class="btn-tertiary btn btn-secondary" type="button">ثبت پرسش</button>
+                                    </div>
+                                </div>
+                            </form>
+                        }
+                        else
+                        {
+                            <h2 class="params-headline">
+                                پرسش و پاسخ
+                                <span>برای طرح پرسش ابتدا باید <a asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="/Product/@Model.Id"><ins>وارد</ins></a> حساب خود شوید</span>
+                            </h2>
+                        }
+                        <div id="product-questions-list">
+                            <!-- dynamic load -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>

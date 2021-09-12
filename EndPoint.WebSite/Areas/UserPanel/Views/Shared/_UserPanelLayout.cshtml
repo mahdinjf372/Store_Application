@@ -1,0 +1,69 @@
+﻿    
+@using System.Security.Claims
+@{
+    Layout = "_Layout";
+}
+
+<div class="container-main">
+    <div class="d-block">
+        <section class="profile-home">
+            <div class="col-lg">
+                <div class="post-item-profile order-1 d-block">
+                    <div class="col-lg-3 col-md-3 col-xs-12 pr">
+                        <div class="sidebar-profile sidebar-navigation">
+                            <section class="profile-box">
+                                <header class="profile-box-header-inline">
+                                    <div class="profile-avatar user-avatar profile-img">
+                                        <img src="~/images/man.png">
+                                    </div>
+                                </header>
+                                @await Component.InvokeAsync("ProfileBox", int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)))
+                            </section>
+                            <section class="profile-box">
+                                <ul class="profile-account-navs">
+                                    <li class="profile-account-nav-item navigation-link-dashboard">
+                                        <a asp-area="UserPanel" asp-controller="Home" asp-action="UserPanel" class="@ViewBag.ProfileIsActived">
+                                            <i class="mdi mdi-account-outline"></i>
+                                            پروفایل
+                                        </a>
+                                    </li>
+                                    <li class="profile-account-nav-item navigation-link-dashboard">
+                                        <a asp-area="UserPanel" asp-controller="Orders" asp-action="Index" class="@ViewBag.AllOrdersIsActived">
+                                            <i class="mdi mdi-cart"></i>
+                                            همه سفارش ها
+                                        </a>
+                                    </li>
+                                    <li class="profile-account-nav-item navigation-link-dashboard">
+                                        <a asp-area="UserPanel" asp-controller="Favorites" asp-action="" class="@ViewBag.FavorityListIsActived">
+                                            <i class="mdi mdi-heart"></i>
+                                            لیست علاقه مندی
+                                        </a>
+                                    </li>
+                                    <li class="profile-account-nav-item navigation-link-dashboard">
+                                        <a asp-area="UserPanel" asp-controller="Comments" asp-action="Index" class="@ViewBag.CommentsIsActived">
+                                            <i class="mdi mdi-email-open-outline"></i>
+                                            نظرات
+                                        </a>
+                                    </li>
+                                    <li class="profile-account-nav-item navigation-link-dashboard">
+                                        <a asp-area="UserPanel" asp-controller="UserAccount" asp-action="EditAccountInfo" class="@ViewBag.EditInfoIsActived">
+                                            <i class="mdi mdi-tooltip-text-outline"></i>
+                                            ویرایش اطلاعات
+                                        </a>
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+
+                    @RenderBody()
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+@section Scripts
+{
+    @RenderSection("Scripts", false)
+}

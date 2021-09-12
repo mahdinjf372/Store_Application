@@ -1,6 +1,8 @@
 ﻿using Store_Application.Application.Services.Users.Commands.ActiveUser;
+using Store_Application.Application.Services.Users.Commands.ChangePasswordForUserPanel;
 using Store_Application.Application.Services.Users.Commands.ChangeUserStatusForAdmin;
 using Store_Application.Application.Services.Users.Commands.EditUserForAdmin;
+using Store_Application.Application.Services.Users.Commands.EditUserForUserPanel;
 using Store_Application.Application.Services.Users.Commands.RecoveryPasswordByActivationCode;
 using Store_Application.Application.Services.Users.Commands.RegisterUserForAdmin;
 using Store_Application.Application.Services.Users.Commands.RemoveUserForAdmin;
@@ -8,11 +10,13 @@ using Store_Application.Application.Services.Users.Queries.GetActivationCodeByEm
 using Store_Application.Application.Services.Users.Queries.GetRolesForAdmin;
 using Store_Application.Application.Services.Users.Queries.GetUserByEmail;
 using Store_Application.Application.Services.Users.Queries.GetUserByIdForAdmin;
+using Store_Application.Application.Services.Users.Queries.GetUserByIdForUserPanel;
 using Store_Application.Application.Services.Users.Queries.GetUsersForAdmin;
 using Store_Application.Application.Services.Users.Queries.IsExistActiveCode;
 using Store_Application.Application.Services.Users.Queries.IsExistEmail;
 using Store_Application.Application.Services.Users.Queries.IsExistRoleForAdmin;
 using Store_Application.Application.Services.Users.Queries.IsExistUserForAdmin;
+using Store_Application.Application.Services.Users.Queries.IsOldPassword;
 using Store_Application.Application.Services.Users.Queries.LoginUser;
 
 namespace Store_Application.Application.Interfaces.FacadPattern
@@ -29,12 +33,17 @@ namespace Store_Application.Application.Interfaces.FacadPattern
         IGetRolesForAdminService GetRolesForAdminService { get; }
         IGetUserByEmailService GetUserByEmailService { get; }
         IGetUserByIdForAdminService GetUserByIdForAdminService { get; }
+        IGetUserByIdForUserPanelService GetUserByIdForUserPanelService { get; }
         IGetUsersForAdminService GetUsersForAdminService { get; }
         IisExistActiveCodeService isExistActiveCodeService { get; }
         IisExistEmailService isExistEmailService { get; }
         IisExistRoleForAdminService isExistRoleForAdminService { get; }
         IisExistUserForAdminService isExistUserForAdminService { get; }
         ILoginUserService LoginUserService { get; }
+
+        IEditUserForUserPanelService EditUserForUserPanelService { get; }
+        IisOldPasswordService IsOldPasswordService { get; }
+        IChangePasswordForUserPanelService ChangePasswordForUserPanelService { get; }
 
     }
 }

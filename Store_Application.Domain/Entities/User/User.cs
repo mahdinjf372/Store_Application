@@ -1,5 +1,8 @@
-﻿using Store_Application.Domain.Entities.Common;
+﻿using Store_Application.Domain.Entities.Cart;
+using Store_Application.Domain.Entities.Common;
+using Store_Application.Domain.Entities.Finance;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
@@ -8,7 +11,6 @@ namespace Store_Application.Domain.Entities.User
 {
     public class User:BaseEntity<int>
     {
-
         public string FullName { get; set; }
 
         public string Phone { get; set; }
@@ -31,6 +33,10 @@ namespace Store_Application.Domain.Entities.User
 
         public Role Role { get; set; }
 
+        public ICollection<Cart.Cart> Carts { get; set; }
+        public ICollection<Order.Order> Orders { get; set; }
+        public ICollection<RequestPay> RequestPays { get; set; }
+
         //public List<QuestionAndAnswer> QuestionsAndAnswers { get; set; }
         //public List<ProductComment> ProductComments { get; set; }
 
@@ -39,6 +45,6 @@ namespace Store_Application.Domain.Entities.User
         //public List<ProductCompaire> Compaires { get; set; }
 
         //public List<Product> FavoriteProducts { get; set; }
-        
+
     }
 }

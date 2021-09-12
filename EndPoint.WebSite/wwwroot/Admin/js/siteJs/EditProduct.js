@@ -99,7 +99,8 @@ $(document).ready(function () {
                 options: [
                     { model: 'paragraph', title:'Paragraph', class: ''},
                     { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'params-headline' },
-                    { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'content-expert-title' }
+                    { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'content-expert-title' },
+
                 ]
             },
             language: 'en',

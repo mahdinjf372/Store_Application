@@ -8,6 +8,7 @@ using Store_Application.Application.Services.Products.Commands.EditProduct;
 using Store_Application.Application.Services.Products.Queries.GetGalleryImageForAdmin;
 using Store_Application.Application.Services.Products.Queries.GetGalleryImagesForAdmin;
 using Store_Application.Application.Services.Products.Queries.GetProductForAdmin;
+using Store_Application.Application.Services.Products.Queries.GetProductForSite;
 using Store_Application.Application.Services.Products.Queries.GetProductsBySliderId;
 using Store_Application.Application.Services.Products.Queries.GetProductsForAdmin;
 using Store_Application.Application.Services.Products.Queries.IsExistImage;
@@ -119,7 +120,16 @@ namespace Store_Application.Application.Services.Products.FacadPattern
                 return _getProductForAdminService = _getProductForAdminService ?? new GetProductForAdminService(_db);
             }
         }
-        
+
+        private IGetProductForSiteService _getProductForSiteService;
+        public IGetProductForSiteService GetProductForSiteService
+        {
+            get
+            {
+                return _getProductForSiteService = _getProductForSiteService ?? new GetProductForSiteService(_db);
+            }
+        }
+
 
         private IEditProductService _editProductService;
         public IEditProductService EditProductService

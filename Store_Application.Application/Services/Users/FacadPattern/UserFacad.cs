@@ -2,8 +2,10 @@
 using Store_Application.Application.Interfaces.FacadPattern;
 using Store_Application.Application.Senders.Email.ActivationCode;
 using Store_Application.Application.Services.Users.Commands.ActiveUser;
+using Store_Application.Application.Services.Users.Commands.ChangePasswordForUserPanel;
 using Store_Application.Application.Services.Users.Commands.ChangeUserStatusForAdmin;
 using Store_Application.Application.Services.Users.Commands.EditUserForAdmin;
+using Store_Application.Application.Services.Users.Commands.EditUserForUserPanel;
 using Store_Application.Application.Services.Users.Commands.RecoveryPasswordByActivationCode;
 using Store_Application.Application.Services.Users.Commands.RegisterUserForAdmin;
 using Store_Application.Application.Services.Users.Commands.RemoveUserForAdmin;
@@ -11,11 +13,13 @@ using Store_Application.Application.Services.Users.Queries.GetActivationCodeByEm
 using Store_Application.Application.Services.Users.Queries.GetRolesForAdmin;
 using Store_Application.Application.Services.Users.Queries.GetUserByEmail;
 using Store_Application.Application.Services.Users.Queries.GetUserByIdForAdmin;
+using Store_Application.Application.Services.Users.Queries.GetUserByIdForUserPanel;
 using Store_Application.Application.Services.Users.Queries.GetUsersForAdmin;
 using Store_Application.Application.Services.Users.Queries.IsExistActiveCode;
 using Store_Application.Application.Services.Users.Queries.IsExistEmail;
 using Store_Application.Application.Services.Users.Queries.IsExistRoleForAdmin;
 using Store_Application.Application.Services.Users.Queries.IsExistUserForAdmin;
+using Store_Application.Application.Services.Users.Queries.IsOldPassword;
 using Store_Application.Application.Services.Users.Queries.LoginUser;
 
 namespace Store_Application.Application.Services.Users.FacadPattern
@@ -57,6 +61,15 @@ namespace Store_Application.Application.Services.Users.FacadPattern
             get
             {
                 return _editUserForAdminService = _editUserForAdminService ?? new EditUserForAdminService(_db);
+            }
+        }
+
+        private IEditUserForUserPanelService _editUserForUserPanelService;
+        public IEditUserForUserPanelService EditUserForUserPanelService
+        {
+            get
+            {
+                return _editUserForUserPanelService = _editUserForUserPanelService ?? new EditUserForUserPanelService(_db);
             }
         }
 
@@ -130,6 +143,15 @@ namespace Store_Application.Application.Services.Users.FacadPattern
             }
         }
 
+        private IGetUserByIdForUserPanelService _getUserByIdForUserPanelService;
+        public IGetUserByIdForUserPanelService GetUserByIdForUserPanelService
+        {
+            get
+            {
+                return _getUserByIdForUserPanelService = _getUserByIdForUserPanelService ?? new GetUserByIdForUserPanelService(_db);
+            }
+        }
+
 
         private IGetUsersForAdminService _getUsersForAdminService;
         public IGetUsersForAdminService GetUsersForAdminService
@@ -190,7 +212,24 @@ namespace Store_Application.Application.Services.Users.FacadPattern
             }
         }
 
+        private IisOldPasswordService _isOldPasswordService;
+        public IisOldPasswordService IsOldPasswordService
+        {
+            get
+            {
+                return _isOldPasswordService = _isOldPasswordService ?? new IsOldPasswordService(_db);
+            }
+        }
 
+
+        private IChangePasswordForUserPanelService _changePasswordForUserPanelService;
+        public IChangePasswordForUserPanelService ChangePasswordForUserPanelService
+        {
+            get
+            {
+                return _changePasswordForUserPanelService = _changePasswordForUserPanelService ?? new ChangePasswordForUserPanelService(_db);
+            }
+        }
 
     }
 }

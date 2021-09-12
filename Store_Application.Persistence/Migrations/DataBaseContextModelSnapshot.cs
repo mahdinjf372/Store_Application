@@ -19,6 +19,220 @@ namespace Store_Application.Persistence.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0-rc.2.20475.6");
 
+            modelBuilder.Entity("Store_Application.Domain.Entities.Cart.Cart", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<Guid>("BrowserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Finished")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("RemovedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isRemoved")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Carts");
+                });
+
+            modelBuilder.Entity("Store_Application.Domain.Entities.Cart.CartItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("CartId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("RemovedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("isRemoved")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CartId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("CartItems");
+                });
+
+            modelBuilder.Entity("Store_Application.Domain.Entities.Finance.RequestPay", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Authority")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsPay")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("PayDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("RefId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("RemovedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isRemoved")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("RequestPays");
+                });
+
+            modelBuilder.Entity("Store_Application.Domain.Entities.Order.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("OrderState")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PostCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReceiverName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReceiverPhone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("RemovedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("RequestPayId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isRemoved")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RequestPayId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("Store_Application.Domain.Entities.Order.OrderDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("RemovedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("isRemoved")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderDetails");
+                });
+
             modelBuilder.Entity("Store_Application.Domain.Entities.Product.Brand", b =>
                 {
                     b.Property<int>("Id")
@@ -49,7 +263,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            InsertTime = new DateTime(2021, 9, 1, 19, 20, 13, 212, DateTimeKind.Local).AddTicks(6343),
+                            InsertTime = new DateTime(2021, 9, 12, 0, 54, 37, 659, DateTimeKind.Local).AddTicks(9275),
                             Title = "بدون برند",
                             isRemoved = false
                         });
@@ -322,28 +536,28 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            InsertTime = new DateTime(2021, 9, 1, 19, 20, 13, 218, DateTimeKind.Local).AddTicks(1591),
+                            InsertTime = new DateTime(2021, 9, 12, 0, 54, 37, 665, DateTimeKind.Local).AddTicks(3366),
                             Title = "پیشنهاد لحظه ای",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 2,
-                            InsertTime = new DateTime(2021, 9, 1, 19, 20, 13, 218, DateTimeKind.Local).AddTicks(1696),
+                            InsertTime = new DateTime(2021, 9, 12, 0, 54, 37, 665, DateTimeKind.Local).AddTicks(3464),
                             Title = "دوربین",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 3,
-                            InsertTime = new DateTime(2021, 9, 1, 19, 20, 13, 218, DateTimeKind.Local).AddTicks(1707),
+                            InsertTime = new DateTime(2021, 9, 12, 0, 54, 37, 665, DateTimeKind.Local).AddTicks(3474),
                             Title = "موبایل",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 4,
-                            InsertTime = new DateTime(2021, 9, 1, 19, 20, 13, 218, DateTimeKind.Local).AddTicks(1711),
+                            InsertTime = new DateTime(2021, 9, 12, 0, 54, 37, 665, DateTimeKind.Local).AddTicks(3479),
                             Title = "لپ تاپ",
                             isRemoved = false
                         });
@@ -580,6 +794,81 @@ namespace Store_Application.Persistence.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("Store_Application.Domain.Entities.Cart.Cart", b =>
+                {
+                    b.HasOne("Store_Application.Domain.Entities.User.User", "User")
+                        .WithMany("Carts")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Store_Application.Domain.Entities.Cart.CartItem", b =>
+                {
+                    b.HasOne("Store_Application.Domain.Entities.Cart.Cart", "Cart")
+                        .WithMany("CartItems")
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Store_Application.Domain.Entities.Product.Product", "Product")
+                        .WithMany("CartItems")
+                        .HasForeignKey("ProductId");
+
+                    b.Navigation("Cart");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Store_Application.Domain.Entities.Finance.RequestPay", b =>
+                {
+                    b.HasOne("Store_Application.Domain.Entities.User.User", "User")
+                        .WithMany("RequestPays")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Store_Application.Domain.Entities.Order.Order", b =>
+                {
+                    b.HasOne("Store_Application.Domain.Entities.Finance.RequestPay", "RequestPay")
+                        .WithMany("Orders")
+                        .HasForeignKey("RequestPayId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Store_Application.Domain.Entities.User.User", "User")
+                        .WithMany("Orders")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("RequestPay");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Store_Application.Domain.Entities.Order.OrderDetail", b =>
+                {
+                    b.HasOne("Store_Application.Domain.Entities.Order.Order", "Order")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Store_Application.Domain.Entities.Product.Product", "Product")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Store_Application.Domain.Entities.Product.Category", b =>
                 {
                     b.HasOne("Store_Application.Domain.Entities.Product.Category", "ParentCategory")
@@ -668,6 +957,21 @@ namespace Store_Application.Persistence.Migrations
                     b.Navigation("Role");
                 });
 
+            modelBuilder.Entity("Store_Application.Domain.Entities.Cart.Cart", b =>
+                {
+                    b.Navigation("CartItems");
+                });
+
+            modelBuilder.Entity("Store_Application.Domain.Entities.Finance.RequestPay", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("Store_Application.Domain.Entities.Order.Order", b =>
+                {
+                    b.Navigation("OrderDetails");
+                });
+
             modelBuilder.Entity("Store_Application.Domain.Entities.Product.Brand", b =>
                 {
                     b.Navigation("Product");
@@ -687,9 +991,13 @@ namespace Store_Application.Persistence.Migrations
 
             modelBuilder.Entity("Store_Application.Domain.Entities.Product.Product", b =>
                 {
+                    b.Navigation("CartItems");
+
                     b.Navigation("Features");
 
                     b.Navigation("Images");
+
+                    b.Navigation("OrderDetails");
 
                     b.Navigation("ProductSliders");
                 });
@@ -702,6 +1010,15 @@ namespace Store_Application.Persistence.Migrations
             modelBuilder.Entity("Store_Application.Domain.Entities.User.Role", b =>
                 {
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("Store_Application.Domain.Entities.User.User", b =>
+                {
+                    b.Navigation("Carts");
+
+                    b.Navigation("Orders");
+
+                    b.Navigation("RequestPays");
                 });
 #pragma warning restore 612, 618
         }

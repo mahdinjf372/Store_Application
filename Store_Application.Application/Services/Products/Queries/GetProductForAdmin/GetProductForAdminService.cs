@@ -40,7 +40,7 @@ namespace Store_Application.Application.Services.Products.Queries.GetProductForA
                             IsMainImages = i.IsMainImage
                         }).ToList(),
             }).SingleOrDefault(p => p.Id.Equals(productId));
-
+            product.Decription = DecodeDescriptionMedia(product.Decription);
             return new ResultDto<ResultGetProductForAdminDto>
             {
                 Data = product,
@@ -48,6 +48,17 @@ namespace Store_Application.Application.Services.Products.Queries.GetProductForA
                 Message = "محصول با موفقیت واکشی شد"
             };
         }
+
+        private string DecodeDescriptionMedia(string des)
+        {
+            
+            //encode Elements
+            des = des.Replace("<div class=\"content-expert-img mr-auto ml-auto ", "<figure class=\"");
+            des = des.Replace("</div>", "</figure>");
+            des = des.Replace("><img class=\"w-100\" src=\"/images/page-single-product/tab-content/", "><img src=\"/images/page-single-product/tab-content/");
+            return des;
+        }
+
     }
 
 

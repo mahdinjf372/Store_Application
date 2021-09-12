@@ -1,0 +1,17 @@
+﻿@using EndPoint.WebSite.Areas.UserPanel.Models.Components
+@model ProfileBoxViewModel
+<footer class="profile-box-content-footer">
+    <span class="profile-box-nameuser">@(Model.FullName??"نام شما هنوز ثبت  نشده است")</span>
+    @if (Model.IsActive)
+    {
+        <span class="profile-box-registery-date">حساب کاربری شما <b>فعال </b>میباشد</span>
+    }
+    else
+    {
+        <span class="profile-box-registery-date">حساب کاربری شما <b>غیرفعال </b>میباشد</span>
+    }
+    <span class="profile-box-phone">نام کاربری : @Model.UserName</span>
+    <div class="profile-box-tabs">
+        <a asp-controller="Authentication" asp-action="LogOut" class="profile-box-tab-sign-out"><i class="mdi mdi-logout-variant"></i>خروج از حساب</a>
+    </div>
+</footer>

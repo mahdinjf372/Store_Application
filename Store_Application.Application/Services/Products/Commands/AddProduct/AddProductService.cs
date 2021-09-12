@@ -111,8 +111,8 @@ namespace Store_Application.Application.Services.Products.Commands.AddProduct
         {
             while (des.Contains("<img src=\"data:image"))
             {
+                //encode images
                 var imageIndex = des.IndexOf("<img src=\"data:image/");
-                //                            123456789 012345678901
                 var startFromImage = des.Substring(imageIndex);
 
                 var dataindex = startFromImage.IndexOf("data:");
@@ -141,7 +141,15 @@ namespace Store_Application.Application.Services.Products.Commands.AddProduct
                     var savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/page-single-product/tab-content/", name);
                     pic.Save(savePath);
                 }
+
             }
+
+            //encode Elements
+            des = des.Replace("<figure class=\"", "<div class=\"content-expert-img mr-auto ml-auto ");
+            des = des.Replace("</figure>", "</div>");
+            des = des.Replace("><img src=\"/images/page-single-product/tab-content/", "><img class=\"w-100\" src=\"/images/page-single-product/tab-content/");
+            des = des.Replace("<h3", "<h3 class=\"content-expert-title\"");
+            des = des.Replace("<p", "<p class=\"content-expert-text\"");
 
             return des;
         }

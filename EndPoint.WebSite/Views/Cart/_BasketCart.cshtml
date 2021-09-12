@@ -1,0 +1,86 @@
+﻿@using Store_Application.Common.Extentions
+@using EndPoint.WebSite.Models.Cart.LoadCart  
+@model CartViewModel
+
+@if (Model.CartItems.Count() != 0)
+{
+    <a class="cart-basket-box">
+        <span class="icon-cart">
+            <i class="mdi mdi-cart"></i>
+        </span>
+        <span class="title-cart">سبد خرید</span>
+        <span class="price-cart">
+            @Model.SumAmount.FixedToView()
+            <span>تومان</span>
+        </span>
+        <span class="count-cart">@Model.ProductCount</span>
+    </a>
+    <div class="widget-shopping-cart">
+        <div class="widget-shopping-cart-content">
+            <ul class="product-list-widget">
+                @foreach (var item in Model.CartItems.Take(2))
+                {
+                    <li class="mini-cart-item">
+                        <div class="mini-cart-item-content">
+                            <a onclick="RemoveProductToBasket(@item.ProductId)" class="mini-cart-item-close">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                            <a href="#" class="mini-cart-item-image d-block">
+                                <img src="/ProductImages/@item.ImageName">
+                            </a>
+                            <span class="product-name-card">@item.Title</span>
+                            <div class="quantity mt-4">
+                                <span class="quantity-Price-amount">
+                                    @item.PriceWithDiscount.FixedToView()
+                                </span>
+                                <span>تومان</span>
+                            </div>
+                            <div class="quantity mt-4">
+                                <span class="quantity-Price-amount">
+                                    <span>تعداد: </span>
+                                    @item.Count
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+            <div class="mini-card-total">
+                <strong>قیمت کل : </strong>
+                <span class="price-total">
+                    @Model.SumAmount.FixedToView()
+                    <span>تومان</span>
+                </span>
+            </div>
+            <div class="mini-card-button">
+                <a asp-controller="Cart" asp-action="Index" class="card-checkout">مشاهده سبد خرید و تسویه حساب</a>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <a class="cart-basket-box">
+        <span class="icon-cart">
+            <i class="mdi mdi-cart"></i>
+        </span>
+        <span class="title-cart">سبد خرید</span>
+        <span class="price-cart">
+            0
+            <span>تومان</span>
+        </span>
+        <span class="count-cart">0</span>
+    </a><div class="widget-shopping-cart">
+        <div class="widget-shopping-cart-content">
+            <ul class="product-list-widget">
+                <li class="mini-cart-item">
+                    <div class="mini-cart-item-content">
+                        <span class="product-name-card">
+                            سبد خرید شما خالی میباشد
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+}

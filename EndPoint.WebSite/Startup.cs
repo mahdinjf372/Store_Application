@@ -36,6 +36,13 @@ using EndPoint.WebSite.Areas.Admin.Models.Product.Edit;
 using Store_Application.Application.Services.MainSlider.FacadPattern;
 using Store_Application.Application.Services.BrandSlider.FacadPattern;
 using Store_Application.Application.Services.Advertinig.FacadPattern;
+using EndPoint.WebSite.Areas.UserPanel.Models.Account.EditAccountInformation;
+using EndPoint.WebSite.Areas.UserPanel.Models.Account.ChangePassword;
+using EndPoint.WebSite.Utilities;
+using Store_Application.Application.Services.Carts.FacadPattern;
+using Store_Application.Application.Services.Orders.FacadPattern;
+using EndPoint.WebSite.Models.Checkout.Index;
+using Store_Application.Application.Services.RequestPay.FacadPattern;
 
 namespace EndPoint.WebSite
 {
@@ -70,12 +77,18 @@ namespace EndPoint.WebSite
             services.AddScoped<IMainSliderFacad, MainSliderFacad>();
             services.AddScoped<IBrandSliderFacad, BrandSliderFacad>();
             services.AddScoped<IAdvertisingFacad, AdvertisingFacad>();
+            services.AddScoped<ICartFacad, CartFacad>();
+            services.AddScoped<IOrderFacad, OrderFacad>();
+            services.AddScoped<IRequestPayFacad, RequestPayFacad>();
+            services.AddScoped<CookiesManager, CookiesManager>();
+            services.AddScoped<ClaimUtility, ClaimUtility>();
+            
 
 
             #endregion
 
             #region validation services
-
+            //admin
             services.AddTransient<IValidator<RegisterUserViewModel>, RegisterUserViewModelValidator>();
             services.AddTransient<IValidator<RegisterViewModel>, RegisterViewModelValidator>();
             services.AddTransient<IValidator<LoginViewModel>, LoginViewModelValidator>();
@@ -86,9 +99,17 @@ namespace EndPoint.WebSite
             services.AddTransient<IValidator<AddSubCategoryViewModel>, AddSubCategoryViewModelValidator>();
             services.AddTransient<IValidator<CreateCategoryViewModel>, CreateCategoryViewModelValidator>();
             services.AddTransient<IValidator<EditCategoryViewModel>, EditCategoryViewModelValidator>();
-
             services.AddTransient<IValidator<CreateProductViewModel>, CreateProductViewModelValidator>();
             services.AddTransient<IValidator<EditProductViewModel>, EditProductViewModelValidator>();
+
+            //userPanel
+            services.AddTransient<IValidator<EditAccountInformationViewModel>, EditAccountInformationViewModelValidator>();
+            services.AddTransient<IValidator<ChangePasswordViewModel>, ChangePasswordViewModelValidator>();
+
+            //site
+            
+            services.AddTransient<IValidator<CheckoutViewModel>, CheckoutViewModelValidator>();
+
 
             #endregion
 
@@ -146,8 +167,6 @@ namespace EndPoint.WebSite
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-
-
             });
         }
     }

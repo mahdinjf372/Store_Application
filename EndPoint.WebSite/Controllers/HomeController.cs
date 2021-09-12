@@ -21,17 +21,6 @@ namespace EndPoint.WebSite.Controllers
 
         public IActionResult Index()
         {
-            //HomeViewModel model = new HomeViewModel();
-
-            //var categories = _categoryFacad.GetCategoriesService.Execute();
-
-            //model.Categories = categories.Data.Select(c => new CategoryViewModel
-            //{
-            //    Id = c.Id,
-            //    Title = c.Title,
-            //    ParentId = c.ParentCategoryId
-            //});
-
             return View();
         }
 

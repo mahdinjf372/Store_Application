@@ -1,0 +1,54 @@
+﻿@using EndPoint.WebSite.Areas.UserPanel.Models.Account.EditAccountInformation
+@model EditAccountInformationViewModel
+
+@{
+    Layout = "_UserPanelLayout";
+    ViewData["Title"] = "ویرایش اطلاعات | فروشگاه اینترنتی هگز مارکت";
+}
+
+<div class="col-lg-9 col-md-9 col-xs-12 pl">
+    <div class="profile-content">
+        <div class="profile-stats">
+            <div class="profile-address">
+                <div class="middle-container">
+                    <form asp-area="UserPanel" asp-controller="Account" asp-action="EditAccountInformation" class="form-checkout">
+                        <div asp-validation-summary="ModelOnly"></div>
+                        <div class="form-checkout-row">
+                            <div class="form-account-title">
+                                <label asp-for="FullName" for="fullname">نام کامل </label>
+                                <span asp-validation-for="FullName" class="text text-danger"></span>
+                                <input asp-for="FullName" type="text" id="fullname" class="input-namefirst-checkout form-control">
+                            </div>
+                            <div class="form-account-title">
+                                <label asp-for="Phone" for="phone">تلفن همراه </label>
+                                <span asp-validation-for="Phone" class="text text-danger"></span>
+                                <input asp-for="Phone" type="tel" id="phone" class="input-namelast-checkout form-control">
+                            </div>
+                            <div class="form-account-title">
+                                <label asp-for="Age" for="age">سن </label>
+                                <span asp-validation-for="Age" class="text text-danger"></span>
+                                <input asp-for="Age" type="number" id="age" class="input-email-checkout form-control">
+                            </div>
+                            <div class="form-account-title">
+                                <label asp-for="Address" for="address">آدرس </label>
+                                <span asp-validation-for="Address" class="text text-danger"></span>
+                                <input asp-for="Address" type="text" id="address" class="input-namelast-checkout form-control">
+                            </div>
+                            <div class="profile-edit-action">
+                                <a>
+                                    <button class="link-spoiler-edit btn btn-info">ثبت اطلاعات</button>
+                                </a>
+                           
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

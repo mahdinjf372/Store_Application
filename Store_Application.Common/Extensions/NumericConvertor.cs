@@ -10,8 +10,7 @@ namespace Store_Application.Common.Extentions
     {
         public static string FixedToView(this decimal input)
         {
-            ulong amount = (ulong) input;
-            return amount.ToString("N0");
+            return input.ToString("N0");
         }
 
         public static string FixedToView(this decimal? input)
@@ -20,8 +19,7 @@ namespace Store_Application.Common.Extentions
             {
                 return "";
             }
-            ulong amount = (ulong)input;
-            return amount.ToString("N0");
+            return input?.ToString("N0");
         }
     }
 }

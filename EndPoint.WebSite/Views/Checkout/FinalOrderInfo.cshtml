@@ -1,0 +1,134 @@
+﻿@using Store_Application.Common.Extentions
+@using EndPoint.WebSite.Models.Checkout.FinalOrderInfo
+@model FinalOrderInfoViewModel
+@{
+    ViewData["Title"] = "فاکتور سفارش | فروشگاه اینترنتی هگز مارکت";
+}
+<div class="container-main">
+    <div class="d-block">
+        <section class="blog-checkout d-block order-1">
+            <div class="col-lg">
+                <div class="checkout woocommerce-checkout">
+                    <div class="content-checkout">
+                        <div class="middle-container">
+                            <form action="#" class="form-checkout">
+                                <div class="col2-set" id="customer-details">
+                                    <div class="col-12">
+                                        <div class="billing-fields mt-4">
+                                            <h4 class="text-success">سفارش دریافت شد</h4>
+                                            <p class="thankyou-order-received">
+                                                به دلیل ازمایشی بودن سایت درگاه ازمایشی راه اندازی شده است و پرداخت شما به صورت ازمایشی انجام شد
+                                                از اینکه من را در تست عملکرد سایت همراهی کردید سپاسگذارم
+                                            </p>
+                                            <ul class="order-overview">
+                                                <li class="order-overview-item">
+                                                    کد سفارش :
+                                                    <span>DKC-@Model.RequestPayId</span>
+                                                </li>
+                                                <li class="order-overview-item">
+                                                    کد پیگیری سفارش :
+                                                    <span>@Model.RefId</span>
+                                                </li>
+                                                <li class="order-overview-item">
+                                                    تاریخ ثبت :
+                                                    <span>@Model.FinallyDate.ToShamsi()</span>
+                                                </li>
+                                                <li class="order-overview-item">
+                                                    مبلغ نهایی:
+                                                    <span class="amount">
+                                                        @Model.PayedAmount.FixedToView()
+                                                        <span>تومان</span>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 class="order-review-heading">سفارش شما</h3>
+                                <div class="checkout-review-order">
+                                    <table class="checkout-review-order-table table table-borderless">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="product-name">محصول</th>
+                                                <th scope="col" class="product-price">قیمت کل</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (Model.orderDetails.Any())
+                                            {
+                                                foreach (var od in Model.orderDetails)
+                                                {
+                                                    <tr class="checkout-cart-item">
+                                                        <td class="product-name">@od.Title (@od.Count عدد)</td>
+                                                        <td class="product-price text-info">
+                                                            <span class="amount">
+                                                                @((od.PriceWithDiscount * od.Count).FixedToView())
+                                                                <span>تومان</span>
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+
+                                        </tbody>
+                                        <tfoot>
+
+                                            <tr class="cart-subtotal">
+                                                <th>مجموع</th>
+                                                <td>
+                                                    <span class="amount">
+                                                        @Model.PayedAmount.FixedToView()
+                                                        <span>تومان</span>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                    <div class="profile-address pr-3 pl-3 mt-5">
+                                        <div class="box-header">
+                                            <span class="box-title">نشانی ما</span>
+                                        </div>
+                                        <div class="profile-address-item">
+                                            <div class="profile-address-item-top">
+                                                <div class="profile-address-item-title">تهران، تهرانسر،‌ تهرانیان</div>
+                                            </div>
+
+                                            <div class="profile-address-content">
+                                                <ul class="profile-address-info">
+                                                    <li>
+                                                        <div class="profile-address-info-item location">
+                                                            <i class="mdi mdi-map-outline"></i>
+                                                            تهران، تهرانسر،‌ تهرانیان
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="profile-address-info-item location">
+                                                            <i class="mdi mdi-email-outline"></i>
+                                                            Mahdinjf372@gmail.com
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="profile-address-info-item location">
+                                                            <i class="mdi mdi-phone"></i>
+                                                            09302410082
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="profile-address-info-item location">
+                                                            <i class="mdi mdi-account"></i>
+                                                            مهدی نجفی پسند
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
