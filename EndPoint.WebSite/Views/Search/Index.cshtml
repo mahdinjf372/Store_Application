@@ -1,0 +1,75 @@
+﻿@using EndPoint.WebSite.Models.Search.Index
+@model SearchViewModel
+@{
+    ViewData["Title"] = "جستوجو برای "+ ViewBag.SearchTitle + " | فروشگاه اینترنتی هگز مارکت";
+}
+<div class="container-main">
+    <div class="d-block">
+        <div class="page-content page-row">
+            <div class="main-row">
+                <div class="col-lg-12 col-md-12 col-xs-12 pl">
+                    <div class="shop-archive-content mt-3 d-block">
+
+                        <div class="archive-header">
+                            <h2 class="archive-header-title">@ViewBag.ArchiveTitle</h2>
+                            <div class="sort-tabs mt-0 d-inline-block pr">
+                                <h4>مرتب‌سازی بر اساس :</h4>
+                            </div>
+                            <div class="nav-sort-tabs-res">
+                                <ul class="nav sort-tabs-options" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link @((ViewBag.SortBy=="جدیدترین")? "active":"")" id="newest-tab" href="/Search/@ViewBag.SearchTypeId?searchTitle=@ViewBag.SearchTitle&sortBy=جدیدترین" role="tab" aria-controls="newest" aria-selected="True">جدیدترین</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link @((ViewBag.SortBy=="ارزانترین")? "active":"")" id="cheapest-tab" href="/Search/@ViewBag.SearchTypeId?searchTitle=@ViewBag.SearchTitle&sortBy=ارزانترین" role="tab" aria-controls="cheapest" aria-selected="false">ارزان‌ترین</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link @((ViewBag.SortBy=="گرانترین")? "active":"")" id="most-expensive-tab" href="/Search/@ViewBag.SearchTypeId?searchTitle=@ViewBag.SearchTitle&sortBy=گرانترین" role="tab" aria-controls="most-expensive" aria-selected="false">گران‌ترین</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="product-items">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="Most-visited" role="tabpanel" aria-labelledby="Most-visited-tab">
+                                    <div class="row">
+                                        @if (Model.Products.Any())
+                                        {
+                                            foreach (var product in Model.Products)
+                                            {
+                                                <partial name="_ProductBox" model="product" />
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <div class="col-12 order-1 d-block mb-3">
+                                                <section class="product-box product product-type-simple">
+                                                    <div class="title">
+                                                        <h6 class="archive-header-title">محصولی با این مشخصات یافت نشد</h6>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <partial name="/Views/Search/_ProductsPaging.cshtml" model="Model.Paging" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/js/vendor/ResizeSensor.min.js"></script>
+    <script src="~/js/vendor/nouislider.min.js"></script>
+    <script src="~/js/vendor/wNumb.js"></script>
+
+    <script src="~/js/Paging.js"></script>
+}

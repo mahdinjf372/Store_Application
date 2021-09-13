@@ -14,7 +14,7 @@ namespace Store_Application.Application.Services.Orders.Commands.FinalizeOrder
             _db = db;
         }
 
-        public ResultDto<bool> Execute(int orderId, string authority)
+        public ResultDto<bool> Execute(int orderId, string authority, long RefId)
         {
 
             try
@@ -29,7 +29,9 @@ namespace Store_Application.Application.Services.Orders.Commands.FinalizeOrder
 
                 order.OrderState = Domain.Enums.OrderState.Processing;
                 order.RequestPay.Authority = authority;
+                order.RequestPay.RefId = RefId;
                 order.RequestPay.IsPay = true;
+                order.RequestPay.PayDate = DateTime.Now;
                 order.UpdateTime = DateTime.Now;
                 order.RequestPay.UpdateTime = DateTime.Now;
                 order.User.Carts.SingleOrDefault(c => c.Finished == false).UpdateTime = DateTime.Now;
@@ -38,6 +40,7 @@ namespace Store_Application.Application.Services.Orders.Commands.FinalizeOrder
                 foreach (var od in order.OrderDetails)
                 {
                     od.Product.Inventory = od.Product.Inventory - od.Count;
+                    od.Price = (int)(od.Product.Price - od.Product.DiscountAmount);
                 }
 
                 _db.SaveChanges();

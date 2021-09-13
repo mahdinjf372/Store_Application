@@ -4,6 +4,8 @@ using Store_Application.Application.Services.Orders.Commands.EditOrderForSite;
 using Store_Application.Application.Services.Orders.Commands.FinalizeOrder;
 using Store_Application.Application.Services.Orders.Queries.GetOrderForPay;
 using Store_Application.Application.Services.Orders.Queries.GetOrderForSite;
+using Store_Application.Application.Services.Orders.Queries.GetOrderForUserPanel;
+using Store_Application.Application.Services.Orders.Queries.GetOrdersForUserPanel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +30,7 @@ namespace Store_Application.Application.Services.Orders.FacadPattern
                 return _getOrderForSiteService = _getOrderForSiteService ?? new GetOrderForSiteService(_db);
             }
         }
-        
+
 
         private IEditOrderForSiteService _editOrderForSiteService;
         public IEditOrderForSiteService EditOrderForSiteService
@@ -38,7 +40,7 @@ namespace Store_Application.Application.Services.Orders.FacadPattern
                 return _editOrderForSiteService = _editOrderForSiteService ?? new EditOrderForSiteService(_db);
             }
         }
-        
+
         private IGetOrderForPayService _getOrderForPayService;
         public IGetOrderForPayService GetOrderForPayService
         {
@@ -57,5 +59,24 @@ namespace Store_Application.Application.Services.Orders.FacadPattern
             }
         }
 
+
+        private IGetOrdersForUserPanelService _getOrdersForUserPanelService;
+        public IGetOrdersForUserPanelService GetOrdersForUserPanelService
+        {
+            get
+            {
+                return _getOrdersForUserPanelService = _getOrdersForUserPanelService ?? new GetOrdersForUserPanelService(_db);
+            }
+        }
+        
+
+        private IGetOrderForUserPanelService _getOrderForUserPanelService;
+        public IGetOrderForUserPanelService GetOrderForUserPanelService
+        {
+            get
+            {
+                return _getOrderForUserPanelService = _getOrderForUserPanelService ?? new GetOrderForUserPanelService(_db);
+            }
+        }
     }
 }

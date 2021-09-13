@@ -1,6 +1,8 @@
-﻿using Store_Application.Application.Interfaces.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using Store_Application.Application.Interfaces.Context;
 using Store_Application.Common.ViewModels;
 using System;
+using System.Linq;
 
 namespace Store_Application.Application.Services.RequestPay.Commands.AddRequestPay
 {
@@ -14,26 +16,25 @@ namespace Store_Application.Application.Services.RequestPay.Commands.AddRequestP
         public ResultDto<ResultAddRequestPayDto> Execute(int userId, decimal totalAmount)
         {
             var user = _db.Users.Find(userId);
-            Domain.Entities.Finance.RequestPay requestPay = new Domain.Entities.Finance.RequestPay()
-            {
-                Amount = totalAmount,
-                Guid = Guid.NewGuid(),
-                IsPay = false,
-                User = user,
-                InsertTime = DateTime.Now,
 
-            };
-            _db.RequestPays.Add(requestPay);
+            var order = _db.Orders.Include(o=> o.RequestPay).Where(o => o.UserId.Equals(userId) && !o.RequestPay.IsPay).SingleOrDefault();
+
+            order.RequestPay.Amount = totalAmount;
+            order.RequestPay.Guid = Guid.NewGuid();
+            order.RequestPay.IsPay = false;
+            order.RequestPay.UserId = user.Id;
+            
+            _db.RequestPays.Update(order.RequestPay);
             _db.SaveChanges();
 
             return new ResultDto<ResultAddRequestPayDto>()
             {
                 Data = new ResultAddRequestPayDto
                 {
-                    guid = requestPay.Guid,
-                    Amount = requestPay.Amount,
+                    guid = order.RequestPay.Guid,
+                    Amount = order.RequestPay.Amount,
                     Email = user.Email,
-                    RequestPayId = requestPay.Id,
+                    RequestPayId = order.RequestPay.Id,
                 },
                 IsSuccess = true,
             };

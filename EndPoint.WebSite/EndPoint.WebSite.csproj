@@ -25,7 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\UserPanel\Data\" />
     <Folder Include="wwwroot\images\menu-main\card\" />
     <Folder Include="wwwroot\images\slider-brand\" />
   </ItemGroup>

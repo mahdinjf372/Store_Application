@@ -22,13 +22,13 @@
                             <section class="profile-box">
                                 <ul class="profile-account-navs">
                                     <li class="profile-account-nav-item navigation-link-dashboard">
-                                        <a asp-area="UserPanel" asp-controller="Home" asp-action="UserPanel" class="@ViewBag.ProfileIsActived">
+                                        <a asp-area="UserPanel" asp-controller="Account" asp-action="Index" class="@ViewBag.ProfileIsActived">
                                             <i class="mdi mdi-account-outline"></i>
                                             پروفایل
                                         </a>
                                     </li>
                                     <li class="profile-account-nav-item navigation-link-dashboard">
-                                        <a asp-area="UserPanel" asp-controller="Orders" asp-action="Index" class="@ViewBag.AllOrdersIsActived">
+                                        <a asp-area="UserPanel" asp-controller="Order" asp-action="Index" class="@ViewBag.AllOrdersIsActived">
                                             <i class="mdi mdi-cart"></i>
                                             همه سفارش ها
                                         </a>
@@ -46,7 +46,7 @@
                                         </a>
                                     </li>
                                     <li class="profile-account-nav-item navigation-link-dashboard">
-                                        <a asp-area="UserPanel" asp-controller="UserAccount" asp-action="EditAccountInfo" class="@ViewBag.EditInfoIsActived">
+                                        <a asp-area="UserPanel" asp-controller="Account" asp-action="EditAccountInformation" class="@ViewBag.EditInfoIsActived">
                                             <i class="mdi mdi-tooltip-text-outline"></i>
                                             ویرایش اطلاعات
                                         </a>

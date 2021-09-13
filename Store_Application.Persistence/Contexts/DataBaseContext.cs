@@ -88,7 +88,7 @@ namespace Store_Application.Persistence.Contexts
             modelBuilder.Entity<User>().HasQueryFilter(u => !u.isRemoved);
             modelBuilder.Entity<Role>().HasQueryFilter(r => !r.isRemoved);
             modelBuilder.Entity<Category>().HasQueryFilter(c => !c.isRemoved);
-            modelBuilder.Entity<Product>().HasQueryFilter(p => !p.isRemoved);
+            modelBuilder.Entity<Product>().HasQueryFilter(p => !p.isRemoved && p.Displayed);
             modelBuilder.Entity<Feature>().HasQueryFilter(p => !p.isRemoved);
             modelBuilder.Entity<ProductImage>().HasQueryFilter(p => !p.isRemoved);
             modelBuilder.Entity<Brand>().HasQueryFilter(p => !p.isRemoved);
@@ -406,6 +406,9 @@ namespace Store_Application.Persistence.Contexts
             #endregion
 
         }
+
+
+        //
 
     }
 }

@@ -14,8 +14,13 @@
                         <div class="col-lg-9 pl">
                             <div class="header-search row text-right">
                                 <div class="header-search-box">
-                                    <form action="/Search/0" class="form-search">
+                                    <input name="pageId" id="page" type="hidden" value="@ViewBag.PageId" />
+                                    <input name="searchTitle" id="searchKey" type="hidden" value="@ViewBag.SearchTitle" />
+
+                                    <form action="/Search" class="form-search">
                                         <input type="search" class="header-search-input" name="searchTitle" placeholder="نام کالا، برند و یا دسته مورد نظر خود را جستجو کنید…">
+                                        <input name="sortBy" id="sortBy" type="hidden" value="@ViewBag.SortBy" />
+                                        <input name="take" id="take" type="hidden" value="@ViewBag.Take" />
                                         <div class="action-btns">
                                             <button class="btn btn-search" type="submit">
                                                 <i class="fa fa-search"></i>

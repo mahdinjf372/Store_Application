@@ -11,6 +11,7 @@ using Store_Application.Application.Services.Products.Queries.GetProductForAdmin
 using Store_Application.Application.Services.Products.Queries.GetProductForSite;
 using Store_Application.Application.Services.Products.Queries.GetProductsBySliderId;
 using Store_Application.Application.Services.Products.Queries.GetProductsForAdmin;
+using Store_Application.Application.Services.Products.Queries.GetProductsForSite;
 using Store_Application.Application.Services.Products.Queries.IsExistImage;
 using Store_Application.Application.Services.Products.Queries.IsExistProduct;
 using System;
@@ -147,6 +148,16 @@ namespace Store_Application.Application.Services.Products.FacadPattern
             get
             {
                 return _getProductsBySliderIdService = _getProductsBySliderIdService ?? new GetProductsBySliderIdService(_db);
+            }
+        }
+        
+
+        private IGetProductsForSiteService _getProductsForSiteService;
+        public IGetProductsForSiteService GetProductsForSiteService
+        {
+            get
+            {
+                return _getProductsForSiteService = _getProductsForSiteService ?? new GetProductsForSiteService(_db);
             }
         }
 

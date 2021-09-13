@@ -1,0 +1,47 @@
+﻿@using Store_Application.Common.Extentions
+@using EndPoint.WebSite.Models.Search.Index
+@model SearchProductViewModel
+
+<div class="col-lg-3 col-md-3 col-xs-12 order-1 d-block mb-3">
+    <section class="product-box product product-type-simple">
+        <div class="thumb">
+            <a href="/Products/@Model.Id" class="d-block">
+                @if (Model.DiscountAmount != 0)
+                {
+                    <div class="promotion-badge">فروش ویژه</div>
+                }
+
+                <div class="product-rate">
+
+                </div>
+                @if (Model.DiscountAmount != 0)
+                {
+                    <div class="discount-d">
+                        <span>@((int)(Model.DiscountAmount / Model.Price * 100))%</span>
+                    </div>
+                }
+
+                <img src="/images/page-single-product/product-img/@Model.ImageTitle">
+            </a>
+        </div>
+        <div class="title">
+            <a href="/Products/@Model.Id">@Model.Title</a>
+        </div>
+        <div class="price">
+            @if (Model.DiscountAmount != 0)
+            {
+                <div class="price">
+                    <del class="d-block text-danger font-small-2"><span>@Model.Price.FixedToView()<span> تومان</span></span></del>
+                    <ins class="d-block text-info font-small-5"><span>@(Model.PriceWihtDiscount.FixedToView())<span> تومان</span></span></ins>
+                </div>
+            }
+            else
+            {
+                <span class="d-block text-danger font-small-2">
+                    <del class="d-block text-danger font-small-2"><span>----------</span></del>
+                    <ins class="d-block text-info font-small-5"><span>@Model.Price.FixedToView()<span> تومان</span></span></ins>
+                </span>
+            }
+        </div>
+    </section>
+</div>

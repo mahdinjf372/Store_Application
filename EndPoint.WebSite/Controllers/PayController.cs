@@ -99,7 +99,7 @@ namespace EndPoint.Site.Controllers
                 var request = payment.Verification(Authority);
                 if (Status == "OK")
                 {
-                    _orderFacad.FinalizeOrderService.Execute(order.Data.Id, authority);
+                    _orderFacad.FinalizeOrderService.Execute(order.Data.Id, authority, request.Result.RefId);
                     var finallyOrder = GetFinallyOrder(authority, order.Data.Id);
                     ViewBag.RefId = request.Result.RefId;
                     return View("/Views/Checkout/FinalOrderInfo.cshtml", new FinalOrderInfoViewModel

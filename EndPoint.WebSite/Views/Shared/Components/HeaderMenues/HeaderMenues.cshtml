@@ -11,7 +11,7 @@
                         @foreach (var category in Model.Where(c => c.ParentCategoryId == null))
                         {
                             <li id="nav-menu-item" class="menu-item nav-overlay">
-                                <a asp-controller="Search" asp-action="ShowProductByCategoryId" asp-route-searchTitle="@category.Title" asp-route-searchTypeId="@category.Id" class="current-link-menu">
+                                <a class="current-link-menu">
                                     @category.Title
                                 </a>
                                 @{
@@ -23,7 +23,7 @@
                                         @foreach (var group in grps)
                                         {
                                             <li class="menu-mega-item menu-item-type-mega-menu">
-                                                <a asp-controller="Search" asp-action="ShowProductByGroupId" asp-route-searchTitle="@group.Title" asp-route-searchTypeId="@group.Id" class="mega-menu-link">
+                                                <a class="mega-menu-link">
                                                     @group.Title
                                                 </a>
                                                 @{
@@ -37,7 +37,7 @@
                                                         {
 
                                                             <li class="menu-mega-item-three">
-                                                                <a asp-controller="Search" asp-action="ShowProductBySubGroupId" asp-route-searchTitle="@subGroup.Title" asp-route-searchTypeId="@subGroup.Id">
+                                                                <a asp-controller="Search" asp-action="Index" asp-route-searchTitle="@subGroup.Title" asp-route-categoryId="@subGroup.Id">
                                                                     @subGroup.Title
                                                                 </a>
                                                             </li>
@@ -57,7 +57,7 @@
                     }
                     <div class="divider-space-card d-block">
                         <div id="cart-basket" class="header-cart-basket">
-                            @*@await Component.InvokeAsync("MarketBasket")*@
+
                         </div>
                     </div>
                 </ul>
@@ -81,7 +81,7 @@
             @foreach (var category in Model.Where(c => c.ParentCategoryId == null))
             {
                 <li>
-                    <a asp-controller="Search" asp-action="ShowProductByCategoryId" asp-route-searchTitle="@category.Title" asp-route-searchTypeId="@category.Id" class="collapsed" type="button" data-toggle="collapse" data-target="@("#collapse" + category.Id)" aria-expanded="false" aria-controls="@("collapse" + category.Id)">
+                    <a type="button" data-toggle="collapse" data-target="@("#collapse" + category.Id)" aria-expanded="false" aria-controls="@("collapse" + category.Id)">
                         <i class="mdi mdi-chevron-down"></i>@category.Title
                     </a>
                     <div id="@("collapse" + category.Id)" class="collapse" aria-labelledby="@("heading" + category.Id)" data-parent="#accordionExample" style="">
@@ -95,7 +95,7 @@
                                 @foreach (var group in grps)
                                 {
                                     <li class="has-sub">
-                                        <a asp-controller="Search" asp-action="ShowProductByGroupId" asp-route-searchTitle="@group.Title" asp-route-searchTypeId="@group.Id" class="category-level-2">@group.Title</a>
+                                        <a class="category-level-2">@group.Title</a>
                                         @{
                                             var subGrps = Model.Where(c => c.ParentCategoryId.Equals(group.Id)).ToList();
                                         }
@@ -105,7 +105,7 @@
                                                 @foreach (var subGroup in subGrps)
                                                 {
                                                     <li>
-                                                        <a asp-controller="Search" asp-action="ShowProductBySubGroupId" asp-route-searchTitle="@subGroup.Title" asp-route-searchTypeId="@subGroup.Id" class="category-level-3">@subGroup.Title</a>
+                                                        <a asp-controller="Search" asp-action="Index" asp-route-searchTitle="@subGroup.Title" asp-route-categoryId="@subGroup.Id" class="category-level-3">@subGroup.Title</a>
                                                     </li>
                                                 }
                                             </ul>

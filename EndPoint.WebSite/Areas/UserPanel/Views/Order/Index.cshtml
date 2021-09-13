@@ -1,0 +1,143 @@
+﻿
+@using Store_Application.Common.Extentions
+@using EndPoint.WebSite.Areas.UserPanel.Models.Order.Index
+@model IEnumerable<OrdersViewModel>
+@{
+    ViewData["AllOrdersIsActived"] = "active";
+    Layout = "_UserPanelLayout";
+    ViewData["Title"] = "سفارشات | فروشگاه اینترنتی هگز مارکت";
+}
+
+<div class="col-lg-9 col-md-9 col-xs-12 pl">
+    <div class="profile-content">
+        <div class="profile-stats">
+            <div class="table-orders">
+                <table class="table table-profile-orders">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">شماره سفارش</th>
+                            <th scope="col">تاریخ ثبت سفارش</th>
+                            <th scope="col">وضعیت</th>
+                            <th scope="col">مجموع</th>
+                            <th scope="col">جزئیات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Any())
+                        {
+                            foreach (var order in Model)
+                            {
+                                <tr>
+                                    <td class="order-code">DKC-@order.Id</td>
+                                    @if (order.Finished)
+                                    {
+                                        <td>@order.FinallyDate?.ToShamsi()</td>
+                                        <td class="Waiting text-success">پرداخت شده</td>
+                                        <td class="total">
+                                            <span class="amount">
+                                                @order.PaidAmount.FixedToView()
+                                                <span>تومان</span>
+                                            </span>
+                                        </td>
+
+                                        <td class="detail"><a asp-area="UserPanel" asp-controller="Order" asp-action="ShowOrderInfo" asp-route-orderId="@order.Id" class="btn btn-secondary d-block">نمایش</a></td>
+                                    }
+                                    else
+                                    {
+                                        <td>نهایی نشده</td>
+                                        <td class="Waiting text-danger">پرداخت نشده</td>
+                                        <td class="total">
+                                            <span class="amount">
+                                                @order.totalAmount.FixedToView()
+                                                <span>تومان</span>
+                                            </span>
+                                        </td>
+                                        <td class="detail"><a asp-area="" asp-controller="Cart" asp-action="Index" class="btn btn-secondary d-block">نمایش</a></td>
+                                    }
+
+
+
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td class="">
+                                    شما هیچ فاکتوری ندارید
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <div class="profile-orders">
+                    <div class="collapse">
+                        <div class="profile-orders-item">
+                            <div class="profile-orders-header">
+                                @if (Model.Any())
+                                {
+                                    foreach (var order in Model)
+                                    {
+                                        if (order.Finished)
+                                        {
+                                            <a asp-area="UserPanel" asp-controller="Orders" asp-action="ShowOrderInfo" asp-route-orderId="@order.Id" class="profile-orders-header-details">
+                                                <div class="profile-orders-header-summary">
+                                                    <div class="profile-orders-header-row text-center">
+                                                        <span class="profile-orders-header-id">@order.Id</span>
+                                                        <span class="profile-orders-header-state text-success">پرداخت شده</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class="profile-orders-header-data">
+                                                <div class="profile-info-row">
+                                                    <div class="profile-info-label">تاریخ ثبت سفارش</div>
+                                                    <div class="profile-info-value">@order.FinallyDate</div>
+                                                </div>
+                                                <div class="profile-info-row">
+                                                    <div class="profile-info-label">مبلغ کل</div>
+                                                    <div class="profile-info-value">
+                                                        <span class="amount">
+                                                            @order.PaidAmount.FixedToView()
+                                                            <span>تومان</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <a asp-controller="Cart" asp-action="Index" class="profile-orders-header-details">
+                                                <div class="profile-orders-header-summary">
+                                                    <div class="profile-orders-header-row text-center">
+                                                        <span class="profile-orders-header-id">@order.Id</span>
+                                                        <span class="profile-orders-header-state text-danger">پرداخت نشده</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class="profile-orders-header-data">
+                                                <div class="profile-info-row">
+                                                    <div class="profile-info-label">تاریخ ثبت سفارش</div>
+                                                    <div class="profile-info-value">ثبت نشده</div>
+                                                </div>
+                                                <div class="profile-info-row">
+                                                    <div class="profile-info-label">مبلغ کل</div>
+                                                    <div class="profile-info-value">
+                                                        <span class="amount">
+                                                            @order.totalAmount.FixedToView()
+                                                            <span>تومان</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
