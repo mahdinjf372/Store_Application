@@ -3,6 +3,8 @@ using Store_Application.Common.Security;
 using Store_Application.Common.ViewModels;
 using Store_Application.Domain.Entities.User;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Store_Application.Application.Services.Users.Commands.EditUserForAdmin
 {
@@ -20,7 +22,6 @@ namespace Store_Application.Application.Services.Users.Commands.EditUserForAdmin
             user.age = req.age;
             user.FullName = req.FullName;
             user.Phone = req.Phone;
-            user.RoleId = req.RoleId;
             user.UpdateTime = DateTime.Now;
             user.Username = req.Username;
 
@@ -32,11 +33,46 @@ namespace Store_Application.Application.Services.Users.Commands.EditUserForAdmin
             _db.Users.Update(user);
             _db.SaveChanges();
 
+            UpdateRoles(req.Roles, user.Id);
+
             return new ResultDto()
             {
                 IsSuccess = true,
                 Message = "اطلاعات كاربر با موفقيت ويرايش شد"
             };
+        }
+
+        private void UpdateRoles(List<EditRoleDto> roles, int userId)
+        {
+
+            var oldUserRoles = _db.UserRoles.Where(ur => ur.UserId.Equals(userId)).ToList();
+
+            foreach (var role in oldUserRoles)
+            {
+                if (!roles.Any(r=> r.Id.Equals(role.RoleId)))
+                {
+                    role.isRemoved = true;
+                    role.RemovedTime = DateTime.Now;
+                    _db.UserRoles.Update(role);
+                    _db.SaveChanges();
+                }
+            }
+            
+            List<UserRoles> newUserRoles = new List<UserRoles>();
+            foreach (var role in roles)
+            {
+                if (!oldUserRoles.Any(ur => ur.RoleId.Equals(role.Id)))
+                {
+                    newUserRoles.Add(new UserRoles
+                    {
+                        RoleId = role.Id,
+                        InsertTime = DateTime.Now,
+                        UserId = userId
+                    });
+                }
+            }
+            _db.UserRoles.AddRange(newUserRoles);
+            _db.SaveChanges();
         }
     }
 }

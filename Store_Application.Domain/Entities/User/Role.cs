@@ -7,6 +7,6 @@ namespace Store_Application.Domain.Entities.User
     {
         public string Name { get; set; }
 
-        public ICollection<User> Users { get; set; }
+        public ICollection<UserRoles> UserRoles { get; set; }
     }
 }

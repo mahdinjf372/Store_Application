@@ -156,10 +156,12 @@ function Edit(e) {
 
     var ProductFeatureId = $('#Edit_ProductFeatureId').val();
     var ProductFeatureValue = $('#Edit_Value').val();
+    var productId = $("#productId").val();
 
     var postData = {
         'pfId': ProductFeatureId,
-        'value': ProductFeatureValue
+        'value': ProductFeatureValue,
+        'productId' : productId
     };
 
 

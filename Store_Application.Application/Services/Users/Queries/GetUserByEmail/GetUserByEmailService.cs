@@ -25,7 +25,10 @@ namespace Store_Application.Application.Services.Users.Queries.GetUserByEmail
                 FullName = _user.FullName,
                 Id = _user.Id,
                 Phone = _user.Phone,
-                RoleId = _user.RoleId,
+                Roles = _user.UserRoles.Select(r=> new GetEmailRoleDto
+                {
+                    Id = r.RoleId
+                }).ToList(),
                 Username = _user.Username
             };
 

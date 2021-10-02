@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 namespace EndPoint.WebSite.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = nameof(Roles.Admin) + "," + nameof(Roles.Operator))]
     public class AdvertisingController : Controller
     {
         private readonly IAdvertisingFacad _advertisingFacad;

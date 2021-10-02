@@ -19,7 +19,7 @@ namespace Store_Application.Application.Senders.Email.ActivationCode
         {
 
             string path =
-                Path.Combine(Directory.GetCurrentDirectory() + "/Views/Authentication/ActivationEmail.html");
+                Path.Combine(Directory.GetCurrentDirectory() + "\\Views\\Authentication\\ActivationEmail.html");
 
             string Body = File.ReadAllText(path).Replace("{name}", username)
                 .Replace("{href}", $"{SiteSetting.SiteDomain}/Authentication/ActiveUser/{activationCode}");

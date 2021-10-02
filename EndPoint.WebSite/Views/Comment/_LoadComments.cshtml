@@ -1,0 +1,90 @@
+﻿@using Store_Application.Common.Extentions
+@using EndPoint.WebSite.Models.Comment.LoadComments
+@model IEnumerable<LoadCommentsViewModel>
+@if (Model.Any())
+{
+    <ul class="comment-list">
+        @foreach (var comment in Model)
+        {
+            <li>
+                <div class="col-lg-3 pr">
+                    <section>
+                        <div class="comments-user-shopping">
+                            @comment.Username
+                            <div class="cell-date">
+                                در تاریخ @comment.InsertTime.ToShamsi()
+                            </div>
+                            @if (comment.IRecommended)
+                            {
+                                <div class="message-light">
+                                    <i class="fa fa-thumbs-o-up"></i>
+                                    <span>خرید این محصول را توصیه می‌کنم</span>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="message-light text-danger">
+                                    <i class="fa fa-thumbs-o-down"></i>
+                                    <span>خرید این محصول را توصیه نمی‌کنم</span>
+                                </div>
+                            }
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-9 pl">
+                    <div class="article">
+                        <ul class="comment-text">
+                            <div class="header">
+                                <div>@comment.Title</div>
+                                <div class="product-rate pl">
+                                    @for (byte i = 1; i <= 5; i++)
+                                    {
+                                        <i class="fa fa-star @((comment.Rate>=i)?"active":"")"></i>
+                                    }
+                                </div>
+                                <p>@comment.Text</p>
+                            </div>
+                            <div class="comments-evaluation">
+                                <div class="footer">
+
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <div class="comments-likes">
+                                            آیا این نظر برایتان مفید بود؟
+                                            <button onclick="LikeComment(@ViewBag.ProductId,@comment.Id)" class="btn-like js-comment-like" type="button">
+                                                بله
+                                                <span id="@("comments"+comment.Id+"-LikeCount")" class="count">@comment.LikesCount</span>
+                                            </button>
+                                            <button onclick="DislikeComment(@ViewBag.ProductId,@comment.Id)" class="btn-like js-comment-dislike" type="button">
+                                                خیر
+                                                <span id="@("comments"+comment.Id+"-DislikeCount")" class="count">@comment.DislikesCount</span>
+                                            </button>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="comments-likes">
+                                            آیا این نظر برایتان مفید بود؟(برای ثبت باید وارد حساب شوید)
+                                            <a asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="/Product/@ViewBag.ProductId">
+                                                <button class="btn-like js-comment-like" type="button">
+                                                    بله
+                                                    <span id="@("comments"+comment.Id+"-LikeCount")" class="count">@comment.LikesCount</span>
+                                                </button>
+                                            </a>
+                                            <a asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="/Product/@ViewBag.ProductId">
+                                                <button class="btn-like js-comment-dislike" type="button">
+                                                    خیر
+                                                    <span id="@("comments"+comment.Id+"-DislikeCount")" class="count">@comment.Id</span>
+                                                </button>
+                                            </a>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+}

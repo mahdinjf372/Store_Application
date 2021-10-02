@@ -4,17 +4,21 @@ using EndPoint.WebSite.Areas.Admin.Models.Category.EditCategory;
 using EndPoint.WebSite.Areas.Admin.Models.Category.LoadCategories;
 using EndPoint.WebSite.Areas.Admin.Models.Category.LoadSubCategories;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Store_Application.Application.Interfaces.FacadPattern;
 using Store_Application.Application.Services.Categories.Commands.AddCategory;
 using Store_Application.Application.Services.Categories.Queries.GetCategoriesForAdmin;
 using Store_Application.Common.ViewModels;
+using Store_Application.Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace EndPoint.WebSite.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = nameof(Roles.Admin) + "," + nameof(Roles.Operator))]
     public class CategoryController : Controller
     {
         private readonly ICategoryFacad _productFacad;

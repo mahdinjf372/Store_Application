@@ -27,14 +27,14 @@ namespace Store_Application.Application.Services.Users.Queries.GetUsersForAdmin
                 }
 
                 int rowCount = 0;
-                var usersViewModel = users.Include(u => u.Role)
+                var usersViewModel = users.Include(u => u.UserRoles).ThenInclude(ur=> ur.Role)
                     .Select(u => new GetUsersForAdminDto()
                     {
                         Id = u.Id,
                         Username = u.Username,
                         Email = u.Email,
                         isRemoved = u.isRemoved,
-                        RoleName = u.Role.Name,
+                        RolesName = u.UserRoles.Where(r=> !r.isRemoved).OrderBy(r=> r.RoleId).Select(r=> r.Role.Name).ToList(),
                         isActive = u.isActive
                     })
                     .ToPaged(req.Page, req.Take, out rowCount).ToList();

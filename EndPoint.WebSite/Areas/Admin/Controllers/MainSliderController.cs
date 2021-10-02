@@ -7,12 +7,14 @@ using Store_Application.Application.Interfaces.FacadPattern;
 using Store_Application.Application.Services.MainSlider.Commands.Add;
 using Store_Application.Application.Services.MainSlider.Commands.Edit;
 using Store_Application.Common.ViewModels;
+using Store_Application.Domain.Enums;
 using System.Linq;
 
 namespace EndPoint.WebSite.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = nameof(Roles.Admin) + "," + nameof(Roles.Operator))]
+
     public class MainSliderController : Controller
     {
         private readonly IMainSliderFacad _mainSliderFacad;

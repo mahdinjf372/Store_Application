@@ -1,12 +1,6 @@
 ﻿@using Store_Application.Common.Extentions
 @using EndPoint.WebSite.Models.Components.Product
 @model ProductViewModel
-
-@section HeaderReferences
-{
-
-}
-
 <div class="d-block">
     <div class="page-content page-row">
         <div class="main-row">
@@ -29,32 +23,22 @@
                                 <div class="gallery-item">
                                     <div>
                                         <ul class="gallery-actions">
-                                            @*<li>
-                                                    @if (User.Identity.IsAuthenticated)
-                                                    {
-                                                        if (ViewBag.IsFavorite)
-                                                        {
-                                                            <a id="changeFavorite" class="btn-option add-product-wishes active">
-                                                                <i class="mdi mdi-heart-outline"></i>
-                                                                <span>محبوب</span>
-                                                            </a>
-                                                        }
-                                                        else
-                                                        {
-                                                            <a id="changeFavorite" class="btn-option add-product-wishes">
-                                                                <i class="mdi mdi-heart-outline"></i>
-                                                                <span>محبوب</span>
-                                                            </a>
-                                                        }
-                                                    }
-                                                    else
-                                                    {
-                                                        <a href="/Login?ReturnUrl=/Product/@Model.ProductId" class="btn-option add-product-wishes">
-                                                            <i class="mdi mdi-heart-outline"></i>
-                                                            <span>محبوب</span>
-                                                        </a>
-                                                    }
-                                                </li>*@
+                                            <li>
+                                                @if (Model.IsFavorite)
+                                                {
+                                                    <a id="changeFavorite" onclick="RemoveFromFavorite()" class="btn-option add-product-favorite active">
+                                                        <i class="mdi mdi-heart-outline"></i>
+                                                        <span>محبوب</span>
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <a id="changeFavorite" onclick="AddToFavorite()" class="btn-option add-product-favorite">
+                                                        <i class="mdi mdi-heart-outline"></i>
+                                                        <span>محبوب</span>
+                                                    </a>
+                                                }
+                                            </li>
                                             @*<li class="option-alarm">
                                                     @if (Model.Inventory == 0)
                                                     {
@@ -184,7 +168,7 @@
                                             </div>
                                             @if (Model.Images.Any())
                                             {
-                                                foreach (var item in Model.Images)
+                                                foreach (var item in Model.Images.Where(i => !i.IsMainImage))
                                                 {
                                                     <div class="owl-item active" style="width: 149.894px; margin-left: 10px;">
                                                         <li class="item">
@@ -338,11 +322,7 @@
                                     <div class="product-seller-row guarantee">
                                         <span class="title mt-3">تعداد</span>
                                         <div class="quantity pl">
-                                            <input id="product-count" readonly type="number" min="1" max="@Model.Inventory" step="1" value="1">
-                                            <div class="quantity-nav">
-                                                <div class="quantity-button quantity-up"></div>
-                                                <div class="quantity-button quantity-down"></div>
-                                            </div>
+                                            <input id="product-count" readonly="readonly" type="number" min="1" max="@Model.Inventory" step="1" value="1" />
                                             <div class="quantity-nav">
                                                 <div class="quantity-button quantity-up"></div>
                                                 <div class="quantity-button quantity-down"></div>
@@ -365,7 +345,6 @@
                                         </a>
                                     }
                                     <div id="snack-bar" class="snack-bar">این محصول به سبد خرید شما اضافه شد</div>
-
                                 </div>
                             </div>
                         </div>
@@ -419,7 +398,7 @@
         </div>
     </div>
 </div>
-        </div>
+    </div>
 
 <div class="tabs">
     <div class="tab-box">
@@ -470,6 +449,8 @@
                         </div>
                     </section>
                     <div class="content-expert-articles">
+                        <h2 class="params-headline">نقد و بررسی مفصل</h2>
+
                         @Html.Raw(Model.Description)
                     </div>
 
@@ -639,4 +620,4 @@
     </div>
 </div>
     </div>
-</div>
+    </div>

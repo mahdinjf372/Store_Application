@@ -29,22 +29,16 @@ namespace Store_Application.Domain.Entities.User
 
         public bool isActive { get; set; }
 
-        public int RoleId { get; set; }
-
-        public Role Role { get; set; }
-
+        public ICollection<UserRoles> UserRoles { get; set; }
         public ICollection<Cart.Cart> Carts { get; set; }
         public ICollection<Order.Order> Orders { get; set; }
         public ICollection<RequestPay> RequestPays { get; set; }
+        public ICollection<Question.Question> Questions { get; set; }
+        public ICollection<Comment.Comment> Comments { get; set; }
+        public ICollection<Comment.Like> Likes { get; set; }
+        public ICollection<Comment.Dislike> Dislikes { get; set; }
+        public ICollection<Favorite.Favorite> Favorites { get; set; }
 
-        //public List<QuestionAndAnswer> QuestionsAndAnswers { get; set; }
-        //public List<ProductComment> ProductComments { get; set; }
-
-        //public List<Order> Orders { get; set; }
-
-        //public List<ProductCompaire> Compaires { get; set; }
-
-        //public List<Product> FavoriteProducts { get; set; }
 
     }
 }

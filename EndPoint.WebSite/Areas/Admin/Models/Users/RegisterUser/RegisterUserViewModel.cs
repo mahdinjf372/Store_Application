@@ -1,4 +1,6 @@
-﻿namespace EndPoint.WebSite.Areas.Admin.Models.Users.RegisterUser
+﻿using System.Collections.Generic;
+
+namespace EndPoint.WebSite.Areas.Admin.Models.Users.RegisterUser
 {
     public class RegisterUserViewModel
     {
@@ -6,6 +8,7 @@
         public string Email { get; set; }
         public string Password { get; set; }
         public string RePassword { get; set; }
-        public int RoleId { get; set; }
+        public List<int> Roles { get; set; }
     }
+
 }

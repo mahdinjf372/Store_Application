@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Store_Application.Domain;
 using Store_Application.Domain.Entities.User;
 using Store_Application.Application.Interfaces.Context;
-using Store_Application.Common.Roles;
 using Store_Application.Domain.Entities.Product;
 using Store_Application.Domain.Entities.Site;
 using Store_Application.Domain.Entities.Cart;
 using Store_Application.Domain.Entities.Order;
 using Store_Application.Domain.Entities.Finance;
 using Store_Application.Common.Security;
+using Store_Application.Domain.Entities.Question;
+using Store_Application.Domain.Entities.Comment;
+using Store_Application.Domain.Entities.Favorite;
 
 namespace Store_Application.Persistence.Contexts
 {
@@ -27,6 +25,7 @@ namespace Store_Application.Persistence.Contexts
 
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<UserRoles> UserRoles { get; set; }
 
         #endregion
 
@@ -72,6 +71,28 @@ namespace Store_Application.Persistence.Contexts
 
         #endregion
 
+        #region Question
+
+        public DbSet<Question> Questions { get; set; }
+
+        #endregion
+
+        #region Comment
+
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Like> Likes { get; set; }
+        public DbSet<Dislike> Dislikes { get; set; }
+
+        #endregion
+
+        #region Favorite
+
+        public DbSet<Favorite> Favorites { get; set; }
+
+        #endregion
+
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
@@ -90,28 +111,34 @@ namespace Store_Application.Persistence.Contexts
         {
             modelBuilder.Entity<User>().HasQueryFilter(u => !u.isRemoved);
             modelBuilder.Entity<Role>().HasQueryFilter(r => !r.isRemoved);
+            modelBuilder.Entity<UserRoles>().HasQueryFilter(s => !s.isRemoved);
             modelBuilder.Entity<Category>().HasQueryFilter(c => !c.isRemoved);
             modelBuilder.Entity<Product>().HasQueryFilter(p => !p.isRemoved && p.Displayed);
-            modelBuilder.Entity<Feature>().HasQueryFilter(p => !p.isRemoved);
-            modelBuilder.Entity<ProductImage>().HasQueryFilter(p => !p.isRemoved);
-            modelBuilder.Entity<Brand>().HasQueryFilter(p => !p.isRemoved);
-            modelBuilder.Entity<Slider>().HasQueryFilter(p => !p.isRemoved);
-            modelBuilder.Entity<ProductSlider>().HasQueryFilter(p => !p.isRemoved);
-            modelBuilder.Entity<ProductFeature>().HasQueryFilter(p => !p.isRemoved);
-            modelBuilder.Entity<MainSlider>().HasQueryFilter(s => !s.isRemoved);
-            modelBuilder.Entity<BrandSlider>().HasQueryFilter(s => !s.isRemoved);
-            modelBuilder.Entity<Advertising>().HasQueryFilter(s => !s.isRemoved);
-            modelBuilder.Entity<Cart>().HasQueryFilter(s => !s.isRemoved);
-            modelBuilder.Entity<CartItem>().HasQueryFilter(s => !s.isRemoved);
+            modelBuilder.Entity<Feature>().HasQueryFilter(f => !f.isRemoved);
+            modelBuilder.Entity<ProductImage>().HasQueryFilter(pi => !pi.isRemoved);
+            modelBuilder.Entity<Brand>().HasQueryFilter(b => !b.isRemoved);
+            modelBuilder.Entity<Slider>().HasQueryFilter(s => !s.isRemoved);
+            modelBuilder.Entity<ProductSlider>().HasQueryFilter(ps => !ps.isRemoved);
+            modelBuilder.Entity<ProductFeature>().HasQueryFilter(pf => !pf.isRemoved);
+            modelBuilder.Entity<MainSlider>().HasQueryFilter(ms => !ms.isRemoved);
+            modelBuilder.Entity<BrandSlider>().HasQueryFilter(bs => !bs.isRemoved);
+            modelBuilder.Entity<Advertising>().HasQueryFilter(a => !a.isRemoved);
+            modelBuilder.Entity<Cart>().HasQueryFilter(c => !c.isRemoved);
+            modelBuilder.Entity<CartItem>().HasQueryFilter(ci => !ci.isRemoved);
+            modelBuilder.Entity<Question>().HasQueryFilter(q => !q.isRemoved);
+            modelBuilder.Entity<Comment>().HasQueryFilter(c => !c.isRemoved);
+            modelBuilder.Entity<Like>().HasQueryFilter(l => !l.isRemoved);
+            modelBuilder.Entity<Dislike>().HasQueryFilter(d => !d.isRemoved);
+            modelBuilder.Entity<Favorite>().HasQueryFilter(f => !f.isRemoved);
         }
 
         private void SeedData(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Role>().HasData(new List<Role>
             {
-                new Role { Id = 1, Name = nameof(UserRoles.Admin) },
-                new Role { Id = 2, Name = nameof(UserRoles.Operator) },
-                new Role { Id = 3, Name = nameof(UserRoles.Customer) }
+                new Role { Id = (int)Domain.Enums.Roles.Admin, Name = nameof(Domain.Enums.Roles.Admin) },
+                new Role { Id = (int)Domain.Enums.Roles.Operator, Name = nameof(Domain.Enums.Roles.Operator) },
+                new Role { Id = (int)Domain.Enums.Roles.Customer, Name = nameof(Domain.Enums.Roles.Customer) }
             });
 
             modelBuilder.Entity<Brand>().HasData(new Brand { Id = 4, Title = "بدون برند", InsertTime = DateTime.Now });
@@ -130,13 +157,19 @@ namespace Store_Application.Persistence.Contexts
                     Id = 1,
                     Username = "mahdinjf372" ,
                     InsertTime=DateTime.Now,
-                    RoleId=1,
                     ActiveCode=Guid.NewGuid().ToString(),
                     Email="mahdinjf372@gmail.com",
                     FullName="مهدی نجفی پسند",
                     isActive = true,
                     Password = PasswordHelper.HashPassword("12345678")
                 }
+            });
+
+            modelBuilder.Entity<UserRoles>().HasData(new List<UserRoles>
+            {
+                new UserRoles { Id = 1, InsertTime = DateTime.Now, UserId = 1, RoleId = (int)Domain.Enums.Roles.Admin},
+                new UserRoles { Id = 2, InsertTime = DateTime.Now, UserId = 1, RoleId = (int)Domain.Enums.Roles.Customer},
+                new UserRoles { Id = 3, InsertTime = DateTime.Now, UserId = 1, RoleId = (int)Domain.Enums.Roles.Operator},
             });
 
         }
@@ -173,10 +206,6 @@ namespace Store_Application.Persistence.Contexts
                 .HasDefaultValue(false);
 
             modelBuilder.Entity<User>()
-                .Property(u => u.RoleId)
-                .HasDefaultValue(false);
-
-            modelBuilder.Entity<User>()
                 .HasIndex(u => u.Email)
                 .IsUnique();
 
@@ -185,6 +214,13 @@ namespace Store_Application.Persistence.Contexts
             #region Role
 
             modelBuilder.Entity<Role>()
+                .HasKey(r => r.Id);
+
+            #endregion
+
+            #region UserRoles
+
+            modelBuilder.Entity<UserRoles>()
                 .HasKey(r => r.Id);
 
             #endregion
@@ -261,18 +297,31 @@ namespace Store_Application.Persistence.Contexts
 
             #endregion
 
-            #region Order
+            #region Question
 
-            modelBuilder.Entity<Order>()
-                .HasOne(p => p.User)
-                .WithMany(p => p.Orders)
-                .OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Question>()
+                .Property(q => q.AdminIsRead)
+                .HasDefaultValue(false);
 
-            modelBuilder.Entity<Order>()
-                .HasOne(p => p.RequestPay)
-                .WithMany(p => p.Orders)
-                .OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Question>()
+                .Property(q => q.ConfirmedByAdmin)
+                .HasDefaultValue(false);
 
+            #endregion
+
+            #region Comment
+
+            modelBuilder.Entity<Comment>()
+                .Property(q => q.AdminIsRead)
+                .HasDefaultValue(false);
+
+            modelBuilder.Entity<Comment>()
+                .Property(q => q.ConfirmedByAdmin)
+                .HasDefaultValue(false);
+
+            modelBuilder.Entity<Comment>()
+                .Property(q => q.Rate)
+                .HasDefaultValue(1);
 
             #endregion
 
@@ -281,13 +330,17 @@ namespace Store_Application.Persistence.Contexts
         private void ApplyRelations(ModelBuilder modelBuilder)
         {
 
-            #region User-Role
+            #region User-UserRoles-Role
 
-            modelBuilder.Entity<User>()
-                            .HasOne(u => u.Role)
-                            .WithMany(r => r.Users)
-                            .HasForeignKey(u => u.RoleId)
-                            .IsRequired();
+            modelBuilder.Entity<UserRoles>()
+                            .HasOne(ur => ur.User)
+                            .WithMany(u => u.UserRoles)
+                            .HasForeignKey(ur => ur.UserId);
+
+            modelBuilder.Entity<UserRoles>()
+                            .HasOne(ur => ur.Role)
+                            .WithMany(r => r.UserRoles)
+                            .HasForeignKey(ur => ur.RoleId);
 
             #endregion
 
@@ -405,7 +458,8 @@ namespace Store_Application.Persistence.Contexts
             modelBuilder.Entity<Order>()
                 .HasOne(o => o.User)
                 .WithMany(u => u.Orders)
-                .HasForeignKey(o => o.UserId);
+                .HasForeignKey(o => o.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             #endregion
 
@@ -414,12 +468,96 @@ namespace Store_Application.Persistence.Contexts
             modelBuilder.Entity<Order>()
                 .HasOne(o => o.RequestPay)
                 .WithMany(rp => rp.Orders)
-                .HasForeignKey(o => o.RequestPayId);
+                .HasForeignKey(o => o.RequestPayId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<RequestPay>()
                 .HasOne(rp => rp.User)
                 .WithMany(u => u.RequestPays)
                 .HasForeignKey(rp => rp.UserId);
+
+            #endregion
+
+            #region User-Question-Product
+
+            modelBuilder.Entity<Question>()
+                            .HasOne(q => q.User)
+                            .WithMany(u => u.Questions)
+                            .HasForeignKey(q => q.UserId);
+
+            modelBuilder.Entity<Question>()
+                            .HasOne(q => q.Product)
+                            .WithMany(p => p.Questions)
+                            .HasForeignKey(q => q.ProductId);
+
+            modelBuilder.Entity<Question>()
+                            .HasOne(q => q.ParentQuestion)
+                            .WithMany(a => a.Answers)
+                            .HasForeignKey(q => q.ParentQuestionId);
+
+            #endregion
+
+            #region User-Comment-Product
+
+            modelBuilder.Entity<Comment>()
+                .HasOne(c => c.User)
+                .WithMany(u => u.Comments)
+                .HasForeignKey(c => c.UserId);
+
+            modelBuilder.Entity<Comment>()
+                 .HasOne(c => c.Product)
+                 .WithMany(p => p.Comments)
+                 .HasForeignKey(c => c.ProductId);
+
+            #endregion
+
+            #region Like-Comment-Disklike
+
+            modelBuilder.Entity<Comment>()
+                .HasMany(c => c.Likes)
+                .WithOne(l => l.Comment)
+                .HasForeignKey(l => l.CommentId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+
+            modelBuilder.Entity<Comment>()
+                .HasMany(c => c.Dislikes)
+                .WithOne(l => l.Comment)
+                .HasForeignKey(l => l.CommentId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+
+            #endregion
+
+            #region Like-User-Disklike
+
+            modelBuilder.Entity<User>()
+                .HasMany(c => c.Likes)
+                .WithOne(l => l.User)
+                .HasForeignKey(l => l.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<User>()
+                .HasMany(c => c.Dislikes)
+                .WithOne(l => l.User)
+                .HasForeignKey(l => l.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            #endregion
+
+            #region Favorite
+
+            modelBuilder.Entity<Favorite>()
+                .HasOne(f => f.User)
+                .WithMany(u => u.Favorites)
+                .HasForeignKey(f => f.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Favorite>()
+                .HasOne(f => f.Product)
+                .WithMany(p => p.Favorites)
+                .HasForeignKey(f => f.ProductId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             #endregion
 
@@ -436,7 +574,6 @@ namespace Store_Application.Persistence.Contexts
                     Id = 2,
                     Username = "Sara" ,
                     InsertTime=DateTime.Now,
-                    RoleId=3,
                     ActiveCode=Guid.NewGuid().ToString(),
                     Email="sara@gmail.com",
                     FullName="سارا",
@@ -447,7 +584,6 @@ namespace Store_Application.Persistence.Contexts
                     Id = 3,
                     Username = "Ali" ,
                     InsertTime=DateTime.Now,
-                    RoleId=3,
                     ActiveCode=Guid.NewGuid().ToString(),
                     Email="ali@gmail.com",
                     FullName="علی",
@@ -458,7 +594,6 @@ namespace Store_Application.Persistence.Contexts
                     Id = 4,
                     Username = "mmd" ,
                     InsertTime=DateTime.Now,
-                    RoleId=3,
                     ActiveCode=Guid.NewGuid().ToString(),
                     Email="mohammad@gmail.com",
                     FullName="محمد",
@@ -469,13 +604,25 @@ namespace Store_Application.Persistence.Contexts
                     Id = 5,
                     Username = "Ehsan" ,
                     InsertTime=DateTime.Now,
-                    RoleId=3,
                     ActiveCode=Guid.NewGuid().ToString(),
                     Email="ehsan@gmail.com",
                     FullName="احسان",
                     isActive = true,
                     Password = PasswordHelper.HashPassword("12345678")
                 },
+            });
+
+            #endregion
+
+            #region UserRoles
+
+            modelBuilder.Entity<UserRoles>().HasData(new List<UserRoles>
+            {
+                new UserRoles { Id = 4, InsertTime = DateTime.Now, UserId = 2, RoleId = (int)Domain.Enums.Roles.Operator},
+                new UserRoles { Id = 5, InsertTime = DateTime.Now, UserId = 2, RoleId = (int)Domain.Enums.Roles.Customer},
+                new UserRoles { Id = 6, InsertTime = DateTime.Now, UserId = 3, RoleId = (int)Domain.Enums.Roles.Customer},
+                new UserRoles { Id = 7, InsertTime = DateTime.Now, UserId = 4, RoleId = (int)Domain.Enums.Roles.Customer},
+                new UserRoles { Id = 8, InsertTime = DateTime.Now, UserId = 5, RoleId = (int)Domain.Enums.Roles.Customer},
             });
 
             #endregion
@@ -1153,7 +1300,6 @@ namespace Store_Application.Persistence.Contexts
             });
             #endregion
 
-
             #region ProductFetures
 
             modelBuilder.Entity<ProductSlider>().HasData(new List<ProductSlider>
@@ -1545,7 +1691,6 @@ namespace Store_Application.Persistence.Contexts
             });
 
             #endregion
-
 
             #region ProductImages
 
@@ -2023,9 +2168,6 @@ namespace Store_Application.Persistence.Contexts
             });
 
             #endregion
-
-
-
 
             #region ProductFetures
 
@@ -2802,7 +2944,5 @@ namespace Store_Application.Persistence.Contexts
 
             #endregion
         }
-
-
     }
 }

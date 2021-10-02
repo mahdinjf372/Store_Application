@@ -41,7 +41,9 @@ namespace Store_Application.Domain.Entities.Product
         public ICollection<ProductSlider> ProductSliders { get; set; }
         public ICollection<CartItem> CartItems { get; set; }
         public ICollection<OrderDetail> OrderDetails { get; set; }
-
+        public ICollection<Question.Question> Questions { get; set; }
+        public ICollection<Comment.Comment> Comments { get; set; }
+        public ICollection<Favorite.Favorite> Favorites { get; set; }
 
         #endregion
     }

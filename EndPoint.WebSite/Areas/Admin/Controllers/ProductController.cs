@@ -23,6 +23,7 @@ using Store_Application.Application.Services.ProductSliders.Commands.DeleteProdu
 using Store_Application.Common.Extentions;
 using Store_Application.Common.Security;
 using Store_Application.Common.ViewModels;
+using Store_Application.Domain.Enums;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,7 +31,8 @@ using System.Linq;
 namespace EndPoint.WebSite.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = nameof(Roles.Admin) + "," + nameof(Roles.Operator))]
+
     public class ProductController : Controller
     {
         private readonly IProductFacad _productFacad;

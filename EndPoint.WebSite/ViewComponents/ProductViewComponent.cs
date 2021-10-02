@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using EndPoint.WebSite.Models.Components.Product;
+using EndPoint.WebSite.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using Store_Application.Application.Interfaces.FacadPattern;
 
@@ -9,9 +10,20 @@ namespace EndPoint.WebSite.ViewComponents
     public class ProductViewComponent : ViewComponent
     {
         private readonly IProductFacad _productFacad;
-        public ProductViewComponent(IProductFacad productFacad)
+        private readonly IFavoriteFacad _favoriteFacad;
+        private readonly ClaimUtility _claimUtility;
+        private readonly CookiesManager _cookiesManager;
+
+        public ProductViewComponent(
+            IProductFacad productFacad,
+            IFavoriteFacad favoriteFacad,
+            ClaimUtility claimUtility,
+            CookiesManager cookiesManager)
         {
             _productFacad = productFacad;
+            _favoriteFacad = favoriteFacad;
+            _claimUtility = claimUtility;
+            _cookiesManager = cookiesManager;
         }
 
         public async Task<IViewComponentResult> InvokeAsync(int productId)
@@ -64,6 +76,15 @@ namespace EndPoint.WebSite.ViewComponents
                     }
                 }).ToList()
             };
+
+            int? userId = null;
+            if (_claimUtility.IsAuthenticated(User))
+            {
+                userId = _claimUtility.GetUserId(User);
+            }
+            var browserId = _cookiesManager.GetBrowserId(HttpContext);
+
+            model.IsFavorite = _favoriteFacad.IsFavoriteProductService.Execute(productId,browserId,userId).Data;
 
             return View("/Views/Shared/Components/Product/Product.cshtml", model);
         }

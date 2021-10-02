@@ -15,11 +15,11 @@
             </div>
             <div class="card-body">
                 <div class="px-3">
-                    <form class="form" asp-area="Admin" asp-controller="Users" asp-action="Edit" asp-route-searchKey="@ViewBag.searchKey" asp-route-page="@ViewBag.page"  method="post">
+                    <form class="form" asp-area="Admin" asp-controller="Users" asp-action="Edit" asp-route-searchKey="@ViewBag.searchKey" asp-route-page="@ViewBag.page" asp-route-take="@ViewBag.take"  method="post">
                         <div asp-validation-summary="ModelOnly"></div>
                         <input asp-for="Id" type="hidden">
                         <div class="form-body">
-                            
+
                             <div class="position-relative has-icon-left">
                                 <input disabled asp-for="Email" type="text" class="form-control round forRegister" id="email" placeholder="ایمیل">
                                 <div class="form-control-position">
@@ -27,7 +27,7 @@
                                 </div>
                             </div>
                             <div style="margin-bottom:50px;"></div>
-                            
+
                             <div class="position-relative has-icon-left">
                                 <input asp-for="Username" type="text" class="form-control round forRegister" id="userName" placeholder="نام کاربری">
                                 <div class="form-control-position">
@@ -82,8 +82,6 @@
                             </div>
                             <div style="margin-bottom:20px;"></div>
 
-
-
                             <div class="position-relative has-icon-left">
                                 <input asp-for="RePassword" type="text" class="form-control round forRegister" id="rePassword" placeholder="تکرار پسورد">
                                 <div class="form-control-position">
@@ -93,21 +91,21 @@
                             </div>
                             <div style="margin-bottom:50px;"></div>
 
+                            <span asp-validation-for="Roles" class="text text-danger"></span>
                             <fieldset class="form-group position-relative has-icon-left">
-                                <select asp-for="RoleId" class="form-control has-icon-left form-control round" id="roleId" asp-items="@ViewBag.Roles">
+                                <select asp-for="Roles" class="form-control has-icon-left form-control round" id="roles" asp-items="@ViewBag.Roles" multiple>
                                 </select>
                                 <div class="form-control-position">
                                     <i class="ft-shield danger"></i>
                                 </div>
                             </fieldset>
-                            <span asp-validation-for="RoleId" class="text text-danger"></span>
                             <div style="margin-bottom:50px;"></div>
 
                             <div class="form-actions center">
                                 <button type="submit" class="btn btn-success float-right col-sm-5">
                                     <i class="icon-note"></i> ثبت تغییرات
                                 </button>
-                                <a asp-area="Admin" asp-controller="Users" asp-action="Index" asp-route-searchKey="@ViewBag.searchKey" asp-route-page="@ViewBag.page"  class="btn btn-danger float-left col-sm-5">
+                                <a asp-area="Admin" asp-controller="Users" asp-action="Index" asp-route-searchKey="@ViewBag.searchKey" asp-route-page="@ViewBag.page" asp-route-take="@ViewBag.take" class="btn btn-danger float-left col-sm-5">
                                     <i class="icon-note"></i> لغو ویرایش
                                 </a>
                             </div>

@@ -21,6 +21,7 @@ namespace EndPoint.WebSite.Models.Components.Product
         public decimal PriceWithDiscount { get; set; }
         public string ShortDescription { get; set; }
         public string Description { get; set; }
+        public bool IsFavorite { get; set; } = false;
         public BrandViewModel Brand { get; set; }
         public List<ImageViewModel> Images { get; set; }
         public List<ProductFeatureViewModel> ProductFeatures { get; set; }

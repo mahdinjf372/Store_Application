@@ -43,6 +43,12 @@ using Store_Application.Application.Services.Carts.FacadPattern;
 using Store_Application.Application.Services.Orders.FacadPattern;
 using EndPoint.WebSite.Models.Checkout.Index;
 using Store_Application.Application.Services.RequestPay.FacadPattern;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
+using Store_Application.Application.Services.Question.FacadPattern;
+using EndPoint.WebSite.Models.Question.Add;
+using Store_Application.Application.Services.Comment.FacadPattern;
+using Store_Application.Application.Services.Favorite.FacadPattern;
 
 namespace EndPoint.WebSite
 {
@@ -82,8 +88,9 @@ namespace EndPoint.WebSite
             services.AddScoped<IRequestPayFacad, RequestPayFacad>();
             services.AddScoped<CookiesManager, CookiesManager>();
             services.AddScoped<ClaimUtility, ClaimUtility>();
-            
-
+            services.AddScoped<IQuestionFacad, QuestionFacad>();
+            services.AddScoped<ICommentFacad, CommentFacad>();
+            services.AddScoped<IFavoriteFacad, FavoriteFacad>();
 
             #endregion
 
@@ -109,6 +116,7 @@ namespace EndPoint.WebSite
             //site
             
             services.AddTransient<IValidator<CheckoutViewModel>, CheckoutViewModelValidator>();
+            services.AddTransient<IValidator<AddQuestionViewModel>, AddQuestionViewModelValidator>();
 
 
             #endregion
@@ -125,8 +133,17 @@ namespace EndPoint.WebSite
             {
                 option.LoginPath = "/Login";
                 option.LogoutPath = "/LogOut";
+                option.AccessDeniedPath = "/AccessDenied";
                 option.ExpireTimeSpan = TimeSpan.FromDays(30);
             });
+
+            #endregion
+
+            #region Encoder
+
+            services.AddSingleton<HtmlEncoder>(
+                HtmlEncoder.Create(allowedRanges: new[] { UnicodeRanges.BasicLatin,
+                    UnicodeRanges.Arabic }));
 
             #endregion
 
@@ -150,11 +167,20 @@ namespace EndPoint.WebSite
                 app.UseHsts();
             }
 
+            app.Use(async (ctx, next) =>
+            {
+                await next();
+                if (ctx.Response.StatusCode == 404 && !ctx.Response.HasStarted)
+                {
+                    ctx.Response.Redirect("/NotFound");
+                    return;
+                }
+            });
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
-
             app.UseAuthentication();
             app.UseAuthorization();
 

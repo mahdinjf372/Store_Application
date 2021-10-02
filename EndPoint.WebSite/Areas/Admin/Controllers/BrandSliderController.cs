@@ -5,12 +5,13 @@ using Microsoft.AspNetCore.Mvc;
 using Store_Application.Application.Interfaces.FacadPattern;
 using Store_Application.Application.Services.BrandSlider.Commands.Add;
 using Store_Application.Common.ViewModels;
+using Store_Application.Domain.Enums;
 using System.Linq;
 
 namespace EndPoint.WebSite.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = nameof(Roles.Admin) + "," + nameof(Roles.Operator))]
     public class BrandSliderController : Controller
     {
         private readonly IBrandSliderFacad _brandSliderFacad;

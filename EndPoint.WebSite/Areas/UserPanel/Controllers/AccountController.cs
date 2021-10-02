@@ -11,11 +11,13 @@ using Store_Application.Application.Services.Users.Commands.ChangePasswordForUse
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using EndPoint.WebSite.Utilities;
+using Store_Application.Domain.Enums;
 
 namespace EndPoint.WebSite.Areas.UserPanel.Controllers
 {
     [Area("UserPanel")]
     [Authorize]
+
     public class AccountController : Controller
     {
         private IUserFacad _userFacad;
@@ -47,7 +49,6 @@ namespace EndPoint.WebSite.Areas.UserPanel.Controllers
 
             return View(model);
         }
-
 
         #region Edit Account Information
 

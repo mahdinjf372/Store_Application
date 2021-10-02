@@ -5162,6 +5162,10 @@ span.shipping-destination {
                         color: #f34040;
                     }
 
+                    .product .product-gallery .gallery .gallery-item ul.gallery-actions li a.add-product-favorite.active {
+                        color: #f34040;
+                    }
+
                     .product .product-gallery .gallery .gallery-item ul.gallery-actions li.option-social .email-sharing {
                         width: 100%;
                         padding: 15px;

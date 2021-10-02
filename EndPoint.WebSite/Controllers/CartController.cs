@@ -157,7 +157,7 @@ namespace EndPoint.WebSite.Controllers
                     });
                 }
                 _cartFacad.MergeUserCartAndBrowserCartService.Execute(userId, browserId);
-            }
+            }//5890012967m
             else
             {
                 if (!_cartFacad.IsExistCartByBrowserIdService.Execute(browserId).Data)
@@ -165,7 +165,7 @@ namespace EndPoint.WebSite.Controllers
                     _cartFacad.AddCartService.Execute(new RequestAddCartDto
                     {
                         BrowserId = browserId,
-                        UserId = 0
+                        UserId = null,
                     });
                 }
             }

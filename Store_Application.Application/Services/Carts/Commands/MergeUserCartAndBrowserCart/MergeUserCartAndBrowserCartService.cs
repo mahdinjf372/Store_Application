@@ -20,23 +20,7 @@ namespace Store_Application.Application.Services.Carts.Commands.MergeUserCartAnd
             if (_db.Users.Any(u => u.Id == userId))
             {
                 var userCart = _db.Carts.Include(c => c.CartItems).Where(c => c.UserId == userId && !c.Finished).SingleOrDefault();
-                //var uc = _db.Carts.Where(c => c.UserId == userId && !c.Finished).SingleOrDefault();
-                //if (uc.CartItems.Any())
-                //{
-                //    userQuery = userQuery.Include(c => c.CartItems).AsQueryable();
-                //}
-
-                //var userCart = userQuery.SingleOrDefault();
-
                 var browserCart = _db.Carts.Include(c => c.CartItems).Where(c => c.BrowserId == browserId && !c.Finished).SingleOrDefault();
-                //var bc = _db.Carts.Where(c => c.UserId == userId && !c.Finished).SingleOrDefault();
-                //if (bc.CartItems.Any())
-                //{
-                //    browserQuery = browserQuery.Include(c => c.CartItems).AsQueryable();
-                //}
-
-                //var browserCart = browserQuery.SingleOrDefault();
-
 
                 if (userCart == null)
                 {

@@ -23,7 +23,36 @@ namespace EndPoint.WebSite.Utilities
             }
         }
 
+        public int GetUserId(IPrincipal User)
+        {
+            try
+            {
+                if (!User.Identity.IsAuthenticated)
+                    throw new Exception();
+                var claimsIdentity = User.Identity as ClaimsIdentity;
+                int userId = int.Parse(claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value);
+                return userId;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+
         public bool IsAuthenticated(ClaimsPrincipal User)
+        {
+            try
+            {
+                var res = User.Identity.IsAuthenticated;
+                return res;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool IsAuthenticated(IPrincipal User)
         {
             try
             {

@@ -11,6 +11,9 @@ using Store_Application.Domain.Entities.Site;
 using Store_Application.Domain.Entities.Finance;
 using Store_Application.Domain.Entities.Order;
 using Store_Application.Domain.Entities.Cart;
+using Store_Application.Domain.Entities.Question;
+using Store_Application.Domain.Entities.Comment;
+using Store_Application.Domain.Entities.Favorite;
 
 namespace Store_Application.Application.Interfaces.Context
 {
@@ -21,6 +24,7 @@ namespace Store_Application.Application.Interfaces.Context
 
         DbSet<User> Users { get; set; }
         DbSet<Role> Roles { get; set; }
+        DbSet<UserRoles> UserRoles { get; set; }
 
         #endregion
 
@@ -39,29 +43,49 @@ namespace Store_Application.Application.Interfaces.Context
 
         #region Site
 
-        public DbSet<MainSlider> MainSlides { get; set; }
-        public DbSet<BrandSlider> BrandSlides { get; set; }
-        public DbSet<Advertising> Advertisings { get; set; }
+        DbSet<MainSlider> MainSlides { get; set; }
+        DbSet<BrandSlider> BrandSlides { get; set; }
+        DbSet<Advertising> Advertisings { get; set; }
 
         #endregion
 
         #region Cart
 
-        public DbSet<Cart> Carts { get; set; }
-        public DbSet<CartItem> CartItems { get; set; }
+        DbSet<Cart> Carts { get; set; }
+        DbSet<CartItem> CartItems { get; set; }
 
         #endregion
 
         #region Order
 
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderDetail> OrderDetails { get; set; }
+        DbSet<Order> Orders { get; set; }
+        DbSet<OrderDetail> OrderDetails { get; set; }
 
         #endregion
 
         #region Finance
 
-        public DbSet<RequestPay> RequestPays { get; set; }
+        DbSet<RequestPay> RequestPays { get; set; }
+
+        #endregion
+
+        #region Question
+
+        DbSet<Question> Questions { get; set; }
+
+        #endregion
+
+        #region Comment
+
+        DbSet<Comment> Comments { get; set; }
+        DbSet<Like> Likes { get; set; }
+        DbSet<Dislike> Dislikes { get; set; }
+
+        #endregion
+
+        #region Favorite
+
+        public DbSet<Favorite> Favorites { get; set; }
 
         #endregion
 

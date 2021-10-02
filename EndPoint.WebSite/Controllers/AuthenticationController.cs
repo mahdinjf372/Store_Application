@@ -2,6 +2,7 @@
 using EndPoint.WebSite.Models.Authentication.PasswordForget;
 using EndPoint.WebSite.Models.Authentication.PasswordRecovery;
 using EndPoint.WebSite.Models.Authentication.Register;
+using EndPoint.WebSite.Utilities;
 using FluentValidation.AspNetCore;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authentication;
@@ -21,13 +22,19 @@ namespace EndPoint.WebSite.Controllers
     {
         private ISendChangePasswordLinkService _sendChangePasswordLinkService;
         private readonly IUserFacad _userFacad;
+        private readonly IFavoriteFacad _favoriteFacad;
+        private readonly CookiesManager _cookiesManager;
 
         public AuthenticationController(
             ISendChangePasswordLinkService sendChangePasswordLinkService,
-            IUserFacad userFacad)
+            IUserFacad userFacad,
+            IFavoriteFacad favoriteFacad,
+            CookiesManager cookiesManager)
         {
             _sendChangePasswordLinkService = sendChangePasswordLinkService;
             _userFacad = userFacad;
+            _favoriteFacad = favoriteFacad;
+            _cookiesManager = cookiesManager;
         }
 
 
@@ -56,7 +63,13 @@ namespace EndPoint.WebSite.Controllers
             {
                 Email = req.Email,
                 Password = req.Password,
-                RoleId = (int)Roles.Customer,
+                Roles = new List<RegisterRoleDto>
+                {
+                    new RegisterRoleDto
+                    {
+                        Id = (int)Roles.Customer
+                    }
+                },
                 Username = req.Username
             });
 
@@ -139,8 +152,12 @@ namespace EndPoint.WebSite.Controllers
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.Username),
-                new Claim(ClaimTypes.Role, user.RoleId.ToString())
             };
+
+            foreach (var role in user.Roles)
+            {
+                Claims.Add(new Claim(ClaimTypes.Role, role.Name));
+            }
 
             ClaimsIdentity identity = new ClaimsIdentity(Claims, CookieAuthenticationDefaults.AuthenticationScheme);
             ClaimsPrincipal principal = new ClaimsPrincipal(identity);
@@ -150,6 +167,8 @@ namespace EndPoint.WebSite.Controllers
             };
 
             HttpContext.SignInAsync(principal, properties);
+
+            _favoriteFacad.MergeFavoriteListService.Execute(user.Id,_cookiesManager.GetBrowserId(HttpContext));
 
             return Redirect(returnUrl);
         }
@@ -231,6 +250,16 @@ namespace EndPoint.WebSite.Controllers
 
             return View("/Views/Authentication/SuccessChangePasswordMessage.cshtml");
         }
+        #endregion
+
+        #region AccessDenied
+
+        [Route("AccessDenied")]
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
+
         #endregion
     }
 }

@@ -4,13 +4,15 @@ using EndPoint.WebSite.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Store_Application.Application.Interfaces.FacadPattern;
+using Store_Application.Domain.Enums;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace EndPoint.WebSite.Areas.UserPanel.Controllers
 {
     [Area("UserPanel")]
-    [Authorize]
+    [Authorize(Roles = nameof(Roles.Customer))]
+
     public class OrderController : Controller
     {
         private readonly IOrderFacad _orderFacad;

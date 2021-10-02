@@ -4,6 +4,7 @@ using Store_Application.Common.Security;
 using Store_Application.Common.ViewModels;
 using Store_Application.Domain.Entities.User;
 using System;
+using System.Collections.Generic;
 
 namespace Store_Application.Application.Services.Users.Commands.RegisterUserForAdmin
 {
@@ -19,7 +20,6 @@ namespace Store_Application.Application.Services.Users.Commands.RegisterUserForA
         }
         public ResultDto Execute(RequestRegisterUserForAdminDto req)
         {
-            int err = 0;
             try
             {
                 var user = new User()
@@ -29,15 +29,16 @@ namespace Store_Application.Application.Services.Users.Commands.RegisterUserForA
                     InsertTime = DateTime.Now,
                     isActive = false,
                     Password = PasswordHelper.HashPassword(req.Password),
-                    RoleId = req.RoleId,
-                    Username = req.Username
+                    Username = req.Username,
+                    UserRoles = AddRoles(req.Roles)
                 };
 
                 _db.Users.Add(user);
 
-                err = _db.SaveChanges();
+                //_sendActivationLinkEmailService.Execute(user.Email, user.ActiveCode, user.Username);
+                //Todo
 
-                _sendActivationLinkEmailService.Execute(user.Email,user.ActiveCode,user.Username);
+                _db.SaveChanges();
 
                 return new ResultDto()
                 {
@@ -59,11 +60,25 @@ namespace Store_Application.Application.Services.Users.Commands.RegisterUserForA
                 return new ResultDto()
                 {
                     IsSuccess = false,
-                    Message = "ثبت نام نام شما با شکست مواجه شد!"
+                    Message = "ثبت نام شما با شکست مواجه شد!"
                 };
+            }
+        }
 
+        private List<UserRoles> AddRoles(List<RegisterRoleDto> roles, int userId=0)
+        {
+            List<UserRoles> userRoles = new List<UserRoles>();
+            foreach (var role in roles)
+            {
+                userRoles.Add(new UserRoles
+                {
+                    RoleId = role.Id,
+                    InsertTime = DateTime.Now,
+                    UserId = userId
+                });
             }
 
+            return userRoles;
         }
     }
 }

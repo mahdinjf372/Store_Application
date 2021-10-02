@@ -1,0 +1,56 @@
+﻿@using Store_Application.Common.Extentions
+@using EndPoint.WebSite.Models.Question.LoadQuestions
+@model IEnumerable<LoadQuestionsViewModel>
+@if (Model.Any())
+{
+    foreach (var question in Model.Where(q => q.ParentQuestionId == null).OrderBy(q => q.InsertTime))
+    {
+        <div class="questions-list">
+            <ul class="faq-list">
+                <li class="is-question">
+                    <div class="section">
+                        <div class="faq-header">
+                            <span class="icon-faq">?</span>
+                            <p class="h5">
+                                پرسش :
+                                <span>@question.Username</span>
+                            </p>
+                        </div>
+                        <p id="question-text-@question.Id">@question.Text</p>
+                        <div class="faq-date">
+                            <em>@question.InsertTime.ToShamsi()</em>
+                        </div>
+                        <a onclick="ReplayQuestion(@question.Id)" class="js-add-answer-btn">
+                            پاسخ به این پرسش
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        @if (Model.Any(q => q.ParentQuestionId == question.Id))
+        {
+            foreach (var answer in Model.Where(q => q.ParentQuestionId == question.Id).OrderBy(q => q.InsertTime))
+            {
+                <div class="questions-list answer-questions">
+                    <ul class="faq-list">
+                        <li class="is-question">
+                            <div class="section">
+                                <div class="faq-header">
+                                    <span class="icon-faq"><i class="mdi mdi-check"></i></span>
+                                    <p class="h5">
+                                        پاسخ :
+                                        <span>@answer.Username</span>
+                                    </p>
+                                </div>
+                                <p>@answer.Text</p>
+                                <div class="faq-date">
+                                    <em>@answer.InsertTime.ToShamsi()</em>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            }
+        }
+    }
+}

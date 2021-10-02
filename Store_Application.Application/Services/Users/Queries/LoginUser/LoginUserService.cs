@@ -1,4 +1,5 @@
-﻿using Store_Application.Application.Interfaces.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using Store_Application.Application.Interfaces.Context;
 using Store_Application.Common.Security;
 using Store_Application.Common.ViewModels;
 using Store_Application.Domain.Entities.User;
@@ -18,7 +19,9 @@ namespace Store_Application.Application.Services.Users.Queries.LoginUser
         public ResultDto<ResultLoginUserDto> Execute(RequestLoginUserDto req)
         {
             string hashedPassword = PasswordHelper.HashPassword(req.Password);
-            User user = _db.Users.SingleOrDefault(u => u.Email.Equals(req.Email) && u.Password.Equals(hashedPassword));
+            User user = _db.Users
+                .Include(u=> u.UserRoles).ThenInclude(ur=> ur.Role)
+                .SingleOrDefault(u => u.Email.Equals(req.Email) && u.Password.Equals(hashedPassword));
 
             if (user != null)
             {
@@ -27,7 +30,11 @@ namespace Store_Application.Application.Services.Users.Queries.LoginUser
                     Id = user.Id,
                     Username = user.Username,
                     isActive = user.isActive,
-                    RoleId = user.RoleId
+                    Roles = user.UserRoles.Select(r => new RoleViewModel
+                    {
+                        Id = r.RoleId,
+                        Name = r.Role.Name
+                    }).ToList()
                 };
                 return new ResultDto<ResultLoginUserDto>()
                 {

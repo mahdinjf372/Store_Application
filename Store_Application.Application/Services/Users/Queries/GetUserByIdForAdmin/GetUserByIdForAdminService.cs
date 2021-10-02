@@ -1,6 +1,8 @@
-﻿using Store_Application.Application.Interfaces.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using Store_Application.Application.Interfaces.Context;
 using Store_Application.Common.ViewModels;
 using Store_Application.Domain.Entities.User;
+using System.Linq;
 
 namespace Store_Application.Application.Services.Users.Queries.GetUserByIdForAdmin
 {
@@ -13,7 +15,7 @@ namespace Store_Application.Application.Services.Users.Queries.GetUserByIdForAdm
         }
         public ResultDto<ResultGetUserByIdForAdminDto> Execute(int id)
         {
-            User _user = _db.Users.Find(id);
+            User _user = _db.Users.Include(u=> u.UserRoles).Single(u=> u.Id.Equals(id));
 
             ResultGetUserByIdForAdminDto user = new ResultGetUserByIdForAdminDto()
             {
@@ -23,7 +25,10 @@ namespace Store_Application.Application.Services.Users.Queries.GetUserByIdForAdm
                 FullName = _user.FullName,
                 Id = _user.Id,
                 Phone = _user.Phone,
-                RoleId = _user.RoleId,
+                Roles = _user.UserRoles.Select(r=> new UserRolesDto
+                {
+                    Id = r.RoleId
+                }).ToList(),
                 Username = _user.Username
             };
 

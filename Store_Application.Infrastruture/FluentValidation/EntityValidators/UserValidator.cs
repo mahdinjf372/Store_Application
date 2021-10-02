@@ -33,10 +33,6 @@ namespace Store_Application.Infrastruture.FluentValidation.EntityValidators
                 .NotNull().WithMessage("کدفعالسازی اجباریست")
                 .NotEmpty().WithMessage("کدفعالسازی اجباریست");
 
-            RuleFor(u => u.RoleId)
-                .NotNull().WithMessage("انتخاب نقش اجباریست")
-                .NotEqual(0).WithMessage("انتخاب نقش اجباریست");
-
         }
     }
 }

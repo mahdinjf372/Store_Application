@@ -1,6 +1,8 @@
 ﻿using EndPoint.WebSite.Areas.Admin.Models.Feature.LoadFeatures;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Store_Application.Application.Interfaces.FacadPattern;
+using Store_Application.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,7 @@ using System.Threading.Tasks;
 namespace EndPoint.WebSite.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = nameof(Roles.Admin) + "," + nameof(Roles.Operator))]
     public class FeatureController : Controller
     {
         private readonly IFeatureFacad _featureFacad;

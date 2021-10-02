@@ -17,7 +17,7 @@ namespace Store_Application.Application.Services.ProductFeatures.Queries.GetProd
 
         public ResultDto<List<ResultGetProductFeaturesForAdminDto>> Execute(int productId)
         {
-            var res = _db.ProductFeatures
+            var res = _db.ProductFeatures.IgnoreQueryFilters()
                 .Where(pf => pf.ProductId.Equals(productId))
                 .Include(pf => pf.Feature)
                 .Select(pf => new ResultGetProductFeaturesForAdminDto

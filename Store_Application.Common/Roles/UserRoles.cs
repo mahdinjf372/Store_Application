@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Store_Application.Common.Roles
 {
-    public class UserRoles
-    {
-        public const string Admin = "Admin";
-        public const string Operator = "Operator";
-        public const string Customer = "Customer";
-    }
+    //public class UserRoles
+    //{
+    //    public const string Admin = "Admin";
+    //    public const string Operator = "Operator";
+    //    public const string Customer = "Customer";
+    //}
 }

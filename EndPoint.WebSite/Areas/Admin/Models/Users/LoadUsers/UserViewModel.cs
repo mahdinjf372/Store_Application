@@ -12,6 +12,6 @@ namespace EndPoint.WebSite.Areas.Admin.Models.Users.LoadUsers
         public string Email { get; set; }
         public bool isActive { get; set; }
         public bool isRemoved { get; set; }
-        public string RoleName { get; set; }
+        public List<string> RolesName { get; set; }
     }
 }

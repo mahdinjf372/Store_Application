@@ -38,7 +38,6 @@
                                 <div class="form-control-position">
                                     <i class="ft-at-sign danger"></i>
                                 </div>
-                                
                             </div>
                             <div style="margin-bottom:50px;"></div>
                             
@@ -61,9 +60,9 @@
                             </div>
                             <div style="margin-bottom:50px;"></div>
                             
-                            <span asp-validation-for="RoleId" class="text text-danger"></span>
+                            <span asp-validation-for="Roles" class="text text-danger"></span>
                             <fieldset class="form-group position-relative has-icon-left">
-                                <select asp-for="RoleId" class="form-control has-icon-left form-control round" id="roleId" asp-items="@ViewBag.Roles">
+                                <select asp-for="Roles" class="form-control has-icon-left form-control round" id="roles" asp-items="@ViewBag.Roles" multiple>
                                 </select>
                                 <div class="form-control-position">
                                     <i class="ft-shield danger"></i>

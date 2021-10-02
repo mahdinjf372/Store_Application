@@ -26,7 +26,12 @@
                         <i class="fa success font-medium-1 mr-1">@user.Id</i>
                     </td>
                     <td>@user.Username</td>
-                    <td>@user.RoleName</td>
+                    <td>
+                        @foreach (var item in user.RolesName)
+                        {
+                            @item <br />
+                        }
+                    </td>
                     <td>@user.Email</td>
 
                     @if (user.isActive)
@@ -55,7 +60,7 @@
                         else
                         {
 
-                            <a asp-area="Admin" asp-controller="Users" asp-action="Edit" asp-route-id="@user.Id" asp-route-searchKey="@ViewBag.searchKey" asp-route-page="@ViewBag.page" class="success p-0" title="ویرایش">
+                            <a asp-area="Admin" asp-controller="Users" asp-action="Edit" asp-route-id="@user.Id" asp-route-searchKey="@ViewBag.searchKey" asp-route-page="@ViewBag.page" asp-route-take="@ViewBag.take" class="success p-0" title="ویرایش">
                                 <i class="fa fa-pencil font-medium-3 mr-2"></i>
                             </a>
                             <a onclick="ChangeStatus(@user.Id, '@user.Username',@user.isActive.ToString().ToLower())" class="info p-0" title="تغییر وضعیت">

@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using FluentValidation.Validators;
+using Store_Application.Application.Interfaces.FacadPattern;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,12 @@ namespace EndPoint.WebSite.Areas.Admin.Models.Users.EditUser
 {
     public class EditUserViewModelValidator : AbstractValidator<EditUserViewModel>
     {
-        public EditUserViewModelValidator()
+        private readonly IUserFacad _userFacad;
+
+        public EditUserViewModelValidator(IUserFacad userFacad)
         {
+            _userFacad = userFacad;
+
             RuleFor(x => x.Id)
                 .NotNull();
 
@@ -19,9 +24,9 @@ namespace EndPoint.WebSite.Areas.Admin.Models.Users.EditUser
                 .NotEmpty().WithMessage("نام کاربری اجباریست")
                 .Matches(@"^[A-Za-z][A-Za-z0-9]*$").WithMessage("فقط حروف و اعداد انگلیسی");
 
-            RuleFor(x => x.RoleId)
+            RuleFor(x => x.Roles)
                 .NotNull().WithMessage("انتخاب نقش اجباریست")
-                .NotEqual(0).WithMessage("انتخاب نقش اجباریست");
+                .Must(RolesValidator).WithMessage("لطفا يكي از نقش هاي زير را براي كاربر انتخاب نماييد");
 
             RuleFor(x => x.Password)
                 .MinimumLength(8).WithMessage("حداقل ۸ کرکتر");
@@ -37,6 +42,19 @@ namespace EndPoint.WebSite.Areas.Admin.Models.Users.EditUser
 
             RuleFor(x => x.age)
                 .InclusiveBetween((byte)0, (byte)120).WithMessage("افراد کوچکتر از ۸ سال و بزرگتر از ۱۲۰ سال نمیتوانند ثبت نام کنند");
+        }
+
+        private bool RolesValidator(List<int> roles)
+        {
+            bool isExist = true;
+            foreach (var role in roles)
+            {
+                isExist = _userFacad.isExistRoleForAdminService.Execute(role).Data;
+                if (!isExist)
+                    break;
+            }
+
+            return isExist;
         }
     }
 }

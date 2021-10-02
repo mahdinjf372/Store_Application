@@ -17,7 +17,7 @@ namespace Store_Application.Application.Services.ProductFeatures.Commands.EditPr
         {
             try
             {
-                var isExist = _db.ProductFeatures.Any(pf => pf.Value.Equals(req.Value) && !pf.Id.Equals(req.PF_Id));
+                var isExist = _db.ProductFeatures.Any(pf => pf.Value.Equals(req.Value) && !pf.Id.Equals(req.PF_Id) && pf.ProductId.Equals(req.ProductId));
                 if (isExist)
                 {
                     return new ResultDto

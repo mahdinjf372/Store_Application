@@ -7,6 +7,7 @@ using Store_Application.Application.Services.ProductFeatures.Commands.AddProduct
 using Store_Application.Application.Services.ProductFeatures.Commands.EditProductFeature;
 using Store_Application.Application.Services.ProductFeatures.Queries.IsExistProductFeature;
 using Store_Application.Common.ViewModels;
+using Store_Application.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,8 @@ using System.Threading.Tasks;
 namespace EndPoint.WebSite.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = nameof(Roles.Admin) + "," + nameof(Roles.Operator))]
+
     public class ProductFeaturesController : Controller
     {
         private readonly IProductFeaturesFacad _pfFacad;
@@ -74,7 +76,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(int pfId, string value)
+        public IActionResult Edit(int pfId, string value, int productId)
         {
 
             if (string.IsNullOrEmpty(value))
@@ -90,6 +92,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
             {
                 PF_Id = pfId,
                 Value = value,
+                ProductId = productId
             });
 
             return Json(res);
