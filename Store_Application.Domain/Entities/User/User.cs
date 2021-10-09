@@ -38,7 +38,6 @@ namespace Store_Application.Domain.Entities.User
         public ICollection<Comment.Like> Likes { get; set; }
         public ICollection<Comment.Dislike> Dislikes { get; set; }
         public ICollection<Favorite.Favorite> Favorites { get; set; }
-
-
+        public ICollection<Compare.Compare> Compares { get; set; }
     }
 }

@@ -13,7 +13,7 @@ using Store_Application.Domain.Entities.Finance;
 using Store_Application.Domain.Entities.Order;
 using Store_Application.Persistence.Contexts;
 
-namespace EndPoint.Site.Controllers
+namespace EndPoint.WebSite.Controllers
 {
     [Authorize]
     public class PayController : Controller
@@ -49,18 +49,6 @@ namespace EndPoint.Site.Controllers
             if (order.Data.TotalAmount > 0)
             {
                 var requestPay = _requestPayFacad.AddRequestPayService.Execute(userId, order.Data.TotalAmount);
-
-                //var result = await _payment.Request(new DtoRequest()
-                //{
-                //    CallbackUrl = $"https://localhost:5001/Pay/Verify?guid={requestPay.Data.guid}",
-                //    Description = "پرداخت فاکتور شماره:" + requestPay.Data.RequestPayId,
-                //    Email = requestPay.Data.Email,
-                //    Amount = (int)order.Data.TotalAmount,
-                //    MerchantId = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
-                //}, ZarinPal.Class.Payment.Mode.sandbox);
-                //return Redirect($"https://sandbox.zarinpal.com/pg/StartPay/{result.Authority}");
-
-
                 var payment = new ZarinpalSandbox.Payment((int)order.Data.TotalAmount);
                 var request = await payment.PaymentRequest($"پرداخت بابت فاکتور شماره DKC-{requestPay.Data.RequestPayId}",
                     $"https://localhost:5001/Pay/Verify?guid=" + requestPay.Data.guid,
@@ -79,14 +67,6 @@ namespace EndPoint.Site.Controllers
         {
 
             var requestPay = _requestPayFacad.GetRequestPayService.Execute(guid);
-
-            //var verification = await _payment.Verification(new DtoVerification
-            //{
-            //    Amount = int.Parse(requestPay.Data.Amount.ToString()),
-            //    MerchantId = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-            //    Authority = authority
-            //}, Payment.Mode.sandbox);
-
             string Authority = HttpContext.Request.Query["Authority"];
             string Status = HttpContext.Request.Query["Status"];
 

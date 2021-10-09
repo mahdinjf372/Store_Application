@@ -123,21 +123,11 @@
                                             </li>
                                             <li class="Three-dimensional">
 
-                                                @if (User.Identity.IsAuthenticated)
-                                                {
-                                                    <a id="addToCompaire" asp-controller="Compaire" asp-action="AddToCompaire" asp-route-productId="@Model.Id" class="btn-option btn-compare">
-                                                        <i class="mdi mdi-compare"></i>
-                                                        <span>مقایسه</span>
-                                                    </a>
-                                                }
-                                                else
-                                                {
-                                                    <a href="/Login?ReturnUrl=/Product/@Model.Id" class="btn-option btn-compare">
-                                                        <i class="mdi mdi-compare"></i>
-                                                        <span>مقایسه</span>
-                                                    </a>
-                                                }
-                                                <div id="compaire-snack-bar" class="compaire-snack-bar"></div>
+                                                <a id="addToCompare" class="btn-option btn-compaire">
+                                                    <i class="mdi mdi-compare"></i>
+                                                    <span>مقایسه</span>
+                                                </a>
+                                                <div id="compare-snack-bar" class="compaire-snack-bar"></div>
 
                                             </li>
                                         </ul>
@@ -228,11 +218,11 @@
                                 <span>
                                     <i class="fa fa-archive"></i> دسته:
                                 </span>
-                                <a asp-controller="Search" asp-action="ShowProductByCategoryId" asp-route-searchTypeId="@Model.CategoryId" asp-route-searchTitle="@Model.CategoryTitle" class="product-link product-cat-title">@Model.CategoryTitle</a>
+                                <a class="product-link product-cat-title">@Model.CategoryTitle</a>
                                 ,
-                                <a asp-controller="Search" asp-action="ShowProductByGroupId" asp-route-searchTypeId="@Model.GroupId" asp-route-searchTitle="@Model.GroupTitle" class="product-link product-cat-title">@Model.GroupTitle</a>
+                                <a class="product-link product-cat-title">@Model.GroupTitle</a>
                                 ,
-                                <a asp-controller="Search" asp-action="ShowProductBySubGroupId" asp-route-searchTypeId="@Model.SubgroupId" asp-route-searchTitle="@Model.SubgroupTitle" class="product-link product-cat-title">@Model.SubgroupTitle</a>
+                                <a class="product-link product-cat-title">@Model.SubgroupTitle</a>
                             </li>
                             <li>
                                 <span>
@@ -247,7 +237,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col=lg-6 col-md-6 col-xs-12 pr">
+                    <div class="col-lg-6 col-md-6 col-xs-12 pr">
                         <div class="product-variants">
 
                             @if (Model.ProductFeatures.Any(pf => pf.Feature.Title.Equals("رنگ")))
@@ -465,14 +455,14 @@
                             <ul class="params-list">
                                 @if (Model.ProductFeatures.Any())
                                 {
-                                    List<int> featuresId = Model.ProductFeatures.Where(pf => pf.IsBold).Select(pf => pf.Feature.Id).ToList();
+                                    List<int> featuresId = Model.ProductFeatures.Select(pf => pf.Feature.Id).ToList();
                                     var feat = featuresId.Distinct().ToList();
                                     foreach (var f in feat)
                                     {
                                         string PFValue = string.Join(" - ", Model.ProductFeatures.Where(pf => pf.FeatureId == f).Select(pf => pf.Value).ToList());
                                         <li class="params-list-item">
                                             <div class="params-list-key">
-                                                <span class="block">@Model.ProductFeatures.First(pf => pf.IsBold && pf.FeatureId.Equals(f)).Feature.Title</span>
+                                                <span class="block">@Model.ProductFeatures.First(pf => pf.FeatureId.Equals(f)).Feature.Title</span>
                                             </div>
                                             <div class="params-list-value">
                                                 <span class="block">
@@ -570,7 +560,7 @@
                             }
                             else
                             {
-                                <p>برای ثبت نظر، لازم است ابتدا <a asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="/Product/@Model.Id"><ins>وارد</ins></a> حساب کاربری خود شوید.</p>
+                                <p>برای ثبت نظر، لازم است ابتدا <a asp-controller="Authentication" asp-action="Login" asp-route-ReturnUrl="/Product/@Model.Id"><ins>وارد</ins></a> حساب کاربری خود شوید.</p>
                             }
                             <div class="product-comment-list">
                                 <!-- dynamic load -->
@@ -607,7 +597,7 @@
                         {
                             <h2 class="params-headline">
                                 پرسش و پاسخ
-                                <span>برای طرح پرسش ابتدا باید <a asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="/Product/@Model.Id"><ins>وارد</ins></a> حساب خود شوید</span>
+                                <span>برای طرح پرسش ابتدا باید <a asp-controller="Authentication" asp-action="Login" asp-route-ReturnUrl="/Product/@Model.Id"><ins>وارد</ins></a> حساب خود شوید</span>
                             </h2>
                         }
                         <div id="product-questions-list">

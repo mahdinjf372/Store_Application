@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Store_Application.Application.Services.Favorite.Queries.GetFavoriteList;
 
 namespace Store_Application.Application.Services.Favorite.FacadPattern
 {
@@ -25,7 +26,7 @@ namespace Store_Application.Application.Services.Favorite.FacadPattern
         {
             get
             {
-                return _addToFavoriteService = _addToFavoriteService ?? new AddToFavoriteService(_db);
+                return _addToFavoriteService ??= new AddToFavoriteService(_db);
             }
         }
 
@@ -34,7 +35,7 @@ namespace Store_Application.Application.Services.Favorite.FacadPattern
         {
             get
             {
-                return _removeFromFavoriteService = _removeFromFavoriteService ?? new RemoveFromFavoriteService(_db);
+                return _removeFromFavoriteService ??= new RemoveFromFavoriteService(_db);
             }
         }
 
@@ -43,7 +44,7 @@ namespace Store_Application.Application.Services.Favorite.FacadPattern
         {
             get
             {
-                return _mergeFavoriteListService = _mergeFavoriteListService ?? new MergeFavoriteListService(_db);
+                return _mergeFavoriteListService ??= new MergeFavoriteListService(_db);
             }
         }
 
@@ -52,7 +53,16 @@ namespace Store_Application.Application.Services.Favorite.FacadPattern
         {
             get
             {
-                return _isFavoriteProductService = _isFavoriteProductService ?? new IsFavoriteProductService(_db);
+                return _isFavoriteProductService ??= new IsFavoriteProductService(_db);
+            }
+        }
+        
+        private IGetFavoriteListService _getFavoriteListService;
+        public IGetFavoriteListService GetFavoriteListService
+        {
+            get
+            {
+                return _getFavoriteListService ??= new GetFavoriteListService(_db);
             }
         }
     }

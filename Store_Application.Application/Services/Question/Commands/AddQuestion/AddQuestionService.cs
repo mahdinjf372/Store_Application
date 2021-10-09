@@ -24,6 +24,11 @@ namespace Store_Application.Application.Services.Question.Commands.AddQuestion
 
             try
             {
+                if (req.ParentQuestionId != null && req.UserId == _db.Questions.Find(req.ParentQuestionId).UserId)
+                {
+                    throw new Exception();
+                }
+
                 _db.Questions.Add(question);
                 _db.SaveChanges();
                 return new ResultDto

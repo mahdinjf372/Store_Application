@@ -47,13 +47,18 @@ namespace EndPoint.WebSite.Controllers
                 }).OrderBy(q => q.InsertTime).ToList();
             }
 
+            if (_claimUtility.IsAuthenticated(User))
+            {
+                ViewBag.UserId = _claimUtility.GetUserId(User);
+            }
+
             return PartialView("/Views/Question/_LoadQuestions.cshtml", model);
         }
 
         [HttpPost]
         public IActionResult Add(AddQuestionViewModel req)
         {
-            var RequestValidation = new AddQuestionViewModelValidator(_productFacad,_questionFacad);
+            var RequestValidation = new AddQuestionViewModelValidator(_productFacad, _questionFacad);
             var Validation = RequestValidation.Validate(req);
             Validation.AddToModelState(ModelState, null);
 

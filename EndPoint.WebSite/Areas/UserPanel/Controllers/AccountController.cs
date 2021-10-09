@@ -17,7 +17,6 @@ namespace EndPoint.WebSite.Areas.UserPanel.Controllers
 {
     [Area("UserPanel")]
     [Authorize]
-
     public class AccountController : Controller
     {
         private IUserFacad _userFacad;

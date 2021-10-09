@@ -44,6 +44,7 @@ namespace Store_Application.Domain.Entities.Product
         public ICollection<Question.Question> Questions { get; set; }
         public ICollection<Comment.Comment> Comments { get; set; }
         public ICollection<Favorite.Favorite> Favorites { get; set; }
+        public ICollection<Compare.Compare> Compares { get; set; }
 
         #endregion
     }

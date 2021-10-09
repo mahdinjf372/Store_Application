@@ -1,0 +1,144 @@
+﻿@using EndPoint.WebSite.Areas.UserPanel.Models.Comment.Index;
+@model List<UserCommentViewModel>
+@{
+    ViewData["CommentsIsActived"] = "active";
+    Layout = "_UserPanelLayout";
+    ViewData["Title"] = "نظرات | فروشگاه اینترنتی هگز مارکت";
+
+}
+<div class="col-lg-9 col-md-9 col-xs-12 pl">
+    <div class="profile-content">
+        <div class="profile-stats">
+            <div class="profile-comment">
+                <table class="table table-borderless table-profile-comment">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">نام محصول</th>
+                            <th scope="col">عنوان</th>
+                            <th scope="col">نظر</th>
+                            <th scope="col">وضعیت</th>
+                            <th scope="col">عملیات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Any())
+                        {
+                            foreach (var comment in Model)
+                            {
+                                <tr class="comment-@comment.Id">
+                                    <th scope="row" class="th-img">
+                                        <div class="thumb-img">
+                                            <a asp-controller="Product" asp-action="Index" asp-route-productId="@comment.ProductId">
+                                                <img src="\images\page-single-product\product-img\@comment.Product.ImageName">
+                                            </a>
+                                        </div>
+                                    </th>
+                                    <td>
+                                        <a asp-controller="Product" asp-action="Index" asp-route-productId="@comment.ProductId">
+                                            @comment.Product.Title
+                                        </a>
+                                    </td>
+                                    <td>
+                                        @comment.Title
+                                    </td>
+                                    <td>
+                                        @comment.Text
+                                    </td>
+                                    <td>
+
+                                        @if (comment.ConfirmedByAdmin)
+                                        {
+                                            <span class="profile-comment-status-approved">تایید شده</span>
+                                        }
+                                        else
+                                        {
+                                            if (comment.AdminIsRead)
+                                            {
+                                                <span class="profile-comment-status-approved">تایید نشده</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="profile-comment-status-approved">درحال بررسی</span>
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        <button onclick="RemoveComment(@comment.Id)" class="profile-comment-remove cursor-pointer"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <th scope="row">
+                                    <div class="favorites-product-img">
+                                        <div class="product-rate">
+                                        </div>
+                                    </div>
+                                </th>
+                                <td>
+                                    شما هیچ نظری را تا به حال ثبت نکرده اید
+                                </td>
+                                <td>
+                                </td>
+                                <td class="text-left actions">
+                                </td>
+                            </tr>
+                            <tr class="spacer"></tr>
+                        }
+                    </tbody>
+                </table>
+
+                @if (Model.Any())
+                {
+                    foreach (var comment in Model)
+                    {
+                        <div class="profile-comment-thumb comment-@comment.Id">
+                            <div class="profile-comment-img">
+                                <a asp-controller="Product" asp-action="Index" asp-route-productId="@comment.ProductId">
+                                    <img src="\images\page-single-product\product-img\@comment.Product.ImageName">
+                                </a>
+                            </div>
+                            <div class="profile-comment-content">
+                                <h4>
+                                    <a asp-controller="Product" asp-action="Index" asp-route-productId="@comment.ProductId">
+                                        @comment.Product.Title
+                                    </a>
+
+                                    @if (comment.ConfirmedByAdmin)
+                                    {
+                                        <span class="profile-comment-status-review">تایید شده</span>
+                                    }
+                                    else
+                                    {
+                                        if (comment.AdminIsRead)
+                                        {
+                                            <span class="profile-comment-status-review">تایید نشده</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="profile-comment-status-review">درحال بررسی</span>
+                                        }
+                                    }
+                                    <p>@comment.Text</p>
+                                </h4>
+                                <ul class="profile-comment-actions mb-0">
+                                    <li>
+                                        <button onclick="RemoveComment(@comment.Id)" class="profile-comment-remove cursor-pointer"><i class="fa fa-trash"></i></button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/Comment.js"></script>
+}

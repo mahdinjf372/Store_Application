@@ -20,9 +20,14 @@
                         <div class="faq-date">
                             <em>@question.InsertTime.ToShamsi()</em>
                         </div>
-                        <a onclick="ReplayQuestion(@question.Id)" class="js-add-answer-btn">
-                            پاسخ به این پرسش
-                        </a>
+                        
+                        @if (question.UserId != ViewBag.UserId)
+                        {
+                            <a onclick="ReplayQuestion(@question.Id)" class="js-add-answer-btn">
+                                پاسخ به این پرسش
+                            </a>
+                        }
+                        
                     </div>
                 </li>
             </ul>

@@ -64,7 +64,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
                 PageCount = res.Data.PageCount
             };
 
-            return PartialView("Areas/Admin/Views/Advertising/_LoadAdvertisings.cshtml", model);
+            return PartialView("/Areas/Admin/Views/Advertising/_LoadAdvertisings.cshtml", model);
         }
 
 

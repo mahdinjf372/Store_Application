@@ -25,10 +25,22 @@
                                             @slide.Title
                                         </a>
                                     </h2>
-                                    <div class="price">
-                                        <del><span>@slide.Price.FixedToView()<span> تومان</span></span></del>
-                                        <ins><span>@(slide.PriceWithDiscount.FixedToView())<span> تومان</span></span></ins>
-                                    </div>
+                                    
+                                    @if (slide.DiscountAmount > 0)
+                                    {
+                                        <div class="price">
+                                            <del><span>@slide.Price.FixedToView()<span> تومان</span></span></del>
+                                            <ins><span>@(slide.PriceWithDiscount.FixedToView())<span> تومان</span></span></ins>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="price">
+                                            <ins><span>@(slide.PriceWithDiscount.FixedToView())<span> تومان</span></span></ins>
+                                        </div>  
+                                    }
+
+                                    
                                 </div>
                             </div>
                         }

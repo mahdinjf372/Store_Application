@@ -5,6 +5,28 @@ var _commentsPage = 0;
 var _endQuestions = false;
 var _endComments = false;
 
+//cart
+function AddProductToBasket(productId) {
+    var postData = {
+        "productId": productId,
+        "count": $("#product-count").val()
+    };
+
+    $.post("/Cart/AddToCart", postData,
+        function (data) {
+            if (data.isSuccess ) {
+                LoadBasket();
+                $("#snack-bar").addClass("show");
+                $("#snack-bar").empty();
+                $("#snack-bar").append(data.message);
+
+                setTimeout(function () {
+                    $("#snack-bar").removeClass("show");
+                }, 3000);
+            }
+        });
+}
+
 //questions
 function LoadQuestions(productId, page) {
 
@@ -218,28 +240,6 @@ function RemoveFromFavorite() {
     });
 }
 
-
-//$("#changeFavorite").on('click', function () {
-
-//    if ($("#changeFavorite").hasClass("active")) {
-
-//        $.post("/UserPanel/Favorite/AddToFavorite?productId=" + _productId, function (data) {
-
-//            if (data.isSuccess) {
-//                $("#changeFavorite").removeClass("active");
-//            }
-//        });
-//    } else {
-
-//        $.post("/UserPanel/Favorite/RemoveFromFavorite?productId=" + _productId, function (data) {
-
-//            if (data.isSuccess) {
-//                $("#changeFavorite").addClass("active");
-//            }
-//        });
-//    }
-//});
-
 //selcetor
 function quantitySelector() {
     $('<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>').insertAfter('.quantity input');
@@ -293,6 +293,25 @@ $(window).scroll(function () {
     }
 });
 
+$("#addToCompare").on('click', function () {
+
+        var postData = {
+            'productId': _productId
+        };
+
+        $.post("/Compare/AddToCompare", postData,
+            function (data) {
+                if (data.isSuccess) {
+                    $("#compare-snack-bar").html("می توانید لیست مقایسه را از پنل کاربری مشاهده نمایید");
+                    $("#compare-snack-bar").addClass("show");
+                    setTimeout(function () {
+                        $("#compare-snack-bar").removeClass("show");
+                    }, 5400);
+                }
+            });
+    }
+);
+
 /*
 $("#exist-alarm").on('click',
     function () {
@@ -314,24 +333,5 @@ $("#exist-alarm").on('click',
         $("#exist-alarm-sms").prop('checked', false);
     }
 );
+*/
 
-$("#addToCompaire").on('click',
-    function () {
-     
-        var postData = {
-            'productId': productId,
-        };
-
-        $.post("/Compaire/AddToCompaire", postData,
-            function (data) {
-                if (data == true) {
-                    $("#compaire-snack-bar").html("می توانید لیست مقایسه را از پنل کاربری مشاهده نمایید");
-                    $("#compaire-snack-bar").addClass("show");
-                    setTimeout(function () {
-                        $("#compaire-snack-bar").removeClass("show");
-                    }, 5400);
-                }
-            });
-
-    }
-);*/

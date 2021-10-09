@@ -23,17 +23,20 @@ namespace EndPoint.WebSite.Controllers
         private ISendChangePasswordLinkService _sendChangePasswordLinkService;
         private readonly IUserFacad _userFacad;
         private readonly IFavoriteFacad _favoriteFacad;
+        private readonly ICompareFacad _compareFacad;
         private readonly CookiesManager _cookiesManager;
 
         public AuthenticationController(
             ISendChangePasswordLinkService sendChangePasswordLinkService,
             IUserFacad userFacad,
             IFavoriteFacad favoriteFacad,
+            ICompareFacad compareFacad,
             CookiesManager cookiesManager)
         {
             _sendChangePasswordLinkService = sendChangePasswordLinkService;
             _userFacad = userFacad;
             _favoriteFacad = favoriteFacad;
+            _compareFacad = compareFacad;
             _cookiesManager = cookiesManager;
         }
 
@@ -169,6 +172,7 @@ namespace EndPoint.WebSite.Controllers
             HttpContext.SignInAsync(principal, properties);
 
             _favoriteFacad.MergeFavoriteListService.Execute(user.Id,_cookiesManager.GetBrowserId(HttpContext));
+            _compareFacad.MergeCompareService.Execute(user.Id, _cookiesManager.GetBrowserId(HttpContext));
 
             return Redirect(returnUrl);
         }

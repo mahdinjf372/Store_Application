@@ -34,15 +34,21 @@
                                         </a>
                                     </li>
                                     <li class="profile-account-nav-item navigation-link-dashboard">
-                                        <a asp-area="UserPanel" asp-controller="Favorites" asp-action="" class="@ViewBag.FavorityListIsActived">
+                                        <a asp-area="UserPanel" asp-controller="Favorite" asp-action="Index" class="@ViewBag.FavorityListIsActived">
                                             <i class="mdi mdi-heart"></i>
                                             لیست علاقه مندی
                                         </a>
                                     </li>
                                     <li class="profile-account-nav-item navigation-link-dashboard">
-                                        <a asp-area="UserPanel" asp-controller="Comments" asp-action="Index" class="@ViewBag.CommentsIsActived">
+                                        <a asp-area="UserPanel" asp-controller="Comment" asp-action="Index" class="@ViewBag.CommentsIsActived">
                                             <i class="mdi mdi-email-open-outline"></i>
                                             نظرات
+                                        </a>
+                                    </li>
+                                    <li class="profile-account-nav-item navigation-link-dashboard">
+                                        <a asp-area="UserPanel" asp-controller="Question" asp-action="Index" class="@ViewBag.QuestionsIsActived">
+                                            <i class="mdi mdi-email-open-outline"></i>
+                                            پرسش و پاسخ ها
                                         </a>
                                     </li>
                                     <li class="profile-account-nav-item navigation-link-dashboard">

@@ -1,0 +1,136 @@
+﻿@using Store_Application.Common.Extentions;
+@using EndPoint.WebSite.Models.Compare.Index;
+@model List<CompareViewModel>
+@{
+    ViewData["Title"] = "مقایسه محصول | فروشگاه اینترنتی هگز مارکت";
+}
+
+<main class="main-row mb-4">
+    <div class="container-main">
+        <div class="col-12">
+            <div class="comparison">
+                @if (Model.Any())
+                {
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td class="align-middle"></td>
+
+                                @foreach (var compare in Model)
+                                {
+                                    <td>
+                                        <div class="comparison-item">
+                                            <a onclick="RemoveFromCompare(@compare.Product.Id)">
+                                                <span class="remove-item">
+                                                    <i class="mdi mdi-close"></i>
+                                                </span>
+                                            </a>
+                                            <a class="comparison-item-thumb" asp-controller="Product" asp-action="Index" asp-route-productId="@compare.Product.Id">
+                                                <img src="~/images/page-single-product/product-img/@compare.Product.ImageName" alt="@compare.Product.Title">
+                                            </a>
+                                            <a class="comparison-item-title" asp-controller="Product" asp-action="Index" asp-route-productId="@compare.Product.Id">@compare.Product.Title</a>
+                                            <div class="price">
+                                                @if (compare.Product.Inventory > 0)
+                                                {
+                                                    <del class="d-block text-danger font-small-3">
+                                                        <span>@compare.Product.Price.FixedToView()<span>تومان</span></span>
+                                                    </del>
+                                                    <ins class="text-info font-small-5">
+                                                        <span>@((compare.Product.Price - compare.Product.DiscountAmount).FixedToView())<span>تومان</span></span>
+                                                    </ins>
+                                                }
+                                                else
+                                                {
+                                                    <ins class="text-info font-small-5">
+                                                        <span>ناموجود</span>
+                                                    </ins>
+                                                }
+                                            </div>
+                                        </div>
+                                    </td>
+                                }
+
+                            </tr>
+
+                        </thead>
+                        <tbody>
+
+
+                            @if (Model.Any())
+                            {
+                                List<int> feat = Model.SelectMany(m => m.Feature).Select(f => f.Id).ToList().Distinct().ToList();
+
+                                @foreach (var featureId in feat)
+                                {
+                                    var feature = Model.SelectMany(f => f.Feature).First(f => f.Id == featureId);
+                                    <tr>
+                                        <th class="text-center">@feature.Title</th>
+                                        @foreach (var compare in Model)
+                                        {
+                                            var x = compare.ProductFeature.Where(pf => pf.FeatureId==featureId).Select(pf => pf.Value??"---").ToList();
+                                            string pfs = string.Join(" - ", x);
+
+                                            @if (string.IsNullOrEmpty(pfs))
+                                            {
+                                                <td class="text-center">---</td>
+                                            }
+                                            else
+                                            {
+                                                <td class="text-center">@pfs</td>
+
+                                            }
+                                        }
+                                    </tr>
+                                }
+
+                            }
+                            else
+                            {
+                                <tr>
+                                    <th>معیاری برای مقایسه یافت نشد</th>
+                                </tr>
+                            }
+
+
+
+                            <tr>
+                                <th></th>
+
+                                @foreach (var compare in Model)
+                                {
+                                    if (compare.Product.Inventory>0)
+                                    {
+                                        <td>
+                                            <a onclick="AddProductToBasket(@compare.Product.Id)" class="ql-color-white btn btn-primary btn-add-to-cart btn-block" data-toast="" data-toast-type="success" data-toast-position="topRight" data-toast-icon="fe-icon-check-circle" data-toast-title="محصول" data-toast-message="با موفقیت به سبد خرید اضافه شد!">افزودن به سبد خرید</a>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            <a class="ql-color-white btn btn-primary btn-add-to-cart btn-block" >موجود نمیباشد</a>
+                                        </td>  
+                                    }
+                                    
+                                }
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="snack-bar" class="snack-bar">این محصول به سبد خرید شما اضافه شد</div>
+                }
+                else
+                {
+                    <div class="text text-center text-danger">
+                        شما هیچ محصولی را به لیست مقایسه اضافه نکرده اید
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts{
+
+    <script src="~/js/Compare.js"></script>
+}

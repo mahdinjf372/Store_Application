@@ -1,0 +1,69 @@
+﻿@using EndPoint.WebSite.Areas.Admin.Models.Common
+@using EndPoint.WebSite.Areas.Admin.Models.Comment.LoadComments;
+@using Store_Application.Common.Extentions
+@model LoadCommentsViewModel
+@if (Model.Comments.Any())
+{
+    <table class="table table-responsive-md text-center">
+        <thead>
+            <tr>
+                <th>کد</th>
+                <th>کد محصول</th>
+                <th>کد کاربر</th>
+                <th>عنوان</th>
+                <th>متن</th>
+                <th>امتیاز</th>
+                <th>پیشنهاد</th>
+                <th>بازخورد ها</th>
+                <th>تاریخ ثبت</th>
+                <th>وضعیت</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var comment in Model.Comments)
+            {
+                <tr>
+                    <td>
+                        <i class="fa success font-medium-1 mr-1 text-bold-400">@comment.Id</i>
+                    </td>
+                    <td><i class="fa success font-medium-1 mr-1">@comment.ProductId</i></td>
+                    <td><i class="fa success font-medium-1 mr-1">@comment.UserId</i></td>
+                    <td class="text-bold">@comment.Title</td>
+                    <td>@comment.Text</td>
+                    <td>@comment.Rate/5</td>
+                    <td>@(comment.Recommend? "میکنم":"نمیکنم")</td>
+                    <td><i class="fa fa-thumbs-o-up text-info"></i> @comment.LikesCount<br /><i class="fa fa-thumbs-o-down text-danger"></i> @comment.DislikesCount</td>
+                    <td>@comment.InsertTime.ToShamsi()</td>
+                    <td>
+                        <a onclick="ChangeStatus(@comment.Id)" class="info p-0" title="تغییر وضعیت">
+                            <i class="fa @((comment.Confirmed)?"fa-check":"fa-times") font-medium-3 mr-2"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <partial name="/Areas/Admin/Views/Shared/_Paging.cshtml" model="Model.Paging" />
+}
+else
+{
+    <table class="table table-responsive-md text-center">
+        <thead>
+            <tr>
+                <th>کد</th>
+                <th>کد محصول</th>
+                <th>کد کاربر</th>
+                <th>عنوان</th>
+                <th>متن</th>
+                <th>امتیاز</th>
+                <th>پیشنهاد</th>
+                <th>بازخورد ها</th>
+                <th>تاریخ ثبت</th>
+                <th>وضعیت</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="text text-center font-medium-2 mb-3">کامنتی یافت نشد</div>
+}

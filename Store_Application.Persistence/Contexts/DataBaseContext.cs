@@ -11,6 +11,7 @@ using Store_Application.Domain.Entities.Finance;
 using Store_Application.Common.Security;
 using Store_Application.Domain.Entities.Question;
 using Store_Application.Domain.Entities.Comment;
+using Store_Application.Domain.Entities.Compare;
 using Store_Application.Domain.Entities.Favorite;
 
 namespace Store_Application.Persistence.Contexts
@@ -91,6 +92,12 @@ namespace Store_Application.Persistence.Contexts
 
         #endregion
 
+        #region Compaire
+
+        public DbSet<Compare> Compares { get; set; }
+
+        #endregion
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -130,6 +137,7 @@ namespace Store_Application.Persistence.Contexts
             modelBuilder.Entity<Like>().HasQueryFilter(l => !l.isRemoved);
             modelBuilder.Entity<Dislike>().HasQueryFilter(d => !d.isRemoved);
             modelBuilder.Entity<Favorite>().HasQueryFilter(f => !f.isRemoved);
+            modelBuilder.Entity<Compare>().HasQueryFilter(c => !c.isRemoved);
         }
 
         private void SeedData(ModelBuilder modelBuilder)
@@ -561,6 +569,21 @@ namespace Store_Application.Persistence.Contexts
 
             #endregion
 
+            #region Compaire
+
+            modelBuilder.Entity<Compare>()
+                .HasOne(c => c.User)
+                .WithMany(u => u.Compares)
+                .HasForeignKey(c => c.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Compare>()
+                .HasOne(c => c.Product)
+                .WithMany(p => p.Compares)
+                .HasForeignKey(c => c.ProductId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            #endregion
         }
 
 

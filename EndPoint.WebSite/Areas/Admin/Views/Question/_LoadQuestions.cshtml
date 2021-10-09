@@ -1,0 +1,84 @@
+﻿
+@using EndPoint.WebSite.Areas.Admin.Models.Common
+@using EndPoint.WebSite.Areas.Admin.Models.Question.LoadQuestions;
+@using Store_Application.Common.Extentions
+@model LoadQuestionsViewModel
+@if (Model.Questions.Any())
+{
+    <table class="table table-responsive-md text-center">
+        <thead>
+            <tr>
+                <th>کد</th>
+                <th>کد محصول</th>
+                <th>کد کاربر</th>
+                <th>متن</th>
+                <th>تاریخ ثبت</th>
+                <th>وضعیت</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var question in Model.Questions)
+            {
+                <tr>
+                    <td>
+                        <i class="fa success font-medium-1 mr-1 text-bold-400">@question.Id</i>
+                    </td>
+                    <td><i class="fa success font-medium-1 mr-1">@question.ProductId</i></td>
+                    <td><i class="fa success font-medium-1 mr-1">@question.UserId</i></td>
+
+                    @if (question.ParentQuestionId == null)
+                    {
+                        <td class="text-right">
+                            <p class="font-small-4">
+                                @question.Text
+                            </p>
+                        </td>
+                    }
+                    else
+                    {
+                        <td class="text-right">
+                            <p class="font-small-2 mb-0">
+                                در پاسخ به پرسش :
+                                @question.parentQuestionText
+                            </p>
+                            <p class="font-small-2">
+                                کد پرسش : @question.ParentQuestionId
+                            </p>
+                            <p class="font-small-4 mb-0">
+                                پاسخ :
+                            </p><p class="font-small-4 mb-0">
+                                @question.Text
+                            </p>
+                        </td>
+                    }
+
+                    <td>@question.InsertTime.ToShamsi()</td>
+                    <td>
+                        <a onclick="ChangeStatus(@question.Id)" class="info p-0" title="تغییر وضعیت">
+                            <i class="fa @((question.Confirmed)?"fa-check":"fa-times") font-medium-3 mr-2"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <partial name="/Areas/Admin/Views/Shared/_Paging.cshtml" model="Model.Paging" />
+}
+else
+{
+    <table class="table table-responsive-md text-center">
+        <thead>
+            <tr>
+                <th>کد</th>
+                <th>کد محصول</th>
+                <th>کد کاربر</th>
+                <th>متن</th>
+                <th>تاریخ ثبت</th>
+                <th>وضعیت</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="text text-center font-medium-2 mb-3">پرسش و پاسخی یافت نشد</div>
+}

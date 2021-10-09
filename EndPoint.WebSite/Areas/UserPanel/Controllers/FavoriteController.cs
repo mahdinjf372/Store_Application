@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EndPoint.WebSite.Areas.UserPanel.Models.Favorite.Index;
 
 namespace EndPoint.WebSite.Areas.UserPanel.Controllers
 {
@@ -27,8 +28,41 @@ namespace EndPoint.WebSite.Areas.UserPanel.Controllers
             _cookiesManager = cookiesManager;
         }
 
+        public IActionResult Index()
+        {
+            int? userId = null;
+            if (_claimUtility.IsAuthenticated(User))
+            {
+                userId = _claimUtility.GetUserId(User);
+            }
 
+            var browserId = _cookiesManager.GetBrowserId(HttpContext);
 
+            var res = _favoriteFacad.GetFavoriteListService.Execute(browserId, userId);
+
+            List<FavoriteListViewModel> model = new List<FavoriteListViewModel>();
+
+            if (res.IsSuccess)
+            {
+                model = res.Data.Select(f => new FavoriteListViewModel()
+                {
+                    Id = f.Id,
+                    Title = f.Title,
+                    Price = f.Price,
+                    ProductId = f.ProductId,
+                    PriceWithDiscount = f.PriceWithDiscount,
+                    DiscountAmount = f.DiscountAmount,
+                    Rate = f.Rate,
+                    ImageName = f.ImageName
+                }).ToList();
+            }
+
+            ViewBag.FavorityListIsActived = "active";
+
+            return View(model);
+        }
+
+        [HttpPost]
         public IActionResult AddToFavorite(int productId)
         {
             int? userId = null;
@@ -49,6 +83,7 @@ namespace EndPoint.WebSite.Areas.UserPanel.Controllers
             return Json(res);
         }
 
+        [HttpPost]
         public IActionResult RemoveFromFavorite(int productId)
         {
             int? userId = null;

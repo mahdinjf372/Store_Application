@@ -65,13 +65,13 @@
                                     {
                                         <div class="comments-likes">
                                             آیا این نظر برایتان مفید بود؟(برای ثبت باید وارد حساب شوید)
-                                            <a asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="/Product/@ViewBag.ProductId">
+                                            <a asp-controller="Authentication" asp-action="Login" asp-route-ReturnUrl="/Product/@ViewBag.ProductId">
                                                 <button class="btn-like js-comment-like" type="button">
                                                     بله
                                                     <span id="@("comments"+comment.Id+"-LikeCount")" class="count">@comment.LikesCount</span>
                                                 </button>
                                             </a>
-                                            <a asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="/Product/@ViewBag.ProductId">
+                                            <a asp-controller="Authentication" asp-action="Login" asp-route-ReturnUrl="/Product/@ViewBag.ProductId">
                                                 <button class="btn-like js-comment-dislike" type="button">
                                                     خیر
                                                     <span id="@("comments"+comment.Id+"-DislikeCount")" class="count">@comment.Id</span>

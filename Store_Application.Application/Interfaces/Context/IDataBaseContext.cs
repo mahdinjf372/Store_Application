@@ -13,6 +13,7 @@ using Store_Application.Domain.Entities.Order;
 using Store_Application.Domain.Entities.Cart;
 using Store_Application.Domain.Entities.Question;
 using Store_Application.Domain.Entities.Comment;
+using Store_Application.Domain.Entities.Compare;
 using Store_Application.Domain.Entities.Favorite;
 
 namespace Store_Application.Application.Interfaces.Context
@@ -86,6 +87,12 @@ namespace Store_Application.Application.Interfaces.Context
         #region Favorite
 
         public DbSet<Favorite> Favorites { get; set; }
+
+        #endregion
+
+        #region Compaire
+
+        public DbSet<Compare> Compares { get; set; }
 
         #endregion
 

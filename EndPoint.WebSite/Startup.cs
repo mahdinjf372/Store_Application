@@ -48,6 +48,7 @@ using System.Text.Unicode;
 using Store_Application.Application.Services.Question.FacadPattern;
 using EndPoint.WebSite.Models.Question.Add;
 using Store_Application.Application.Services.Comment.FacadPattern;
+using Store_Application.Application.Services.Compare.FacadPattern;
 using Store_Application.Application.Services.Favorite.FacadPattern;
 
 namespace EndPoint.WebSite
@@ -91,6 +92,7 @@ namespace EndPoint.WebSite
             services.AddScoped<IQuestionFacad, QuestionFacad>();
             services.AddScoped<ICommentFacad, CommentFacad>();
             services.AddScoped<IFavoriteFacad, FavoriteFacad>();
+            services.AddScoped<ICompareFacad, CompareFacad>();
 
             #endregion
 
