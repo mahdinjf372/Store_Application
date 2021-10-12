@@ -1,7 +1,6 @@
 ﻿@{
     ViewData["Title"] = "مديريت محصولات";
 }
-
 <section>
     <div class="row">
         <div class="col-sm-12">
@@ -23,14 +22,14 @@
                         <input value="@ViewBag.page" id="page-number" type="hidden" />
 
                         <div class="float-left col-md-6 col-12">
-                            <form asp-area="Admin" asp-controller="Product" asp-action="Index" method="get">
+                            <form asp-area="Admin" asp-controller="Product" asp-action="Index" method="get" id="search-products">
                                 <div class="form-group">
                                     <div class="position-relative has-icon-right">
                                         <input name="searchKey" value="@ViewBag.searchKey" id="search-products-input" type="text" class="form-control round" placeholder="جست و جو کاربران">
                                         <input name="page" value="1" type="hidden" />
                                         <input value="@ViewBag.take" name="take" id="take" type="hidden" />
                                         <div class="form-control-position">
-                                            <a onclick="$('form').submit();">
+                                            <a onclick="$('#search-products').submit();">
                                                 <i class="ft-search info"></i>
                                             </a>
                                         </div>

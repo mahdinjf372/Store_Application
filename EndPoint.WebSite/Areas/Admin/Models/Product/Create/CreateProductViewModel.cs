@@ -14,6 +14,8 @@ namespace EndPoint.WebSite.Areas.Admin.Models.Product.Create
 
         public string Description { get; set; }
 
+        public string Tags { get; set; }
+
         public decimal Price { get; set; }
 
         public decimal DiscountAmount { get; set; }

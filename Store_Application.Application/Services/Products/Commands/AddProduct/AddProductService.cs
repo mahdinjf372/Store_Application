@@ -6,6 +6,7 @@ using Store_Application.Domain.Entities.Product;
 using System.Collections.Generic;
 using System.IO;
 using Store_Application.Common.Security;
+using Microsoft.EntityFrameworkCore;
 
 namespace Store_Application.Application.Services.Products.Commands.AddProduct
 {
@@ -51,6 +52,13 @@ namespace Store_Application.Application.Services.Products.Commands.AddProduct
                 ProductId = product.Id,
 
             }).ToList();
+
+            var tags = MappingTags(req.Tags, product.Id,req.SubGroupId);
+
+            var pr = _db.Products.Find(product.Id);
+            pr.TagsForSearch = string.Join("-", tags.Select(t => t.Title).ToList());
+
+            _db.Tags.AddRange(tags);
 
             _db.ProductImages.AddRange(productimages);
             _db.SaveChanges();
@@ -152,6 +160,50 @@ namespace Store_Application.Application.Services.Products.Commands.AddProduct
             des = des.Replace("<p", "<p class=\"content-expert-text\"");
 
             return des;
+        }
+
+        private List<Tag> MappingTags(string inputTags,int productId,int categoryId)
+        {
+            var tags = inputTags.Split("-").ToList();
+            var res = new List<Tag>();
+
+            var category = _db.Categories.Include(c => c.ParentCategory).ThenInclude(c => c.ParentCategory).Single(c => c.Id == categoryId);
+            tags.Add(category.Title);
+            tags.Add(category.ParentCategory.Title);
+            tags.Add(category.ParentCategory.ParentCategory.Title);
+
+            for (int i = 0; i < tags.Count(); i++)
+            {
+                tags[i] = tags[i].Trim();
+
+                while (tags[i].Contains(" "))
+                {
+                    tags[i] = tags[i].Replace(" ", "_");
+                }
+
+                while (tags[i].Contains("__"))
+                {
+                    tags[i] = tags[i].Replace("__", "_");
+                }
+
+            }
+
+            tags = tags.Distinct().ToList();
+
+            foreach (var tag in tags)
+            {
+                if (string.IsNullOrEmpty(tag))
+                    continue;
+
+                res.Add(new Tag
+                {
+                    InsertTime = DateTime.Now,
+                    ProductId = productId,
+                    Title = tag
+                });
+            }
+
+            return res;
         }
     }
 }

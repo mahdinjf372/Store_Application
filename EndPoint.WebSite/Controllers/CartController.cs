@@ -157,7 +157,7 @@ namespace EndPoint.WebSite.Controllers
                     });
                 }
                 _cartFacad.MergeUserCartAndBrowserCartService.Execute(userId, browserId);
-            }//5890012967m
+            }
             else
             {
                 if (!_cartFacad.IsExistCartByBrowserIdService.Execute(browserId).Data)
@@ -211,7 +211,8 @@ namespace EndPoint.WebSite.Controllers
                         UserId = userId,
                         FinallyCount = item.Count
                     });
-                    res.Message = "/Checkout";
+                    if (res.IsSuccess)
+                        res.Message = "/Checkout";
                 }
                 else
                 {
@@ -227,7 +228,7 @@ namespace EndPoint.WebSite.Controllers
 
                 if (!res.IsSuccess)
                 {
-                    res.Message = "ثبت تغییرات با شکست مواجه شد صفحه را رفرش کرده و دوباره امتحان کنید";
+                    //res.Message = "ثبت تغییرات با شکست مواجه شد صفحه را رفرش کرده و دوباره امتحان کنید";
                     break;
                 }
             }

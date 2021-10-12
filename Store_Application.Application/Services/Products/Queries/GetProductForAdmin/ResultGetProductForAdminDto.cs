@@ -8,6 +8,7 @@ namespace Store_Application.Application.Services.Products.Queries.GetProductForA
         public string Title { get; set; }
         public string ShortDescription { get; set; }
         public string Decription { get; set; }
+        public List<string> Tags { get; set; }
         public int CategoryId { get; set; }
         public int GroupId { get; set; }
         public int SubgroupId { get; set; }

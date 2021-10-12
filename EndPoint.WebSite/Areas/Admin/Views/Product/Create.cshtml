@@ -203,13 +203,26 @@
                                             <div class="controls">
                                                 <div class="input-group">
                                                     <input asp-for="Inventory" type="number" min="0" max="999999" class="form-control" value="0">
-                                                    
+
                                                 </div>
                                             </div>
                                             <span asp-validation-for="Inventory" class="display-block text-danger"></span>
 
                                         </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <label asp-for="Tags">برچسب های محصول 
+                                        <p>برچسب ها را با - از هم جدا کنید (تکرری ها حذف خواهند شد)</p>
+                                        </label>
+                                        <span asp-validation-for="Tags" class="display-block text-danger"></span>
+                                        <div class="form-group">
+                                            <div class="form-control tagging">
+                                                <div id="tag-divs"></div>
+                                                <input asp-for="Tags" type="text" id="tag-input" oninput="Tagging(event)" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="col-12">
                                         <hr>
                                     </div>
@@ -229,7 +242,6 @@
 
                                 <div class="row">
                                     <div class="col-12">
-
 
                                         <span asp-validation-for="Title" class="display-block text-danger border-buttom "></span>
                                         <span asp-validation-for="ShortDescription" class="display-block text-danger border-buttom">
@@ -254,6 +266,8 @@
                                         </span>
                                         <span asp-validation-for="Inventory" class="display-block text-danger border-buttom">
                                         </span>
+                                        <span asp-validation-for="Tags" class="display-block text-danger border-buttom">
+                                        </span>
                                         <span asp-validation-for="Displayed" class="display-block text-danger border-buttom">
                                         </span>
 
@@ -274,6 +288,7 @@
 
     <script src="~/Admin/js/wizard-steps.js"></script>
     <script src="~/Admin/lib/ckeditor5/build/ckeditor.js"></script>
+
     <script src="~/Admin/js/siteJs/CreateProduct.js"></script>
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 

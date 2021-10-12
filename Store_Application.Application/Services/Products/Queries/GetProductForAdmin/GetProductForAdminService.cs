@@ -17,16 +17,16 @@ namespace Store_Application.Application.Services.Products.Queries.GetProductForA
         {
             var query = _db.Products.IgnoreQueryFilters().AsQueryable();
             query = query.Include(p => p.Category).ThenInclude(c => c.ParentCategory).ThenInclude(c => c.ParentCategory);
-            query = query.Include(p => p.Images);
+            query = query.Include(p => p.Images).Include(p=> p.Tags);
             var product = query.Select(p=> new ResultGetProductForAdminDto
             {
                 Id = p.Id,
                 Title = p.Title,
                 ShortDescription = p.ShortDescription,
                 Decription = p.Description,
+                Tags = p.Tags.Where(t=> !t.isRemoved).Select(t=> t.Title).ToList(),
                 SubgroupId = p.Category.Id,
                 GroupId = p.Category.ParentCategory.Id,
-
                 CategoryId = p.Category.ParentCategory.ParentCategory.Id,
                 BrandId = p.BrandId,
                 Inventory = p.Inventory,

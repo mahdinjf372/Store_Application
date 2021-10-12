@@ -52,12 +52,15 @@ namespace EndPoint.WebSite.Areas.Admin.Models.Product.Create
 
             RuleFor(p => p.SubGroupId)
                  .Must(SubGroupIdValidation).WithMessage("لطفا زیرگروه را انتخاب نمایید");
-            
+
             RuleFor(p => p.BrandId)
                  .Must(BrandIdValidation).WithMessage("لطفا برند محصول را انتخاب نمایید");
 
             RuleFor(p => p.Title)
                  .Must(TitleValidation).WithMessage("محصولی با این نام قبلا ثبت شده");
+
+            RuleFor(p => p.Tags)
+                .Matches(@"^[a-z0-9A-Z\u0600-\u06FF\s _-]+$").WithMessage("فقط از اعداد و حروف فارسی و انگلیسی و _ و - میتوانید استفاده کنید");
         }
 
         private bool CategoryIdValidation(int id)
@@ -69,7 +72,7 @@ namespace EndPoint.WebSite.Areas.Admin.Models.Product.Create
         private bool GroupIdValidation(int id)
         {
             grpId = id;
-            var categories = _categoryFacad.GetCategoriesForAdminService.Execute(catId,IgnoreFilters: false).Data;
+            var categories = _categoryFacad.GetCategoriesForAdminService.Execute(catId, IgnoreFilters: false).Data;
             return categories.Any(c => c.Id.Equals(id));
         }
 

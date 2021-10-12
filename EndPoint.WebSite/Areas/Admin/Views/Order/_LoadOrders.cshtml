@@ -1,0 +1,63 @@
+﻿@using EndPoint.WebSite.Areas.Admin.Models.Common
+@using EndPoint.WebSite.Areas.Admin.Models.Order.LoadOrders;
+@using Store_Application.Common.Extentions
+@model LoadOrdersViewModel
+@if (Model.Orders.Any())
+{
+    <table class="table table-responsive-xxl text-center">
+        <thead>
+            <tr>
+                <th>کد سفارش</th>
+                <th>کد کاربر</th>
+                <th>کد پرداخت</th>
+                <th>تاریخ ثبت فاکتور</th>
+                <th>وضعیت سفارش</th>
+                <th>پرداخت شده</th>
+                <th>مبلغ سفارش</th>
+                <th>تاریخ پرداخت</th>
+                <th>کدرهگیری درگاه</th>
+                <th>Authority</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model.Orders)
+            {
+                <tr>
+                    <td><i class="fa success font-medium-1 mr-1 text-bold-400">@order.Id</i></td>
+                    <td><i class="fa success font-medium-1 mr-1">@order.UserId</i></td>
+                    <td><i class="fa success font-medium-1 mr-1">@order.PayId</i></td>
+                    <td>@order.OrderInsertTime.ToShamsi()</td>
+                    <td>@order.State</td>
+                    <td>@(order.isPay?"بله":"خیر")</td>
+                    <td>@(order.PayAmount.FixedToView()=="0"?"---": order.PayAmount.FixedToView())</td>
+                    <td>@(order.PayDate?.ToShamsi() ?? "---")</td>
+                    <td>@(order.RefId==0? "---" : order.RefId)</td>
+                    <td>@(string.IsNullOrEmpty(order.Authority)?"---": order.Authority)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <partial name="/Areas/Admin/Views/Shared/_Paging.cshtml" model="Model.Paging" />
+}
+else
+{
+    <table class="table table-responsive-md text-center">
+        <thead>
+            <tr>
+                <th>کد سفارش</th>
+                <th>کد کاربر</th>
+                <th>کد پرداخت</th>
+                <th>تاریخ ثبت فاکتور</th>
+                <th>وضعیت سفارش</th>
+                <th>پرداخت شده</th>
+                <th>مقدار پرداختی</th>
+                <th>تاریخ پرداخت</th>
+                <th>کدرهگیری درگاه</th>
+                <th>Authority</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="text text-center font-medium-2 mb-3">سفارشی یافت نشد</div>
+}

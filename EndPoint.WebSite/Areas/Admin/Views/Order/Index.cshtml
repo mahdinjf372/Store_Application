@@ -1,0 +1,141 @@
+﻿@using EndPoint.WebSite.Areas.Admin.Models.Order.Common;
+@model RequestLoadOrdersViewModel
+@{
+    ViewData["Title"] = "مديريت سفارش ها و فاکتورها";
+}
+<section>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title-wrap bar-success">
+                        <h4 class="card-title">سفارش ها و فاکتورها</h4>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+
+                        <input value="@ViewBag.page" id="page-number" type="hidden" />
+                        <input value="@ViewBag.take" id="take" type="hidden" />
+
+                        <div class="float-left col-12">
+                            <div class="position-relative has-icon-right">
+                                <div class="row">
+
+                                    <div class="form-group col-6 col-sm-4 col-md-1 mt-3">
+                                        <label for="filter-orderId" class="font-small-3">کد سفارش</label>
+                                        <div class="controls">
+                                            <div class="input-group">
+                                                <input id="filter-orderId" onkeypress="onEnter(event)" asp-for="OrderId" type="number" class="form-control form-control-sm" required="" aria-invalid="false">
+                                            </div>
+                                            <div class="help-block"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-6 col-sm-4 col-md-1 mt-3">
+                                        <label for="filter-userId" class="font-small-3">کد کاربر</label>
+                                        <div class="controls">
+                                            <div class="input-group">
+                                                <input id="filter-userId" onkeypress="onEnter(event)" asp-for="UserId" type="number" class="form-control form-control-sm" required="" aria-invalid="false">
+                                            </div>
+                                            <div class="help-block"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-6 col-sm-4 col-md-2 mt-3">
+                                        <label for="filter-status" class="font-small-3">وضعیت</label>
+                                        <div class="controls">
+                                            <div class="input-group">
+                                                <select onkeypress="onEnter(event)" asp-for="State" id="filter-state" class="form-control form-control-sm">
+                                                    <option value="5" selected="selected">وضعیت</option>
+                                                    <option value="0">نهایی نشده</option>
+                                                    <option value="1">در انتظار پرداخت</option>
+                                                    <option value="2">لغو شده</option>
+                                                    <option value="3">تحویل داده شده</option>
+                                                    <option value="2">درحال بررسی</option>
+                                                </select>
+                                            </div>
+                                            <div class="help-block"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="border border-bottom-0 p-0 mr-0 col-12 col-sm-6 col-md-4 row">
+                                        <p class="text-center col-12 font-small-3 mb-0">تاریخ ایجاد فاکتور</p>
+                                        <div class="form-group col-6 text-center">
+                                            <label for="filter-fromDateOrder" class="font-small-3">از</label>
+                                            <div class="controls">
+                                                <div class="input-group">
+                                                    <input id="filter-fromDateOrder" onkeypress="onEnter(event)" asp-for="FromDateOrder" type="text" class="form-control form-control-sm">
+                                                </div>
+                                                <div class="help-block"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-6 text-center">
+                                            <label for="filter-toDateOrder" class="font-small-3">تا</label>
+                                            <div class="controls">
+                                                <div class="input-group">
+                                                    <input id="filter-toDateOrder" onkeypress="onEnter(event)" asp-for="ToDateOrder" type="text" class="form-control form-control-sm">
+                                                </div>
+                                                <div class="help-block"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="border border-bottom-0 p-0 mr-0 col-12 col-sm-6 col-md-4 row">
+                                        <p class="text-center col-12 font-small-3 mb-0">تاریخ پرداخت</p>
+                                        <div class="form-group col-6 text-center"> 
+                                            <label for="filter-fromDatePay" class="font-small-3">از</label>
+                                            <div class="controls">
+                                                <div class="input-group">
+                                                    <input id="filter-fromDatePay" onkeypress="onEnter(event)" asp-for="FromDatePay" type="text" class="form-control form-control-sm">
+                                                </div>
+                                                <div class="help-block"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-6 text-center">
+                                            <label for="filter-toDatePay" class="font-small-3">تا</label>
+                                            <div class="controls">
+                                                <div class="input-group">
+                                                    <input id="filter-toDatePay" onkeypress="onEnter(event)" asp-for="ToDatePay" type="text" class="form-control form-control-sm">
+                                                </div>
+                                                <div class="help-block"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row float-left">
+                                    <div class="col-4 col-sm-2 ">
+                                        <button onclick="ApplyFilters()" type="button" class="btn btn-success">
+                                            <i class="icon-note"></i> اعمال فیلترها
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    <div class="card-block" id="dt-OrdersData">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts
+{
+    <link href="~/Sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/Sweetalert2/sweetalert2.min.js"></script>
+    <link href="~/Admin/lib/PersianCalender/kamadatepicker.min.css" rel="stylesheet" />
+    <script src="~/Admin/lib/PersianCalender/kamadatepicker.min.js"></script>
+    <script src="~/Admin/js/siteJs/Orders.js"></script>
+
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

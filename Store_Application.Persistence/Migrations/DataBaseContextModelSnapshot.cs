@@ -463,28 +463,28 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 4,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 496, DateTimeKind.Local).AddTicks(5168),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 713, DateTimeKind.Local).AddTicks(6698),
                             Title = "بدون برند",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(9548),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 758, DateTimeKind.Local).AddTicks(2876),
                             Title = "سامسونگ",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(9577),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 758, DateTimeKind.Local).AddTicks(2903),
                             Title = "اپل",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 3,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(9583),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 758, DateTimeKind.Local).AddTicks(2909),
                             Title = "نوکیا",
                             isRemoved = false
                         });
@@ -528,14 +528,14 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(333),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(3957),
                             Title = "کالای دیجیتال",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 8,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1848),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5465),
                             ParentCategoryId = 1,
                             Title = "لپ تاپ",
                             isRemoved = false
@@ -543,7 +543,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 11,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1870),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5486),
                             ParentCategoryId = 8,
                             Title = "ایسوس",
                             isRemoved = false
@@ -551,7 +551,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 12,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1876),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5490),
                             ParentCategoryId = 8,
                             Title = "اپل",
                             isRemoved = false
@@ -559,7 +559,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 13,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1880),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5494),
                             ParentCategoryId = 8,
                             Title = "مایکروسافت",
                             isRemoved = false
@@ -567,7 +567,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 14,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1889),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5503),
                             ParentCategoryId = 8,
                             Title = "ایسر",
                             isRemoved = false
@@ -575,7 +575,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 9,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1894),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5508),
                             ParentCategoryId = 1,
                             Title = "موبایل",
                             isRemoved = false
@@ -583,7 +583,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 15,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1899),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5513),
                             ParentCategoryId = 9,
                             Title = "اپل",
                             isRemoved = false
@@ -591,7 +591,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 16,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1903),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5518),
                             ParentCategoryId = 9,
                             Title = "سامسونگ",
                             isRemoved = false
@@ -599,7 +599,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 17,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1943),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5527),
                             ParentCategoryId = 9,
                             Title = "نوکیا",
                             isRemoved = false
@@ -607,7 +607,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 18,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1948),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5532),
                             ParentCategoryId = 9,
                             Title = "شیاومی",
                             isRemoved = false
@@ -615,7 +615,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 10,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1952),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5536),
                             ParentCategoryId = 1,
                             Title = "دوربین",
                             isRemoved = false
@@ -623,7 +623,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 19,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1956),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5541),
                             ParentCategoryId = 10,
                             Title = "کنون",
                             isRemoved = false
@@ -631,7 +631,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 20,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1961),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5714),
                             ParentCategoryId = 10,
                             Title = "سامسونگ",
                             isRemoved = false
@@ -639,7 +639,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 21,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1965),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5724),
                             ParentCategoryId = 10,
                             Title = "متفرقه",
                             isRemoved = false
@@ -647,14 +647,14 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1969),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5728),
                             Title = "آرایشی و بهداشتی",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 22,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1974),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5733),
                             ParentCategoryId = 2,
                             Title = "لوازم آرایشی",
                             isRemoved = false
@@ -662,7 +662,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 23,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1980),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5740),
                             ParentCategoryId = 22,
                             Title = "آرایش چشم و ابرو",
                             isRemoved = false
@@ -670,7 +670,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 24,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1984),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5745),
                             ParentCategoryId = 22,
                             Title = "آرایش لب",
                             isRemoved = false
@@ -678,7 +678,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 25,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1990),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5749),
                             ParentCategoryId = 22,
                             Title = "آرایش چشم",
                             isRemoved = false
@@ -686,7 +686,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 26,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1994),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5753),
                             ParentCategoryId = 2,
                             Title = "لوازم شخصی برقی",
                             isRemoved = false
@@ -694,7 +694,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 27,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(1999),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5758),
                             ParentCategoryId = 26,
                             Title = "ماشین اصلاح صورت",
                             isRemoved = false
@@ -702,7 +702,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 28,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(2004),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5763),
                             ParentCategoryId = 26,
                             Title = "ماشین اصلاح سر",
                             isRemoved = false
@@ -710,7 +710,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 29,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(2008),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5767),
                             ParentCategoryId = 26,
                             Title = "سشوار",
                             isRemoved = false
@@ -718,35 +718,35 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 3,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(2012),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5772),
                             Title = "ابزار و اداری",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 4,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(2017),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5776),
                             Title = "مد و پوشاک",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 5,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(2021),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5781),
                             Title = "خانه و آشپزخانه",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 6,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(2026),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5785),
                             Title = "لوازم تحریر و هنر",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 7,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(2030),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(5789),
                             Title = "کودک و نوزاد",
                             isRemoved = false
                         });
@@ -782,42 +782,42 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 542, DateTimeKind.Local).AddTicks(862),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 758, DateTimeKind.Local).AddTicks(4063),
                             Title = "سیستم عامل",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 542, DateTimeKind.Local).AddTicks(1464),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 758, DateTimeKind.Local).AddTicks(4639),
                             Title = "رنگ",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 3,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 542, DateTimeKind.Local).AddTicks(1484),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 758, DateTimeKind.Local).AddTicks(4660),
                             Title = "ورژن سیستم عامل",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 4,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 542, DateTimeKind.Local).AddTicks(1488),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 758, DateTimeKind.Local).AddTicks(4664),
                             Title = "بلوتوث",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 5,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 542, DateTimeKind.Local).AddTicks(1493),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 758, DateTimeKind.Local).AddTicks(4669),
                             Title = "دوبین عقب",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 6,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 542, DateTimeKind.Local).AddTicks(1501),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 758, DateTimeKind.Local).AddTicks(4677),
                             Title = "دوربین جلو",
                             isRemoved = false
                         });
@@ -868,6 +868,9 @@ namespace Store_Application.Persistence.Migrations
                     b.Property<string>("ShortDescription")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("TagsForSearch")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
@@ -894,7 +897,7 @@ namespace Store_Application.Persistence.Migrations
                             Description = "<h3 class=\"content-expert-title\" style=\"text-align:right;\">طراحی و ساخت؛ زیبای خاص</h3><p class=\"content-expert-title\" style=\"text-align:right;\">باید در همین ابتدا اعتراف کنیم Galaxy Note 10 یک گوشی بسیار زیباست. البته شاید این تعریف کمی شخصی به نظر برسد اما ظاهر این گوشی آن‌قدر زیباست که جایی را برای گله و شکایت باقی نمی‌گذارد. در این گوشی دوست‌داشتنی صفحه‌نمایش تقریباً تمام قاب جلویی را پوشانده است. این گوشی ابعاد بزرگی دارد و با صفحه‌نمایش 6.3 که تقریبا 0.2 اینچ بزرگتر از S10 است، در گروه فبلت‌ها جای می‌گیرد. اگر به دنبال خرید این گوشی هوشمند هستید، احتمالاً قبلاً هم گوشی بزرگی داشته‌اید و اندازه آن برایتان آزاردهنده نخواهد بود. اولین راه‌حل موفق برای ساده کردن فرمول زیبایی و کارایی بیشتر، تغییر مکان حسگر اثرانگشت در گلکسی نوت 10 است. با توجه به امنیت بالای این راه برای باز کردن گوشی، حذف آن چندان منطقی به نظر نمی‌رسد. در این گوشی خبری از حسگر اثرانگشت روی قاب جلویی نیست و در عوض این حسگر زیر صفحه‌نمایش قرار گرفته است تا Galaxy Note 10 از همه نظر به گوشی مدرن تبدیل شود. تفاوت دیگری که امسال گلکسی سری نوت با گلسی سری S &nbsp;داشته اند محل قرار گرفتن دوربین سلفی آن ها است. به طوری که دوربین سلفی در S10 در قسمت بالای سمت راست قرار گرفته و در نوت 10 در مرکز بالای صفحه نمایش تعبیه شده است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:44.36%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/84a990c5-6102-4bd2-b587-76be3df30835.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">صفحه‌نمایش؛ همان خیره‌کننده‌ی همیشگی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">مثل همیشه یکی از نقاط قوت گوشی سری محصولات Galaxy Note صفحه‌نمایش آن‌هاست. فناوری Super AMOLED به معنی تصاویر زنده و شفافیت خیره‌کننده در کنار پشتیبانی از نمایش ویدئوهای HDR است. گلکسی نوت 10 از یک صفحه نمایش 6.3 اینچی بهره می برد، که تقریبا تمام قاب جلویی را پوشانده است. سامسونگ مدت ها است که برای پرچمداران خود از صفحه نمایش هایی با لبه های منحنی شکل استفاده می کند؛ کاری که با تولید S8 آغاز کرد و گوشی Note 10 هم از این قاعده مستثنی نیست. انحنای لبه‌ها باعث می‌شود حس کنید فضای بسیار بیشتری در اختیار دارید. این نمایشگر، تراکم پیکسلی فوق‌العاده 401 در هر اینچ دارد روی نوت 10 قرار داده شده است؛ می‌توان این‌گونه در نظر گرفت که سامسونگ احتمالاً استفاده از تعداد پیکسل بالاتر را به علت مصرف باتری بیشتر و اندازه‌ی بزرگ‌تر را به علت بزرگ‌ترشدن سایز گوشی کنار گذاشته است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.53%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/86e0699c-e0e0-401e-bdc3-84f3b5221258.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">به دلیل O شکل بودن بریدگی قسمت بالای آن، نام Infinity-O برای آن انتخاب شده است. نمایشگرهای Infinity در واقع از ویژگی های صفحه نمایش های سامسونگ است که بدون هیچ بریدگی یا Bezel تولید می شوند و برای اولین بار با به کار گیری در گوشی های&nbsp; Galaxy S8 و&nbsp; Galaxy S8+ معرفی شد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:49.3%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6154596f-bc8e-4019-b13f-1c8e4dd94aef.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نمایشگر نوت 10 هم از فناوری همیشه روشن سود می‌برد که با استفاده از بخش تنظیمات حالا می‌توانید شخصی‌سازی‌های بیشتری را برای آن در نظر بگیرید. سامسونگ موفق شده است برای این گوشی نسبت صفحه‌نمایش به بدنه 90.9 درصد را به دست آورد که برای یک گوشی امروزی هم میزان بسیار مطلوبی به‌حساب می‌آید. تراز سفیدی مناسب، نور کافی برای دیدن محتویات زیر نور‌های شدید، تراکم پیکسلی بالا که هنگام دیدن تصویر یا خواندن متن کمک می‌کند تا جزییات بیشتری را ببینید، از مشخصات نمایشگر نوت 10 هستند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.06%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6e677979-65a3-4f8e-ba50-e80fbc53dbf5.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">سخت‌افزار، سیستم‌عامل و کارایی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">چیپست اگزونوس 9825 از چیپست‌های 7 نانومتری سامسونگ در قلب اس نوت 10 قرار گرفته است. چیپست 7 نانومتری به معنی قدرت بالا و مصرف بهینه باتری گوشی است. هرساله سخت‌افزارهای نسل جدیدتر برای گوشی‌های موبایل در نظر گرفته می‌شوند که این سخت‌افزار شامل چیپست هم می‌شود. واضح است که چیپست نسل جدید سامسونگ بسیار سریع است اما در عمل سرعت‌بالای آن را نمی‌توان انقلابی دانست. سری‌های قبلی محصولات گلکسی سامسونگ که از تراشه اگزونوس استفاده می‌کردند گاهی اوقات در زمان استفاده بسیار سنگین خاموش می‌شدند. به نظر می‌رسد در گلکسی جدید به خاطر وجود رم 8 گیگابیتی، خبری از این مشکل نباشد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.68%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/c84c5779-be7e-4611-a384-c2b4f54c0d31.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نتیجه‌ی این لیست، سخت‌افزاری است که جای هیچ انتقادی را باقی نمی‌گذارد و در هر حالی بهترین بازده ممکن را دارد. سامسونگ در هر حالتی بهترین استفاده‌ی ممکن را از این سخت‌افزار کرده است. باید اطمینان داشته باشیم وقتی این سخت‌افزار برای پردازش واقعیت افزوده، فیلم‌برداری 2160 فریم بر ثانیه، تطبیق چهره و عنبیه برای بازکردن قفل گوشی طراحی و ساخته شده؛ دیگر در مورد بازی‌هایی که نهایتاً چند فریم خروجی دارند یا برنامه‌هایی که مقدار کمی از رم را اشغال می‌کنند، همچنین اجرای اندروید و رابط کاربری سامسونگ، هیچ مشکلی نخواهد داشت. پس خیالتان راحت باشد که هیچ عملیاتی وجود ندارد که گلکسی نوت 10 از پس انجام دادن آن برنیاید یا در انجام دادن آن کم‌کاری کند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:33.33%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/4c9c6d5a-7d86-4c77-a8ea-467358b61fba.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\"><u>اندازه بزرگ‌تر در بیشتر گوشی‌های موبایل نوید باتری با ظرفیت بیشتر را می‌دهد؛ البته باتری در گوشی نوت 10 تفاوت چشمگیری را به خود ندیده است و ظرفیت آن برابر با 3500 میلی‌آمپر است که با توجه به چیپست مدرن این گوشی باید تا مدت‌زمان مطلوبی انرژی را در خود نگه دارد. البته رزولوشن بالای صفحه‌نمایش باعث شده است که باتری به میزان بیشتری مصرف شود و از باتری گوشی انتظار روشن نگه‌داشتن آن تا بیش از یک روز را نداشته باشیم. این گوشی مانند پاوربانکی پرقدرت امکان شارژ بی‌سیم دیگر دستگاه‌ها را دارد. اما این نکته را نباید فراموش کنیم که گلکسی نوت 10 شارژ بی‌سیم گوشی‌های دیگر را با سرعت بسیار بالا (با توان 9 واتی) انجام می‌دهد. همان‌طور که گفتیم این گوشی می‌تواند دیگر گوشی‌ها و گجت‌های دارای فناوری شارژ بی‌سیم را شارژ کند. یکی از ویژگی‌های خاص و البته دوست‌داشتنی در مورد گوشی‌های سامسونگ امکان صفحه‌نمایش همیشه روشن است. این امکان نوتیفیکیشن‌ها را بدون نیاز به باز کردن گوشی برای کاربر به نمایش در می‌آورد.</u></p>",
                             DiscountAmount = 1000000m,
                             Displayed = true,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 542, DateTimeKind.Local).AddTicks(2918),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 758, DateTimeKind.Local).AddTicks(5933),
                             Inventory = 15,
                             Price = 20000000m,
                             ShortDescription = "اولین گوشی همراه سری گلکسی نوت در سال 2011 روانه بازار شد تا خانواده افسانه‌ای نوت را برای اولین بار به دنیا معرفی و تعریفی نو برای محصولات «فبلت‌» ارائه کند. حدود 8 سال پس از آن، سامسونگ برای عرضه عضو جدید خانواده نوت(Galaxy Note 10) با چالش‌های جدیدی مواجه است؛ این چالش‌ها ویژگی‌های مدرنی هستند که در محصولات رقیب دیده می‌شوند.گلکسی نوت‌ها به‌طور عمومی شبیه سری Galaxy S هستند؛ با این تفاوت که صفحه‌نمایش بزرگ‌تر و یک قلم دیجیتال S Pen دارند.گوشی موبایل Samsung Galaxy Note10 با دوربین سه گانه در قاب پشتی روانه بازار شده است؛ این سه سنسور با داشتن ویژگی‌هایی مانند لرزشگیر تصویر و قابلیت فیلم‌برداری 4K خروجی تصویر مطلوبی را برای جدیدترین عضو خانواده Note به همراه دارند.پردازش محاسبات در این تازه‌وارد از طریق تراشه‌ی Exynos 9825 انجام می‌شود که در رده تراشه‌های 7 نانومتری قرار می‌گیرد و با سرعت بالای خود، گلکسی نوت 10 را برای انجام کارهای بسیار سنگین کاربردی کرده است.تراشه‌ی گرافیکی Mali - G76 هم در اجرای بازی‌های سنگین و پردازش‌های گرافیکی، گلکسی نوت 10 را سربلند خواهد بود. صفحه‌نمایش سوپر آمولد با رزولوشن 1080 در 2280 و قابلیت نمایش 401 پیکسل در هر اینچ، تجربه‌ی تصویری شفاف و بسیار مطلوب را برای کاربران فراهم می‌کند.نسخه 256 گیگابایتی گوشی گلکسی نوت 10 با 8 گیگابایت رم عرضه شده است تا میزان مطلوبی از فضا و حافظه تصادفی را در اختیار کاربر قرار دهد.حسگر اثرانگشت زیرصفحه‌نمایش، حسگر فشارسنج و ژیروسکوپ تنها تعدادی از امکانات این دستگاه قدرتمند است و کار را برای رقبای این محصول بزرگ سخت کرده است.البته در این محصول خبری از سنسور عنبیه چشم و خروجی 3.5 میلی‌متری صدا نیست که دلیل آن را می‌توان در بزرگ شدن قاب و ظرافت در طراحی و ساخت جست‌وجو کرد. گفتنی است، باتری این محصول از نوع غیرقابل تعویض و لیتیوم‌یون با ظرفیت 3500 میلی‌آمپر ساعت است که از فناوری‌های شارژ سریع و شارژ بی‌سیم پشتیبانی می‌کند.این محصول قادر است دستگاه‌های دیگر را هم به‌صورت بی‌سیم شارژ کند و از این طریق نقش یک پاوربانک را هم ایفا کند.",
@@ -909,7 +912,7 @@ namespace Store_Application.Persistence.Migrations
                             Description = "<h3 class=\"content-expert-title\" style=\"text-align:right;\">طراحی و ساخت؛ زیبای خاص</h3><p class=\"content-expert-title\" style=\"text-align:right;\">باید در همین ابتدا اعتراف کنیم Galaxy Note 10 یک گوشی بسیار زیباست. البته شاید این تعریف کمی شخصی به نظر برسد اما ظاهر این گوشی آن‌قدر زیباست که جایی را برای گله و شکایت باقی نمی‌گذارد. در این گوشی دوست‌داشتنی صفحه‌نمایش تقریباً تمام قاب جلویی را پوشانده است. این گوشی ابعاد بزرگی دارد و با صفحه‌نمایش 6.3 که تقریبا 0.2 اینچ بزرگتر از S10 است، در گروه فبلت‌ها جای می‌گیرد. اگر به دنبال خرید این گوشی هوشمند هستید، احتمالاً قبلاً هم گوشی بزرگی داشته‌اید و اندازه آن برایتان آزاردهنده نخواهد بود. اولین راه‌حل موفق برای ساده کردن فرمول زیبایی و کارایی بیشتر، تغییر مکان حسگر اثرانگشت در گلکسی نوت 10 است. با توجه به امنیت بالای این راه برای باز کردن گوشی، حذف آن چندان منطقی به نظر نمی‌رسد. در این گوشی خبری از حسگر اثرانگشت روی قاب جلویی نیست و در عوض این حسگر زیر صفحه‌نمایش قرار گرفته است تا Galaxy Note 10 از همه نظر به گوشی مدرن تبدیل شود. تفاوت دیگری که امسال گلکسی سری نوت با گلسی سری S &nbsp;داشته اند محل قرار گرفتن دوربین سلفی آن ها است. به طوری که دوربین سلفی در S10 در قسمت بالای سمت راست قرار گرفته و در نوت 10 در مرکز بالای صفحه نمایش تعبیه شده است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:44.36%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/84a990c5-6102-4bd2-b587-76be3df30835.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">صفحه‌نمایش؛ همان خیره‌کننده‌ی همیشگی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">مثل همیشه یکی از نقاط قوت گوشی سری محصولات Galaxy Note صفحه‌نمایش آن‌هاست. فناوری Super AMOLED به معنی تصاویر زنده و شفافیت خیره‌کننده در کنار پشتیبانی از نمایش ویدئوهای HDR است. گلکسی نوت 10 از یک صفحه نمایش 6.3 اینچی بهره می برد، که تقریبا تمام قاب جلویی را پوشانده است. سامسونگ مدت ها است که برای پرچمداران خود از صفحه نمایش هایی با لبه های منحنی شکل استفاده می کند؛ کاری که با تولید S8 آغاز کرد و گوشی Note 10 هم از این قاعده مستثنی نیست. انحنای لبه‌ها باعث می‌شود حس کنید فضای بسیار بیشتری در اختیار دارید. این نمایشگر، تراکم پیکسلی فوق‌العاده 401 در هر اینچ دارد روی نوت 10 قرار داده شده است؛ می‌توان این‌گونه در نظر گرفت که سامسونگ احتمالاً استفاده از تعداد پیکسل بالاتر را به علت مصرف باتری بیشتر و اندازه‌ی بزرگ‌تر را به علت بزرگ‌ترشدن سایز گوشی کنار گذاشته است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.53%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/86e0699c-e0e0-401e-bdc3-84f3b5221258.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">به دلیل O شکل بودن بریدگی قسمت بالای آن، نام Infinity-O برای آن انتخاب شده است. نمایشگرهای Infinity در واقع از ویژگی های صفحه نمایش های سامسونگ است که بدون هیچ بریدگی یا Bezel تولید می شوند و برای اولین بار با به کار گیری در گوشی های&nbsp; Galaxy S8 و&nbsp; Galaxy S8+ معرفی شد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:49.3%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6154596f-bc8e-4019-b13f-1c8e4dd94aef.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نمایشگر نوت 10 هم از فناوری همیشه روشن سود می‌برد که با استفاده از بخش تنظیمات حالا می‌توانید شخصی‌سازی‌های بیشتری را برای آن در نظر بگیرید. سامسونگ موفق شده است برای این گوشی نسبت صفحه‌نمایش به بدنه 90.9 درصد را به دست آورد که برای یک گوشی امروزی هم میزان بسیار مطلوبی به‌حساب می‌آید. تراز سفیدی مناسب، نور کافی برای دیدن محتویات زیر نور‌های شدید، تراکم پیکسلی بالا که هنگام دیدن تصویر یا خواندن متن کمک می‌کند تا جزییات بیشتری را ببینید، از مشخصات نمایشگر نوت 10 هستند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.06%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6e677979-65a3-4f8e-ba50-e80fbc53dbf5.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">سخت‌افزار، سیستم‌عامل و کارایی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">چیپست اگزونوس 9825 از چیپست‌های 7 نانومتری سامسونگ در قلب اس نوت 10 قرار گرفته است. چیپست 7 نانومتری به معنی قدرت بالا و مصرف بهینه باتری گوشی است. هرساله سخت‌افزارهای نسل جدیدتر برای گوشی‌های موبایل در نظر گرفته می‌شوند که این سخت‌افزار شامل چیپست هم می‌شود. واضح است که چیپست نسل جدید سامسونگ بسیار سریع است اما در عمل سرعت‌بالای آن را نمی‌توان انقلابی دانست. سری‌های قبلی محصولات گلکسی سامسونگ که از تراشه اگزونوس استفاده می‌کردند گاهی اوقات در زمان استفاده بسیار سنگین خاموش می‌شدند. به نظر می‌رسد در گلکسی جدید به خاطر وجود رم 8 گیگابیتی، خبری از این مشکل نباشد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.68%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/c84c5779-be7e-4611-a384-c2b4f54c0d31.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نتیجه‌ی این لیست، سخت‌افزاری است که جای هیچ انتقادی را باقی نمی‌گذارد و در هر حالی بهترین بازده ممکن را دارد. سامسونگ در هر حالتی بهترین استفاده‌ی ممکن را از این سخت‌افزار کرده است. باید اطمینان داشته باشیم وقتی این سخت‌افزار برای پردازش واقعیت افزوده، فیلم‌برداری 2160 فریم بر ثانیه، تطبیق چهره و عنبیه برای بازکردن قفل گوشی طراحی و ساخته شده؛ دیگر در مورد بازی‌هایی که نهایتاً چند فریم خروجی دارند یا برنامه‌هایی که مقدار کمی از رم را اشغال می‌کنند، همچنین اجرای اندروید و رابط کاربری سامسونگ، هیچ مشکلی نخواهد داشت. پس خیالتان راحت باشد که هیچ عملیاتی وجود ندارد که گلکسی نوت 10 از پس انجام دادن آن برنیاید یا در انجام دادن آن کم‌کاری کند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:33.33%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/4c9c6d5a-7d86-4c77-a8ea-467358b61fba.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\"><u>اندازه بزرگ‌تر در بیشتر گوشی‌های موبایل نوید باتری با ظرفیت بیشتر را می‌دهد؛ البته باتری در گوشی نوت 10 تفاوت چشمگیری را به خود ندیده است و ظرفیت آن برابر با 3500 میلی‌آمپر است که با توجه به چیپست مدرن این گوشی باید تا مدت‌زمان مطلوبی انرژی را در خود نگه دارد. البته رزولوشن بالای صفحه‌نمایش باعث شده است که باتری به میزان بیشتری مصرف شود و از باتری گوشی انتظار روشن نگه‌داشتن آن تا بیش از یک روز را نداشته باشیم. این گوشی مانند پاوربانکی پرقدرت امکان شارژ بی‌سیم دیگر دستگاه‌ها را دارد. اما این نکته را نباید فراموش کنیم که گلکسی نوت 10 شارژ بی‌سیم گوشی‌های دیگر را با سرعت بسیار بالا (با توان 9 واتی) انجام می‌دهد. همان‌طور که گفتیم این گوشی می‌تواند دیگر گوشی‌ها و گجت‌های دارای فناوری شارژ بی‌سیم را شارژ کند. یکی از ویژگی‌های خاص و البته دوست‌داشتنی در مورد گوشی‌های سامسونگ امکان صفحه‌نمایش همیشه روشن است. این امکان نوتیفیکیشن‌ها را بدون نیاز به باز کردن گوشی برای کاربر به نمایش در می‌آورد.</u></p>",
                             DiscountAmount = 6500000m,
                             Displayed = true,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 542, DateTimeKind.Local).AddTicks(7688),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(1895),
                             Inventory = 5,
                             Price = 15000000m,
                             ShortDescription = "اولین گوشی همراه سری گلکسی نوت در سال 2011 روانه بازار شد تا خانواده افسانه‌ای نوت را برای اولین بار به دنیا معرفی و تعریفی نو برای محصولات «فبلت‌» ارائه کند. حدود 8 سال پس از آن، سامسونگ برای عرضه عضو جدید خانواده نوت(Galaxy Note 10) با چالش‌های جدیدی مواجه است؛ این چالش‌ها ویژگی‌های مدرنی هستند که در محصولات رقیب دیده می‌شوند.گلکسی نوت‌ها به‌طور عمومی شبیه سری Galaxy S هستند؛ با این تفاوت که صفحه‌نمایش بزرگ‌تر و یک قلم دیجیتال S Pen دارند.گوشی موبایل Samsung Galaxy Note10 با دوربین سه گانه در قاب پشتی روانه بازار شده است؛ این سه سنسور با داشتن ویژگی‌هایی مانند لرزشگیر تصویر و قابلیت فیلم‌برداری 4K خروجی تصویر مطلوبی را برای جدیدترین عضو خانواده Note به همراه دارند.پردازش محاسبات در این تازه‌وارد از طریق تراشه‌ی Exynos 9825 انجام می‌شود که در رده تراشه‌های 7 نانومتری قرار می‌گیرد و با سرعت بالای خود، گلکسی نوت 10 را برای انجام کارهای بسیار سنگین کاربردی کرده است.تراشه‌ی گرافیکی Mali - G76 هم در اجرای بازی‌های سنگین و پردازش‌های گرافیکی، گلکسی نوت 10 را سربلند خواهد بود. صفحه‌نمایش سوپر آمولد با رزولوشن 1080 در 2280 و قابلیت نمایش 401 پیکسل در هر اینچ، تجربه‌ی تصویری شفاف و بسیار مطلوب را برای کاربران فراهم می‌کند.نسخه 256 گیگابایتی گوشی گلکسی نوت 10 با 8 گیگابایت رم عرضه شده است تا میزان مطلوبی از فضا و حافظه تصادفی را در اختیار کاربر قرار دهد.حسگر اثرانگشت زیرصفحه‌نمایش، حسگر فشارسنج و ژیروسکوپ تنها تعدادی از امکانات این دستگاه قدرتمند است و کار را برای رقبای این محصول بزرگ سخت کرده است.البته در این محصول خبری از سنسور عنبیه چشم و خروجی 3.5 میلی‌متری صدا نیست که دلیل آن را می‌توان در بزرگ شدن قاب و ظرافت در طراحی و ساخت جست‌وجو کرد. گفتنی است، باتری این محصول از نوع غیرقابل تعویض و لیتیوم‌یون با ظرفیت 3500 میلی‌آمپر ساعت است که از فناوری‌های شارژ سریع و شارژ بی‌سیم پشتیبانی می‌کند.این محصول قادر است دستگاه‌های دیگر را هم به‌صورت بی‌سیم شارژ کند و از این طریق نقش یک پاوربانک را هم ایفا کند.",
@@ -924,7 +927,7 @@ namespace Store_Application.Persistence.Migrations
                             Description = "<h3 class=\"content-expert-title\" style=\"text-align:right;\">طراحی و ساخت؛ زیبای خاص</h3><p class=\"content-expert-title\" style=\"text-align:right;\">باید در همین ابتدا اعتراف کنیم Galaxy Note 10 یک گوشی بسیار زیباست. البته شاید این تعریف کمی شخصی به نظر برسد اما ظاهر این گوشی آن‌قدر زیباست که جایی را برای گله و شکایت باقی نمی‌گذارد. در این گوشی دوست‌داشتنی صفحه‌نمایش تقریباً تمام قاب جلویی را پوشانده است. این گوشی ابعاد بزرگی دارد و با صفحه‌نمایش 6.3 که تقریبا 0.2 اینچ بزرگتر از S10 است، در گروه فبلت‌ها جای می‌گیرد. اگر به دنبال خرید این گوشی هوشمند هستید، احتمالاً قبلاً هم گوشی بزرگی داشته‌اید و اندازه آن برایتان آزاردهنده نخواهد بود. اولین راه‌حل موفق برای ساده کردن فرمول زیبایی و کارایی بیشتر، تغییر مکان حسگر اثرانگشت در گلکسی نوت 10 است. با توجه به امنیت بالای این راه برای باز کردن گوشی، حذف آن چندان منطقی به نظر نمی‌رسد. در این گوشی خبری از حسگر اثرانگشت روی قاب جلویی نیست و در عوض این حسگر زیر صفحه‌نمایش قرار گرفته است تا Galaxy Note 10 از همه نظر به گوشی مدرن تبدیل شود. تفاوت دیگری که امسال گلکسی سری نوت با گلسی سری S &nbsp;داشته اند محل قرار گرفتن دوربین سلفی آن ها است. به طوری که دوربین سلفی در S10 در قسمت بالای سمت راست قرار گرفته و در نوت 10 در مرکز بالای صفحه نمایش تعبیه شده است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:44.36%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/84a990c5-6102-4bd2-b587-76be3df30835.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">صفحه‌نمایش؛ همان خیره‌کننده‌ی همیشگی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">مثل همیشه یکی از نقاط قوت گوشی سری محصولات Galaxy Note صفحه‌نمایش آن‌هاست. فناوری Super AMOLED به معنی تصاویر زنده و شفافیت خیره‌کننده در کنار پشتیبانی از نمایش ویدئوهای HDR است. گلکسی نوت 10 از یک صفحه نمایش 6.3 اینچی بهره می برد، که تقریبا تمام قاب جلویی را پوشانده است. سامسونگ مدت ها است که برای پرچمداران خود از صفحه نمایش هایی با لبه های منحنی شکل استفاده می کند؛ کاری که با تولید S8 آغاز کرد و گوشی Note 10 هم از این قاعده مستثنی نیست. انحنای لبه‌ها باعث می‌شود حس کنید فضای بسیار بیشتری در اختیار دارید. این نمایشگر، تراکم پیکسلی فوق‌العاده 401 در هر اینچ دارد روی نوت 10 قرار داده شده است؛ می‌توان این‌گونه در نظر گرفت که سامسونگ احتمالاً استفاده از تعداد پیکسل بالاتر را به علت مصرف باتری بیشتر و اندازه‌ی بزرگ‌تر را به علت بزرگ‌ترشدن سایز گوشی کنار گذاشته است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.53%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/86e0699c-e0e0-401e-bdc3-84f3b5221258.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">به دلیل O شکل بودن بریدگی قسمت بالای آن، نام Infinity-O برای آن انتخاب شده است. نمایشگرهای Infinity در واقع از ویژگی های صفحه نمایش های سامسونگ است که بدون هیچ بریدگی یا Bezel تولید می شوند و برای اولین بار با به کار گیری در گوشی های&nbsp; Galaxy S8 و&nbsp; Galaxy S8+ معرفی شد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:49.3%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6154596f-bc8e-4019-b13f-1c8e4dd94aef.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نمایشگر نوت 10 هم از فناوری همیشه روشن سود می‌برد که با استفاده از بخش تنظیمات حالا می‌توانید شخصی‌سازی‌های بیشتری را برای آن در نظر بگیرید. سامسونگ موفق شده است برای این گوشی نسبت صفحه‌نمایش به بدنه 90.9 درصد را به دست آورد که برای یک گوشی امروزی هم میزان بسیار مطلوبی به‌حساب می‌آید. تراز سفیدی مناسب، نور کافی برای دیدن محتویات زیر نور‌های شدید، تراکم پیکسلی بالا که هنگام دیدن تصویر یا خواندن متن کمک می‌کند تا جزییات بیشتری را ببینید، از مشخصات نمایشگر نوت 10 هستند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.06%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6e677979-65a3-4f8e-ba50-e80fbc53dbf5.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">سخت‌افزار، سیستم‌عامل و کارایی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">چیپست اگزونوس 9825 از چیپست‌های 7 نانومتری سامسونگ در قلب اس نوت 10 قرار گرفته است. چیپست 7 نانومتری به معنی قدرت بالا و مصرف بهینه باتری گوشی است. هرساله سخت‌افزارهای نسل جدیدتر برای گوشی‌های موبایل در نظر گرفته می‌شوند که این سخت‌افزار شامل چیپست هم می‌شود. واضح است که چیپست نسل جدید سامسونگ بسیار سریع است اما در عمل سرعت‌بالای آن را نمی‌توان انقلابی دانست. سری‌های قبلی محصولات گلکسی سامسونگ که از تراشه اگزونوس استفاده می‌کردند گاهی اوقات در زمان استفاده بسیار سنگین خاموش می‌شدند. به نظر می‌رسد در گلکسی جدید به خاطر وجود رم 8 گیگابیتی، خبری از این مشکل نباشد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.68%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/c84c5779-be7e-4611-a384-c2b4f54c0d31.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نتیجه‌ی این لیست، سخت‌افزاری است که جای هیچ انتقادی را باقی نمی‌گذارد و در هر حالی بهترین بازده ممکن را دارد. سامسونگ در هر حالتی بهترین استفاده‌ی ممکن را از این سخت‌افزار کرده است. باید اطمینان داشته باشیم وقتی این سخت‌افزار برای پردازش واقعیت افزوده، فیلم‌برداری 2160 فریم بر ثانیه، تطبیق چهره و عنبیه برای بازکردن قفل گوشی طراحی و ساخته شده؛ دیگر در مورد بازی‌هایی که نهایتاً چند فریم خروجی دارند یا برنامه‌هایی که مقدار کمی از رم را اشغال می‌کنند، همچنین اجرای اندروید و رابط کاربری سامسونگ، هیچ مشکلی نخواهد داشت. پس خیالتان راحت باشد که هیچ عملیاتی وجود ندارد که گلکسی نوت 10 از پس انجام دادن آن برنیاید یا در انجام دادن آن کم‌کاری کند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:33.33%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/4c9c6d5a-7d86-4c77-a8ea-467358b61fba.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\"><u>اندازه بزرگ‌تر در بیشتر گوشی‌های موبایل نوید باتری با ظرفیت بیشتر را می‌دهد؛ البته باتری در گوشی نوت 10 تفاوت چشمگیری را به خود ندیده است و ظرفیت آن برابر با 3500 میلی‌آمپر است که با توجه به چیپست مدرن این گوشی باید تا مدت‌زمان مطلوبی انرژی را در خود نگه دارد. البته رزولوشن بالای صفحه‌نمایش باعث شده است که باتری به میزان بیشتری مصرف شود و از باتری گوشی انتظار روشن نگه‌داشتن آن تا بیش از یک روز را نداشته باشیم. این گوشی مانند پاوربانکی پرقدرت امکان شارژ بی‌سیم دیگر دستگاه‌ها را دارد. اما این نکته را نباید فراموش کنیم که گلکسی نوت 10 شارژ بی‌سیم گوشی‌های دیگر را با سرعت بسیار بالا (با توان 9 واتی) انجام می‌دهد. همان‌طور که گفتیم این گوشی می‌تواند دیگر گوشی‌ها و گجت‌های دارای فناوری شارژ بی‌سیم را شارژ کند. یکی از ویژگی‌های خاص و البته دوست‌داشتنی در مورد گوشی‌های سامسونگ امکان صفحه‌نمایش همیشه روشن است. این امکان نوتیفیکیشن‌ها را بدون نیاز به باز کردن گوشی برای کاربر به نمایش در می‌آورد.</u></p>",
                             DiscountAmount = 610000m,
                             Displayed = true,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 542, DateTimeKind.Local).AddTicks(7745),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(1940),
                             Inventory = 5,
                             Price = 6000000m,
                             ShortDescription = "اولین گوشی همراه سری گلکسی نوت در سال 2011 روانه بازار شد تا خانواده افسانه‌ای نوت را برای اولین بار به دنیا معرفی و تعریفی نو برای محصولات «فبلت‌» ارائه کند. حدود 8 سال پس از آن، سامسونگ برای عرضه عضو جدید خانواده نوت(Galaxy Note 10) با چالش‌های جدیدی مواجه است؛ این چالش‌ها ویژگی‌های مدرنی هستند که در محصولات رقیب دیده می‌شوند.گلکسی نوت‌ها به‌طور عمومی شبیه سری Galaxy S هستند؛ با این تفاوت که صفحه‌نمایش بزرگ‌تر و یک قلم دیجیتال S Pen دارند.گوشی موبایل Samsung Galaxy Note10 با دوربین سه گانه در قاب پشتی روانه بازار شده است؛ این سه سنسور با داشتن ویژگی‌هایی مانند لرزشگیر تصویر و قابلیت فیلم‌برداری 4K خروجی تصویر مطلوبی را برای جدیدترین عضو خانواده Note به همراه دارند.پردازش محاسبات در این تازه‌وارد از طریق تراشه‌ی Exynos 9825 انجام می‌شود که در رده تراشه‌های 7 نانومتری قرار می‌گیرد و با سرعت بالای خود، گلکسی نوت 10 را برای انجام کارهای بسیار سنگین کاربردی کرده است.تراشه‌ی گرافیکی Mali - G76 هم در اجرای بازی‌های سنگین و پردازش‌های گرافیکی، گلکسی نوت 10 را سربلند خواهد بود. صفحه‌نمایش سوپر آمولد با رزولوشن 1080 در 2280 و قابلیت نمایش 401 پیکسل در هر اینچ، تجربه‌ی تصویری شفاف و بسیار مطلوب را برای کاربران فراهم می‌کند.نسخه 256 گیگابایتی گوشی گلکسی نوت 10 با 8 گیگابایت رم عرضه شده است تا میزان مطلوبی از فضا و حافظه تصادفی را در اختیار کاربر قرار دهد.حسگر اثرانگشت زیرصفحه‌نمایش، حسگر فشارسنج و ژیروسکوپ تنها تعدادی از امکانات این دستگاه قدرتمند است و کار را برای رقبای این محصول بزرگ سخت کرده است.البته در این محصول خبری از سنسور عنبیه چشم و خروجی 3.5 میلی‌متری صدا نیست که دلیل آن را می‌توان در بزرگ شدن قاب و ظرافت در طراحی و ساخت جست‌وجو کرد. گفتنی است، باتری این محصول از نوع غیرقابل تعویض و لیتیوم‌یون با ظرفیت 3500 میلی‌آمپر ساعت است که از فناوری‌های شارژ سریع و شارژ بی‌سیم پشتیبانی می‌کند.این محصول قادر است دستگاه‌های دیگر را هم به‌صورت بی‌سیم شارژ کند و از این طریق نقش یک پاوربانک را هم ایفا کند.",
@@ -939,7 +942,7 @@ namespace Store_Application.Persistence.Migrations
                             Description = "<h3 class=\"content-expert-title\" style=\"text-align:right;\">طراحی و ساخت؛ زیبای خاص</h3><p class=\"content-expert-title\" style=\"text-align:right;\">باید در همین ابتدا اعتراف کنیم Galaxy Note 10 یک گوشی بسیار زیباست. البته شاید این تعریف کمی شخصی به نظر برسد اما ظاهر این گوشی آن‌قدر زیباست که جایی را برای گله و شکایت باقی نمی‌گذارد. در این گوشی دوست‌داشتنی صفحه‌نمایش تقریباً تمام قاب جلویی را پوشانده است. این گوشی ابعاد بزرگی دارد و با صفحه‌نمایش 6.3 که تقریبا 0.2 اینچ بزرگتر از S10 است، در گروه فبلت‌ها جای می‌گیرد. اگر به دنبال خرید این گوشی هوشمند هستید، احتمالاً قبلاً هم گوشی بزرگی داشته‌اید و اندازه آن برایتان آزاردهنده نخواهد بود. اولین راه‌حل موفق برای ساده کردن فرمول زیبایی و کارایی بیشتر، تغییر مکان حسگر اثرانگشت در گلکسی نوت 10 است. با توجه به امنیت بالای این راه برای باز کردن گوشی، حذف آن چندان منطقی به نظر نمی‌رسد. در این گوشی خبری از حسگر اثرانگشت روی قاب جلویی نیست و در عوض این حسگر زیر صفحه‌نمایش قرار گرفته است تا Galaxy Note 10 از همه نظر به گوشی مدرن تبدیل شود. تفاوت دیگری که امسال گلکسی سری نوت با گلسی سری S &nbsp;داشته اند محل قرار گرفتن دوربین سلفی آن ها است. به طوری که دوربین سلفی در S10 در قسمت بالای سمت راست قرار گرفته و در نوت 10 در مرکز بالای صفحه نمایش تعبیه شده است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:44.36%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/84a990c5-6102-4bd2-b587-76be3df30835.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">صفحه‌نمایش؛ همان خیره‌کننده‌ی همیشگی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">مثل همیشه یکی از نقاط قوت گوشی سری محصولات Galaxy Note صفحه‌نمایش آن‌هاست. فناوری Super AMOLED به معنی تصاویر زنده و شفافیت خیره‌کننده در کنار پشتیبانی از نمایش ویدئوهای HDR است. گلکسی نوت 10 از یک صفحه نمایش 6.3 اینچی بهره می برد، که تقریبا تمام قاب جلویی را پوشانده است. سامسونگ مدت ها است که برای پرچمداران خود از صفحه نمایش هایی با لبه های منحنی شکل استفاده می کند؛ کاری که با تولید S8 آغاز کرد و گوشی Note 10 هم از این قاعده مستثنی نیست. انحنای لبه‌ها باعث می‌شود حس کنید فضای بسیار بیشتری در اختیار دارید. این نمایشگر، تراکم پیکسلی فوق‌العاده 401 در هر اینچ دارد روی نوت 10 قرار داده شده است؛ می‌توان این‌گونه در نظر گرفت که سامسونگ احتمالاً استفاده از تعداد پیکسل بالاتر را به علت مصرف باتری بیشتر و اندازه‌ی بزرگ‌تر را به علت بزرگ‌ترشدن سایز گوشی کنار گذاشته است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.53%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/86e0699c-e0e0-401e-bdc3-84f3b5221258.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">به دلیل O شکل بودن بریدگی قسمت بالای آن، نام Infinity-O برای آن انتخاب شده است. نمایشگرهای Infinity در واقع از ویژگی های صفحه نمایش های سامسونگ است که بدون هیچ بریدگی یا Bezel تولید می شوند و برای اولین بار با به کار گیری در گوشی های&nbsp; Galaxy S8 و&nbsp; Galaxy S8+ معرفی شد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:49.3%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6154596f-bc8e-4019-b13f-1c8e4dd94aef.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نمایشگر نوت 10 هم از فناوری همیشه روشن سود می‌برد که با استفاده از بخش تنظیمات حالا می‌توانید شخصی‌سازی‌های بیشتری را برای آن در نظر بگیرید. سامسونگ موفق شده است برای این گوشی نسبت صفحه‌نمایش به بدنه 90.9 درصد را به دست آورد که برای یک گوشی امروزی هم میزان بسیار مطلوبی به‌حساب می‌آید. تراز سفیدی مناسب، نور کافی برای دیدن محتویات زیر نور‌های شدید، تراکم پیکسلی بالا که هنگام دیدن تصویر یا خواندن متن کمک می‌کند تا جزییات بیشتری را ببینید، از مشخصات نمایشگر نوت 10 هستند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.06%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6e677979-65a3-4f8e-ba50-e80fbc53dbf5.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">سخت‌افزار، سیستم‌عامل و کارایی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">چیپست اگزونوس 9825 از چیپست‌های 7 نانومتری سامسونگ در قلب اس نوت 10 قرار گرفته است. چیپست 7 نانومتری به معنی قدرت بالا و مصرف بهینه باتری گوشی است. هرساله سخت‌افزارهای نسل جدیدتر برای گوشی‌های موبایل در نظر گرفته می‌شوند که این سخت‌افزار شامل چیپست هم می‌شود. واضح است که چیپست نسل جدید سامسونگ بسیار سریع است اما در عمل سرعت‌بالای آن را نمی‌توان انقلابی دانست. سری‌های قبلی محصولات گلکسی سامسونگ که از تراشه اگزونوس استفاده می‌کردند گاهی اوقات در زمان استفاده بسیار سنگین خاموش می‌شدند. به نظر می‌رسد در گلکسی جدید به خاطر وجود رم 8 گیگابیتی، خبری از این مشکل نباشد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.68%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/c84c5779-be7e-4611-a384-c2b4f54c0d31.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نتیجه‌ی این لیست، سخت‌افزاری است که جای هیچ انتقادی را باقی نمی‌گذارد و در هر حالی بهترین بازده ممکن را دارد. سامسونگ در هر حالتی بهترین استفاده‌ی ممکن را از این سخت‌افزار کرده است. باید اطمینان داشته باشیم وقتی این سخت‌افزار برای پردازش واقعیت افزوده، فیلم‌برداری 2160 فریم بر ثانیه، تطبیق چهره و عنبیه برای بازکردن قفل گوشی طراحی و ساخته شده؛ دیگر در مورد بازی‌هایی که نهایتاً چند فریم خروجی دارند یا برنامه‌هایی که مقدار کمی از رم را اشغال می‌کنند، همچنین اجرای اندروید و رابط کاربری سامسونگ، هیچ مشکلی نخواهد داشت. پس خیالتان راحت باشد که هیچ عملیاتی وجود ندارد که گلکسی نوت 10 از پس انجام دادن آن برنیاید یا در انجام دادن آن کم‌کاری کند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:33.33%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/4c9c6d5a-7d86-4c77-a8ea-467358b61fba.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\"><u>اندازه بزرگ‌تر در بیشتر گوشی‌های موبایل نوید باتری با ظرفیت بیشتر را می‌دهد؛ البته باتری در گوشی نوت 10 تفاوت چشمگیری را به خود ندیده است و ظرفیت آن برابر با 3500 میلی‌آمپر است که با توجه به چیپست مدرن این گوشی باید تا مدت‌زمان مطلوبی انرژی را در خود نگه دارد. البته رزولوشن بالای صفحه‌نمایش باعث شده است که باتری به میزان بیشتری مصرف شود و از باتری گوشی انتظار روشن نگه‌داشتن آن تا بیش از یک روز را نداشته باشیم. این گوشی مانند پاوربانکی پرقدرت امکان شارژ بی‌سیم دیگر دستگاه‌ها را دارد. اما این نکته را نباید فراموش کنیم که گلکسی نوت 10 شارژ بی‌سیم گوشی‌های دیگر را با سرعت بسیار بالا (با توان 9 واتی) انجام می‌دهد. همان‌طور که گفتیم این گوشی می‌تواند دیگر گوشی‌ها و گجت‌های دارای فناوری شارژ بی‌سیم را شارژ کند. یکی از ویژگی‌های خاص و البته دوست‌داشتنی در مورد گوشی‌های سامسونگ امکان صفحه‌نمایش همیشه روشن است. این امکان نوتیفیکیشن‌ها را بدون نیاز به باز کردن گوشی برای کاربر به نمایش در می‌آورد.</u></p>",
                             DiscountAmount = 5600000m,
                             Displayed = true,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 542, DateTimeKind.Local).AddTicks(7751),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(1947),
                             Inventory = 15,
                             Price = 1200000m,
                             ShortDescription = "اولین گوشی همراه سری گلکسی نوت در سال 2011 روانه بازار شد تا خانواده افسانه‌ای نوت را برای اولین بار به دنیا معرفی و تعریفی نو برای محصولات «فبلت‌» ارائه کند. حدود 8 سال پس از آن، سامسونگ برای عرضه عضو جدید خانواده نوت(Galaxy Note 10) با چالش‌های جدیدی مواجه است؛ این چالش‌ها ویژگی‌های مدرنی هستند که در محصولات رقیب دیده می‌شوند.گلکسی نوت‌ها به‌طور عمومی شبیه سری Galaxy S هستند؛ با این تفاوت که صفحه‌نمایش بزرگ‌تر و یک قلم دیجیتال S Pen دارند.گوشی موبایل Samsung Galaxy Note10 با دوربین سه گانه در قاب پشتی روانه بازار شده است؛ این سه سنسور با داشتن ویژگی‌هایی مانند لرزشگیر تصویر و قابلیت فیلم‌برداری 4K خروجی تصویر مطلوبی را برای جدیدترین عضو خانواده Note به همراه دارند.پردازش محاسبات در این تازه‌وارد از طریق تراشه‌ی Exynos 9825 انجام می‌شود که در رده تراشه‌های 7 نانومتری قرار می‌گیرد و با سرعت بالای خود، گلکسی نوت 10 را برای انجام کارهای بسیار سنگین کاربردی کرده است.تراشه‌ی گرافیکی Mali - G76 هم در اجرای بازی‌های سنگین و پردازش‌های گرافیکی، گلکسی نوت 10 را سربلند خواهد بود. صفحه‌نمایش سوپر آمولد با رزولوشن 1080 در 2280 و قابلیت نمایش 401 پیکسل در هر اینچ، تجربه‌ی تصویری شفاف و بسیار مطلوب را برای کاربران فراهم می‌کند.نسخه 256 گیگابایتی گوشی گلکسی نوت 10 با 8 گیگابایت رم عرضه شده است تا میزان مطلوبی از فضا و حافظه تصادفی را در اختیار کاربر قرار دهد.حسگر اثرانگشت زیرصفحه‌نمایش، حسگر فشارسنج و ژیروسکوپ تنها تعدادی از امکانات این دستگاه قدرتمند است و کار را برای رقبای این محصول بزرگ سخت کرده است.البته در این محصول خبری از سنسور عنبیه چشم و خروجی 3.5 میلی‌متری صدا نیست که دلیل آن را می‌توان در بزرگ شدن قاب و ظرافت در طراحی و ساخت جست‌وجو کرد. گفتنی است، باتری این محصول از نوع غیرقابل تعویض و لیتیوم‌یون با ظرفیت 3500 میلی‌آمپر ساعت است که از فناوری‌های شارژ سریع و شارژ بی‌سیم پشتیبانی می‌کند.این محصول قادر است دستگاه‌های دیگر را هم به‌صورت بی‌سیم شارژ کند و از این طریق نقش یک پاوربانک را هم ایفا کند.",
@@ -954,7 +957,7 @@ namespace Store_Application.Persistence.Migrations
                             Description = "<h3 class=\"content-expert-title\" style=\"text-align:right;\">طراحی و ساخت؛ زیبای خاص</h3><p class=\"content-expert-title\" style=\"text-align:right;\">باید در همین ابتدا اعتراف کنیم Galaxy Note 10 یک گوشی بسیار زیباست. البته شاید این تعریف کمی شخصی به نظر برسد اما ظاهر این گوشی آن‌قدر زیباست که جایی را برای گله و شکایت باقی نمی‌گذارد. در این گوشی دوست‌داشتنی صفحه‌نمایش تقریباً تمام قاب جلویی را پوشانده است. این گوشی ابعاد بزرگی دارد و با صفحه‌نمایش 6.3 که تقریبا 0.2 اینچ بزرگتر از S10 است، در گروه فبلت‌ها جای می‌گیرد. اگر به دنبال خرید این گوشی هوشمند هستید، احتمالاً قبلاً هم گوشی بزرگی داشته‌اید و اندازه آن برایتان آزاردهنده نخواهد بود. اولین راه‌حل موفق برای ساده کردن فرمول زیبایی و کارایی بیشتر، تغییر مکان حسگر اثرانگشت در گلکسی نوت 10 است. با توجه به امنیت بالای این راه برای باز کردن گوشی، حذف آن چندان منطقی به نظر نمی‌رسد. در این گوشی خبری از حسگر اثرانگشت روی قاب جلویی نیست و در عوض این حسگر زیر صفحه‌نمایش قرار گرفته است تا Galaxy Note 10 از همه نظر به گوشی مدرن تبدیل شود. تفاوت دیگری که امسال گلکسی سری نوت با گلسی سری S &nbsp;داشته اند محل قرار گرفتن دوربین سلفی آن ها است. به طوری که دوربین سلفی در S10 در قسمت بالای سمت راست قرار گرفته و در نوت 10 در مرکز بالای صفحه نمایش تعبیه شده است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:44.36%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/84a990c5-6102-4bd2-b587-76be3df30835.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">صفحه‌نمایش؛ همان خیره‌کننده‌ی همیشگی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">مثل همیشه یکی از نقاط قوت گوشی سری محصولات Galaxy Note صفحه‌نمایش آن‌هاست. فناوری Super AMOLED به معنی تصاویر زنده و شفافیت خیره‌کننده در کنار پشتیبانی از نمایش ویدئوهای HDR است. گلکسی نوت 10 از یک صفحه نمایش 6.3 اینچی بهره می برد، که تقریبا تمام قاب جلویی را پوشانده است. سامسونگ مدت ها است که برای پرچمداران خود از صفحه نمایش هایی با لبه های منحنی شکل استفاده می کند؛ کاری که با تولید S8 آغاز کرد و گوشی Note 10 هم از این قاعده مستثنی نیست. انحنای لبه‌ها باعث می‌شود حس کنید فضای بسیار بیشتری در اختیار دارید. این نمایشگر، تراکم پیکسلی فوق‌العاده 401 در هر اینچ دارد روی نوت 10 قرار داده شده است؛ می‌توان این‌گونه در نظر گرفت که سامسونگ احتمالاً استفاده از تعداد پیکسل بالاتر را به علت مصرف باتری بیشتر و اندازه‌ی بزرگ‌تر را به علت بزرگ‌ترشدن سایز گوشی کنار گذاشته است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.53%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/86e0699c-e0e0-401e-bdc3-84f3b5221258.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">به دلیل O شکل بودن بریدگی قسمت بالای آن، نام Infinity-O برای آن انتخاب شده است. نمایشگرهای Infinity در واقع از ویژگی های صفحه نمایش های سامسونگ است که بدون هیچ بریدگی یا Bezel تولید می شوند و برای اولین بار با به کار گیری در گوشی های&nbsp; Galaxy S8 و&nbsp; Galaxy S8+ معرفی شد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:49.3%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6154596f-bc8e-4019-b13f-1c8e4dd94aef.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نمایشگر نوت 10 هم از فناوری همیشه روشن سود می‌برد که با استفاده از بخش تنظیمات حالا می‌توانید شخصی‌سازی‌های بیشتری را برای آن در نظر بگیرید. سامسونگ موفق شده است برای این گوشی نسبت صفحه‌نمایش به بدنه 90.9 درصد را به دست آورد که برای یک گوشی امروزی هم میزان بسیار مطلوبی به‌حساب می‌آید. تراز سفیدی مناسب، نور کافی برای دیدن محتویات زیر نور‌های شدید، تراکم پیکسلی بالا که هنگام دیدن تصویر یا خواندن متن کمک می‌کند تا جزییات بیشتری را ببینید، از مشخصات نمایشگر نوت 10 هستند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.06%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6e677979-65a3-4f8e-ba50-e80fbc53dbf5.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">سخت‌افزار، سیستم‌عامل و کارایی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">چیپست اگزونوس 9825 از چیپست‌های 7 نانومتری سامسونگ در قلب اس نوت 10 قرار گرفته است. چیپست 7 نانومتری به معنی قدرت بالا و مصرف بهینه باتری گوشی است. هرساله سخت‌افزارهای نسل جدیدتر برای گوشی‌های موبایل در نظر گرفته می‌شوند که این سخت‌افزار شامل چیپست هم می‌شود. واضح است که چیپست نسل جدید سامسونگ بسیار سریع است اما در عمل سرعت‌بالای آن را نمی‌توان انقلابی دانست. سری‌های قبلی محصولات گلکسی سامسونگ که از تراشه اگزونوس استفاده می‌کردند گاهی اوقات در زمان استفاده بسیار سنگین خاموش می‌شدند. به نظر می‌رسد در گلکسی جدید به خاطر وجود رم 8 گیگابیتی، خبری از این مشکل نباشد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.68%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/c84c5779-be7e-4611-a384-c2b4f54c0d31.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نتیجه‌ی این لیست، سخت‌افزاری است که جای هیچ انتقادی را باقی نمی‌گذارد و در هر حالی بهترین بازده ممکن را دارد. سامسونگ در هر حالتی بهترین استفاده‌ی ممکن را از این سخت‌افزار کرده است. باید اطمینان داشته باشیم وقتی این سخت‌افزار برای پردازش واقعیت افزوده، فیلم‌برداری 2160 فریم بر ثانیه، تطبیق چهره و عنبیه برای بازکردن قفل گوشی طراحی و ساخته شده؛ دیگر در مورد بازی‌هایی که نهایتاً چند فریم خروجی دارند یا برنامه‌هایی که مقدار کمی از رم را اشغال می‌کنند، همچنین اجرای اندروید و رابط کاربری سامسونگ، هیچ مشکلی نخواهد داشت. پس خیالتان راحت باشد که هیچ عملیاتی وجود ندارد که گلکسی نوت 10 از پس انجام دادن آن برنیاید یا در انجام دادن آن کم‌کاری کند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:33.33%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/4c9c6d5a-7d86-4c77-a8ea-467358b61fba.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\"><u>اندازه بزرگ‌تر در بیشتر گوشی‌های موبایل نوید باتری با ظرفیت بیشتر را می‌دهد؛ البته باتری در گوشی نوت 10 تفاوت چشمگیری را به خود ندیده است و ظرفیت آن برابر با 3500 میلی‌آمپر است که با توجه به چیپست مدرن این گوشی باید تا مدت‌زمان مطلوبی انرژی را در خود نگه دارد. البته رزولوشن بالای صفحه‌نمایش باعث شده است که باتری به میزان بیشتری مصرف شود و از باتری گوشی انتظار روشن نگه‌داشتن آن تا بیش از یک روز را نداشته باشیم. این گوشی مانند پاوربانکی پرقدرت امکان شارژ بی‌سیم دیگر دستگاه‌ها را دارد. اما این نکته را نباید فراموش کنیم که گلکسی نوت 10 شارژ بی‌سیم گوشی‌های دیگر را با سرعت بسیار بالا (با توان 9 واتی) انجام می‌دهد. همان‌طور که گفتیم این گوشی می‌تواند دیگر گوشی‌ها و گجت‌های دارای فناوری شارژ بی‌سیم را شارژ کند. یکی از ویژگی‌های خاص و البته دوست‌داشتنی در مورد گوشی‌های سامسونگ امکان صفحه‌نمایش همیشه روشن است. این امکان نوتیفیکیشن‌ها را بدون نیاز به باز کردن گوشی برای کاربر به نمایش در می‌آورد.</u></p>",
                             DiscountAmount = 100000m,
                             Displayed = true,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 542, DateTimeKind.Local).AddTicks(7756),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(2170),
                             Inventory = 5,
                             Price = 1300000m,
                             ShortDescription = "اولین گوشی همراه سری گلکسی نوت در سال 2011 روانه بازار شد تا خانواده افسانه‌ای نوت را برای اولین بار به دنیا معرفی و تعریفی نو برای محصولات «فبلت‌» ارائه کند. حدود 8 سال پس از آن، سامسونگ برای عرضه عضو جدید خانواده نوت(Galaxy Note 10) با چالش‌های جدیدی مواجه است؛ این چالش‌ها ویژگی‌های مدرنی هستند که در محصولات رقیب دیده می‌شوند.گلکسی نوت‌ها به‌طور عمومی شبیه سری Galaxy S هستند؛ با این تفاوت که صفحه‌نمایش بزرگ‌تر و یک قلم دیجیتال S Pen دارند.گوشی موبایل Samsung Galaxy Note10 با دوربین سه گانه در قاب پشتی روانه بازار شده است؛ این سه سنسور با داشتن ویژگی‌هایی مانند لرزشگیر تصویر و قابلیت فیلم‌برداری 4K خروجی تصویر مطلوبی را برای جدیدترین عضو خانواده Note به همراه دارند.پردازش محاسبات در این تازه‌وارد از طریق تراشه‌ی Exynos 9825 انجام می‌شود که در رده تراشه‌های 7 نانومتری قرار می‌گیرد و با سرعت بالای خود، گلکسی نوت 10 را برای انجام کارهای بسیار سنگین کاربردی کرده است.تراشه‌ی گرافیکی Mali - G76 هم در اجرای بازی‌های سنگین و پردازش‌های گرافیکی، گلکسی نوت 10 را سربلند خواهد بود. صفحه‌نمایش سوپر آمولد با رزولوشن 1080 در 2280 و قابلیت نمایش 401 پیکسل در هر اینچ، تجربه‌ی تصویری شفاف و بسیار مطلوب را برای کاربران فراهم می‌کند.نسخه 256 گیگابایتی گوشی گلکسی نوت 10 با 8 گیگابایت رم عرضه شده است تا میزان مطلوبی از فضا و حافظه تصادفی را در اختیار کاربر قرار دهد.حسگر اثرانگشت زیرصفحه‌نمایش، حسگر فشارسنج و ژیروسکوپ تنها تعدادی از امکانات این دستگاه قدرتمند است و کار را برای رقبای این محصول بزرگ سخت کرده است.البته در این محصول خبری از سنسور عنبیه چشم و خروجی 3.5 میلی‌متری صدا نیست که دلیل آن را می‌توان در بزرگ شدن قاب و ظرافت در طراحی و ساخت جست‌وجو کرد. گفتنی است، باتری این محصول از نوع غیرقابل تعویض و لیتیوم‌یون با ظرفیت 3500 میلی‌آمپر ساعت است که از فناوری‌های شارژ سریع و شارژ بی‌سیم پشتیبانی می‌کند.این محصول قادر است دستگاه‌های دیگر را هم به‌صورت بی‌سیم شارژ کند و از این طریق نقش یک پاوربانک را هم ایفا کند.",
@@ -969,7 +972,7 @@ namespace Store_Application.Persistence.Migrations
                             Description = "<h3 class=\"content-expert-title\" style=\"text-align:right;\">طراحی و ساخت؛ زیبای خاص</h3><p class=\"content-expert-title\" style=\"text-align:right;\">باید در همین ابتدا اعتراف کنیم Galaxy Note 10 یک گوشی بسیار زیباست. البته شاید این تعریف کمی شخصی به نظر برسد اما ظاهر این گوشی آن‌قدر زیباست که جایی را برای گله و شکایت باقی نمی‌گذارد. در این گوشی دوست‌داشتنی صفحه‌نمایش تقریباً تمام قاب جلویی را پوشانده است. این گوشی ابعاد بزرگی دارد و با صفحه‌نمایش 6.3 که تقریبا 0.2 اینچ بزرگتر از S10 است، در گروه فبلت‌ها جای می‌گیرد. اگر به دنبال خرید این گوشی هوشمند هستید، احتمالاً قبلاً هم گوشی بزرگی داشته‌اید و اندازه آن برایتان آزاردهنده نخواهد بود. اولین راه‌حل موفق برای ساده کردن فرمول زیبایی و کارایی بیشتر، تغییر مکان حسگر اثرانگشت در گلکسی نوت 10 است. با توجه به امنیت بالای این راه برای باز کردن گوشی، حذف آن چندان منطقی به نظر نمی‌رسد. در این گوشی خبری از حسگر اثرانگشت روی قاب جلویی نیست و در عوض این حسگر زیر صفحه‌نمایش قرار گرفته است تا Galaxy Note 10 از همه نظر به گوشی مدرن تبدیل شود. تفاوت دیگری که امسال گلکسی سری نوت با گلسی سری S &nbsp;داشته اند محل قرار گرفتن دوربین سلفی آن ها است. به طوری که دوربین سلفی در S10 در قسمت بالای سمت راست قرار گرفته و در نوت 10 در مرکز بالای صفحه نمایش تعبیه شده است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:44.36%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/84a990c5-6102-4bd2-b587-76be3df30835.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">صفحه‌نمایش؛ همان خیره‌کننده‌ی همیشگی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">مثل همیشه یکی از نقاط قوت گوشی سری محصولات Galaxy Note صفحه‌نمایش آن‌هاست. فناوری Super AMOLED به معنی تصاویر زنده و شفافیت خیره‌کننده در کنار پشتیبانی از نمایش ویدئوهای HDR است. گلکسی نوت 10 از یک صفحه نمایش 6.3 اینچی بهره می برد، که تقریبا تمام قاب جلویی را پوشانده است. سامسونگ مدت ها است که برای پرچمداران خود از صفحه نمایش هایی با لبه های منحنی شکل استفاده می کند؛ کاری که با تولید S8 آغاز کرد و گوشی Note 10 هم از این قاعده مستثنی نیست. انحنای لبه‌ها باعث می‌شود حس کنید فضای بسیار بیشتری در اختیار دارید. این نمایشگر، تراکم پیکسلی فوق‌العاده 401 در هر اینچ دارد روی نوت 10 قرار داده شده است؛ می‌توان این‌گونه در نظر گرفت که سامسونگ احتمالاً استفاده از تعداد پیکسل بالاتر را به علت مصرف باتری بیشتر و اندازه‌ی بزرگ‌تر را به علت بزرگ‌ترشدن سایز گوشی کنار گذاشته است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.53%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/86e0699c-e0e0-401e-bdc3-84f3b5221258.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">به دلیل O شکل بودن بریدگی قسمت بالای آن، نام Infinity-O برای آن انتخاب شده است. نمایشگرهای Infinity در واقع از ویژگی های صفحه نمایش های سامسونگ است که بدون هیچ بریدگی یا Bezel تولید می شوند و برای اولین بار با به کار گیری در گوشی های&nbsp; Galaxy S8 و&nbsp; Galaxy S8+ معرفی شد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:49.3%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6154596f-bc8e-4019-b13f-1c8e4dd94aef.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نمایشگر نوت 10 هم از فناوری همیشه روشن سود می‌برد که با استفاده از بخش تنظیمات حالا می‌توانید شخصی‌سازی‌های بیشتری را برای آن در نظر بگیرید. سامسونگ موفق شده است برای این گوشی نسبت صفحه‌نمایش به بدنه 90.9 درصد را به دست آورد که برای یک گوشی امروزی هم میزان بسیار مطلوبی به‌حساب می‌آید. تراز سفیدی مناسب، نور کافی برای دیدن محتویات زیر نور‌های شدید، تراکم پیکسلی بالا که هنگام دیدن تصویر یا خواندن متن کمک می‌کند تا جزییات بیشتری را ببینید، از مشخصات نمایشگر نوت 10 هستند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.06%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6e677979-65a3-4f8e-ba50-e80fbc53dbf5.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">سخت‌افزار، سیستم‌عامل و کارایی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">چیپست اگزونوس 9825 از چیپست‌های 7 نانومتری سامسونگ در قلب اس نوت 10 قرار گرفته است. چیپست 7 نانومتری به معنی قدرت بالا و مصرف بهینه باتری گوشی است. هرساله سخت‌افزارهای نسل جدیدتر برای گوشی‌های موبایل در نظر گرفته می‌شوند که این سخت‌افزار شامل چیپست هم می‌شود. واضح است که چیپست نسل جدید سامسونگ بسیار سریع است اما در عمل سرعت‌بالای آن را نمی‌توان انقلابی دانست. سری‌های قبلی محصولات گلکسی سامسونگ که از تراشه اگزونوس استفاده می‌کردند گاهی اوقات در زمان استفاده بسیار سنگین خاموش می‌شدند. به نظر می‌رسد در گلکسی جدید به خاطر وجود رم 8 گیگابیتی، خبری از این مشکل نباشد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.68%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/c84c5779-be7e-4611-a384-c2b4f54c0d31.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نتیجه‌ی این لیست، سخت‌افزاری است که جای هیچ انتقادی را باقی نمی‌گذارد و در هر حالی بهترین بازده ممکن را دارد. سامسونگ در هر حالتی بهترین استفاده‌ی ممکن را از این سخت‌افزار کرده است. باید اطمینان داشته باشیم وقتی این سخت‌افزار برای پردازش واقعیت افزوده، فیلم‌برداری 2160 فریم بر ثانیه، تطبیق چهره و عنبیه برای بازکردن قفل گوشی طراحی و ساخته شده؛ دیگر در مورد بازی‌هایی که نهایتاً چند فریم خروجی دارند یا برنامه‌هایی که مقدار کمی از رم را اشغال می‌کنند، همچنین اجرای اندروید و رابط کاربری سامسونگ، هیچ مشکلی نخواهد داشت. پس خیالتان راحت باشد که هیچ عملیاتی وجود ندارد که گلکسی نوت 10 از پس انجام دادن آن برنیاید یا در انجام دادن آن کم‌کاری کند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:33.33%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/4c9c6d5a-7d86-4c77-a8ea-467358b61fba.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\"><u>اندازه بزرگ‌تر در بیشتر گوشی‌های موبایل نوید باتری با ظرفیت بیشتر را می‌دهد؛ البته باتری در گوشی نوت 10 تفاوت چشمگیری را به خود ندیده است و ظرفیت آن برابر با 3500 میلی‌آمپر است که با توجه به چیپست مدرن این گوشی باید تا مدت‌زمان مطلوبی انرژی را در خود نگه دارد. البته رزولوشن بالای صفحه‌نمایش باعث شده است که باتری به میزان بیشتری مصرف شود و از باتری گوشی انتظار روشن نگه‌داشتن آن تا بیش از یک روز را نداشته باشیم. این گوشی مانند پاوربانکی پرقدرت امکان شارژ بی‌سیم دیگر دستگاه‌ها را دارد. اما این نکته را نباید فراموش کنیم که گلکسی نوت 10 شارژ بی‌سیم گوشی‌های دیگر را با سرعت بسیار بالا (با توان 9 واتی) انجام می‌دهد. همان‌طور که گفتیم این گوشی می‌تواند دیگر گوشی‌ها و گجت‌های دارای فناوری شارژ بی‌سیم را شارژ کند. یکی از ویژگی‌های خاص و البته دوست‌داشتنی در مورد گوشی‌های سامسونگ امکان صفحه‌نمایش همیشه روشن است. این امکان نوتیفیکیشن‌ها را بدون نیاز به باز کردن گوشی برای کاربر به نمایش در می‌آورد.</u></p>",
                             DiscountAmount = 10000m,
                             Displayed = true,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 542, DateTimeKind.Local).AddTicks(7766),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(2187),
                             Inventory = 5,
                             Price = 18800000m,
                             ShortDescription = "اولین گوشی همراه سری گلکسی نوت در سال 2011 روانه بازار شد تا خانواده افسانه‌ای نوت را برای اولین بار به دنیا معرفی و تعریفی نو برای محصولات «فبلت‌» ارائه کند. حدود 8 سال پس از آن، سامسونگ برای عرضه عضو جدید خانواده نوت(Galaxy Note 10) با چالش‌های جدیدی مواجه است؛ این چالش‌ها ویژگی‌های مدرنی هستند که در محصولات رقیب دیده می‌شوند.گلکسی نوت‌ها به‌طور عمومی شبیه سری Galaxy S هستند؛ با این تفاوت که صفحه‌نمایش بزرگ‌تر و یک قلم دیجیتال S Pen دارند.گوشی موبایل Samsung Galaxy Note10 با دوربین سه گانه در قاب پشتی روانه بازار شده است؛ این سه سنسور با داشتن ویژگی‌هایی مانند لرزشگیر تصویر و قابلیت فیلم‌برداری 4K خروجی تصویر مطلوبی را برای جدیدترین عضو خانواده Note به همراه دارند.پردازش محاسبات در این تازه‌وارد از طریق تراشه‌ی Exynos 9825 انجام می‌شود که در رده تراشه‌های 7 نانومتری قرار می‌گیرد و با سرعت بالای خود، گلکسی نوت 10 را برای انجام کارهای بسیار سنگین کاربردی کرده است.تراشه‌ی گرافیکی Mali - G76 هم در اجرای بازی‌های سنگین و پردازش‌های گرافیکی، گلکسی نوت 10 را سربلند خواهد بود. صفحه‌نمایش سوپر آمولد با رزولوشن 1080 در 2280 و قابلیت نمایش 401 پیکسل در هر اینچ، تجربه‌ی تصویری شفاف و بسیار مطلوب را برای کاربران فراهم می‌کند.نسخه 256 گیگابایتی گوشی گلکسی نوت 10 با 8 گیگابایت رم عرضه شده است تا میزان مطلوبی از فضا و حافظه تصادفی را در اختیار کاربر قرار دهد.حسگر اثرانگشت زیرصفحه‌نمایش، حسگر فشارسنج و ژیروسکوپ تنها تعدادی از امکانات این دستگاه قدرتمند است و کار را برای رقبای این محصول بزرگ سخت کرده است.البته در این محصول خبری از سنسور عنبیه چشم و خروجی 3.5 میلی‌متری صدا نیست که دلیل آن را می‌توان در بزرگ شدن قاب و ظرافت در طراحی و ساخت جست‌وجو کرد. گفتنی است، باتری این محصول از نوع غیرقابل تعویض و لیتیوم‌یون با ظرفیت 3500 میلی‌آمپر ساعت است که از فناوری‌های شارژ سریع و شارژ بی‌سیم پشتیبانی می‌کند.این محصول قادر است دستگاه‌های دیگر را هم به‌صورت بی‌سیم شارژ کند و از این طریق نقش یک پاوربانک را هم ایفا کند.",
@@ -984,7 +987,7 @@ namespace Store_Application.Persistence.Migrations
                             Description = "<h3 class=\"content-expert-title\" style=\"text-align:right;\">طراحی و ساخت؛ زیبای خاص</h3><p class=\"content-expert-title\" style=\"text-align:right;\">باید در همین ابتدا اعتراف کنیم Galaxy Note 10 یک گوشی بسیار زیباست. البته شاید این تعریف کمی شخصی به نظر برسد اما ظاهر این گوشی آن‌قدر زیباست که جایی را برای گله و شکایت باقی نمی‌گذارد. در این گوشی دوست‌داشتنی صفحه‌نمایش تقریباً تمام قاب جلویی را پوشانده است. این گوشی ابعاد بزرگی دارد و با صفحه‌نمایش 6.3 که تقریبا 0.2 اینچ بزرگتر از S10 است، در گروه فبلت‌ها جای می‌گیرد. اگر به دنبال خرید این گوشی هوشمند هستید، احتمالاً قبلاً هم گوشی بزرگی داشته‌اید و اندازه آن برایتان آزاردهنده نخواهد بود. اولین راه‌حل موفق برای ساده کردن فرمول زیبایی و کارایی بیشتر، تغییر مکان حسگر اثرانگشت در گلکسی نوت 10 است. با توجه به امنیت بالای این راه برای باز کردن گوشی، حذف آن چندان منطقی به نظر نمی‌رسد. در این گوشی خبری از حسگر اثرانگشت روی قاب جلویی نیست و در عوض این حسگر زیر صفحه‌نمایش قرار گرفته است تا Galaxy Note 10 از همه نظر به گوشی مدرن تبدیل شود. تفاوت دیگری که امسال گلکسی سری نوت با گلسی سری S &nbsp;داشته اند محل قرار گرفتن دوربین سلفی آن ها است. به طوری که دوربین سلفی در S10 در قسمت بالای سمت راست قرار گرفته و در نوت 10 در مرکز بالای صفحه نمایش تعبیه شده است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:44.36%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/84a990c5-6102-4bd2-b587-76be3df30835.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">صفحه‌نمایش؛ همان خیره‌کننده‌ی همیشگی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">مثل همیشه یکی از نقاط قوت گوشی سری محصولات Galaxy Note صفحه‌نمایش آن‌هاست. فناوری Super AMOLED به معنی تصاویر زنده و شفافیت خیره‌کننده در کنار پشتیبانی از نمایش ویدئوهای HDR است. گلکسی نوت 10 از یک صفحه نمایش 6.3 اینچی بهره می برد، که تقریبا تمام قاب جلویی را پوشانده است. سامسونگ مدت ها است که برای پرچمداران خود از صفحه نمایش هایی با لبه های منحنی شکل استفاده می کند؛ کاری که با تولید S8 آغاز کرد و گوشی Note 10 هم از این قاعده مستثنی نیست. انحنای لبه‌ها باعث می‌شود حس کنید فضای بسیار بیشتری در اختیار دارید. این نمایشگر، تراکم پیکسلی فوق‌العاده 401 در هر اینچ دارد روی نوت 10 قرار داده شده است؛ می‌توان این‌گونه در نظر گرفت که سامسونگ احتمالاً استفاده از تعداد پیکسل بالاتر را به علت مصرف باتری بیشتر و اندازه‌ی بزرگ‌تر را به علت بزرگ‌ترشدن سایز گوشی کنار گذاشته است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.53%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/86e0699c-e0e0-401e-bdc3-84f3b5221258.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">به دلیل O شکل بودن بریدگی قسمت بالای آن، نام Infinity-O برای آن انتخاب شده است. نمایشگرهای Infinity در واقع از ویژگی های صفحه نمایش های سامسونگ است که بدون هیچ بریدگی یا Bezel تولید می شوند و برای اولین بار با به کار گیری در گوشی های&nbsp; Galaxy S8 و&nbsp; Galaxy S8+ معرفی شد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:49.3%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6154596f-bc8e-4019-b13f-1c8e4dd94aef.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نمایشگر نوت 10 هم از فناوری همیشه روشن سود می‌برد که با استفاده از بخش تنظیمات حالا می‌توانید شخصی‌سازی‌های بیشتری را برای آن در نظر بگیرید. سامسونگ موفق شده است برای این گوشی نسبت صفحه‌نمایش به بدنه 90.9 درصد را به دست آورد که برای یک گوشی امروزی هم میزان بسیار مطلوبی به‌حساب می‌آید. تراز سفیدی مناسب، نور کافی برای دیدن محتویات زیر نور‌های شدید، تراکم پیکسلی بالا که هنگام دیدن تصویر یا خواندن متن کمک می‌کند تا جزییات بیشتری را ببینید، از مشخصات نمایشگر نوت 10 هستند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.06%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6e677979-65a3-4f8e-ba50-e80fbc53dbf5.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">سخت‌افزار، سیستم‌عامل و کارایی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">چیپست اگزونوس 9825 از چیپست‌های 7 نانومتری سامسونگ در قلب اس نوت 10 قرار گرفته است. چیپست 7 نانومتری به معنی قدرت بالا و مصرف بهینه باتری گوشی است. هرساله سخت‌افزارهای نسل جدیدتر برای گوشی‌های موبایل در نظر گرفته می‌شوند که این سخت‌افزار شامل چیپست هم می‌شود. واضح است که چیپست نسل جدید سامسونگ بسیار سریع است اما در عمل سرعت‌بالای آن را نمی‌توان انقلابی دانست. سری‌های قبلی محصولات گلکسی سامسونگ که از تراشه اگزونوس استفاده می‌کردند گاهی اوقات در زمان استفاده بسیار سنگین خاموش می‌شدند. به نظر می‌رسد در گلکسی جدید به خاطر وجود رم 8 گیگابیتی، خبری از این مشکل نباشد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.68%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/c84c5779-be7e-4611-a384-c2b4f54c0d31.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نتیجه‌ی این لیست، سخت‌افزاری است که جای هیچ انتقادی را باقی نمی‌گذارد و در هر حالی بهترین بازده ممکن را دارد. سامسونگ در هر حالتی بهترین استفاده‌ی ممکن را از این سخت‌افزار کرده است. باید اطمینان داشته باشیم وقتی این سخت‌افزار برای پردازش واقعیت افزوده، فیلم‌برداری 2160 فریم بر ثانیه، تطبیق چهره و عنبیه برای بازکردن قفل گوشی طراحی و ساخته شده؛ دیگر در مورد بازی‌هایی که نهایتاً چند فریم خروجی دارند یا برنامه‌هایی که مقدار کمی از رم را اشغال می‌کنند، همچنین اجرای اندروید و رابط کاربری سامسونگ، هیچ مشکلی نخواهد داشت. پس خیالتان راحت باشد که هیچ عملیاتی وجود ندارد که گلکسی نوت 10 از پس انجام دادن آن برنیاید یا در انجام دادن آن کم‌کاری کند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:33.33%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/4c9c6d5a-7d86-4c77-a8ea-467358b61fba.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\"><u>اندازه بزرگ‌تر در بیشتر گوشی‌های موبایل نوید باتری با ظرفیت بیشتر را می‌دهد؛ البته باتری در گوشی نوت 10 تفاوت چشمگیری را به خود ندیده است و ظرفیت آن برابر با 3500 میلی‌آمپر است که با توجه به چیپست مدرن این گوشی باید تا مدت‌زمان مطلوبی انرژی را در خود نگه دارد. البته رزولوشن بالای صفحه‌نمایش باعث شده است که باتری به میزان بیشتری مصرف شود و از باتری گوشی انتظار روشن نگه‌داشتن آن تا بیش از یک روز را نداشته باشیم. این گوشی مانند پاوربانکی پرقدرت امکان شارژ بی‌سیم دیگر دستگاه‌ها را دارد. اما این نکته را نباید فراموش کنیم که گلکسی نوت 10 شارژ بی‌سیم گوشی‌های دیگر را با سرعت بسیار بالا (با توان 9 واتی) انجام می‌دهد. همان‌طور که گفتیم این گوشی می‌تواند دیگر گوشی‌ها و گجت‌های دارای فناوری شارژ بی‌سیم را شارژ کند. یکی از ویژگی‌های خاص و البته دوست‌داشتنی در مورد گوشی‌های سامسونگ امکان صفحه‌نمایش همیشه روشن است. این امکان نوتیفیکیشن‌ها را بدون نیاز به باز کردن گوشی برای کاربر به نمایش در می‌آورد.</u></p>",
                             DiscountAmount = 1100000m,
                             Displayed = true,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 542, DateTimeKind.Local).AddTicks(7772),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(2193),
                             Inventory = 15,
                             Price = 22000000m,
                             ShortDescription = "اولین گوشی همراه سری گلکسی نوت در سال 2011 روانه بازار شد تا خانواده افسانه‌ای نوت را برای اولین بار به دنیا معرفی و تعریفی نو برای محصولات «فبلت‌» ارائه کند. حدود 8 سال پس از آن، سامسونگ برای عرضه عضو جدید خانواده نوت(Galaxy Note 10) با چالش‌های جدیدی مواجه است؛ این چالش‌ها ویژگی‌های مدرنی هستند که در محصولات رقیب دیده می‌شوند.گلکسی نوت‌ها به‌طور عمومی شبیه سری Galaxy S هستند؛ با این تفاوت که صفحه‌نمایش بزرگ‌تر و یک قلم دیجیتال S Pen دارند.گوشی موبایل Samsung Galaxy Note10 با دوربین سه گانه در قاب پشتی روانه بازار شده است؛ این سه سنسور با داشتن ویژگی‌هایی مانند لرزشگیر تصویر و قابلیت فیلم‌برداری 4K خروجی تصویر مطلوبی را برای جدیدترین عضو خانواده Note به همراه دارند.پردازش محاسبات در این تازه‌وارد از طریق تراشه‌ی Exynos 9825 انجام می‌شود که در رده تراشه‌های 7 نانومتری قرار می‌گیرد و با سرعت بالای خود، گلکسی نوت 10 را برای انجام کارهای بسیار سنگین کاربردی کرده است.تراشه‌ی گرافیکی Mali - G76 هم در اجرای بازی‌های سنگین و پردازش‌های گرافیکی، گلکسی نوت 10 را سربلند خواهد بود. صفحه‌نمایش سوپر آمولد با رزولوشن 1080 در 2280 و قابلیت نمایش 401 پیکسل در هر اینچ، تجربه‌ی تصویری شفاف و بسیار مطلوب را برای کاربران فراهم می‌کند.نسخه 256 گیگابایتی گوشی گلکسی نوت 10 با 8 گیگابایت رم عرضه شده است تا میزان مطلوبی از فضا و حافظه تصادفی را در اختیار کاربر قرار دهد.حسگر اثرانگشت زیرصفحه‌نمایش، حسگر فشارسنج و ژیروسکوپ تنها تعدادی از امکانات این دستگاه قدرتمند است و کار را برای رقبای این محصول بزرگ سخت کرده است.البته در این محصول خبری از سنسور عنبیه چشم و خروجی 3.5 میلی‌متری صدا نیست که دلیل آن را می‌توان در بزرگ شدن قاب و ظرافت در طراحی و ساخت جست‌وجو کرد. گفتنی است، باتری این محصول از نوع غیرقابل تعویض و لیتیوم‌یون با ظرفیت 3500 میلی‌آمپر ساعت است که از فناوری‌های شارژ سریع و شارژ بی‌سیم پشتیبانی می‌کند.این محصول قادر است دستگاه‌های دیگر را هم به‌صورت بی‌سیم شارژ کند و از این طریق نقش یک پاوربانک را هم ایفا کند.",
@@ -999,7 +1002,7 @@ namespace Store_Application.Persistence.Migrations
                             Description = "<h3 class=\"content-expert-title\" style=\"text-align:right;\">طراحی و ساخت؛ زیبای خاص</h3><p class=\"content-expert-title\" style=\"text-align:right;\">باید در همین ابتدا اعتراف کنیم Galaxy Note 10 یک گوشی بسیار زیباست. البته شاید این تعریف کمی شخصی به نظر برسد اما ظاهر این گوشی آن‌قدر زیباست که جایی را برای گله و شکایت باقی نمی‌گذارد. در این گوشی دوست‌داشتنی صفحه‌نمایش تقریباً تمام قاب جلویی را پوشانده است. این گوشی ابعاد بزرگی دارد و با صفحه‌نمایش 6.3 که تقریبا 0.2 اینچ بزرگتر از S10 است، در گروه فبلت‌ها جای می‌گیرد. اگر به دنبال خرید این گوشی هوشمند هستید، احتمالاً قبلاً هم گوشی بزرگی داشته‌اید و اندازه آن برایتان آزاردهنده نخواهد بود. اولین راه‌حل موفق برای ساده کردن فرمول زیبایی و کارایی بیشتر، تغییر مکان حسگر اثرانگشت در گلکسی نوت 10 است. با توجه به امنیت بالای این راه برای باز کردن گوشی، حذف آن چندان منطقی به نظر نمی‌رسد. در این گوشی خبری از حسگر اثرانگشت روی قاب جلویی نیست و در عوض این حسگر زیر صفحه‌نمایش قرار گرفته است تا Galaxy Note 10 از همه نظر به گوشی مدرن تبدیل شود. تفاوت دیگری که امسال گلکسی سری نوت با گلسی سری S &nbsp;داشته اند محل قرار گرفتن دوربین سلفی آن ها است. به طوری که دوربین سلفی در S10 در قسمت بالای سمت راست قرار گرفته و در نوت 10 در مرکز بالای صفحه نمایش تعبیه شده است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:44.36%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/84a990c5-6102-4bd2-b587-76be3df30835.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">صفحه‌نمایش؛ همان خیره‌کننده‌ی همیشگی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">مثل همیشه یکی از نقاط قوت گوشی سری محصولات Galaxy Note صفحه‌نمایش آن‌هاست. فناوری Super AMOLED به معنی تصاویر زنده و شفافیت خیره‌کننده در کنار پشتیبانی از نمایش ویدئوهای HDR است. گلکسی نوت 10 از یک صفحه نمایش 6.3 اینچی بهره می برد، که تقریبا تمام قاب جلویی را پوشانده است. سامسونگ مدت ها است که برای پرچمداران خود از صفحه نمایش هایی با لبه های منحنی شکل استفاده می کند؛ کاری که با تولید S8 آغاز کرد و گوشی Note 10 هم از این قاعده مستثنی نیست. انحنای لبه‌ها باعث می‌شود حس کنید فضای بسیار بیشتری در اختیار دارید. این نمایشگر، تراکم پیکسلی فوق‌العاده 401 در هر اینچ دارد روی نوت 10 قرار داده شده است؛ می‌توان این‌گونه در نظر گرفت که سامسونگ احتمالاً استفاده از تعداد پیکسل بالاتر را به علت مصرف باتری بیشتر و اندازه‌ی بزرگ‌تر را به علت بزرگ‌ترشدن سایز گوشی کنار گذاشته است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.53%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/86e0699c-e0e0-401e-bdc3-84f3b5221258.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">به دلیل O شکل بودن بریدگی قسمت بالای آن، نام Infinity-O برای آن انتخاب شده است. نمایشگرهای Infinity در واقع از ویژگی های صفحه نمایش های سامسونگ است که بدون هیچ بریدگی یا Bezel تولید می شوند و برای اولین بار با به کار گیری در گوشی های&nbsp; Galaxy S8 و&nbsp; Galaxy S8+ معرفی شد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:49.3%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6154596f-bc8e-4019-b13f-1c8e4dd94aef.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نمایشگر نوت 10 هم از فناوری همیشه روشن سود می‌برد که با استفاده از بخش تنظیمات حالا می‌توانید شخصی‌سازی‌های بیشتری را برای آن در نظر بگیرید. سامسونگ موفق شده است برای این گوشی نسبت صفحه‌نمایش به بدنه 90.9 درصد را به دست آورد که برای یک گوشی امروزی هم میزان بسیار مطلوبی به‌حساب می‌آید. تراز سفیدی مناسب، نور کافی برای دیدن محتویات زیر نور‌های شدید، تراکم پیکسلی بالا که هنگام دیدن تصویر یا خواندن متن کمک می‌کند تا جزییات بیشتری را ببینید، از مشخصات نمایشگر نوت 10 هستند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.06%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6e677979-65a3-4f8e-ba50-e80fbc53dbf5.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">سخت‌افزار، سیستم‌عامل و کارایی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">چیپست اگزونوس 9825 از چیپست‌های 7 نانومتری سامسونگ در قلب اس نوت 10 قرار گرفته است. چیپست 7 نانومتری به معنی قدرت بالا و مصرف بهینه باتری گوشی است. هرساله سخت‌افزارهای نسل جدیدتر برای گوشی‌های موبایل در نظر گرفته می‌شوند که این سخت‌افزار شامل چیپست هم می‌شود. واضح است که چیپست نسل جدید سامسونگ بسیار سریع است اما در عمل سرعت‌بالای آن را نمی‌توان انقلابی دانست. سری‌های قبلی محصولات گلکسی سامسونگ که از تراشه اگزونوس استفاده می‌کردند گاهی اوقات در زمان استفاده بسیار سنگین خاموش می‌شدند. به نظر می‌رسد در گلکسی جدید به خاطر وجود رم 8 گیگابیتی، خبری از این مشکل نباشد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.68%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/c84c5779-be7e-4611-a384-c2b4f54c0d31.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نتیجه‌ی این لیست، سخت‌افزاری است که جای هیچ انتقادی را باقی نمی‌گذارد و در هر حالی بهترین بازده ممکن را دارد. سامسونگ در هر حالتی بهترین استفاده‌ی ممکن را از این سخت‌افزار کرده است. باید اطمینان داشته باشیم وقتی این سخت‌افزار برای پردازش واقعیت افزوده، فیلم‌برداری 2160 فریم بر ثانیه، تطبیق چهره و عنبیه برای بازکردن قفل گوشی طراحی و ساخته شده؛ دیگر در مورد بازی‌هایی که نهایتاً چند فریم خروجی دارند یا برنامه‌هایی که مقدار کمی از رم را اشغال می‌کنند، همچنین اجرای اندروید و رابط کاربری سامسونگ، هیچ مشکلی نخواهد داشت. پس خیالتان راحت باشد که هیچ عملیاتی وجود ندارد که گلکسی نوت 10 از پس انجام دادن آن برنیاید یا در انجام دادن آن کم‌کاری کند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:33.33%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/4c9c6d5a-7d86-4c77-a8ea-467358b61fba.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\"><u>اندازه بزرگ‌تر در بیشتر گوشی‌های موبایل نوید باتری با ظرفیت بیشتر را می‌دهد؛ البته باتری در گوشی نوت 10 تفاوت چشمگیری را به خود ندیده است و ظرفیت آن برابر با 3500 میلی‌آمپر است که با توجه به چیپست مدرن این گوشی باید تا مدت‌زمان مطلوبی انرژی را در خود نگه دارد. البته رزولوشن بالای صفحه‌نمایش باعث شده است که باتری به میزان بیشتری مصرف شود و از باتری گوشی انتظار روشن نگه‌داشتن آن تا بیش از یک روز را نداشته باشیم. این گوشی مانند پاوربانکی پرقدرت امکان شارژ بی‌سیم دیگر دستگاه‌ها را دارد. اما این نکته را نباید فراموش کنیم که گلکسی نوت 10 شارژ بی‌سیم گوشی‌های دیگر را با سرعت بسیار بالا (با توان 9 واتی) انجام می‌دهد. همان‌طور که گفتیم این گوشی می‌تواند دیگر گوشی‌ها و گجت‌های دارای فناوری شارژ بی‌سیم را شارژ کند. یکی از ویژگی‌های خاص و البته دوست‌داشتنی در مورد گوشی‌های سامسونگ امکان صفحه‌نمایش همیشه روشن است. این امکان نوتیفیکیشن‌ها را بدون نیاز به باز کردن گوشی برای کاربر به نمایش در می‌آورد.</u></p>",
                             DiscountAmount = 6500000m,
                             Displayed = true,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 542, DateTimeKind.Local).AddTicks(7778),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(2198),
                             Inventory = 5,
                             Price = 1600000m,
                             ShortDescription = "اولین گوشی همراه سری گلکسی نوت در سال 2011 روانه بازار شد تا خانواده افسانه‌ای نوت را برای اولین بار به دنیا معرفی و تعریفی نو برای محصولات «فبلت‌» ارائه کند. حدود 8 سال پس از آن، سامسونگ برای عرضه عضو جدید خانواده نوت(Galaxy Note 10) با چالش‌های جدیدی مواجه است؛ این چالش‌ها ویژگی‌های مدرنی هستند که در محصولات رقیب دیده می‌شوند.گلکسی نوت‌ها به‌طور عمومی شبیه سری Galaxy S هستند؛ با این تفاوت که صفحه‌نمایش بزرگ‌تر و یک قلم دیجیتال S Pen دارند.گوشی موبایل Samsung Galaxy Note10 با دوربین سه گانه در قاب پشتی روانه بازار شده است؛ این سه سنسور با داشتن ویژگی‌هایی مانند لرزشگیر تصویر و قابلیت فیلم‌برداری 4K خروجی تصویر مطلوبی را برای جدیدترین عضو خانواده Note به همراه دارند.پردازش محاسبات در این تازه‌وارد از طریق تراشه‌ی Exynos 9825 انجام می‌شود که در رده تراشه‌های 7 نانومتری قرار می‌گیرد و با سرعت بالای خود، گلکسی نوت 10 را برای انجام کارهای بسیار سنگین کاربردی کرده است.تراشه‌ی گرافیکی Mali - G76 هم در اجرای بازی‌های سنگین و پردازش‌های گرافیکی، گلکسی نوت 10 را سربلند خواهد بود. صفحه‌نمایش سوپر آمولد با رزولوشن 1080 در 2280 و قابلیت نمایش 401 پیکسل در هر اینچ، تجربه‌ی تصویری شفاف و بسیار مطلوب را برای کاربران فراهم می‌کند.نسخه 256 گیگابایتی گوشی گلکسی نوت 10 با 8 گیگابایت رم عرضه شده است تا میزان مطلوبی از فضا و حافظه تصادفی را در اختیار کاربر قرار دهد.حسگر اثرانگشت زیرصفحه‌نمایش، حسگر فشارسنج و ژیروسکوپ تنها تعدادی از امکانات این دستگاه قدرتمند است و کار را برای رقبای این محصول بزرگ سخت کرده است.البته در این محصول خبری از سنسور عنبیه چشم و خروجی 3.5 میلی‌متری صدا نیست که دلیل آن را می‌توان در بزرگ شدن قاب و ظرافت در طراحی و ساخت جست‌وجو کرد. گفتنی است، باتری این محصول از نوع غیرقابل تعویض و لیتیوم‌یون با ظرفیت 3500 میلی‌آمپر ساعت است که از فناوری‌های شارژ سریع و شارژ بی‌سیم پشتیبانی می‌کند.این محصول قادر است دستگاه‌های دیگر را هم به‌صورت بی‌سیم شارژ کند و از این طریق نقش یک پاوربانک را هم ایفا کند.",
@@ -1014,7 +1017,7 @@ namespace Store_Application.Persistence.Migrations
                             Description = "<h3 class=\"content-expert-title\" style=\"text-align:right;\">طراحی و ساخت؛ زیبای خاص</h3><p class=\"content-expert-title\" style=\"text-align:right;\">باید در همین ابتدا اعتراف کنیم Galaxy Note 10 یک گوشی بسیار زیباست. البته شاید این تعریف کمی شخصی به نظر برسد اما ظاهر این گوشی آن‌قدر زیباست که جایی را برای گله و شکایت باقی نمی‌گذارد. در این گوشی دوست‌داشتنی صفحه‌نمایش تقریباً تمام قاب جلویی را پوشانده است. این گوشی ابعاد بزرگی دارد و با صفحه‌نمایش 6.3 که تقریبا 0.2 اینچ بزرگتر از S10 است، در گروه فبلت‌ها جای می‌گیرد. اگر به دنبال خرید این گوشی هوشمند هستید، احتمالاً قبلاً هم گوشی بزرگی داشته‌اید و اندازه آن برایتان آزاردهنده نخواهد بود. اولین راه‌حل موفق برای ساده کردن فرمول زیبایی و کارایی بیشتر، تغییر مکان حسگر اثرانگشت در گلکسی نوت 10 است. با توجه به امنیت بالای این راه برای باز کردن گوشی، حذف آن چندان منطقی به نظر نمی‌رسد. در این گوشی خبری از حسگر اثرانگشت روی قاب جلویی نیست و در عوض این حسگر زیر صفحه‌نمایش قرار گرفته است تا Galaxy Note 10 از همه نظر به گوشی مدرن تبدیل شود. تفاوت دیگری که امسال گلکسی سری نوت با گلسی سری S &nbsp;داشته اند محل قرار گرفتن دوربین سلفی آن ها است. به طوری که دوربین سلفی در S10 در قسمت بالای سمت راست قرار گرفته و در نوت 10 در مرکز بالای صفحه نمایش تعبیه شده است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:44.36%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/84a990c5-6102-4bd2-b587-76be3df30835.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">صفحه‌نمایش؛ همان خیره‌کننده‌ی همیشگی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">مثل همیشه یکی از نقاط قوت گوشی سری محصولات Galaxy Note صفحه‌نمایش آن‌هاست. فناوری Super AMOLED به معنی تصاویر زنده و شفافیت خیره‌کننده در کنار پشتیبانی از نمایش ویدئوهای HDR است. گلکسی نوت 10 از یک صفحه نمایش 6.3 اینچی بهره می برد، که تقریبا تمام قاب جلویی را پوشانده است. سامسونگ مدت ها است که برای پرچمداران خود از صفحه نمایش هایی با لبه های منحنی شکل استفاده می کند؛ کاری که با تولید S8 آغاز کرد و گوشی Note 10 هم از این قاعده مستثنی نیست. انحنای لبه‌ها باعث می‌شود حس کنید فضای بسیار بیشتری در اختیار دارید. این نمایشگر، تراکم پیکسلی فوق‌العاده 401 در هر اینچ دارد روی نوت 10 قرار داده شده است؛ می‌توان این‌گونه در نظر گرفت که سامسونگ احتمالاً استفاده از تعداد پیکسل بالاتر را به علت مصرف باتری بیشتر و اندازه‌ی بزرگ‌تر را به علت بزرگ‌ترشدن سایز گوشی کنار گذاشته است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.53%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/86e0699c-e0e0-401e-bdc3-84f3b5221258.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">به دلیل O شکل بودن بریدگی قسمت بالای آن، نام Infinity-O برای آن انتخاب شده است. نمایشگرهای Infinity در واقع از ویژگی های صفحه نمایش های سامسونگ است که بدون هیچ بریدگی یا Bezel تولید می شوند و برای اولین بار با به کار گیری در گوشی های&nbsp; Galaxy S8 و&nbsp; Galaxy S8+ معرفی شد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:49.3%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6154596f-bc8e-4019-b13f-1c8e4dd94aef.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نمایشگر نوت 10 هم از فناوری همیشه روشن سود می‌برد که با استفاده از بخش تنظیمات حالا می‌توانید شخصی‌سازی‌های بیشتری را برای آن در نظر بگیرید. سامسونگ موفق شده است برای این گوشی نسبت صفحه‌نمایش به بدنه 90.9 درصد را به دست آورد که برای یک گوشی امروزی هم میزان بسیار مطلوبی به‌حساب می‌آید. تراز سفیدی مناسب، نور کافی برای دیدن محتویات زیر نور‌های شدید، تراکم پیکسلی بالا که هنگام دیدن تصویر یا خواندن متن کمک می‌کند تا جزییات بیشتری را ببینید، از مشخصات نمایشگر نوت 10 هستند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.06%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6e677979-65a3-4f8e-ba50-e80fbc53dbf5.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">سخت‌افزار، سیستم‌عامل و کارایی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">چیپست اگزونوس 9825 از چیپست‌های 7 نانومتری سامسونگ در قلب اس نوت 10 قرار گرفته است. چیپست 7 نانومتری به معنی قدرت بالا و مصرف بهینه باتری گوشی است. هرساله سخت‌افزارهای نسل جدیدتر برای گوشی‌های موبایل در نظر گرفته می‌شوند که این سخت‌افزار شامل چیپست هم می‌شود. واضح است که چیپست نسل جدید سامسونگ بسیار سریع است اما در عمل سرعت‌بالای آن را نمی‌توان انقلابی دانست. سری‌های قبلی محصولات گلکسی سامسونگ که از تراشه اگزونوس استفاده می‌کردند گاهی اوقات در زمان استفاده بسیار سنگین خاموش می‌شدند. به نظر می‌رسد در گلکسی جدید به خاطر وجود رم 8 گیگابیتی، خبری از این مشکل نباشد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.68%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/c84c5779-be7e-4611-a384-c2b4f54c0d31.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نتیجه‌ی این لیست، سخت‌افزاری است که جای هیچ انتقادی را باقی نمی‌گذارد و در هر حالی بهترین بازده ممکن را دارد. سامسونگ در هر حالتی بهترین استفاده‌ی ممکن را از این سخت‌افزار کرده است. باید اطمینان داشته باشیم وقتی این سخت‌افزار برای پردازش واقعیت افزوده، فیلم‌برداری 2160 فریم بر ثانیه، تطبیق چهره و عنبیه برای بازکردن قفل گوشی طراحی و ساخته شده؛ دیگر در مورد بازی‌هایی که نهایتاً چند فریم خروجی دارند یا برنامه‌هایی که مقدار کمی از رم را اشغال می‌کنند، همچنین اجرای اندروید و رابط کاربری سامسونگ، هیچ مشکلی نخواهد داشت. پس خیالتان راحت باشد که هیچ عملیاتی وجود ندارد که گلکسی نوت 10 از پس انجام دادن آن برنیاید یا در انجام دادن آن کم‌کاری کند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:33.33%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/4c9c6d5a-7d86-4c77-a8ea-467358b61fba.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\"><u>اندازه بزرگ‌تر در بیشتر گوشی‌های موبایل نوید باتری با ظرفیت بیشتر را می‌دهد؛ البته باتری در گوشی نوت 10 تفاوت چشمگیری را به خود ندیده است و ظرفیت آن برابر با 3500 میلی‌آمپر است که با توجه به چیپست مدرن این گوشی باید تا مدت‌زمان مطلوبی انرژی را در خود نگه دارد. البته رزولوشن بالای صفحه‌نمایش باعث شده است که باتری به میزان بیشتری مصرف شود و از باتری گوشی انتظار روشن نگه‌داشتن آن تا بیش از یک روز را نداشته باشیم. این گوشی مانند پاوربانکی پرقدرت امکان شارژ بی‌سیم دیگر دستگاه‌ها را دارد. اما این نکته را نباید فراموش کنیم که گلکسی نوت 10 شارژ بی‌سیم گوشی‌های دیگر را با سرعت بسیار بالا (با توان 9 واتی) انجام می‌دهد. همان‌طور که گفتیم این گوشی می‌تواند دیگر گوشی‌ها و گجت‌های دارای فناوری شارژ بی‌سیم را شارژ کند. یکی از ویژگی‌های خاص و البته دوست‌داشتنی در مورد گوشی‌های سامسونگ امکان صفحه‌نمایش همیشه روشن است. این امکان نوتیفیکیشن‌ها را بدون نیاز به باز کردن گوشی برای کاربر به نمایش در می‌آورد.</u></p>",
                             DiscountAmount = 800000m,
                             Displayed = true,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 542, DateTimeKind.Local).AddTicks(7783),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(2203),
                             Inventory = 5,
                             Price = 1900000m,
                             ShortDescription = "اولین گوشی همراه سری گلکسی نوت در سال 2011 روانه بازار شد تا خانواده افسانه‌ای نوت را برای اولین بار به دنیا معرفی و تعریفی نو برای محصولات «فبلت‌» ارائه کند. حدود 8 سال پس از آن، سامسونگ برای عرضه عضو جدید خانواده نوت(Galaxy Note 10) با چالش‌های جدیدی مواجه است؛ این چالش‌ها ویژگی‌های مدرنی هستند که در محصولات رقیب دیده می‌شوند.گلکسی نوت‌ها به‌طور عمومی شبیه سری Galaxy S هستند؛ با این تفاوت که صفحه‌نمایش بزرگ‌تر و یک قلم دیجیتال S Pen دارند.گوشی موبایل Samsung Galaxy Note10 با دوربین سه گانه در قاب پشتی روانه بازار شده است؛ این سه سنسور با داشتن ویژگی‌هایی مانند لرزشگیر تصویر و قابلیت فیلم‌برداری 4K خروجی تصویر مطلوبی را برای جدیدترین عضو خانواده Note به همراه دارند.پردازش محاسبات در این تازه‌وارد از طریق تراشه‌ی Exynos 9825 انجام می‌شود که در رده تراشه‌های 7 نانومتری قرار می‌گیرد و با سرعت بالای خود، گلکسی نوت 10 را برای انجام کارهای بسیار سنگین کاربردی کرده است.تراشه‌ی گرافیکی Mali - G76 هم در اجرای بازی‌های سنگین و پردازش‌های گرافیکی، گلکسی نوت 10 را سربلند خواهد بود. صفحه‌نمایش سوپر آمولد با رزولوشن 1080 در 2280 و قابلیت نمایش 401 پیکسل در هر اینچ، تجربه‌ی تصویری شفاف و بسیار مطلوب را برای کاربران فراهم می‌کند.نسخه 256 گیگابایتی گوشی گلکسی نوت 10 با 8 گیگابایت رم عرضه شده است تا میزان مطلوبی از فضا و حافظه تصادفی را در اختیار کاربر قرار دهد.حسگر اثرانگشت زیرصفحه‌نمایش، حسگر فشارسنج و ژیروسکوپ تنها تعدادی از امکانات این دستگاه قدرتمند است و کار را برای رقبای این محصول بزرگ سخت کرده است.البته در این محصول خبری از سنسور عنبیه چشم و خروجی 3.5 میلی‌متری صدا نیست که دلیل آن را می‌توان در بزرگ شدن قاب و ظرافت در طراحی و ساخت جست‌وجو کرد. گفتنی است، باتری این محصول از نوع غیرقابل تعویض و لیتیوم‌یون با ظرفیت 3500 میلی‌آمپر ساعت است که از فناوری‌های شارژ سریع و شارژ بی‌سیم پشتیبانی می‌کند.این محصول قادر است دستگاه‌های دیگر را هم به‌صورت بی‌سیم شارژ کند و از این طریق نقش یک پاوربانک را هم ایفا کند.",
@@ -1029,7 +1032,7 @@ namespace Store_Application.Persistence.Migrations
                             Description = "<h3 class=\"content-expert-title\" style=\"text-align:right;\">طراحی و ساخت؛ زیبای خاص</h3><p class=\"content-expert-title\" style=\"text-align:right;\">باید در همین ابتدا اعتراف کنیم Galaxy Note 10 یک گوشی بسیار زیباست. البته شاید این تعریف کمی شخصی به نظر برسد اما ظاهر این گوشی آن‌قدر زیباست که جایی را برای گله و شکایت باقی نمی‌گذارد. در این گوشی دوست‌داشتنی صفحه‌نمایش تقریباً تمام قاب جلویی را پوشانده است. این گوشی ابعاد بزرگی دارد و با صفحه‌نمایش 6.3 که تقریبا 0.2 اینچ بزرگتر از S10 است، در گروه فبلت‌ها جای می‌گیرد. اگر به دنبال خرید این گوشی هوشمند هستید، احتمالاً قبلاً هم گوشی بزرگی داشته‌اید و اندازه آن برایتان آزاردهنده نخواهد بود. اولین راه‌حل موفق برای ساده کردن فرمول زیبایی و کارایی بیشتر، تغییر مکان حسگر اثرانگشت در گلکسی نوت 10 است. با توجه به امنیت بالای این راه برای باز کردن گوشی، حذف آن چندان منطقی به نظر نمی‌رسد. در این گوشی خبری از حسگر اثرانگشت روی قاب جلویی نیست و در عوض این حسگر زیر صفحه‌نمایش قرار گرفته است تا Galaxy Note 10 از همه نظر به گوشی مدرن تبدیل شود. تفاوت دیگری که امسال گلکسی سری نوت با گلسی سری S &nbsp;داشته اند محل قرار گرفتن دوربین سلفی آن ها است. به طوری که دوربین سلفی در S10 در قسمت بالای سمت راست قرار گرفته و در نوت 10 در مرکز بالای صفحه نمایش تعبیه شده است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:44.36%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/84a990c5-6102-4bd2-b587-76be3df30835.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">صفحه‌نمایش؛ همان خیره‌کننده‌ی همیشگی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">مثل همیشه یکی از نقاط قوت گوشی سری محصولات Galaxy Note صفحه‌نمایش آن‌هاست. فناوری Super AMOLED به معنی تصاویر زنده و شفافیت خیره‌کننده در کنار پشتیبانی از نمایش ویدئوهای HDR است. گلکسی نوت 10 از یک صفحه نمایش 6.3 اینچی بهره می برد، که تقریبا تمام قاب جلویی را پوشانده است. سامسونگ مدت ها است که برای پرچمداران خود از صفحه نمایش هایی با لبه های منحنی شکل استفاده می کند؛ کاری که با تولید S8 آغاز کرد و گوشی Note 10 هم از این قاعده مستثنی نیست. انحنای لبه‌ها باعث می‌شود حس کنید فضای بسیار بیشتری در اختیار دارید. این نمایشگر، تراکم پیکسلی فوق‌العاده 401 در هر اینچ دارد روی نوت 10 قرار داده شده است؛ می‌توان این‌گونه در نظر گرفت که سامسونگ احتمالاً استفاده از تعداد پیکسل بالاتر را به علت مصرف باتری بیشتر و اندازه‌ی بزرگ‌تر را به علت بزرگ‌ترشدن سایز گوشی کنار گذاشته است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.53%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/86e0699c-e0e0-401e-bdc3-84f3b5221258.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">به دلیل O شکل بودن بریدگی قسمت بالای آن، نام Infinity-O برای آن انتخاب شده است. نمایشگرهای Infinity در واقع از ویژگی های صفحه نمایش های سامسونگ است که بدون هیچ بریدگی یا Bezel تولید می شوند و برای اولین بار با به کار گیری در گوشی های&nbsp; Galaxy S8 و&nbsp; Galaxy S8+ معرفی شد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:49.3%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6154596f-bc8e-4019-b13f-1c8e4dd94aef.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نمایشگر نوت 10 هم از فناوری همیشه روشن سود می‌برد که با استفاده از بخش تنظیمات حالا می‌توانید شخصی‌سازی‌های بیشتری را برای آن در نظر بگیرید. سامسونگ موفق شده است برای این گوشی نسبت صفحه‌نمایش به بدنه 90.9 درصد را به دست آورد که برای یک گوشی امروزی هم میزان بسیار مطلوبی به‌حساب می‌آید. تراز سفیدی مناسب، نور کافی برای دیدن محتویات زیر نور‌های شدید، تراکم پیکسلی بالا که هنگام دیدن تصویر یا خواندن متن کمک می‌کند تا جزییات بیشتری را ببینید، از مشخصات نمایشگر نوت 10 هستند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.06%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6e677979-65a3-4f8e-ba50-e80fbc53dbf5.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">سخت‌افزار، سیستم‌عامل و کارایی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">چیپست اگزونوس 9825 از چیپست‌های 7 نانومتری سامسونگ در قلب اس نوت 10 قرار گرفته است. چیپست 7 نانومتری به معنی قدرت بالا و مصرف بهینه باتری گوشی است. هرساله سخت‌افزارهای نسل جدیدتر برای گوشی‌های موبایل در نظر گرفته می‌شوند که این سخت‌افزار شامل چیپست هم می‌شود. واضح است که چیپست نسل جدید سامسونگ بسیار سریع است اما در عمل سرعت‌بالای آن را نمی‌توان انقلابی دانست. سری‌های قبلی محصولات گلکسی سامسونگ که از تراشه اگزونوس استفاده می‌کردند گاهی اوقات در زمان استفاده بسیار سنگین خاموش می‌شدند. به نظر می‌رسد در گلکسی جدید به خاطر وجود رم 8 گیگابیتی، خبری از این مشکل نباشد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.68%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/c84c5779-be7e-4611-a384-c2b4f54c0d31.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نتیجه‌ی این لیست، سخت‌افزاری است که جای هیچ انتقادی را باقی نمی‌گذارد و در هر حالی بهترین بازده ممکن را دارد. سامسونگ در هر حالتی بهترین استفاده‌ی ممکن را از این سخت‌افزار کرده است. باید اطمینان داشته باشیم وقتی این سخت‌افزار برای پردازش واقعیت افزوده، فیلم‌برداری 2160 فریم بر ثانیه، تطبیق چهره و عنبیه برای بازکردن قفل گوشی طراحی و ساخته شده؛ دیگر در مورد بازی‌هایی که نهایتاً چند فریم خروجی دارند یا برنامه‌هایی که مقدار کمی از رم را اشغال می‌کنند، همچنین اجرای اندروید و رابط کاربری سامسونگ، هیچ مشکلی نخواهد داشت. پس خیالتان راحت باشد که هیچ عملیاتی وجود ندارد که گلکسی نوت 10 از پس انجام دادن آن برنیاید یا در انجام دادن آن کم‌کاری کند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:33.33%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/4c9c6d5a-7d86-4c77-a8ea-467358b61fba.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\"><u>اندازه بزرگ‌تر در بیشتر گوشی‌های موبایل نوید باتری با ظرفیت بیشتر را می‌دهد؛ البته باتری در گوشی نوت 10 تفاوت چشمگیری را به خود ندیده است و ظرفیت آن برابر با 3500 میلی‌آمپر است که با توجه به چیپست مدرن این گوشی باید تا مدت‌زمان مطلوبی انرژی را در خود نگه دارد. البته رزولوشن بالای صفحه‌نمایش باعث شده است که باتری به میزان بیشتری مصرف شود و از باتری گوشی انتظار روشن نگه‌داشتن آن تا بیش از یک روز را نداشته باشیم. این گوشی مانند پاوربانکی پرقدرت امکان شارژ بی‌سیم دیگر دستگاه‌ها را دارد. اما این نکته را نباید فراموش کنیم که گلکسی نوت 10 شارژ بی‌سیم گوشی‌های دیگر را با سرعت بسیار بالا (با توان 9 واتی) انجام می‌دهد. همان‌طور که گفتیم این گوشی می‌تواند دیگر گوشی‌ها و گجت‌های دارای فناوری شارژ بی‌سیم را شارژ کند. یکی از ویژگی‌های خاص و البته دوست‌داشتنی در مورد گوشی‌های سامسونگ امکان صفحه‌نمایش همیشه روشن است. این امکان نوتیفیکیشن‌ها را بدون نیاز به باز کردن گوشی برای کاربر به نمایش در می‌آورد.</u></p>",
                             DiscountAmount = 1000000m,
                             Displayed = true,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 542, DateTimeKind.Local).AddTicks(7790),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(2211),
                             Inventory = 14,
                             Price = 20000000m,
                             ShortDescription = "اولین گوشی همراه سری گلکسی نوت در سال 2011 روانه بازار شد تا خانواده افسانه‌ای نوت را برای اولین بار به دنیا معرفی و تعریفی نو برای محصولات «فبلت‌» ارائه کند. حدود 8 سال پس از آن، سامسونگ برای عرضه عضو جدید خانواده نوت(Galaxy Note 10) با چالش‌های جدیدی مواجه است؛ این چالش‌ها ویژگی‌های مدرنی هستند که در محصولات رقیب دیده می‌شوند.گلکسی نوت‌ها به‌طور عمومی شبیه سری Galaxy S هستند؛ با این تفاوت که صفحه‌نمایش بزرگ‌تر و یک قلم دیجیتال S Pen دارند.گوشی موبایل Samsung Galaxy Note10 با دوربین سه گانه در قاب پشتی روانه بازار شده است؛ این سه سنسور با داشتن ویژگی‌هایی مانند لرزشگیر تصویر و قابلیت فیلم‌برداری 4K خروجی تصویر مطلوبی را برای جدیدترین عضو خانواده Note به همراه دارند.پردازش محاسبات در این تازه‌وارد از طریق تراشه‌ی Exynos 9825 انجام می‌شود که در رده تراشه‌های 7 نانومتری قرار می‌گیرد و با سرعت بالای خود، گلکسی نوت 10 را برای انجام کارهای بسیار سنگین کاربردی کرده است.تراشه‌ی گرافیکی Mali - G76 هم در اجرای بازی‌های سنگین و پردازش‌های گرافیکی، گلکسی نوت 10 را سربلند خواهد بود. صفحه‌نمایش سوپر آمولد با رزولوشن 1080 در 2280 و قابلیت نمایش 401 پیکسل در هر اینچ، تجربه‌ی تصویری شفاف و بسیار مطلوب را برای کاربران فراهم می‌کند.نسخه 256 گیگابایتی گوشی گلکسی نوت 10 با 8 گیگابایت رم عرضه شده است تا میزان مطلوبی از فضا و حافظه تصادفی را در اختیار کاربر قرار دهد.حسگر اثرانگشت زیرصفحه‌نمایش، حسگر فشارسنج و ژیروسکوپ تنها تعدادی از امکانات این دستگاه قدرتمند است و کار را برای رقبای این محصول بزرگ سخت کرده است.البته در این محصول خبری از سنسور عنبیه چشم و خروجی 3.5 میلی‌متری صدا نیست که دلیل آن را می‌توان در بزرگ شدن قاب و ظرافت در طراحی و ساخت جست‌وجو کرد. گفتنی است، باتری این محصول از نوع غیرقابل تعویض و لیتیوم‌یون با ظرفیت 3500 میلی‌آمپر ساعت است که از فناوری‌های شارژ سریع و شارژ بی‌سیم پشتیبانی می‌کند.این محصول قادر است دستگاه‌های دیگر را هم به‌صورت بی‌سیم شارژ کند و از این طریق نقش یک پاوربانک را هم ایفا کند.",
@@ -1044,7 +1047,7 @@ namespace Store_Application.Persistence.Migrations
                             Description = "<h3 class=\"content-expert-title\" style=\"text-align:right;\">طراحی و ساخت؛ زیبای خاص</h3><p class=\"content-expert-title\" style=\"text-align:right;\">باید در همین ابتدا اعتراف کنیم Galaxy Note 10 یک گوشی بسیار زیباست. البته شاید این تعریف کمی شخصی به نظر برسد اما ظاهر این گوشی آن‌قدر زیباست که جایی را برای گله و شکایت باقی نمی‌گذارد. در این گوشی دوست‌داشتنی صفحه‌نمایش تقریباً تمام قاب جلویی را پوشانده است. این گوشی ابعاد بزرگی دارد و با صفحه‌نمایش 6.3 که تقریبا 0.2 اینچ بزرگتر از S10 است، در گروه فبلت‌ها جای می‌گیرد. اگر به دنبال خرید این گوشی هوشمند هستید، احتمالاً قبلاً هم گوشی بزرگی داشته‌اید و اندازه آن برایتان آزاردهنده نخواهد بود. اولین راه‌حل موفق برای ساده کردن فرمول زیبایی و کارایی بیشتر، تغییر مکان حسگر اثرانگشت در گلکسی نوت 10 است. با توجه به امنیت بالای این راه برای باز کردن گوشی، حذف آن چندان منطقی به نظر نمی‌رسد. در این گوشی خبری از حسگر اثرانگشت روی قاب جلویی نیست و در عوض این حسگر زیر صفحه‌نمایش قرار گرفته است تا Galaxy Note 10 از همه نظر به گوشی مدرن تبدیل شود. تفاوت دیگری که امسال گلکسی سری نوت با گلسی سری S &nbsp;داشته اند محل قرار گرفتن دوربین سلفی آن ها است. به طوری که دوربین سلفی در S10 در قسمت بالای سمت راست قرار گرفته و در نوت 10 در مرکز بالای صفحه نمایش تعبیه شده است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:44.36%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/84a990c5-6102-4bd2-b587-76be3df30835.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">صفحه‌نمایش؛ همان خیره‌کننده‌ی همیشگی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">مثل همیشه یکی از نقاط قوت گوشی سری محصولات Galaxy Note صفحه‌نمایش آن‌هاست. فناوری Super AMOLED به معنی تصاویر زنده و شفافیت خیره‌کننده در کنار پشتیبانی از نمایش ویدئوهای HDR است. گلکسی نوت 10 از یک صفحه نمایش 6.3 اینچی بهره می برد، که تقریبا تمام قاب جلویی را پوشانده است. سامسونگ مدت ها است که برای پرچمداران خود از صفحه نمایش هایی با لبه های منحنی شکل استفاده می کند؛ کاری که با تولید S8 آغاز کرد و گوشی Note 10 هم از این قاعده مستثنی نیست. انحنای لبه‌ها باعث می‌شود حس کنید فضای بسیار بیشتری در اختیار دارید. این نمایشگر، تراکم پیکسلی فوق‌العاده 401 در هر اینچ دارد روی نوت 10 قرار داده شده است؛ می‌توان این‌گونه در نظر گرفت که سامسونگ احتمالاً استفاده از تعداد پیکسل بالاتر را به علت مصرف باتری بیشتر و اندازه‌ی بزرگ‌تر را به علت بزرگ‌ترشدن سایز گوشی کنار گذاشته است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.53%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/86e0699c-e0e0-401e-bdc3-84f3b5221258.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">به دلیل O شکل بودن بریدگی قسمت بالای آن، نام Infinity-O برای آن انتخاب شده است. نمایشگرهای Infinity در واقع از ویژگی های صفحه نمایش های سامسونگ است که بدون هیچ بریدگی یا Bezel تولید می شوند و برای اولین بار با به کار گیری در گوشی های&nbsp; Galaxy S8 و&nbsp; Galaxy S8+ معرفی شد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:49.3%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6154596f-bc8e-4019-b13f-1c8e4dd94aef.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نمایشگر نوت 10 هم از فناوری همیشه روشن سود می‌برد که با استفاده از بخش تنظیمات حالا می‌توانید شخصی‌سازی‌های بیشتری را برای آن در نظر بگیرید. سامسونگ موفق شده است برای این گوشی نسبت صفحه‌نمایش به بدنه 90.9 درصد را به دست آورد که برای یک گوشی امروزی هم میزان بسیار مطلوبی به‌حساب می‌آید. تراز سفیدی مناسب، نور کافی برای دیدن محتویات زیر نور‌های شدید، تراکم پیکسلی بالا که هنگام دیدن تصویر یا خواندن متن کمک می‌کند تا جزییات بیشتری را ببینید، از مشخصات نمایشگر نوت 10 هستند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.06%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6e677979-65a3-4f8e-ba50-e80fbc53dbf5.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">سخت‌افزار، سیستم‌عامل و کارایی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">چیپست اگزونوس 9825 از چیپست‌های 7 نانومتری سامسونگ در قلب اس نوت 10 قرار گرفته است. چیپست 7 نانومتری به معنی قدرت بالا و مصرف بهینه باتری گوشی است. هرساله سخت‌افزارهای نسل جدیدتر برای گوشی‌های موبایل در نظر گرفته می‌شوند که این سخت‌افزار شامل چیپست هم می‌شود. واضح است که چیپست نسل جدید سامسونگ بسیار سریع است اما در عمل سرعت‌بالای آن را نمی‌توان انقلابی دانست. سری‌های قبلی محصولات گلکسی سامسونگ که از تراشه اگزونوس استفاده می‌کردند گاهی اوقات در زمان استفاده بسیار سنگین خاموش می‌شدند. به نظر می‌رسد در گلکسی جدید به خاطر وجود رم 8 گیگابیتی، خبری از این مشکل نباشد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.68%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/c84c5779-be7e-4611-a384-c2b4f54c0d31.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نتیجه‌ی این لیست، سخت‌افزاری است که جای هیچ انتقادی را باقی نمی‌گذارد و در هر حالی بهترین بازده ممکن را دارد. سامسونگ در هر حالتی بهترین استفاده‌ی ممکن را از این سخت‌افزار کرده است. باید اطمینان داشته باشیم وقتی این سخت‌افزار برای پردازش واقعیت افزوده، فیلم‌برداری 2160 فریم بر ثانیه، تطبیق چهره و عنبیه برای بازکردن قفل گوشی طراحی و ساخته شده؛ دیگر در مورد بازی‌هایی که نهایتاً چند فریم خروجی دارند یا برنامه‌هایی که مقدار کمی از رم را اشغال می‌کنند، همچنین اجرای اندروید و رابط کاربری سامسونگ، هیچ مشکلی نخواهد داشت. پس خیالتان راحت باشد که هیچ عملیاتی وجود ندارد که گلکسی نوت 10 از پس انجام دادن آن برنیاید یا در انجام دادن آن کم‌کاری کند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:33.33%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/4c9c6d5a-7d86-4c77-a8ea-467358b61fba.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\"><u>اندازه بزرگ‌تر در بیشتر گوشی‌های موبایل نوید باتری با ظرفیت بیشتر را می‌دهد؛ البته باتری در گوشی نوت 10 تفاوت چشمگیری را به خود ندیده است و ظرفیت آن برابر با 3500 میلی‌آمپر است که با توجه به چیپست مدرن این گوشی باید تا مدت‌زمان مطلوبی انرژی را در خود نگه دارد. البته رزولوشن بالای صفحه‌نمایش باعث شده است که باتری به میزان بیشتری مصرف شود و از باتری گوشی انتظار روشن نگه‌داشتن آن تا بیش از یک روز را نداشته باشیم. این گوشی مانند پاوربانکی پرقدرت امکان شارژ بی‌سیم دیگر دستگاه‌ها را دارد. اما این نکته را نباید فراموش کنیم که گلکسی نوت 10 شارژ بی‌سیم گوشی‌های دیگر را با سرعت بسیار بالا (با توان 9 واتی) انجام می‌دهد. همان‌طور که گفتیم این گوشی می‌تواند دیگر گوشی‌ها و گجت‌های دارای فناوری شارژ بی‌سیم را شارژ کند. یکی از ویژگی‌های خاص و البته دوست‌داشتنی در مورد گوشی‌های سامسونگ امکان صفحه‌نمایش همیشه روشن است. این امکان نوتیفیکیشن‌ها را بدون نیاز به باز کردن گوشی برای کاربر به نمایش در می‌آورد.</u></p>",
                             DiscountAmount = 6500000m,
                             Displayed = true,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 542, DateTimeKind.Local).AddTicks(7795),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(2216),
                             Inventory = 5,
                             Price = 15000000m,
                             ShortDescription = "اولین گوشی همراه سری گلکسی نوت در سال 2011 روانه بازار شد تا خانواده افسانه‌ای نوت را برای اولین بار به دنیا معرفی و تعریفی نو برای محصولات «فبلت‌» ارائه کند. حدود 8 سال پس از آن، سامسونگ برای عرضه عضو جدید خانواده نوت(Galaxy Note 10) با چالش‌های جدیدی مواجه است؛ این چالش‌ها ویژگی‌های مدرنی هستند که در محصولات رقیب دیده می‌شوند.گلکسی نوت‌ها به‌طور عمومی شبیه سری Galaxy S هستند؛ با این تفاوت که صفحه‌نمایش بزرگ‌تر و یک قلم دیجیتال S Pen دارند.گوشی موبایل Samsung Galaxy Note10 با دوربین سه گانه در قاب پشتی روانه بازار شده است؛ این سه سنسور با داشتن ویژگی‌هایی مانند لرزشگیر تصویر و قابلیت فیلم‌برداری 4K خروجی تصویر مطلوبی را برای جدیدترین عضو خانواده Note به همراه دارند.پردازش محاسبات در این تازه‌وارد از طریق تراشه‌ی Exynos 9825 انجام می‌شود که در رده تراشه‌های 7 نانومتری قرار می‌گیرد و با سرعت بالای خود، گلکسی نوت 10 را برای انجام کارهای بسیار سنگین کاربردی کرده است.تراشه‌ی گرافیکی Mali - G76 هم در اجرای بازی‌های سنگین و پردازش‌های گرافیکی، گلکسی نوت 10 را سربلند خواهد بود. صفحه‌نمایش سوپر آمولد با رزولوشن 1080 در 2280 و قابلیت نمایش 401 پیکسل در هر اینچ، تجربه‌ی تصویری شفاف و بسیار مطلوب را برای کاربران فراهم می‌کند.نسخه 256 گیگابایتی گوشی گلکسی نوت 10 با 8 گیگابایت رم عرضه شده است تا میزان مطلوبی از فضا و حافظه تصادفی را در اختیار کاربر قرار دهد.حسگر اثرانگشت زیرصفحه‌نمایش، حسگر فشارسنج و ژیروسکوپ تنها تعدادی از امکانات این دستگاه قدرتمند است و کار را برای رقبای این محصول بزرگ سخت کرده است.البته در این محصول خبری از سنسور عنبیه چشم و خروجی 3.5 میلی‌متری صدا نیست که دلیل آن را می‌توان در بزرگ شدن قاب و ظرافت در طراحی و ساخت جست‌وجو کرد. گفتنی است، باتری این محصول از نوع غیرقابل تعویض و لیتیوم‌یون با ظرفیت 3500 میلی‌آمپر ساعت است که از فناوری‌های شارژ سریع و شارژ بی‌سیم پشتیبانی می‌کند.این محصول قادر است دستگاه‌های دیگر را هم به‌صورت بی‌سیم شارژ کند و از این طریق نقش یک پاوربانک را هم ایفا کند.",
@@ -1059,7 +1062,7 @@ namespace Store_Application.Persistence.Migrations
                             Description = "<h3 class=\"content-expert-title\" style=\"text-align:right;\">طراحی و ساخت؛ زیبای خاص</h3><p class=\"content-expert-title\" style=\"text-align:right;\">باید در همین ابتدا اعتراف کنیم Galaxy Note 10 یک گوشی بسیار زیباست. البته شاید این تعریف کمی شخصی به نظر برسد اما ظاهر این گوشی آن‌قدر زیباست که جایی را برای گله و شکایت باقی نمی‌گذارد. در این گوشی دوست‌داشتنی صفحه‌نمایش تقریباً تمام قاب جلویی را پوشانده است. این گوشی ابعاد بزرگی دارد و با صفحه‌نمایش 6.3 که تقریبا 0.2 اینچ بزرگتر از S10 است، در گروه فبلت‌ها جای می‌گیرد. اگر به دنبال خرید این گوشی هوشمند هستید، احتمالاً قبلاً هم گوشی بزرگی داشته‌اید و اندازه آن برایتان آزاردهنده نخواهد بود. اولین راه‌حل موفق برای ساده کردن فرمول زیبایی و کارایی بیشتر، تغییر مکان حسگر اثرانگشت در گلکسی نوت 10 است. با توجه به امنیت بالای این راه برای باز کردن گوشی، حذف آن چندان منطقی به نظر نمی‌رسد. در این گوشی خبری از حسگر اثرانگشت روی قاب جلویی نیست و در عوض این حسگر زیر صفحه‌نمایش قرار گرفته است تا Galaxy Note 10 از همه نظر به گوشی مدرن تبدیل شود. تفاوت دیگری که امسال گلکسی سری نوت با گلسی سری S &nbsp;داشته اند محل قرار گرفتن دوربین سلفی آن ها است. به طوری که دوربین سلفی در S10 در قسمت بالای سمت راست قرار گرفته و در نوت 10 در مرکز بالای صفحه نمایش تعبیه شده است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:44.36%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/84a990c5-6102-4bd2-b587-76be3df30835.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">صفحه‌نمایش؛ همان خیره‌کننده‌ی همیشگی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">مثل همیشه یکی از نقاط قوت گوشی سری محصولات Galaxy Note صفحه‌نمایش آن‌هاست. فناوری Super AMOLED به معنی تصاویر زنده و شفافیت خیره‌کننده در کنار پشتیبانی از نمایش ویدئوهای HDR است. گلکسی نوت 10 از یک صفحه نمایش 6.3 اینچی بهره می برد، که تقریبا تمام قاب جلویی را پوشانده است. سامسونگ مدت ها است که برای پرچمداران خود از صفحه نمایش هایی با لبه های منحنی شکل استفاده می کند؛ کاری که با تولید S8 آغاز کرد و گوشی Note 10 هم از این قاعده مستثنی نیست. انحنای لبه‌ها باعث می‌شود حس کنید فضای بسیار بیشتری در اختیار دارید. این نمایشگر، تراکم پیکسلی فوق‌العاده 401 در هر اینچ دارد روی نوت 10 قرار داده شده است؛ می‌توان این‌گونه در نظر گرفت که سامسونگ احتمالاً استفاده از تعداد پیکسل بالاتر را به علت مصرف باتری بیشتر و اندازه‌ی بزرگ‌تر را به علت بزرگ‌ترشدن سایز گوشی کنار گذاشته است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.53%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/86e0699c-e0e0-401e-bdc3-84f3b5221258.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">به دلیل O شکل بودن بریدگی قسمت بالای آن، نام Infinity-O برای آن انتخاب شده است. نمایشگرهای Infinity در واقع از ویژگی های صفحه نمایش های سامسونگ است که بدون هیچ بریدگی یا Bezel تولید می شوند و برای اولین بار با به کار گیری در گوشی های&nbsp; Galaxy S8 و&nbsp; Galaxy S8+ معرفی شد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:49.3%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6154596f-bc8e-4019-b13f-1c8e4dd94aef.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نمایشگر نوت 10 هم از فناوری همیشه روشن سود می‌برد که با استفاده از بخش تنظیمات حالا می‌توانید شخصی‌سازی‌های بیشتری را برای آن در نظر بگیرید. سامسونگ موفق شده است برای این گوشی نسبت صفحه‌نمایش به بدنه 90.9 درصد را به دست آورد که برای یک گوشی امروزی هم میزان بسیار مطلوبی به‌حساب می‌آید. تراز سفیدی مناسب، نور کافی برای دیدن محتویات زیر نور‌های شدید، تراکم پیکسلی بالا که هنگام دیدن تصویر یا خواندن متن کمک می‌کند تا جزییات بیشتری را ببینید، از مشخصات نمایشگر نوت 10 هستند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.06%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6e677979-65a3-4f8e-ba50-e80fbc53dbf5.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">سخت‌افزار، سیستم‌عامل و کارایی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">چیپست اگزونوس 9825 از چیپست‌های 7 نانومتری سامسونگ در قلب اس نوت 10 قرار گرفته است. چیپست 7 نانومتری به معنی قدرت بالا و مصرف بهینه باتری گوشی است. هرساله سخت‌افزارهای نسل جدیدتر برای گوشی‌های موبایل در نظر گرفته می‌شوند که این سخت‌افزار شامل چیپست هم می‌شود. واضح است که چیپست نسل جدید سامسونگ بسیار سریع است اما در عمل سرعت‌بالای آن را نمی‌توان انقلابی دانست. سری‌های قبلی محصولات گلکسی سامسونگ که از تراشه اگزونوس استفاده می‌کردند گاهی اوقات در زمان استفاده بسیار سنگین خاموش می‌شدند. به نظر می‌رسد در گلکسی جدید به خاطر وجود رم 8 گیگابیتی، خبری از این مشکل نباشد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.68%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/c84c5779-be7e-4611-a384-c2b4f54c0d31.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نتیجه‌ی این لیست، سخت‌افزاری است که جای هیچ انتقادی را باقی نمی‌گذارد و در هر حالی بهترین بازده ممکن را دارد. سامسونگ در هر حالتی بهترین استفاده‌ی ممکن را از این سخت‌افزار کرده است. باید اطمینان داشته باشیم وقتی این سخت‌افزار برای پردازش واقعیت افزوده، فیلم‌برداری 2160 فریم بر ثانیه، تطبیق چهره و عنبیه برای بازکردن قفل گوشی طراحی و ساخته شده؛ دیگر در مورد بازی‌هایی که نهایتاً چند فریم خروجی دارند یا برنامه‌هایی که مقدار کمی از رم را اشغال می‌کنند، همچنین اجرای اندروید و رابط کاربری سامسونگ، هیچ مشکلی نخواهد داشت. پس خیالتان راحت باشد که هیچ عملیاتی وجود ندارد که گلکسی نوت 10 از پس انجام دادن آن برنیاید یا در انجام دادن آن کم‌کاری کند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:33.33%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/4c9c6d5a-7d86-4c77-a8ea-467358b61fba.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\"><u>اندازه بزرگ‌تر در بیشتر گوشی‌های موبایل نوید باتری با ظرفیت بیشتر را می‌دهد؛ البته باتری در گوشی نوت 10 تفاوت چشمگیری را به خود ندیده است و ظرفیت آن برابر با 3500 میلی‌آمپر است که با توجه به چیپست مدرن این گوشی باید تا مدت‌زمان مطلوبی انرژی را در خود نگه دارد. البته رزولوشن بالای صفحه‌نمایش باعث شده است که باتری به میزان بیشتری مصرف شود و از باتری گوشی انتظار روشن نگه‌داشتن آن تا بیش از یک روز را نداشته باشیم. این گوشی مانند پاوربانکی پرقدرت امکان شارژ بی‌سیم دیگر دستگاه‌ها را دارد. اما این نکته را نباید فراموش کنیم که گلکسی نوت 10 شارژ بی‌سیم گوشی‌های دیگر را با سرعت بسیار بالا (با توان 9 واتی) انجام می‌دهد. همان‌طور که گفتیم این گوشی می‌تواند دیگر گوشی‌ها و گجت‌های دارای فناوری شارژ بی‌سیم را شارژ کند. یکی از ویژگی‌های خاص و البته دوست‌داشتنی در مورد گوشی‌های سامسونگ امکان صفحه‌نمایش همیشه روشن است. این امکان نوتیفیکیشن‌ها را بدون نیاز به باز کردن گوشی برای کاربر به نمایش در می‌آورد.</u></p>",
                             DiscountAmount = 6500000m,
                             Displayed = true,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 542, DateTimeKind.Local).AddTicks(7800),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(2221),
                             Inventory = 5,
                             Price = 15000000m,
                             ShortDescription = "اولین گوشی همراه سری گلکسی نوت در سال 2011 روانه بازار شد تا خانواده افسانه‌ای نوت را برای اولین بار به دنیا معرفی و تعریفی نو برای محصولات «فبلت‌» ارائه کند. حدود 8 سال پس از آن، سامسونگ برای عرضه عضو جدید خانواده نوت(Galaxy Note 10) با چالش‌های جدیدی مواجه است؛ این چالش‌ها ویژگی‌های مدرنی هستند که در محصولات رقیب دیده می‌شوند.گلکسی نوت‌ها به‌طور عمومی شبیه سری Galaxy S هستند؛ با این تفاوت که صفحه‌نمایش بزرگ‌تر و یک قلم دیجیتال S Pen دارند.گوشی موبایل Samsung Galaxy Note10 با دوربین سه گانه در قاب پشتی روانه بازار شده است؛ این سه سنسور با داشتن ویژگی‌هایی مانند لرزشگیر تصویر و قابلیت فیلم‌برداری 4K خروجی تصویر مطلوبی را برای جدیدترین عضو خانواده Note به همراه دارند.پردازش محاسبات در این تازه‌وارد از طریق تراشه‌ی Exynos 9825 انجام می‌شود که در رده تراشه‌های 7 نانومتری قرار می‌گیرد و با سرعت بالای خود، گلکسی نوت 10 را برای انجام کارهای بسیار سنگین کاربردی کرده است.تراشه‌ی گرافیکی Mali - G76 هم در اجرای بازی‌های سنگین و پردازش‌های گرافیکی، گلکسی نوت 10 را سربلند خواهد بود. صفحه‌نمایش سوپر آمولد با رزولوشن 1080 در 2280 و قابلیت نمایش 401 پیکسل در هر اینچ، تجربه‌ی تصویری شفاف و بسیار مطلوب را برای کاربران فراهم می‌کند.نسخه 256 گیگابایتی گوشی گلکسی نوت 10 با 8 گیگابایت رم عرضه شده است تا میزان مطلوبی از فضا و حافظه تصادفی را در اختیار کاربر قرار دهد.حسگر اثرانگشت زیرصفحه‌نمایش، حسگر فشارسنج و ژیروسکوپ تنها تعدادی از امکانات این دستگاه قدرتمند است و کار را برای رقبای این محصول بزرگ سخت کرده است.البته در این محصول خبری از سنسور عنبیه چشم و خروجی 3.5 میلی‌متری صدا نیست که دلیل آن را می‌توان در بزرگ شدن قاب و ظرافت در طراحی و ساخت جست‌وجو کرد. گفتنی است، باتری این محصول از نوع غیرقابل تعویض و لیتیوم‌یون با ظرفیت 3500 میلی‌آمپر ساعت است که از فناوری‌های شارژ سریع و شارژ بی‌سیم پشتیبانی می‌کند.این محصول قادر است دستگاه‌های دیگر را هم به‌صورت بی‌سیم شارژ کند و از این طریق نقش یک پاوربانک را هم ایفا کند.",
@@ -1112,7 +1115,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 1,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(7123),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 760, DateTimeKind.Local).AddTicks(2334),
                             ProductId = 1,
                             Value = "اندروید",
                             isBold = true,
@@ -1122,7 +1125,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 2,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8665),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(95),
                             ProductId = 1,
                             Value = "مشکی",
                             isBold = true,
@@ -1132,7 +1135,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 6,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8687),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(141),
                             ProductId = 1,
                             Value = "مشکی",
                             isBold = true,
@@ -1142,7 +1145,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 3,
                             FeatureId = 3,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8693),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(147),
                             ProductId = 1,
                             Value = "10",
                             isBold = true,
@@ -1152,7 +1155,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 4,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8697),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(152),
                             ProductId = 12,
                             Value = "دارد",
                             isBold = true,
@@ -1162,7 +1165,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 5,
                             FeatureId = 5,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8706),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(355),
                             ProductId = 1,
                             Value = "40",
                             isBold = true,
@@ -1172,7 +1175,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 7,
                             FeatureId = 6,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8711),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(363),
                             ProductId = 1,
                             Value = "20",
                             isBold = true,
@@ -1182,7 +1185,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 8,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8715),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(369),
                             ProductId = 2,
                             Value = "اندروید",
                             isBold = true,
@@ -1192,7 +1195,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 9,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8720),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(373),
                             ProductId = 2,
                             Value = "مشکی",
                             isBold = true,
@@ -1202,7 +1205,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 10,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8725),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(380),
                             ProductId = 2,
                             Value = "مشکی",
                             isBold = true,
@@ -1212,7 +1215,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 11,
                             FeatureId = 3,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8730),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(386),
                             ProductId = 2,
                             Value = "10",
                             isBold = true,
@@ -1222,7 +1225,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 12,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8735),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(391),
                             ProductId = 2,
                             Value = "دارد",
                             isBold = true,
@@ -1232,7 +1235,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 13,
                             FeatureId = 5,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8741),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(395),
                             ProductId = 2,
                             Value = "40",
                             isBold = true,
@@ -1242,7 +1245,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 14,
                             FeatureId = 6,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8746),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(400),
                             ProductId = 2,
                             Value = "20",
                             isBold = true,
@@ -1252,7 +1255,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 15,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8751),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(405),
                             ProductId = 3,
                             Value = "اندروید",
                             isBold = true,
@@ -1262,7 +1265,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 16,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8756),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(409),
                             ProductId = 3,
                             Value = "مشکی",
                             isBold = true,
@@ -1272,7 +1275,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 17,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8761),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(413),
                             ProductId = 3,
                             Value = "مشکی",
                             isBold = true,
@@ -1282,7 +1285,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 18,
                             FeatureId = 3,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8766),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(420),
                             ProductId = 3,
                             Value = "10",
                             isBold = true,
@@ -1292,7 +1295,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 19,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8771),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(424),
                             ProductId = 3,
                             Value = "دارد",
                             isBold = true,
@@ -1302,7 +1305,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 20,
                             FeatureId = 5,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8776),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(429),
                             ProductId = 3,
                             Value = "40",
                             isBold = true,
@@ -1312,7 +1315,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 21,
                             FeatureId = 6,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8780),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(433),
                             ProductId = 3,
                             Value = "20",
                             isBold = true,
@@ -1322,7 +1325,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 25,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8785),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(438),
                             ProductId = 4,
                             Value = "اندروید",
                             isBold = true,
@@ -1332,7 +1335,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 24,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8789),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(442),
                             ProductId = 4,
                             Value = "مشکی",
                             isBold = true,
@@ -1342,7 +1345,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 26,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8794),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(450),
                             ProductId = 4,
                             Value = "مشکی",
                             isBold = true,
@@ -1352,7 +1355,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 27,
                             FeatureId = 3,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8799),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(454),
                             ProductId = 4,
                             Value = "10",
                             isBold = true,
@@ -1362,7 +1365,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 28,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8803),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(460),
                             ProductId = 4,
                             Value = "دارد",
                             isBold = true,
@@ -1372,7 +1375,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 29,
                             FeatureId = 5,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8808),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(465),
                             ProductId = 4,
                             Value = "40",
                             isBold = true,
@@ -1382,7 +1385,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 30,
                             FeatureId = 6,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8812),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(469),
                             ProductId = 4,
                             Value = "20",
                             isBold = true,
@@ -1392,7 +1395,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 40,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8817),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(474),
                             ProductId = 5,
                             Value = "اندروید",
                             isBold = true,
@@ -1402,7 +1405,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 41,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8821),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(479),
                             ProductId = 5,
                             Value = "مشکی",
                             isBold = true,
@@ -1412,7 +1415,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 42,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8825),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(483),
                             ProductId = 5,
                             Value = "مشکی",
                             isBold = true,
@@ -1422,7 +1425,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 43,
                             FeatureId = 3,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8830),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(487),
                             ProductId = 5,
                             Value = "10",
                             isBold = true,
@@ -1432,7 +1435,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 44,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8835),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(492),
                             ProductId = 5,
                             Value = "دارد",
                             isBold = true,
@@ -1442,7 +1445,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 45,
                             FeatureId = 5,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8841),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(498),
                             ProductId = 5,
                             Value = "40",
                             isBold = true,
@@ -1452,7 +1455,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 46,
                             FeatureId = 6,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8846),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(503),
                             ProductId = 5,
                             Value = "20",
                             isBold = true,
@@ -1462,7 +1465,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 55,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8850),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(507),
                             ProductId = 6,
                             Value = "اندروید",
                             isBold = true,
@@ -1472,7 +1475,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 56,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8855),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(512),
                             ProductId = 6,
                             Value = "مشکی",
                             isBold = true,
@@ -1482,7 +1485,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 57,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8859),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(517),
                             ProductId = 6,
                             Value = "مشکی",
                             isBold = true,
@@ -1492,7 +1495,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 58,
                             FeatureId = 3,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8864),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(521),
                             ProductId = 6,
                             Value = "10",
                             isBold = true,
@@ -1502,7 +1505,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 59,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8868),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(526),
                             ProductId = 6,
                             Value = "دارد",
                             isBold = true,
@@ -1512,7 +1515,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 60,
                             FeatureId = 5,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8873),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(530),
                             ProductId = 6,
                             Value = "40",
                             isBold = true,
@@ -1522,7 +1525,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 62,
                             FeatureId = 6,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8877),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(535),
                             ProductId = 6,
                             Value = "20",
                             isBold = true,
@@ -1532,7 +1535,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 64,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8882),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(539),
                             ProductId = 7,
                             Value = "اندروید",
                             isBold = true,
@@ -1542,7 +1545,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 65,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8886),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(544),
                             ProductId = 7,
                             Value = "مشکی",
                             isBold = true,
@@ -1552,7 +1555,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 66,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8891),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(549),
                             ProductId = 7,
                             Value = "مشکی",
                             isBold = true,
@@ -1562,7 +1565,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 67,
                             FeatureId = 3,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8895),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(553),
                             ProductId = 7,
                             Value = "10",
                             isBold = true,
@@ -1572,7 +1575,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 68,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8899),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(558),
                             ProductId = 7,
                             Value = "دارد",
                             isBold = true,
@@ -1582,7 +1585,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 69,
                             FeatureId = 5,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8904),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(563),
                             ProductId = 7,
                             Value = "40",
                             isBold = true,
@@ -1592,7 +1595,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 70,
                             FeatureId = 6,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8908),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(567),
                             ProductId = 7,
                             Value = "20",
                             isBold = true,
@@ -1602,7 +1605,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 72,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8913),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(572),
                             ProductId = 8,
                             Value = "اندروید",
                             isBold = true,
@@ -1612,7 +1615,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 73,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8939),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(576),
                             ProductId = 8,
                             Value = "مشکی",
                             isBold = true,
@@ -1622,7 +1625,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 74,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8944),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(580),
                             ProductId = 8,
                             Value = "مشکی",
                             isBold = true,
@@ -1632,7 +1635,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 75,
                             FeatureId = 3,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8949),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(585),
                             ProductId = 8,
                             Value = "10",
                             isBold = true,
@@ -1642,7 +1645,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 76,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8954),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(589),
                             ProductId = 8,
                             Value = "دارد",
                             isBold = true,
@@ -1652,7 +1655,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 77,
                             FeatureId = 5,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8958),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(594),
                             ProductId = 8,
                             Value = "40",
                             isBold = true,
@@ -1662,7 +1665,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 78,
                             FeatureId = 6,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8963),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(598),
                             ProductId = 8,
                             Value = "20",
                             isBold = true,
@@ -1672,7 +1675,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 80,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8967),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(603),
                             ProductId = 9,
                             Value = "اندروید",
                             isBold = true,
@@ -1682,7 +1685,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 81,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8972),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(607),
                             ProductId = 9,
                             Value = "مشکی",
                             isBold = true,
@@ -1692,7 +1695,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 82,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8976),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(612),
                             ProductId = 9,
                             Value = "مشکی",
                             isBold = true,
@@ -1702,7 +1705,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 83,
                             FeatureId = 3,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8980),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(616),
                             ProductId = 9,
                             Value = "10",
                             isBold = true,
@@ -1712,7 +1715,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 84,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8985),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(621),
                             ProductId = 9,
                             Value = "دارد",
                             isBold = true,
@@ -1722,7 +1725,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 85,
                             FeatureId = 5,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8989),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(625),
                             ProductId = 9,
                             Value = "40",
                             isBold = true,
@@ -1732,7 +1735,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 86,
                             FeatureId = 6,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8993),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(630),
                             ProductId = 9,
                             Value = "20",
                             isBold = true,
@@ -1742,7 +1745,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 91,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(8998),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(634),
                             ProductId = 10,
                             Value = "اندروید",
                             isBold = true,
@@ -1752,7 +1755,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 92,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9002),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(640),
                             ProductId = 10,
                             Value = "مشکی",
                             isBold = true,
@@ -1762,7 +1765,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 93,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9009),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(704),
                             ProductId = 10,
                             Value = "مشکی",
                             isBold = true,
@@ -1772,7 +1775,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 94,
                             FeatureId = 3,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9013),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(711),
                             ProductId = 10,
                             Value = "10",
                             isBold = true,
@@ -1782,7 +1785,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 95,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9018),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(715),
                             ProductId = 10,
                             Value = "دارد",
                             isBold = true,
@@ -1792,7 +1795,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 96,
                             FeatureId = 5,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9022),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(720),
                             ProductId = 10,
                             Value = "40",
                             isBold = true,
@@ -1802,7 +1805,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 97,
                             FeatureId = 6,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9027),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(724),
                             ProductId = 10,
                             Value = "20",
                             isBold = true,
@@ -1812,7 +1815,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 100,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9031),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(729),
                             ProductId = 11,
                             Value = "اندروید",
                             isBold = true,
@@ -1822,7 +1825,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 101,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9036),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(733),
                             ProductId = 11,
                             Value = "مشکی",
                             isBold = true,
@@ -1832,7 +1835,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 102,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9040),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(738),
                             ProductId = 11,
                             Value = "مشکی",
                             isBold = true,
@@ -1842,7 +1845,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 110,
                             FeatureId = 3,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9045),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(742),
                             ProductId = 11,
                             Value = "10",
                             isBold = true,
@@ -1852,7 +1855,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 112,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9049),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(746),
                             ProductId = 11,
                             Value = "دارد",
                             isBold = true,
@@ -1862,7 +1865,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 113,
                             FeatureId = 5,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9054),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(751),
                             ProductId = 11,
                             Value = "40",
                             isBold = true,
@@ -1872,7 +1875,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 114,
                             FeatureId = 6,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9059),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(755),
                             ProductId = 11,
                             Value = "20",
                             isBold = true,
@@ -1882,7 +1885,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 115,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9063),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(760),
                             ProductId = 12,
                             Value = "اندروید",
                             isBold = true,
@@ -1892,7 +1895,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 116,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9067),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(764),
                             ProductId = 12,
                             Value = "مشکی",
                             isBold = true,
@@ -1902,7 +1905,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 117,
                             FeatureId = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9072),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(768),
                             ProductId = 12,
                             Value = "مشکی",
                             isBold = true,
@@ -1912,7 +1915,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 118,
                             FeatureId = 3,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9076),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(773),
                             ProductId = 12,
                             Value = "10",
                             isBold = true,
@@ -1922,7 +1925,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 119,
                             FeatureId = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9081),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(777),
                             ProductId = 12,
                             Value = "دارد",
                             isBold = true,
@@ -1932,7 +1935,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 120,
                             FeatureId = 5,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9085),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(781),
                             ProductId = 12,
                             Value = "40",
                             isBold = true,
@@ -1942,7 +1945,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 121,
                             FeatureId = 6,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(9090),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 761, DateTimeKind.Local).AddTicks(786),
                             ProductId = 12,
                             Value = "20",
                             isBold = true,
@@ -1988,7 +1991,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(3168),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(8132),
                             IsMainImage = true,
                             Name = "Samsung-S10Plus.jpg",
                             ProductId = 1,
@@ -1997,7 +2000,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4709),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9753),
                             IsMainImage = false,
                             Name = "product-img-note10-big-5.jpg",
                             ProductId = 1,
@@ -2006,7 +2009,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 3,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4729),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9775),
                             IsMainImage = false,
                             Name = "product-img-note10-big-6.jpg",
                             ProductId = 1,
@@ -2015,7 +2018,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 4,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4734),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9780),
                             IsMainImage = false,
                             Name = "product-img-note10-big-7.jpg",
                             ProductId = 1,
@@ -2024,7 +2027,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 5,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4738),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9787),
                             IsMainImage = false,
                             Name = "product-img-note10-big-1.jpg",
                             ProductId = 1,
@@ -2033,7 +2036,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 6,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4747),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9795),
                             IsMainImage = true,
                             Name = "iphone-xs-max-space.jpg",
                             ProductId = 2,
@@ -2042,7 +2045,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 7,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4752),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9800),
                             IsMainImage = false,
                             Name = "product-img-note10-big-5.jpg",
                             ProductId = 2,
@@ -2051,7 +2054,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 8,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4757),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9804),
                             IsMainImage = false,
                             Name = "product-img-note10-big-6.jpg",
                             ProductId = 2,
@@ -2060,7 +2063,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 9,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4761),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9808),
                             IsMainImage = false,
                             Name = "product-img-note10-big-7.jpg",
                             ProductId = 2,
@@ -2069,7 +2072,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 10,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4767),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9814),
                             IsMainImage = false,
                             Name = "product-img-note10-big-1.jpg",
                             ProductId = 2,
@@ -2078,7 +2081,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 11,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4771),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9819),
                             IsMainImage = true,
                             Name = "honer.jpg",
                             ProductId = 3,
@@ -2087,7 +2090,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 12,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4776),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9823),
                             IsMainImage = false,
                             Name = "product-img-note10-big-5.jpg",
                             ProductId = 3,
@@ -2096,7 +2099,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 13,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4780),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9828),
                             IsMainImage = false,
                             Name = "product-img-note10-big-6.jpg",
                             ProductId = 3,
@@ -2105,7 +2108,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 14,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4785),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9832),
                             IsMainImage = false,
                             Name = "product-img-note10-big-7.jpg",
                             ProductId = 3,
@@ -2114,7 +2117,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 15,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4790),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9837),
                             IsMainImage = false,
                             Name = "product-img-note10-big-1.jpg",
                             ProductId = 3,
@@ -2123,7 +2126,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 16,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4795),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9841),
                             IsMainImage = true,
                             Name = "Samsung-S10Plus.jpg",
                             ProductId = 4,
@@ -2132,7 +2135,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 17,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4799),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9846),
                             IsMainImage = false,
                             Name = "product-img-note10-big-5.jpg",
                             ProductId = 4,
@@ -2141,7 +2144,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 18,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4805),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9852),
                             IsMainImage = false,
                             Name = "product-img-note10-big-6.jpg",
                             ProductId = 4,
@@ -2150,7 +2153,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 19,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4809),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9857),
                             IsMainImage = false,
                             Name = "product-img-note10-big-7.jpg",
                             ProductId = 4,
@@ -2159,7 +2162,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 20,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4813),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9862),
                             IsMainImage = false,
                             Name = "product-img-note10-big-1.jpg",
                             ProductId = 4,
@@ -2168,7 +2171,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 21,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4818),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9867),
                             IsMainImage = true,
                             Name = "iphone-xs-max-space.jpg",
                             ProductId = 5,
@@ -2177,7 +2180,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 22,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4822),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9872),
                             IsMainImage = false,
                             Name = "product-img-note10-big-5.jpg",
                             ProductId = 5,
@@ -2186,7 +2189,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 23,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4827),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9877),
                             IsMainImage = false,
                             Name = "product-img-note10-big-6.jpg",
                             ProductId = 5,
@@ -2195,7 +2198,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 24,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4831),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9881),
                             IsMainImage = false,
                             Name = "product-img-note10-big-7.jpg",
                             ProductId = 5,
@@ -2204,7 +2207,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 25,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4835),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9886),
                             IsMainImage = false,
                             Name = "product-img-note10-big-1.jpg",
                             ProductId = 5,
@@ -2213,7 +2216,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 26,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4840),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9890),
                             IsMainImage = true,
                             Name = "honer.jpg",
                             ProductId = 6,
@@ -2222,7 +2225,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 27,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4844),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9895),
                             IsMainImage = false,
                             Name = "product-img-note10-big-5.jpg",
                             ProductId = 6,
@@ -2231,7 +2234,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 28,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4848),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9900),
                             IsMainImage = false,
                             Name = "product-img-note10-big-6.jpg",
                             ProductId = 6,
@@ -2240,7 +2243,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 29,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4854),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9905),
                             IsMainImage = false,
                             Name = "product-img-note10-big-7.jpg",
                             ProductId = 6,
@@ -2249,7 +2252,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 30,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4859),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9909),
                             IsMainImage = false,
                             Name = "product-img-note10-big-1.jpg",
                             ProductId = 6,
@@ -2258,7 +2261,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 31,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4863),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9914),
                             IsMainImage = true,
                             Name = "Samsung-S10Plus.jpg",
                             ProductId = 7,
@@ -2267,7 +2270,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 32,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4868),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9919),
                             IsMainImage = false,
                             Name = "product-img-note10-big-5.jpg",
                             ProductId = 7,
@@ -2276,7 +2279,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 33,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4872),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9923),
                             IsMainImage = false,
                             Name = "product-img-note10-big-6.jpg",
                             ProductId = 7,
@@ -2285,7 +2288,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 34,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4878),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9929),
                             IsMainImage = false,
                             Name = "product-img-note10-big-7.jpg",
                             ProductId = 7,
@@ -2294,7 +2297,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 35,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4882),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9934),
                             IsMainImage = false,
                             Name = "product-img-note10-big-1.jpg",
                             ProductId = 7,
@@ -2303,7 +2306,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 36,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4887),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9939),
                             IsMainImage = true,
                             Name = "iphone-xs-max-space.jpg",
                             ProductId = 8,
@@ -2312,7 +2315,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 37,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4891),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9943),
                             IsMainImage = false,
                             Name = "product-img-note10-big-5.jpg",
                             ProductId = 8,
@@ -2321,7 +2324,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 38,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4896),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9948),
                             IsMainImage = false,
                             Name = "product-img-note10-big-6.jpg",
                             ProductId = 8,
@@ -2330,7 +2333,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 39,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4900),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9952),
                             IsMainImage = false,
                             Name = "product-img-note10-big-7.jpg",
                             ProductId = 8,
@@ -2339,7 +2342,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 40,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4905),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9957),
                             IsMainImage = false,
                             Name = "product-img-note10-big-1.jpg",
                             ProductId = 8,
@@ -2348,7 +2351,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 41,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4909),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9963),
                             IsMainImage = true,
                             Name = "honer.jpg",
                             ProductId = 9,
@@ -2357,7 +2360,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 42,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4917),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9967),
                             IsMainImage = false,
                             Name = "product-img-note10-big-5.jpg",
                             ProductId = 9,
@@ -2366,7 +2369,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 43,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4921),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9972),
                             IsMainImage = false,
                             Name = "product-img-note10-big-6.jpg",
                             ProductId = 9,
@@ -2375,7 +2378,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 44,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4925),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9977),
                             IsMainImage = false,
                             Name = "product-img-note10-big-7.jpg",
                             ProductId = 9,
@@ -2384,7 +2387,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 45,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4929),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9981),
                             IsMainImage = false,
                             Name = "product-img-note10-big-1.jpg",
                             ProductId = 9,
@@ -2393,7 +2396,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 46,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4934),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9986),
                             IsMainImage = true,
                             Name = "Samsung-S10Plus.jpg",
                             ProductId = 10,
@@ -2402,7 +2405,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 47,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4938),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9990),
                             IsMainImage = false,
                             Name = "product-img-note10-big-5.jpg",
                             ProductId = 10,
@@ -2411,7 +2414,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 48,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4942),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(9995),
                             IsMainImage = false,
                             Name = "product-img-note10-big-6.jpg",
                             ProductId = 10,
@@ -2420,7 +2423,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 49,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4947),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 760, DateTimeKind.Local),
                             IsMainImage = false,
                             Name = "product-img-note10-big-7.jpg",
                             ProductId = 10,
@@ -2429,7 +2432,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 50,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4951),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 760, DateTimeKind.Local).AddTicks(4),
                             IsMainImage = false,
                             Name = "product-img-note10-big-1.jpg",
                             ProductId = 10,
@@ -2438,7 +2441,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 51,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4955),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 760, DateTimeKind.Local).AddTicks(8),
                             IsMainImage = true,
                             Name = "iphone-xs-max-space.jpg",
                             ProductId = 11,
@@ -2447,7 +2450,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 52,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4960),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 760, DateTimeKind.Local).AddTicks(13),
                             IsMainImage = false,
                             Name = "product-img-note10-big-5.jpg",
                             ProductId = 11,
@@ -2456,7 +2459,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 53,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4965),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 760, DateTimeKind.Local).AddTicks(17),
                             IsMainImage = false,
                             Name = "product-img-note10-big-6.jpg",
                             ProductId = 11,
@@ -2465,7 +2468,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 54,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4969),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 760, DateTimeKind.Local).AddTicks(22),
                             IsMainImage = false,
                             Name = "product-img-note10-big-7.jpg",
                             ProductId = 11,
@@ -2474,7 +2477,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 55,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4973),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 760, DateTimeKind.Local).AddTicks(26),
                             IsMainImage = false,
                             Name = "product-img-note10-big-1.jpg",
                             ProductId = 11,
@@ -2483,7 +2486,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 60,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(4978),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 760, DateTimeKind.Local).AddTicks(31),
                             IsMainImage = true,
                             Name = "honer.jpg",
                             ProductId = 12,
@@ -2492,7 +2495,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 61,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(5000),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 760, DateTimeKind.Local).AddTicks(35),
                             IsMainImage = false,
                             Name = "product-img-note10-big-5.jpg",
                             ProductId = 12,
@@ -2501,7 +2504,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 62,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(5005),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 760, DateTimeKind.Local).AddTicks(39),
                             IsMainImage = false,
                             Name = "product-img-note10-big-6.jpg",
                             ProductId = 12,
@@ -2510,7 +2513,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 63,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(5009),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 760, DateTimeKind.Local).AddTicks(53),
                             IsMainImage = false,
                             Name = "product-img-note10-big-7.jpg",
                             ProductId = 12,
@@ -2519,7 +2522,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 64,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(5013),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 760, DateTimeKind.Local).AddTicks(58),
                             IsMainImage = false,
                             Name = "product-img-note10-big-1.jpg",
                             ProductId = 12,
@@ -2567,8 +2570,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(101),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 542, DateTimeKind.Local).AddTicks(9352),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(4816),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(4180),
                             ProductId = 1,
                             SliderId = 1,
                             isRemoved = false
@@ -2576,8 +2579,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 2,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1243),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1224),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6012),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(5993),
                             ProductId = 1,
                             SliderId = 2,
                             isRemoved = false
@@ -2585,8 +2588,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 3,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1252),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1248),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6021),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6017),
                             ProductId = 1,
                             SliderId = 3,
                             isRemoved = false
@@ -2594,8 +2597,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 4,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1260),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1256),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6029),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6026),
                             ProductId = 1,
                             SliderId = 4,
                             isRemoved = false
@@ -2603,8 +2606,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 5,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1267),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1264),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6037),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6034),
                             ProductId = 2,
                             SliderId = 1,
                             isRemoved = false
@@ -2612,8 +2615,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 6,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1279),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1275),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6051),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6047),
                             ProductId = 2,
                             SliderId = 2,
                             isRemoved = false
@@ -2621,8 +2624,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 7,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1286),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1283),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6059),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6056),
                             ProductId = 2,
                             SliderId = 3,
                             isRemoved = false
@@ -2630,8 +2633,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 8,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1294),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1290),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6067),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6063),
                             ProductId = 2,
                             SliderId = 4,
                             isRemoved = false
@@ -2639,8 +2642,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 9,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1303),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1298),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6075),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6071),
                             ProductId = 3,
                             SliderId = 1,
                             isRemoved = false
@@ -2648,8 +2651,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 10,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1313),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1309),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6084),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6080),
                             ProductId = 3,
                             SliderId = 2,
                             isRemoved = false
@@ -2657,8 +2660,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 11,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1321),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1317),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6091),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6088),
                             ProductId = 3,
                             SliderId = 3,
                             isRemoved = false
@@ -2666,8 +2669,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 12,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1329),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1325),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6099),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6095),
                             ProductId = 3,
                             SliderId = 4,
                             isRemoved = false
@@ -2675,8 +2678,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 13,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1337),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1333),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6107),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6103),
                             ProductId = 4,
                             SliderId = 1,
                             isRemoved = false
@@ -2684,8 +2687,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 14,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1344),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1341),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6115),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6111),
                             ProductId = 4,
                             SliderId = 2,
                             isRemoved = false
@@ -2693,8 +2696,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 100,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1352),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1349),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6123),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6119),
                             ProductId = 4,
                             SliderId = 3,
                             isRemoved = false
@@ -2702,8 +2705,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 15,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1360),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1357),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6131),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6127),
                             ProductId = 4,
                             SliderId = 4,
                             isRemoved = false
@@ -2711,8 +2714,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 16,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1368),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1364),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6138),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6135),
                             ProductId = 5,
                             SliderId = 1,
                             isRemoved = false
@@ -2720,8 +2723,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 17,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1377),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1374),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6148),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6144),
                             ProductId = 5,
                             SliderId = 2,
                             isRemoved = false
@@ -2729,8 +2732,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 18,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1385),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1382),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6156),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6152),
                             ProductId = 5,
                             SliderId = 3,
                             isRemoved = false
@@ -2738,8 +2741,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 19,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1393),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1389),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6163),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6160),
                             ProductId = 5,
                             SliderId = 4,
                             isRemoved = false
@@ -2747,8 +2750,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 20,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1401),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1397),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6172),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6168),
                             ProductId = 6,
                             SliderId = 1,
                             isRemoved = false
@@ -2756,8 +2759,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 21,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1409),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1405),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6180),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6176),
                             ProductId = 6,
                             SliderId = 2,
                             isRemoved = false
@@ -2765,8 +2768,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 22,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1416),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1413),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6188),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6185),
                             ProductId = 6,
                             SliderId = 3,
                             isRemoved = false
@@ -2774,8 +2777,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 23,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1424),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1421),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6196),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6192),
                             ProductId = 6,
                             SliderId = 4,
                             isRemoved = false
@@ -2783,8 +2786,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 24,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1432),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1429),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6204),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6200),
                             ProductId = 7,
                             SliderId = 1,
                             isRemoved = false
@@ -2792,8 +2795,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 25,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1440),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1436),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6212),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6208),
                             ProductId = 7,
                             SliderId = 2,
                             isRemoved = false
@@ -2801,8 +2804,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 26,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1448),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1444),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6219),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6216),
                             ProductId = 7,
                             SliderId = 3,
                             isRemoved = false
@@ -2810,8 +2813,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 27,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1456),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1452),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6227),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6223),
                             ProductId = 7,
                             SliderId = 4,
                             isRemoved = false
@@ -2819,8 +2822,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 105,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1463),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1460),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6235),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6231),
                             ProductId = 8,
                             SliderId = 1,
                             isRemoved = false
@@ -2828,8 +2831,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 28,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1471),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1467),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6243),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6239),
                             ProductId = 8,
                             SliderId = 2,
                             isRemoved = false
@@ -2837,8 +2840,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 29,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1479),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1475),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6251),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6247),
                             ProductId = 8,
                             SliderId = 3,
                             isRemoved = false
@@ -2846,8 +2849,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 30,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1487),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1483),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6259),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6255),
                             ProductId = 8,
                             SliderId = 4,
                             isRemoved = false
@@ -2855,8 +2858,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 110,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1495),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1491),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6267),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6263),
                             ProductId = 9,
                             SliderId = 1,
                             isRemoved = false
@@ -2864,8 +2867,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 32,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1504),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1501),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6276),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6272),
                             ProductId = 9,
                             SliderId = 2,
                             isRemoved = false
@@ -2873,8 +2876,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 33,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1512),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1508),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6284),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6280),
                             ProductId = 9,
                             SliderId = 3,
                             isRemoved = false
@@ -2882,8 +2885,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 34,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1520),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1516),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6291),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6288),
                             ProductId = 9,
                             SliderId = 4,
                             isRemoved = false
@@ -2891,8 +2894,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 35,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1527),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1524),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6299),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6295),
                             ProductId = 10,
                             SliderId = 1,
                             isRemoved = false
@@ -2900,8 +2903,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 311,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1535),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1531),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6307),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6303),
                             ProductId = 10,
                             SliderId = 2,
                             isRemoved = false
@@ -2909,8 +2912,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 36,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1542),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1539),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6315),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6311),
                             ProductId = 10,
                             SliderId = 3,
                             isRemoved = false
@@ -2918,8 +2921,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 37,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1550),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1547),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6322),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6319),
                             ProductId = 10,
                             SliderId = 4,
                             isRemoved = false
@@ -2927,8 +2930,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 40,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1558),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1554),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6330),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6326),
                             ProductId = 11,
                             SliderId = 1,
                             isRemoved = false
@@ -2936,8 +2939,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 41,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1565),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1562),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6338),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6334),
                             ProductId = 11,
                             SliderId = 2,
                             isRemoved = false
@@ -2945,8 +2948,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 42,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1591),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1587),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6346),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6342),
                             ProductId = 11,
                             SliderId = 3,
                             isRemoved = false
@@ -2954,8 +2957,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 45,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1599),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1595),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6492),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6485),
                             ProductId = 11,
                             SliderId = 4,
                             isRemoved = false
@@ -2963,8 +2966,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 50,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1607),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1603),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6500),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6497),
                             ProductId = 12,
                             SliderId = 1,
                             isRemoved = false
@@ -2972,8 +2975,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 55,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1614),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1611),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6508),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6505),
                             ProductId = 12,
                             SliderId = 2,
                             isRemoved = false
@@ -2981,8 +2984,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 56,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1622),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1618),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6516),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6512),
                             ProductId = 12,
                             SliderId = 3,
                             isRemoved = false
@@ -2990,8 +2993,8 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 58,
-                            EndDate = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1630),
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 543, DateTimeKind.Local).AddTicks(1626),
+                            EndDate = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6524),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 759, DateTimeKind.Local).AddTicks(6520),
                             ProductId = 12,
                             SliderId = 4,
                             isRemoved = false
@@ -3028,31 +3031,63 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 503, DateTimeKind.Local).AddTicks(4277),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 723, DateTimeKind.Local).AddTicks(388),
                             Title = "پیشنهاد لحظه ای",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 503, DateTimeKind.Local).AddTicks(4391),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 723, DateTimeKind.Local).AddTicks(494),
                             Title = "دوربین",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 3,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 503, DateTimeKind.Local).AddTicks(4400),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 723, DateTimeKind.Local).AddTicks(504),
                             Title = "موبایل",
                             isRemoved = false
                         },
                         new
                         {
                             Id = 4,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 503, DateTimeKind.Local).AddTicks(4405),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 723, DateTimeKind.Local).AddTicks(508),
                             Title = "لپ تاپ",
                             isRemoved = false
                         });
+                });
+
+            modelBuilder.Entity("Store_Application.Domain.Entities.Product.Tag", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("RemovedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("isRemoved")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Tags");
                 });
 
             modelBuilder.Entity("Store_Application.Domain.Entities.Question.Question", b =>
@@ -3191,7 +3226,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 1,
                             ImageName = "c1aae97de6894801b50b379fdf75e78d.png",
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(7130),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 758, DateTimeKind.Local).AddTicks(488),
                             Title = "هواوی",
                             isRemoved = false
                         },
@@ -3199,7 +3234,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 2,
                             ImageName = "8e67672e408d431da4f5710184ca8add.png",
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(8772),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 758, DateTimeKind.Local).AddTicks(2199),
                             Title = "سامسونگ",
                             isRemoved = false
                         },
@@ -3207,7 +3242,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 3,
                             ImageName = "752ed3efe90e41b78fce90b68abb2bdf.png",
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(8793),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 758, DateTimeKind.Local).AddTicks(2222),
                             Title = "ای دیتا",
                             isRemoved = false
                         },
@@ -3215,7 +3250,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 4,
                             ImageName = "c964b9f4ac4540889fc15227a0cb5aea.png",
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(8798),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 758, DateTimeKind.Local).AddTicks(2230),
                             Title = "Shahab",
                             isRemoved = false
                         },
@@ -3223,7 +3258,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 5,
                             ImageName = "c1aae97de6894801b50b379fdf75e78d.png",
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(8803),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 758, DateTimeKind.Local).AddTicks(2235),
                             Title = "هواوی",
                             isRemoved = false
                         },
@@ -3231,7 +3266,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 6,
                             ImageName = "8e67672e408d431da4f5710184ca8add.png",
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(8812),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 758, DateTimeKind.Local).AddTicks(2245),
                             Title = "سامسونگ",
                             isRemoved = false
                         },
@@ -3239,7 +3274,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 7,
                             ImageName = "752ed3efe90e41b78fce90b68abb2bdf.png",
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(8816),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 758, DateTimeKind.Local).AddTicks(2250),
                             Title = "ای دیتا",
                             isRemoved = false
                         },
@@ -3247,7 +3282,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 8,
                             ImageName = "c964b9f4ac4540889fc15227a0cb5aea.png",
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(8821),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 758, DateTimeKind.Local).AddTicks(2255),
                             Title = "Shahab",
                             isRemoved = false
                         });
@@ -3291,7 +3326,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 1,
                             ImageName = "a866effd8dc64a4e91a4a1a024629166.jpg",
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(3874),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(7449),
                             Title = "اسلایدر تستی 1",
                             isRemoved = false
                         },
@@ -3299,7 +3334,7 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 2,
                             ImageName = "7494777a77864093a32ee9984c0a6520.jpg",
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(5598),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(9161),
                             Title = "اسلایدر تستی 2",
                             isRemoved = false
                         },
@@ -3307,10 +3342,88 @@ namespace Store_Application.Persistence.Migrations
                         {
                             Id = 3,
                             ImageName = "6d9a11244f8f4bd8a614b81f2e702799.jpg",
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 541, DateTimeKind.Local).AddTicks(5620),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(9183),
                             Title = "اسلایدر تستی 3",
                             isRemoved = false
                         });
+                });
+
+            modelBuilder.Entity("Store_Application.Domain.Entities.Statistic.SearchKeyInfo", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("RemovedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SearchKey")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("isRemoved")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SearchKeysInfo");
+                });
+
+            modelBuilder.Entity("Store_Application.Domain.Entities.Statistic.SiteRequest", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .UseIdentityColumn();
+
+                    b.Property<Guid?>("BrowserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("HasFormContentType")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("HasJsonContentType")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Ip")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsAuthenticated")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsHttps")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Methode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Path")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("RemovedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isRemoved")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SiteRequests");
                 });
 
             modelBuilder.Entity("Store_Application.Domain.Entities.User.Role", b =>
@@ -3426,10 +3539,10 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            ActiveCode = "d206915a-09f7-4861-a7e0-c13fadf87846",
+                            ActiveCode = "ecc7dafe-d709-427b-9a7e-8415c0a4b961",
                             Email = "mahdinjf372@gmail.com",
                             FullName = "مهدی نجفی پسند",
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 503, DateTimeKind.Local).AddTicks(6820),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 723, DateTimeKind.Local).AddTicks(2568),
                             Password = "25-D5-5A-D2-83-AA-40-0A-F4-64-C7-6D-71-3C-07-AD",
                             Username = "mahdinjf372",
                             isActive = true,
@@ -3438,10 +3551,10 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 2,
-                            ActiveCode = "8581f476-8329-4bbb-b29f-57759af73328",
+                            ActiveCode = "410f14ef-c451-474c-aee5-fe25279eb637",
                             Email = "sara@gmail.com",
                             FullName = "سارا",
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 540, DateTimeKind.Local).AddTicks(6740),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(153),
                             Password = "25-D5-5A-D2-83-AA-40-0A-F4-64-C7-6D-71-3C-07-AD",
                             Username = "Sara",
                             isActive = true,
@@ -3450,10 +3563,10 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 3,
-                            ActiveCode = "7b7dd785-c66d-4a40-b0e9-e194aa288b6d",
+                            ActiveCode = "50554136-508f-443c-aa85-4c0879db4806",
                             Email = "ali@gmail.com",
                             FullName = "علی",
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 540, DateTimeKind.Local).AddTicks(8041),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(1606),
                             Password = "25-D5-5A-D2-83-AA-40-0A-F4-64-C7-6D-71-3C-07-AD",
                             Username = "Ali",
                             isActive = true,
@@ -3462,10 +3575,10 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 4,
-                            ActiveCode = "87a56815-8043-453f-9329-8a8ee39984d2",
+                            ActiveCode = "2d589dee-58a7-47c3-b9dc-39eb10f9652e",
                             Email = "mohammad@gmail.com",
                             FullName = "محمد",
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 540, DateTimeKind.Local).AddTicks(8111),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(1683),
                             Password = "25-D5-5A-D2-83-AA-40-0A-F4-64-C7-6D-71-3C-07-AD",
                             Username = "mmd",
                             isActive = true,
@@ -3474,10 +3587,10 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 5,
-                            ActiveCode = "9fc11800-81a7-42fb-882b-8dc0f092dbb5",
+                            ActiveCode = "86e139f5-903e-41c1-a77b-fec295299327",
                             Email = "ehsan@gmail.com",
                             FullName = "احسان",
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 540, DateTimeKind.Local).AddTicks(8152),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(1723),
                             Password = "25-D5-5A-D2-83-AA-40-0A-F4-64-C7-6D-71-3C-07-AD",
                             Username = "Ehsan",
                             isActive = true,
@@ -3522,7 +3635,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 516, DateTimeKind.Local).AddTicks(1375),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 732, DateTimeKind.Local).AddTicks(1131),
                             RoleId = 1,
                             UserId = 1,
                             isRemoved = false
@@ -3530,7 +3643,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 2,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 516, DateTimeKind.Local).AddTicks(2722),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 732, DateTimeKind.Local).AddTicks(2456),
                             RoleId = 3,
                             UserId = 1,
                             isRemoved = false
@@ -3538,7 +3651,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 3,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 516, DateTimeKind.Local).AddTicks(2745),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 732, DateTimeKind.Local).AddTicks(2479),
                             RoleId = 2,
                             UserId = 1,
                             isRemoved = false
@@ -3546,7 +3659,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 4,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 540, DateTimeKind.Local).AddTicks(8416),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(1950),
                             RoleId = 2,
                             UserId = 2,
                             isRemoved = false
@@ -3554,7 +3667,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 5,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 540, DateTimeKind.Local).AddTicks(8431),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(1968),
                             RoleId = 3,
                             UserId = 2,
                             isRemoved = false
@@ -3562,7 +3675,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 6,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 540, DateTimeKind.Local).AddTicks(8437),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(1973),
                             RoleId = 3,
                             UserId = 3,
                             isRemoved = false
@@ -3570,7 +3683,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 7,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 540, DateTimeKind.Local).AddTicks(8441),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(1977),
                             RoleId = 3,
                             UserId = 4,
                             isRemoved = false
@@ -3578,7 +3691,7 @@ namespace Store_Application.Persistence.Migrations
                         new
                         {
                             Id = 8,
-                            InsertTime = new DateTime(2021, 10, 4, 11, 26, 28, 540, DateTimeKind.Local).AddTicks(8446),
+                            InsertTime = new DateTime(2021, 10, 11, 18, 1, 9, 757, DateTimeKind.Local).AddTicks(1982),
                             RoleId = 3,
                             UserId = 5,
                             isRemoved = false
@@ -3830,6 +3943,17 @@ namespace Store_Application.Persistence.Migrations
                     b.Navigation("Slider");
                 });
 
+            modelBuilder.Entity("Store_Application.Domain.Entities.Product.Tag", b =>
+                {
+                    b.HasOne("Store_Application.Domain.Entities.Product.Product", "Product")
+                        .WithMany("Tags")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Store_Application.Domain.Entities.Question.Question", b =>
                 {
                     b.HasOne("Store_Application.Domain.Entities.Question.Question", "ParentQuestion")
@@ -3932,6 +4056,8 @@ namespace Store_Application.Persistence.Migrations
                     b.Navigation("ProductSliders");
 
                     b.Navigation("Questions");
+
+                    b.Navigation("Tags");
                 });
 
             modelBuilder.Entity("Store_Application.Domain.Entities.Product.Slider", b =>

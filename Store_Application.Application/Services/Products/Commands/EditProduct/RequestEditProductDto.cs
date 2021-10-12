@@ -12,6 +12,7 @@ namespace Store_Application.Application.Services.Products.Commands.EditProduct
         public string ShortDescription { get; set; }
 
         public string Description { get; set; }
+        public string Tags { get; set; }
 
         public decimal Price { get; set; }
 

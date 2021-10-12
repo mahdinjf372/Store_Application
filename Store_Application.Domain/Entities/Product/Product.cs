@@ -20,6 +20,8 @@ namespace Store_Application.Domain.Entities.Product
 
         public decimal Price { get; set; }
 
+        public string TagsForSearch { get; set; }
+
         public decimal DiscountAmount { get; set; }
 
         public int Inventory { get; set; }
@@ -45,7 +47,9 @@ namespace Store_Application.Domain.Entities.Product
         public ICollection<Comment.Comment> Comments { get; set; }
         public ICollection<Favorite.Favorite> Favorites { get; set; }
         public ICollection<Compare.Compare> Compares { get; set; }
+        public ICollection<Tag> Tags { get; set; }
 
         #endregion
     }
+
 }

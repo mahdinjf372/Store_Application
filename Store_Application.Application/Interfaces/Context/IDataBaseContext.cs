@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Store_Application.Domain.Entities.User;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
@@ -15,6 +11,7 @@ using Store_Application.Domain.Entities.Question;
 using Store_Application.Domain.Entities.Comment;
 using Store_Application.Domain.Entities.Compare;
 using Store_Application.Domain.Entities.Favorite;
+using Store_Application.Domain.Entities.Statistic;
 
 namespace Store_Application.Application.Interfaces.Context
 {
@@ -39,6 +36,8 @@ namespace Store_Application.Application.Interfaces.Context
         DbSet<Brand> Brands { get; set; }
         DbSet<Slider> Sliders { get; set; }
         DbSet<ProductSlider> ProductSliders { get; set; }
+        DbSet<Tag> Tags { get; set; }
+
 
         #endregion
 
@@ -93,6 +92,13 @@ namespace Store_Application.Application.Interfaces.Context
         #region Compaire
 
         public DbSet<Compare> Compares { get; set; }
+
+        #endregion
+
+        #region Statistic
+
+        DbSet<SiteRequest> SiteRequests { get; set; }
+        DbSet<SearchKeyInfo> SearchKeysInfo { get; set; }
 
         #endregion
 

@@ -5,6 +5,7 @@ using Store_Application.Application.Services.Orders.Commands.FinalizeOrder;
 using Store_Application.Application.Services.Orders.Queries.GetOrderForPay;
 using Store_Application.Application.Services.Orders.Queries.GetOrderForSite;
 using Store_Application.Application.Services.Orders.Queries.GetOrderForUserPanel;
+using Store_Application.Application.Services.Orders.Queries.GetOrdersForAdmin;
 using Store_Application.Application.Services.Orders.Queries.GetOrdersForUserPanel;
 using System;
 using System.Collections.Generic;
@@ -76,6 +77,16 @@ namespace Store_Application.Application.Services.Orders.FacadPattern
             get
             {
                 return _getOrderForUserPanelService = _getOrderForUserPanelService ?? new GetOrderForUserPanelService(_db);
+            }
+        }
+        
+
+        private IGetOrdersForAdminService _getOrdersForAdminService;
+        public IGetOrdersForAdminService GetOrdersForAdminService
+        {
+            get
+            {
+                return _getOrdersForAdminService = _getOrdersForAdminService ?? new GetOrdersForAdminService(_db);
             }
         }
     }

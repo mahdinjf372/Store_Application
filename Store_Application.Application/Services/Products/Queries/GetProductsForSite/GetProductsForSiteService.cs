@@ -24,7 +24,13 @@ namespace Store_Application.Application.Services.Products.Queries.GetProductsFor
 
                 if (!string.IsNullOrEmpty(req.Searchkey))
                 {
-                    products = products.Where(p => p.Title.Contains(req.Searchkey));
+                    string tagSearchKey = req.Searchkey.Trim();
+                    while (tagSearchKey.Contains(" "))
+                    {
+                        tagSearchKey = tagSearchKey.Replace(" ", "_");
+                    }
+
+                    products = products.Where(p => p.Title.Contains(req.Searchkey) || p.TagsForSearch.Contains(tagSearchKey));
                 }
 
                 if (req.CategoryId != null && _db.Categories.Any(c=> c.Id.Equals(req.CategoryId)))
@@ -51,10 +57,10 @@ namespace Store_Application.Application.Services.Products.Queries.GetProductsFor
                         break;
                 }
 
-
                 int rowCount = 0;
 
                 var productsDto = products
+                    .Where(p=> p.Displayed)
                     .Include(p => p.Category).ThenInclude(c => c.ParentCategory).ThenInclude(c => c.ParentCategory)
                     .Select(p => new GetProductsForSiteDto
                     {

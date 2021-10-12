@@ -114,7 +114,7 @@ namespace Store_Application.Application.Services.Carts.Commands.AddProductToCart
             if (product.Inventory < cartItem.Count)
             {
                 res.IsSuccess = false;
-                res.Message = "مقدار درخواستی بیشتر از مقدار موجودی میباشد";
+                res.Message = "مقدار درخواستی بیشتر از مقدار موجودی میباشد برای رفع مشکل تعداد محصول را کاهش دهید یا آن را حذف کنید";
             }
             else if (cartItem.Count < 1)
             {

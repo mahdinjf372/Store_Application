@@ -12,6 +12,7 @@ namespace EndPoint.WebSite.Areas.Admin.Models.Product.Edit
         public string Title { get; set; }
         public string ShortDescription { get; set; }
         public string Description { get; set; }
+        public string Tags { get; set; }
         public int CategoryId { get; set; }
         public int GroupId { get; set; }
         public int SubgroupId { get; set; }

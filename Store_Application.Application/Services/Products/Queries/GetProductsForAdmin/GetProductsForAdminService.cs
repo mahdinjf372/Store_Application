@@ -24,7 +24,20 @@ namespace Store_Application.Application.Services.Products.Queries.GetProductsFor
 
                 if (!string.IsNullOrEmpty(req.Searchkey))
                 {
-                    products = products.Where(p => p.Title.Contains(req.Searchkey));
+                    string tagSearchKey = req.Searchkey.Trim();
+                    while (tagSearchKey.Contains(" "))
+                    {
+                        tagSearchKey = tagSearchKey.Replace(" ", "_");
+                    }
+
+                    if (int.TryParse(req.Searchkey, out int id))
+                    {
+                        products = products.Where(p => p.Title.Contains(req.Searchkey) || p.TagsForSearch.Contains(tagSearchKey) || p.Id == id);
+                    }
+                    else
+                    {
+                        products = products.Where(p => p.Title.Contains(req.Searchkey) || p.TagsForSearch.Contains(tagSearchKey));
+                    }
                 }
                 
                 int rowCount = 0;

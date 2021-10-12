@@ -9,6 +9,7 @@ using System.Linq;
 namespace EndPoint.WebSite.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = nameof(Roles.Admin) + "," + nameof(Roles.Operator))]
     public class CommentController : Controller
     {
         private readonly ICommentFacad _commentFacad;
@@ -21,38 +22,9 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         {
             ViewBag.page = req.Page;
             ViewBag.take = req.Take;
-            ViewBag.searchKey = req.Searchkey;
-
-            string[] filters = new string[6];
-            filters = req.Searchkey?.Split(',');
-
-            if (filters != null && !string.IsNullOrEmpty(filters[0]))
-                req.CommentId = int.Parse(filters[0]);
-
-            if (filters != null && !string.IsNullOrEmpty(filters[1]))
-                req.ProductId = int.Parse(filters[1]);
-
-            if (filters != null && !string.IsNullOrEmpty(filters[2]))
-                req.UserId = int.Parse(filters[2]);
-
-            if (filters != null && !string.IsNullOrEmpty(filters[4]))
-                req.FromDate = DateTime.Parse(filters[4]);
-
-            if (filters != null && !string.IsNullOrEmpty(filters[5]))
-                req.ToDate = DateTime.Parse(filters[5]);
-
-            switch (filters?[3])
-            {
-                case "0":
-                    req.Status = CommentStatus.None;
-                    break;
-                case "1":
-                    req.Status = CommentStatus.Confirmed;
-                    break;
-                case "2":
-                    req.Status = CommentStatus.Unconfirmed;
-                    break;
-            }
+            ViewBag.searchKey = req.Searchkey; 
+            
+            req.BinSearchValuesToFields();
 
             return View(req);
         }

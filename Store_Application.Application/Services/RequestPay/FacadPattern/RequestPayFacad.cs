@@ -3,6 +3,7 @@ using Store_Application.Application.Interfaces.FacadPattern;
 using Store_Application.Application.Services.Orders.Commands.FinalizeOrder;
 using Store_Application.Application.Services.RequestPay.Commands.AddRequestPay;
 using Store_Application.Application.Services.RequestPay.Queries.GetRequestPay;
+using Store_Application.Application.Services.RequestPay.Queries.GetTotalPaysForAdmin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,8 +38,16 @@ namespace Store_Application.Application.Services.RequestPay.FacadPattern
             }
         }
 
+        private IGetTotalPaysForAdminService _getTotalPaysForAdminService;
+        public IGetTotalPaysForAdminService GetTotalPaysForAdminService
+        {
+            get
+            {
+                return _getTotalPaysForAdminService ??= new GetTotalPaysForAdminService(_db);
+            }
+        }
 
-        
+
 
 
     }

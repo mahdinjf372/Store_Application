@@ -59,6 +59,9 @@ namespace EndPoint.WebSite.Areas.Admin.Models.Product.Edit
 
             RuleFor(p => p.BrandId)
                  .Must(BrandIdValidation).WithMessage("لطفا برند محصول را انتخاب نمایید");
+
+            RuleFor(p => p.Tags)
+                 .Matches(@"^[a-z0-9A-Z\u0600-\u06FF\s _-]+$").WithMessage("فقط از اعداد و حروف فارسی و انگلیسی و _ و - میتوانید استفاده کنید");
         }
 
         private bool CategoryIdValidation(int id)

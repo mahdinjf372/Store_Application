@@ -3,6 +3,7 @@ using Store_Application.Application.Services.Orders.Commands.FinalizeOrder;
 using Store_Application.Application.Services.Orders.Queries.GetOrderForPay;
 using Store_Application.Application.Services.Orders.Queries.GetOrderForSite;
 using Store_Application.Application.Services.Orders.Queries.GetOrderForUserPanel;
+using Store_Application.Application.Services.Orders.Queries.GetOrdersForAdmin;
 using Store_Application.Application.Services.Orders.Queries.GetOrdersForUserPanel;
 
 namespace Store_Application.Application.Interfaces.FacadPattern
@@ -15,6 +16,7 @@ namespace Store_Application.Application.Interfaces.FacadPattern
         IFinalizeOrderService FinalizeOrderService { get; }
         IGetOrdersForUserPanelService GetOrdersForUserPanelService { get; }
         IGetOrderForUserPanelService GetOrderForUserPanelService { get; }
+        IGetOrdersForAdminService GetOrdersForAdminService { get; }
 
     }
 }

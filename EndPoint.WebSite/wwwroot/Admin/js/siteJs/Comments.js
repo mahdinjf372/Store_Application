@@ -83,7 +83,7 @@ function ApplyFilters() {
     var fromDate = $("#filter-fromDate").val();
     var toDate = $("#filter-toDate").val();
 
-    LoadComments(commentId, userId, productId, confirmed, fromDate, toDate, page, take);
+    LoadComments(commentId, userId, productId, confirmed, fromDate, toDate, 1, take);
 
 }
 

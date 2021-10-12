@@ -12,6 +12,8 @@ namespace Store_Application.Application.Services.Products.Commands.AddProduct
 
         public string Description { get; set; }
 
+        public string Tags { get; set; }
+
         public decimal Price { get; set; }
 
         public decimal DiscountAmount { get; set; }

@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "داشبورد";
+}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title-wrap bar-warning">
+                    <h4 class="card-title">داشبورد</h4>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="card-block ">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                            <div class="card bg-white">
+                                <div class="card-body">
+                                    <div class="card-block pt-2 pb-0">
+                                        <div class="media">
+                                            <div class="media-body white text-left">
+                                                <h4 class="font-medium-5 card-title mb-0">@ViewBag.totalSearchKey.ToString("N0") </h4>
+                                                <span class="grey darken-1">مجموع جستوجو ها</span>
+                                            </div>
+                                            <div class="media-right text-right">
+                                                <i class="icon-cup font-large-1 primary"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="Widget-line-chart" class="height-150 lineChartWidget WidgetlineChart mb-2">
+                                        <svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-line" style="width: 100%; height: 100%;"><g class="ct-grids"></g><g><g class="ct-series ct-series-a"><path d="M10,145L10,145C43.033,145,43.033,88.667,76.067,88.667C109.1,88.667,109.1,119,142.133,119C175.167,119,175.167,15,208.2,15C241.233,15,241.233,67,274.267,67C307.3,67,307.3,23.667,340.333,23.667L340.333,145Z" class="ct-area"></path><path d="M10,145C43.033,145,43.033,88.667,76.067,88.667C109.1,88.667,109.1,119,142.133,119C175.167,119,175.167,15,208.2,15C241.233,15,241.233,67,274.267,67C307.3,67,307.3,23.667,340.333,23.667" class="ct-line"></path><circle cx="10" cy="145" r="10" class="ct-point-circle-transperent"></circle><circle cx="76.06666870117188" cy="88.66666666666666" r="10" class="ct-point-circle-transperent"></circle><circle cx="142.13333740234376" cy="119" r="10" class="ct-point-circle-transperent"></circle><circle cx="208.20000610351565" cy="15" r="10" class="ct-point-circle"></circle><circle cx="274.2666748046875" cy="67" r="10" class="ct-point-circle-transperent"></circle><circle cx="340.3333435058594" cy="23.66666666666667" r="10" class="ct-point-circle-transperent"></circle></g></g><g class="ct-labels"></g><defs><linearGradient id="wGradient" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="rgba(130,73,232, 1)"></stop><stop offset="1" stop-color="rgba(41,123,249, 1)"></stop></linearGradient></defs><line x1="208.20000610351562" x2="208.20000610351562" y1="145" y2="15" class="ct-target-line"></line></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                            <div class="card bg-white">
+                                <div class="card-body">
+                                    <div class="card-block pt-2 pb-0">
+                                        <div class="media">
+                                            <div class="media-body white text-left">
+                                                <h4 class="font-medium-5 card-title mb-0">@ViewBag.totalOrders.ToString("N0") تومان</h4>
+                                                <span class="grey darken-1">کل فروش</span>
+                                            </div>
+                                            <div class="media-right text-right">
+                                                <i class="icon-wallet font-large-1 warning"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="Widget-line-chart1" class="height-150 lineChartWidget WidgetlineChart1 mb-2">
+                                        <svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-line" style="width: 100%; height: 100%;"><g class="ct-grids"></g><g><g class="ct-series ct-series-a"><path d="M10,145L10,145C43.033,145,43.033,88.667,76.067,88.667C109.1,88.667,109.1,119,142.133,119C175.167,119,175.167,15,208.2,15C241.233,15,241.233,67,274.267,67C307.3,67,307.3,23.667,340.333,23.667L340.333,145Z" class="ct-area"></path><path d="M10,145C43.033,145,43.033,88.667,76.067,88.667C109.1,88.667,109.1,119,142.133,119C175.167,119,175.167,15,208.2,15C241.233,15,241.233,67,274.267,67C307.3,67,307.3,23.667,340.333,23.667" class="ct-line"></path><circle cx="10" cy="145" r="10" class="ct-point-circle-transperent"></circle><circle cx="76.06666870117188" cy="88.66666666666666" r="10" class="ct-point-circle-transperent"></circle><circle cx="142.13333740234376" cy="119" r="10" class="ct-point-circle-transperent"></circle><circle cx="208.20000610351565" cy="15" r="10" class="ct-point-circle"></circle><circle cx="274.2666748046875" cy="67" r="10" class="ct-point-circle-transperent"></circle><circle cx="340.3333435058594" cy="23.66666666666667" r="10" class="ct-point-circle-transperent"></circle></g></g><g class="ct-labels"></g><defs><linearGradient id="wGradient1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(252,157,48, 1)"></stop><stop offset="1" stop-color="rgba(250,91,76, 1)"></stop></linearGradient></defs><line x1="208.20000610351562" x2="208.20000610351562" y1="145" y2="15" class="ct-target-line"></line></svg>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="chartjs col-12">
+                            <canvas id="requests-chart" height="400"></canvas>
+                        </div>
+                        <div class="form-group col-6 col-sm-4 col-md-2">
+                            <label for="filter-status" class="font-small-3">وضعیت</label>
+                            <div class="controls">
+                                <div class="input-group">
+                                    <select onchange="LoadChart()" id="request-timing" class="form-control form-control-sm" name="request-timing">
+                                        <option value="0">Minutely</option>
+                                        <option value="1">Hourly</option>
+                                        <option value="2" selected="selected">Daily</option>
+                                        <option value="3">Weekly</option>
+                                        <option value="4">Monthly</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <link href="~/Sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/Sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/Admin/js/chartist.js"></script>
+    <script src="~/Admin/vendors/js/chart.min.js"></script>
+    <script src="~/Admin/js/siteJs/Dashboard.js"></script>
+}

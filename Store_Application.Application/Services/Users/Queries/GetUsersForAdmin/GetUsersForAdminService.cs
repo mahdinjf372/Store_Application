@@ -23,7 +23,14 @@ namespace Store_Application.Application.Services.Users.Queries.GetUsersForAdmin
 
                 if (!string.IsNullOrEmpty(req.Searchkey))
                 {
-                    users = users.Where(u => u.Username.Contains(req.Searchkey) || u.Email.Contains(req.Searchkey));
+                    if (int.TryParse(req.Searchkey,out int id))
+                    {
+                        users = users.Where(u => u.Username.Contains(req.Searchkey) || u.Email.Contains(req.Searchkey) || u.Id == id);
+                    }
+                    else
+                    {
+                        users = users.Where(u => u.Username.Contains(req.Searchkey) || u.Email.Contains(req.Searchkey));
+                    }
                 }
 
                 int rowCount = 0;

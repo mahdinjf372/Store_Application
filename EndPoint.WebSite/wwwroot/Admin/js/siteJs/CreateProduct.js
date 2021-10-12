@@ -87,6 +87,42 @@ function LoadSubCategories(tagId, parentTagId) {
     }
 }
 
+function Tagging(event) {
+    var reg = /^([a-z0-9A-Z\u0600-\u06FF\s _-]+)$/;
+    if (!reg.test(event.data)) {
+        alert("فقط حروف و اعداد و -_");
+        var old = $("#tag-input").val();
+        old = old.substr(0, old.length - 1);
+        $("#tag-input").val(old);
+        return "";
+    } else {
+        var text = $("#tag-input").val();
+        if (reg.test(text)) {
+
+            text = text.trim();
+            var tags = text.split("-");
+            $("#tag-divs").empty();
+            for (var i = 0; i < tags.length; i++) {
+
+                var tag = tags[i];
+                tag = tag.trim();
+                if (tag == "" || tag == " ")
+                    break;
+
+                while (tag.includes(" ")) {
+                    tag = tag.replace(" ", "_");
+                }
+
+                var elm = "<div class=\"tag d-inline-block text-white font-small-3\">" +
+                    "<span>#</span> " + tag + "</div>";
+
+                $("#tag-divs").append(elm);
+            }
+        }
+    }
+
+}
+
 $(document).ready(function () {
 
     ClassicEditor
@@ -129,9 +165,9 @@ $(document).ready(function () {
             },
             heading: {
                 options: [
-                    { model: 'paragraph', title:'Paragraph', class: ''},
-                    { model: 'heading2', view: 'h2', title: 'Heading 1', class: 'params-headline'},
-                    { model: 'heading3', view: 'h3', title: 'Heading 2', class: 'content-expert-title'},
+                    { model: 'paragraph', title: 'Paragraph', class: '' },
+                    { model: 'heading2', view: 'h2', title: 'Heading 1', class: 'params-headline' },
+                    { model: 'heading3', view: 'h3', title: 'Heading 2', class: 'content-expert-title' },
                 ]
             },
             language: 'en',
@@ -146,7 +182,7 @@ $(document).ready(function () {
                     types: ['png', 'jpeg'],
                 }
             },
-            
+
             table: {
                 contentToolbar: [
                     'tableColumn',
@@ -166,6 +202,3 @@ $(document).ready(function () {
             console.error(error);
         });
 });
-
-
-

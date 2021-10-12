@@ -151,7 +151,7 @@
                                         </div>
                                         <div class="uploaded-imgs text-center">
                                             <input asp-for="Image" type="hidden" />
-                                            <img class="" id="productImage" src="/images/page-single-product/product-img/@(Model.Image??"default.jpg")" width="411">
+                                            <img class="" id="productImage" src="/images/page-single-product/product-img/@(Model.Image ?? "default.jpg")" width="411">
                                         </div>
                                     </div>
 
@@ -190,6 +190,30 @@
                                             <span asp-validation-for="Inventory" class="display-block text-danger"></span>
                                         </div>
                                     </div>
+
+                                    <div class="col-md-12">
+                                        <label asp-for="Tags">
+                                            برچسب های محصول
+                                            <p>برچسب ها را با - از هم جدا کنید (تکرری ها حذف خواهند شد)</p>
+                                        </label>
+                                        <span asp-validation-for="Tags" class="display-block text-danger"></span>
+                                        <div class="form-group">
+                                            <div class="form-control tagging">
+                                                <div id="tag-divs">
+
+                                                    @{var tags = Model.Tags.Split("-"); }
+                                                    @foreach (var tag in tags)
+                                                    {
+                                                        <div class="tag d-inline-block text-white font-small-3">
+                                                            <span>#</span> @tag
+                                                        </div>
+                                                    }
+                                                </div>
+                                                <input asp-for="Tags" type="text" id="tag-input" oninput="Tagging(event)" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="col-12">
                                         <hr>
                                     </div>
@@ -228,6 +252,8 @@
                                         <span asp-validation-for="BrandId" class="display-block text-danger border-buttom">
                                         </span>
                                         <span asp-validation-for="Inventory" class="display-block text-danger border-buttom">
+                                        </span>
+                                        <span asp-validation-for="Tags" class="display-block text-danger">
                                         </span>
                                         <span asp-validation-for="Displayed" class="display-block text-danger border-buttom">
                                         </span>

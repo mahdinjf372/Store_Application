@@ -50,6 +50,9 @@ using EndPoint.WebSite.Models.Question.Add;
 using Store_Application.Application.Services.Comment.FacadPattern;
 using Store_Application.Application.Services.Compare.FacadPattern;
 using Store_Application.Application.Services.Favorite.FacadPattern;
+using Store_Application.Application.Services.SiteRequest.FacadPattern;
+using EndPoint.WebSite.Middlewares;
+using Store_Application.Application.Services.SearchKeyInfo.FacadPattern;
 
 namespace EndPoint.WebSite
 {
@@ -93,6 +96,8 @@ namespace EndPoint.WebSite
             services.AddScoped<ICommentFacad, CommentFacad>();
             services.AddScoped<IFavoriteFacad, FavoriteFacad>();
             services.AddScoped<ICompareFacad, CompareFacad>();
+            services.AddScoped<ISiteRequestFacad, SiteRequestFacad>();
+            services.AddScoped<ISearchKeyInfoFacad, SearchKeyInfoFacad>();  
 
             #endregion
 
@@ -149,13 +154,11 @@ namespace EndPoint.WebSite
 
             #endregion
 
-            //string connection = "Data Source=.;Initial Catalog=StoreApplication_DB;Integrated Security=True;";
             services.AddEntityFrameworkSqlServer().AddDbContext<DataBaseContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
             services.AddControllersWithViews().AddFluentValidation();
 
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -165,19 +168,10 @@ namespace EndPoint.WebSite
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
-            app.Use(async (ctx, next) =>
-            {
-                await next();
-                if (ctx.Response.StatusCode == 404 && !ctx.Response.HasStarted)
-                {
-                    ctx.Response.Redirect("/NotFound");
-                    return;
-                }
-            });
+            app.UseHandleStatusCodes();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -185,6 +179,9 @@ namespace EndPoint.WebSite
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseRequestCounter();
+            app.UseSearchKeysCounter();
 
             app.UseEndpoints(endpoints =>
             {
@@ -196,6 +193,8 @@ namespace EndPoint.WebSite
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+
         }
     }
 }

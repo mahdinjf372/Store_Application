@@ -6,6 +6,7 @@ using Store_Application.Domain.Entities.Product;
 using System.Collections.Generic;
 using System.IO;
 using Store_Application.Common.Security;
+using Microsoft.EntityFrameworkCore;
 
 namespace Store_Application.Application.Services.Products.Commands.EditProduct
 {
@@ -24,6 +25,9 @@ namespace Store_Application.Application.Services.Products.Commands.EditProduct
 
             var des = DecodeDescriptionMedia(req.Description);
 
+            UpdateTagsToDb(req);
+
+            product.TagsForSearch = string.Join("-", _db.Tags.Where(t => t.ProductId == req.Id).Select(t => t.Title).ToList());
             product.BrandId = req.BrandId;
             product.CategoryId = req.SubGroupId;
             product.Description = des;
@@ -39,27 +43,7 @@ namespace Store_Application.Application.Services.Products.Commands.EditProduct
             _db.Products.Update(product);
             _db.SaveChanges();
 
-            if (req.MainImage != null)
-            {
-
-                var OldImgId = _db.ProductImages.SingleOrDefault(i => i.ProductId.Equals(req.Id) && i.IsMainImage && !i.isRemoved);
-                OldImgId.isRemoved = true;
-                OldImgId.RemovedTime = DateTime.Now;
-                _db.ProductImages.Update(OldImgId);
-                _db.SaveChanges();
-
-                Image image = SaveProductImages(req);
-                _db.ProductImages.Add(new ProductImage
-                {
-                    InsertTime = DateTime.Now,
-                    IsMainImage = image.isMainImage,
-                    Name = image.Name,
-                    ProductId = req.Id,
-                });
-                _db.SaveChanges();
-
-            }
-
+            UpdateMainImageToDb(req);
 
             res.IsSuccess = true;
             res.Message = "محصول با موفقیت ثبت شد";
@@ -137,6 +121,107 @@ namespace Store_Application.Application.Services.Products.Commands.EditProduct
 
             return des;
 
+        }
+
+        private List<Tag> MappingTags(string inputTags, int productId, int categoryId)
+        {
+            var tags = inputTags.Split("-").ToList();
+            var res = new List<Tag>();
+
+            var category = _db.Categories.Include(c => c.ParentCategory).ThenInclude(c => c.ParentCategory).Single(c => c.Id == categoryId);
+            tags.Add(category.Title);
+            tags.Add(category.ParentCategory.Title);
+            tags.Add(category.ParentCategory.ParentCategory.Title);
+
+            for (int i = 0; i < tags.Count(); i++)
+            {
+                tags[i] = tags[i].Trim();
+
+                while (tags[i].Contains(" "))
+                {
+                    tags[i] = tags[i].Replace(" ", "_");
+                }
+
+                while (tags[i].Contains("__"))
+                {
+                    tags[i] = tags[i].Replace("__", "_");
+                }
+
+            }
+
+            tags = tags.Distinct().ToList();
+
+            foreach (var tag in tags)
+            {
+                if (string.IsNullOrEmpty(tag))
+                    continue;
+
+                res.Add(new Tag
+                {
+                    InsertTime = DateTime.Now,
+                    ProductId = productId,
+                    Title = tag
+                });
+            }
+
+            return res;
+        }
+
+        private void UpdateMainImageToDb(RequestEditProductDto req)
+        {
+            if (req.MainImage != null)
+            {
+                var OldImgId = _db.ProductImages.SingleOrDefault(i => i.ProductId.Equals(req.Id) && i.IsMainImage && !i.isRemoved);
+                OldImgId.isRemoved = true;
+                OldImgId.RemovedTime = DateTime.Now;
+                _db.ProductImages.Update(OldImgId);
+                _db.SaveChanges();
+
+                Image image = SaveProductImages(req);
+                _db.ProductImages.Add(new ProductImage
+                {
+                    InsertTime = DateTime.Now,
+                    IsMainImage = image.isMainImage,
+                    Name = image.Name,
+                    ProductId = req.Id,
+                });
+                _db.SaveChanges();
+
+            }
+        }
+
+        private void UpdateTagsToDb(RequestEditProductDto req)
+        {
+            var newTags = MappingTags(req.Tags, req.Id, req.SubGroupId);
+
+            var oldTags = _db.Tags.Where(t => t.ProductId == req.Id).ToList();
+
+            foreach (var oldTag in oldTags)
+            {
+                var isExist = newTags.FirstOrDefault(t => t.Title == oldTag.Title);
+                if (isExist != null)
+                {
+                    newTags.Remove(isExist);
+                }
+                else
+                {
+                    oldTag.isRemoved = true;
+                    oldTag.RemovedTime = DateTime.Now;
+                    _db.Tags.Update(oldTag);
+                    _db.SaveChanges();
+                }
+            }
+
+            foreach (var tag in newTags)
+            {
+                _db.Tags.Add(new Tag
+                {
+                    InsertTime = DateTime.Now,
+                    ProductId = req.Id,
+                    Title = tag.Title
+                });
+                _db.SaveChanges();
+            }
         }
     }
 }

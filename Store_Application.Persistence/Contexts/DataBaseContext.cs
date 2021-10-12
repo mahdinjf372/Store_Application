@@ -13,6 +13,7 @@ using Store_Application.Domain.Entities.Question;
 using Store_Application.Domain.Entities.Comment;
 using Store_Application.Domain.Entities.Compare;
 using Store_Application.Domain.Entities.Favorite;
+using Store_Application.Domain.Entities.Statistic;
 
 namespace Store_Application.Persistence.Contexts
 {
@@ -40,7 +41,7 @@ namespace Store_Application.Persistence.Contexts
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<ProductSlider> ProductSliders { get; set; }
-
+        public DbSet<Tag> Tags { get; set; }
 
         #endregion
 
@@ -98,7 +99,12 @@ namespace Store_Application.Persistence.Contexts
 
         #endregion
 
+        #region Statistic
 
+        public DbSet<SiteRequest> SiteRequests { get; set; }
+        public DbSet<SearchKeyInfo> SearchKeysInfo { get; set; }
+
+        #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -138,6 +144,7 @@ namespace Store_Application.Persistence.Contexts
             modelBuilder.Entity<Dislike>().HasQueryFilter(d => !d.isRemoved);
             modelBuilder.Entity<Favorite>().HasQueryFilter(f => !f.isRemoved);
             modelBuilder.Entity<Compare>().HasQueryFilter(c => !c.isRemoved);
+            modelBuilder.Entity<Tag>().HasQueryFilter(c => !c.isRemoved);
         }
 
         private void SeedData(ModelBuilder modelBuilder)
@@ -581,6 +588,16 @@ namespace Store_Application.Persistence.Contexts
                 .HasOne(c => c.Product)
                 .WithMany(p => p.Compares)
                 .HasForeignKey(c => c.ProductId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            #endregion
+
+            #region Tag-product
+
+            modelBuilder.Entity<Tag>()
+                .HasOne(t => t.Product)
+                .WithMany(p => p.Tags)
+                .HasForeignKey(t => t.ProductId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             #endregion
