@@ -12,6 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0-rc.2.20475.6">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -25,6 +27,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Mapper\Admin\" />
+    <Folder Include="Mapper\UserPanel\" />
     <Folder Include="wwwroot\images\menu-main\card\" />
     <Folder Include="wwwroot\images\slider-brand\" />
   </ItemGroup>

@@ -1,8 +1,10 @@
 ﻿using EndPoint.WebSite.Areas.Admin.Models.Comment.LoadComments;
 using EndPoint.WebSite.Areas.Admin.Models.Common;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Store_Application.Application.Interfaces.FacadPattern;
 using Store_Application.Application.Services.Comment.Queries.GetCommentsForAdmin;
+using Store_Application.Domain.Enums;
 using System;
 using System.Linq;
 

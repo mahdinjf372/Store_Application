@@ -14,6 +14,29 @@ using Store_Application.Domain.Entities.Comment;
 using Store_Application.Domain.Entities.Compare;
 using Store_Application.Domain.Entities.Favorite;
 using Store_Application.Domain.Entities.Statistic;
+using Store_Application.Persistence.Configurations.Entities.User;
+using Store_Application.Persistence.Configurations.Entities.Role;
+using Store_Application.Persistence.Configurations.Entities.UserRoles;
+using Store_Application.Persistence.Configurations.Entities.Category;
+using Store_Application.Persistence.Configurations.Entities.Brand;
+using Store_Application.Persistence.Configurations.Entities.Feature;
+using Store_Application.Persistence.Configurations.Entities.Product;
+using Store_Application.Persistence.Configurations.Entities.MainSlider;
+using Store_Application.Persistence.Configurations.Entities.BrandSlider;
+using Store_Application.Persistence.Configurations.Entities.Advertising;
+using Store_Application.Persistence.Configurations.Entities.CartItem;
+using Store_Application.Persistence.Configurations.Entities.Question;
+using Store_Application.Persistence.Configurations.Entities.Comment;
+using Store_Application.Persistence.Configurations.Entities.ProductImage;
+using Store_Application.Persistence.Configurations.Entities.ProductFeature;
+using Store_Application.Persistence.Configurations.Entities.Cart;
+using Store_Application.Persistence.Configurations.Entities.Compare;
+using Store_Application.Persistence.Configurations.Entities.Favorite;
+using Store_Application.Persistence.Configurations.Entities.OrderDetail;
+using Store_Application.Persistence.Configurations.Entities.Order;
+using Store_Application.Persistence.Configurations.Entities.ProductSlider;
+using Store_Application.Persistence.Configurations.Entities.RequestPay;
+using Store_Application.Persistence.Configurations.Entities.Tag;
 
 namespace Store_Application.Persistence.Contexts
 {
@@ -106,12 +129,11 @@ namespace Store_Application.Persistence.Contexts
 
         #endregion
 
+        //28
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
             ConfigurationEntities(modelBuilder);
-
-            ApplyRelations(modelBuilder);
 
             ApplyQueryFilters(modelBuilder);
 
@@ -186,423 +208,34 @@ namespace Store_Application.Persistence.Contexts
                 new UserRoles { Id = 2, InsertTime = DateTime.Now, UserId = 1, RoleId = (int)Domain.Enums.Roles.Customer},
                 new UserRoles { Id = 3, InsertTime = DateTime.Now, UserId = 1, RoleId = (int)Domain.Enums.Roles.Operator},
             });
-
         }
 
         private void ConfigurationEntities(ModelBuilder modelBuilder)
         {
-            #region User
-
-            modelBuilder.Entity<User>()
-                 .HasKey(u => u.Id);
-
-            modelBuilder.Entity<User>()
-                .Property(u => u.FullName)
-                .HasMaxLength(200);
-
-            modelBuilder.Entity<User>()
-                .Property(u => u.age)
-                .HasDefaultValue(null);
-
-            modelBuilder.Entity<User>()
-                .Property(u => u.Email)
-                .IsRequired();
-
-            modelBuilder.Entity<User>()
-                .Property(u => u.Password)
-                .IsRequired();
-
-            modelBuilder.Entity<User>()
-                .Property(u => u.ActiveCode)
-                .IsRequired();
-
-            modelBuilder.Entity<User>()
-                .Property(u => u.isActive)
-                .HasDefaultValue(false);
-
-            modelBuilder.Entity<User>()
-                .HasIndex(u => u.Email)
-                .IsUnique();
-
-            #endregion
-
-            #region Role
-
-            modelBuilder.Entity<Role>()
-                .HasKey(r => r.Id);
-
-            #endregion
-
-            #region UserRoles
-
-            modelBuilder.Entity<UserRoles>()
-                .HasKey(r => r.Id);
-
-            #endregion
-
-            #region Category
-
-            modelBuilder.Entity<Category>()
-                .HasKey(u => u.Id);
-
-            #endregion
-
-            #region Brand
-
-            modelBuilder.Entity<Brand>()
-                .HasKey(u => u.Id);
-
-            #endregion
-
-            #region Feature
-
-            modelBuilder.Entity<Feature>()
-                .HasKey(u => u.Id);
-
-            #endregion
-
-            #region Product
-
-            modelBuilder.Entity<Product>()
-                .HasKey(p => p.Id);
-
-            modelBuilder.Entity<Product>()
-                .Property(p => p.Price)
-                .HasDefaultValue(0);
-
-            modelBuilder.Entity<Product>()
-                .Property(p => p.DiscountAmount)
-                .HasDefaultValue(0);
-
-            modelBuilder.Entity<Product>()
-                .Property(p => p.Inventory)
-                .HasDefaultValue(0);
-
-            modelBuilder.Entity<Product>()
-                .Property(p => p.Displayed)
-                .HasDefaultValue(true);
-
-            #endregion
-
-            #region MainSlider
-
-            modelBuilder.Entity<MainSlider>()
-                .Property(s => s.Title).HasMaxLength(200);
-
-            #endregion
-
-            #region BrandSlider
-
-            modelBuilder.Entity<BrandSlider>()
-                .Property(s => s.Title).HasMaxLength(200);
-
-            #endregion
-
-            #region Advertising
-
-            modelBuilder.Entity<Advertising>()
-                .Property(a => a.Title).HasMaxLength(200);
-
-            #endregion
-
-            #region CartItem
-
-            modelBuilder.Entity<CartItem>()
-                .HasKey(pf => pf.Id);
-
-            #endregion
-
-            #region Question
-
-            modelBuilder.Entity<Question>()
-                .Property(q => q.AdminIsRead)
-                .HasDefaultValue(false);
-
-            modelBuilder.Entity<Question>()
-                .Property(q => q.ConfirmedByAdmin)
-                .HasDefaultValue(false);
-
-            #endregion
-
-            #region Comment
-
-            modelBuilder.Entity<Comment>()
-                .Property(q => q.AdminIsRead)
-                .HasDefaultValue(false);
-
-            modelBuilder.Entity<Comment>()
-                .Property(q => q.ConfirmedByAdmin)
-                .HasDefaultValue(false);
-
-            modelBuilder.Entity<Comment>()
-                .Property(q => q.Rate)
-                .HasDefaultValue(1);
-
-            #endregion
-
+            modelBuilder.ApplyConfiguration(new AdvertisingConfiguration());
+            modelBuilder.ApplyConfiguration(new BrandConfiguration());
+            modelBuilder.ApplyConfiguration(new BrandSliderConfiguration());
+            modelBuilder.ApplyConfiguration(new CartConfiguration());
+            modelBuilder.ApplyConfiguration(new CartItemConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new CommentConfiguration());
+            modelBuilder.ApplyConfiguration(new CompareConfiguration());
+            modelBuilder.ApplyConfiguration(new FavoriteConfiguration());
+            modelBuilder.ApplyConfiguration(new FeatureConfiguration());
+            modelBuilder.ApplyConfiguration(new MainSliderConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductFeatureConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductImageConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductSliderConfiguration());
+            modelBuilder.ApplyConfiguration(new QuestionConfiguration());
+            modelBuilder.ApplyConfiguration(new RequestPayConfiguration());
+            modelBuilder.ApplyConfiguration(new RoleConfiguration());
+            modelBuilder.ApplyConfiguration(new TagConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new UserRolesConfiguration());
         }
-
-        private void ApplyRelations(ModelBuilder modelBuilder)
-        {
-
-            #region User-UserRoles-Role
-
-            modelBuilder.Entity<UserRoles>()
-                            .HasOne(ur => ur.User)
-                            .WithMany(u => u.UserRoles)
-                            .HasForeignKey(ur => ur.UserId);
-
-            modelBuilder.Entity<UserRoles>()
-                            .HasOne(ur => ur.Role)
-                            .WithMany(r => r.UserRoles)
-                            .HasForeignKey(ur => ur.RoleId);
-
-            #endregion
-
-            #region Product-ProductImage-Image
-
-            modelBuilder.Entity<Product>()
-                .HasMany(p => p.Images)
-                .WithOne(i => i.Product);
-
-            modelBuilder.Entity<ProductImage>()
-                .HasOne(pi => pi.Product)
-                .WithMany(p => p.Images)
-                .HasForeignKey(pi => pi.ProductId);
-
-            #endregion
-
-            #region Product-Brand
-
-            modelBuilder.Entity<Product>()
-                 .HasOne(p => p.Brand)
-                 .WithMany(b => b.Product)
-                 .HasForeignKey(p => p.BrandId);
-
-            #endregion
-
-            #region Product-Category
-
-            modelBuilder.Entity<Product>()
-                .HasOne(p => p.Category)
-                .WithMany(c => c.Products)
-                .IsRequired();
-
-            #endregion
-
-            #region Product-productFeature-Feature
-
-            modelBuilder.Entity<ProductFeature>()
-                .HasKey(pf => pf.Id);
-
-
-            modelBuilder.Entity<ProductFeature>()
-                .HasOne(pf => pf.Product)
-                .WithMany(p => p.Features)
-                .HasForeignKey(pf => pf.ProductId);
-
-            modelBuilder.Entity<ProductFeature>()
-                .HasOne(pf => pf.Feature)
-                .WithMany(f => f.Values)
-                .HasForeignKey(pf => pf.FeatureId);
-
-            #endregion
-
-            #region Category-Category
-
-            modelBuilder.Entity<Category>()
-                .HasOne(c => c.ParentCategory)
-                .WithMany(c => c.SubCategories)
-                .HasForeignKey(c => c.ParentCategoryId);
-
-            #endregion
-
-            #region Product-productSliders-slider
-
-            modelBuilder.Entity<ProductSlider>()
-                .HasOne(ps => ps.Product)
-                .WithMany(p => p.ProductSliders)
-                .HasForeignKey(pi => pi.ProductId);
-
-            modelBuilder.Entity<ProductSlider>()
-                .HasOne(ps => ps.Slider)
-                .WithMany(p => p.ProductSliders)
-                .HasForeignKey(pi => pi.SliderId);
-
-            #endregion
-
-            #region Product-CartItem-Cart
-
-            modelBuilder.Entity<CartItem>()
-                .HasOne(ci => ci.Product)
-                .WithMany(p => p.CartItems)
-                .HasForeignKey(ci => ci.ProductId);
-
-            modelBuilder.Entity<CartItem>()
-                .HasOne(ci => ci.Cart)
-                .WithMany(c => c.CartItems)
-                .HasForeignKey(ci => ci.CartId);
-
-            #endregion
-
-            #region Cart-User
-
-            modelBuilder.Entity<Cart>()
-                .HasOne(c => c.User)
-                .WithMany(u => u.Carts)
-                .HasForeignKey(c => c.UserId);
-
-            #endregion
-
-            #region Product-OrderDetail-Order
-
-            modelBuilder.Entity<OrderDetail>()
-                .HasOne(od => od.Product)
-                .WithMany(p => p.OrderDetails)
-                .HasForeignKey(ci => ci.ProductId);
-
-            modelBuilder.Entity<OrderDetail>()
-                .HasOne(od => od.Order)
-                .WithMany(o => o.OrderDetails)
-                .HasForeignKey(od => od.OrderId);
-
-            #endregion
-
-            #region Order-User
-
-            modelBuilder.Entity<Order>()
-                .HasOne(o => o.User)
-                .WithMany(u => u.Orders)
-                .HasForeignKey(o => o.UserId)
-                .OnDelete(DeleteBehavior.NoAction);
-
-            #endregion
-
-            #region Order-RequestPay-User
-
-            modelBuilder.Entity<Order>()
-                .HasOne(o => o.RequestPay)
-                .WithMany(rp => rp.Orders)
-                .HasForeignKey(o => o.RequestPayId)
-                .OnDelete(DeleteBehavior.NoAction);
-
-            modelBuilder.Entity<RequestPay>()
-                .HasOne(rp => rp.User)
-                .WithMany(u => u.RequestPays)
-                .HasForeignKey(rp => rp.UserId);
-
-            #endregion
-
-            #region User-Question-Product
-
-            modelBuilder.Entity<Question>()
-                            .HasOne(q => q.User)
-                            .WithMany(u => u.Questions)
-                            .HasForeignKey(q => q.UserId);
-
-            modelBuilder.Entity<Question>()
-                            .HasOne(q => q.Product)
-                            .WithMany(p => p.Questions)
-                            .HasForeignKey(q => q.ProductId);
-
-            modelBuilder.Entity<Question>()
-                            .HasOne(q => q.ParentQuestion)
-                            .WithMany(a => a.Answers)
-                            .HasForeignKey(q => q.ParentQuestionId);
-
-            #endregion
-
-            #region User-Comment-Product
-
-            modelBuilder.Entity<Comment>()
-                .HasOne(c => c.User)
-                .WithMany(u => u.Comments)
-                .HasForeignKey(c => c.UserId);
-
-            modelBuilder.Entity<Comment>()
-                 .HasOne(c => c.Product)
-                 .WithMany(p => p.Comments)
-                 .HasForeignKey(c => c.ProductId);
-
-            #endregion
-
-            #region Like-Comment-Disklike
-
-            modelBuilder.Entity<Comment>()
-                .HasMany(c => c.Likes)
-                .WithOne(l => l.Comment)
-                .HasForeignKey(l => l.CommentId)
-                .OnDelete(DeleteBehavior.NoAction);
-
-
-            modelBuilder.Entity<Comment>()
-                .HasMany(c => c.Dislikes)
-                .WithOne(l => l.Comment)
-                .HasForeignKey(l => l.CommentId)
-                .OnDelete(DeleteBehavior.NoAction);
-
-
-            #endregion
-
-            #region Like-User-Disklike
-
-            modelBuilder.Entity<User>()
-                .HasMany(c => c.Likes)
-                .WithOne(l => l.User)
-                .HasForeignKey(l => l.UserId)
-                .OnDelete(DeleteBehavior.NoAction);
-
-            modelBuilder.Entity<User>()
-                .HasMany(c => c.Dislikes)
-                .WithOne(l => l.User)
-                .HasForeignKey(l => l.UserId)
-                .OnDelete(DeleteBehavior.NoAction);
-
-            #endregion
-
-            #region Favorite
-
-            modelBuilder.Entity<Favorite>()
-                .HasOne(f => f.User)
-                .WithMany(u => u.Favorites)
-                .HasForeignKey(f => f.UserId)
-                .OnDelete(DeleteBehavior.NoAction);
-
-            modelBuilder.Entity<Favorite>()
-                .HasOne(f => f.Product)
-                .WithMany(p => p.Favorites)
-                .HasForeignKey(f => f.ProductId)
-                .OnDelete(DeleteBehavior.NoAction);
-
-            #endregion
-
-            #region Compaire
-
-            modelBuilder.Entity<Compare>()
-                .HasOne(c => c.User)
-                .WithMany(u => u.Compares)
-                .HasForeignKey(c => c.UserId)
-                .OnDelete(DeleteBehavior.NoAction);
-
-            modelBuilder.Entity<Compare>()
-                .HasOne(c => c.Product)
-                .WithMany(p => p.Compares)
-                .HasForeignKey(c => c.ProductId)
-                .OnDelete(DeleteBehavior.NoAction);
-
-            #endregion
-
-            #region Tag-product
-
-            modelBuilder.Entity<Tag>()
-                .HasOne(t => t.Product)
-                .WithMany(p => p.Tags)
-                .HasForeignKey(t => t.ProductId)
-                .OnDelete(DeleteBehavior.NoAction);
-
-            #endregion
-        }
-
 
         private void SeedsTestData(ModelBuilder modelBuilder)
         {

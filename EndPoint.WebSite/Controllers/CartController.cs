@@ -1,4 +1,5 @@
-﻿using EndPoint.WebSite.Models.Cart.Index;
+﻿using AutoMapper;
+using EndPoint.WebSite.Models.Cart.Index;
 using EndPoint.WebSite.Models.Cart.LoadCart;
 using EndPoint.WebSite.Models.Cart.SaveCartChanges;
 using EndPoint.WebSite.Utilities;
@@ -19,12 +20,17 @@ namespace EndPoint.WebSite.Controllers
         private readonly ICartFacad _cartFacad;
         private readonly CookiesManager _cookiesManager;
         private readonly ClaimUtility _claimUtility;
+        private readonly IMapper _mapper;
 
-        public CartController(ICartFacad cartFacad, CookiesManager cookiesManager, ClaimUtility claimUtility)
+        public CartController(ICartFacad cartFacad,
+            CookiesManager cookiesManager,
+            ClaimUtility claimUtility,
+            IMapper mapper)
         {
             _cartFacad = cartFacad;
             _cookiesManager = cookiesManager;
             _claimUtility = claimUtility;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -40,24 +46,7 @@ namespace EndPoint.WebSite.Controllers
 
             var res = _cartFacad.GetCartForSiteService.Execute(userId, browserId);
 
-            Models.Cart.Index.CartViewModel model = new Models.Cart.Index.CartViewModel()
-            {
-                CartId = res.Data.CartId,
-                ProductCount = res.Data.ProductCount,
-                SumAmount = res.Data.SumAmount,
-                CartItems = res.Data.CartItems.Select(i => new Models.Cart.Index.CartItemViewModel
-                {
-                    Id = i.Id,
-                    Count = i.Count,
-                    ImageName = i.ImageName,
-                    DiscountAmount = i.DiscountAmount,
-                    Price = i.Price,
-                    ProductId = i.ProductId,
-                    Title = i.Title,
-                    PriceWithDiscount = i.Price - i.DiscountAmount,
-                    Inventory = i.Inventory
-                }).ToList(),
-            };
+            var model = _mapper.Map<Models.Cart.Index.CartViewModel>(res.Data);
 
             return View(model);
         }
@@ -172,23 +161,7 @@ namespace EndPoint.WebSite.Controllers
 
             var res = _cartFacad.GetCartForSiteService.Execute(userId, browserId);
 
-            Models.Cart.LoadCart.CartViewModel model = new Models.Cart.LoadCart.CartViewModel()
-            {
-                CartId = res.Data.CartId,
-                ProductCount = res.Data.ProductCount,
-                SumAmount = res.Data.SumAmount,
-                CartItems = res.Data.CartItems.Select(i => new Models.Cart.LoadCart.CartItemViewModel
-                {
-                    Id = i.Id,
-                    Count = i.Count,
-                    ImageName = i.ImageName,
-                    DiscountAmount = i.DiscountAmount,
-                    Price = i.Price,
-                    ProductId = i.ProductId,
-                    Title = i.Title,
-                    PriceWithDiscount = i.Price - i.DiscountAmount
-                }).ToList(),
-            };
+            var model = _mapper.Map<Models.Cart.LoadCart.CartViewModel>(res.Data);
 
             return PartialView("_BasketCart", model);
         }

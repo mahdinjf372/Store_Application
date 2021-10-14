@@ -1,9 +1,11 @@
 ﻿using EndPoint.WebSite.Areas.Admin.Models.Common;
 using EndPoint.WebSite.Areas.Admin.Models.Order.Common;
 using EndPoint.WebSite.Areas.Admin.Models.Order.LoadOrders;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Store_Application.Application.Interfaces.FacadPattern;
 using Store_Application.Application.Services.Orders.Queries.GetOrdersForAdmin;
+using Store_Application.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;

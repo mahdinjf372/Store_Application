@@ -1,7 +1,9 @@
 ﻿using EndPoint.WebSite.Areas.Admin.Models.Dashboard.LoadSiteRequestCount;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Store_Application.Application.Interfaces.FacadPattern;
 using Store_Application.Application.Services.SiteRequest.Queries.GetSiteRequestsPerTime;
+using Store_Application.Domain.Enums;
 using System.Linq;
 
 namespace EndPoint.WebSite.Areas.Admin.Controllers
