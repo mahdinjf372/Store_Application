@@ -1,4 +1,5 @@
-﻿using EndPoint.WebSite.Models.Checkout.Index;
+﻿using AutoMapper;
+using EndPoint.WebSite.Models.Checkout.Index;
 using EndPoint.WebSite.Utilities;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
@@ -16,10 +17,12 @@ namespace EndPoint.WebSite.Controllers
     {
         private readonly IOrderFacad _orderFacad;
         private readonly ClaimUtility _claimUtility;
-        public CheckoutController(IOrderFacad orderFacad, ClaimUtility claimUtility)
+        private readonly IMapper _mapper;
+        public CheckoutController(IOrderFacad orderFacad, ClaimUtility claimUtility, IMapper mapper)
         {
             _orderFacad = orderFacad;
             _claimUtility = claimUtility;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -31,26 +34,8 @@ namespace EndPoint.WebSite.Controllers
 
             if (res.IsSuccess)
             {
-                CheckoutViewModel model = new CheckoutViewModel()
-                {
-                    Address = res.Data.Address,
-                    Description = res.Data.Description,
-                    PostCode = res.Data.PostCode,
-                    ReceiverName = res.Data.ReceiverName,
-                    ReceiverPhone = res.Data.ReceiverPhone,
-                    TotalAmount = res.Data.TotalAmount,
-                    OrderDetails = res.Data.OrderDetails.Select(od => new OrderDetailViewModel
-                    {
-                        Id = od.Id,
-                        Count = od.Count,
-                        DiscountAmount = od.DiscountAmount,
-                        Price = od.Price,
-                        Title = od.Title,
-                        SumPrice = od.SumPrice,
-                        ProductId = od.ProductId,
-                        PriceWithDiscount = od.PriceWithDiscount,
-                    }).ToList(),
-                };
+                CheckoutViewModel model = _mapper.Map<CheckoutViewModel>(res.Data);
+
                 return View(model);
             }
 
@@ -62,7 +47,6 @@ namespace EndPoint.WebSite.Controllers
         [Authorize]
         public IActionResult Index(CheckoutViewModel req)
         {
-
             var RequestValidation = new CheckoutViewModelValidator();
             var Validation = RequestValidation.Validate(req);
             Validation.AddToModelState(ModelState, null);
@@ -71,43 +55,23 @@ namespace EndPoint.WebSite.Controllers
 
             if (!ModelState.IsValid)
             {
-                
                 var model = _orderFacad.GetOrderForSiteService.Execute(userId);
 
-                if (model.IsSuccess)
-                {
-                    req.TotalAmount = model.Data.TotalAmount;
-                    req.OrderDetails = model.Data.OrderDetails.Select(od => new OrderDetailViewModel
-                    {
-                        Id = od.Id,
-                        Count = od.Count,
-                        DiscountAmount = od.DiscountAmount,
-                        Price = od.Price,
-                        Title = od.Title,
-                        SumPrice = od.SumPrice,
-                        ProductId = od.ProductId,
-                        PriceWithDiscount = od.PriceWithDiscount,
-                    }).ToList();
-                }
-                else
+                if (!model.IsSuccess)
                 {
                     return Redirect("/Cart");
                 }
 
-
-
+                req.TotalAmount = model.Data.TotalAmount;
+                req.OrderDetails = _mapper.Map<List<OrderDetailViewModel>>(model.Data.OrderDetails);
+                
                 return View(req);
             }
 
-            var res = _orderFacad.EditOrderForSiteService.Execute(new RequestEditOrerForSiteDto
-            {
-                UserId = userId,
-                Address = req.Address,
-                Description = req.Description,
-                PostCode = req.PostCode,
-                ReceiverName = req.ReceiverName,
-                ReceiverPhone = req.ReceiverPhone
-            });
+            var serviceRequest = _mapper.Map<RequestEditOrerForSiteDto>(req);
+            serviceRequest.UserId = userId;
+
+            var res = _orderFacad.EditOrderForSiteService.Execute(serviceRequest);
 
             return RedirectToAction("Index","Pay");
 

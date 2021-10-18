@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using EndPoint.WebSite.Areas.UserPanel.Models.Question.Index;
 using EndPoint.WebSite.Utilities;
 using Store_Application.Application.Interfaces.FacadPattern;
+using AutoMapper;
 
 namespace EndPoint.WebSite.Areas.UserPanel.Controllers
 {
@@ -14,10 +15,14 @@ namespace EndPoint.WebSite.Areas.UserPanel.Controllers
     {
         private readonly IQuestionFacad _questionFacad;
         private readonly ClaimUtility _claimUtility;
-        public QuestionController(IQuestionFacad questionFacad, ClaimUtility claimUtility)
+        private readonly IMapper _mapper;
+        public QuestionController(IQuestionFacad questionFacad,
+            ClaimUtility claimUtility,
+            IMapper mapper)
         {
             _questionFacad = questionFacad;
             _claimUtility = claimUtility;
+            _mapper = mapper;
         }
 
         public IActionResult Index()
@@ -30,21 +35,7 @@ namespace EndPoint.WebSite.Areas.UserPanel.Controllers
 
             if (res.IsSuccess)
             {
-                model = res.Data.Select(c => new UserQuestionViewModel()
-                {
-                    Id = c.Id,
-                    ConfirmedByAdmin = c.ConfirmedByAdmin,
-                    ProductId = c.ProductId,
-                    Text = c.Text,
-                    ParentQuestionText = c.ParentQuestionText,
-                    AdminIsRead = c.AdminIsRead,
-                    Product = new ProductViewModel()
-                    {
-                        Id = c.Product.Id,
-                        Title = c.Product.Title,
-                        ImageName = c.Product.ImageName
-                    }
-                }).ToList();
+                model = _mapper.Map<List<UserQuestionViewModel>>(res.Data);
             }
 
             return View(model);

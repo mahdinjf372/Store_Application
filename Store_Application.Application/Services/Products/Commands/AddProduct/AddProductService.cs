@@ -21,7 +21,7 @@ namespace Store_Application.Application.Services.Products.Commands.AddProduct
         public ResultDto Execute(RequestAddProductDto req)
         {
             var res = new ResultDto();
-            
+
             var des = DecodeDescriptionMedia(req.Description);
 
             Product product = new Product()
@@ -53,7 +53,8 @@ namespace Store_Application.Application.Services.Products.Commands.AddProduct
 
             }).ToList();
 
-            var tags = MappingTags(req.Tags, product.Id,req.SubGroupId);
+
+            var tags = MappingTags(req.Tags, product.Id, req.SubGroupId);
 
             var pr = _db.Products.Find(product.Id);
             pr.TagsForSearch = string.Join("-", tags.Select(t => t.Title).ToList());
@@ -162,10 +163,13 @@ namespace Store_Application.Application.Services.Products.Commands.AddProduct
             return des;
         }
 
-        private List<Tag> MappingTags(string inputTags,int productId,int categoryId)
+        private List<Tag> MappingTags(string inputTags, int productId, int categoryId)
         {
-            var tags = inputTags.Split("-").ToList();
             var res = new List<Tag>();
+            List<string> tags = new List<string>();
+
+            if (!string.IsNullOrEmpty(inputTags))
+                tags = inputTags.Split("-").ToList();
 
             var category = _db.Categories.Include(c => c.ParentCategory).ThenInclude(c => c.ParentCategory).Single(c => c.Id == categoryId);
             tags.Add(category.Title);
@@ -202,7 +206,6 @@ namespace Store_Application.Application.Services.Products.Commands.AddProduct
                     Title = tag
                 });
             }
-
             return res;
         }
     }

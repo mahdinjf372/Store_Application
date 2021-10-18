@@ -29,7 +29,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
             ViewBag.take = req.Take;
             ViewBag.searchKey = req.Searchkey;
 
-            req.BinSearchValuesToFields();
+            req.BindSearchValuesToFields();
 
             return View(req);
         }

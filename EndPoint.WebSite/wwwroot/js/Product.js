@@ -302,10 +302,11 @@ $("#addToCompare").on('click', function () {
         $.post("/Compare/AddToCompare", postData,
             function (data) {
                 if (data.isSuccess) {
-                    $("#compare-snack-bar").html("می توانید لیست مقایسه را از پنل کاربری مشاهده نمایید");
+                    $("#compare-snack-bar").html("به لیست مقایسه اضافه شد و تا چند ثانیه دیگر به صفحه مقایسه منتقل میشوید");
                     $("#compare-snack-bar").addClass("show");
                     setTimeout(function () {
                         $("#compare-snack-bar").removeClass("show");
+                        $(location).attr("href", "/Compare");
                     }, 5400);
                 }
             });

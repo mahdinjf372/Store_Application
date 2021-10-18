@@ -1,4 +1,5 @@
-﻿using EndPoint.WebSite.Models.Comment.Add;
+﻿using AutoMapper;
+using EndPoint.WebSite.Models.Comment.Add;
 using EndPoint.WebSite.Models.Comment.DislikeComment;
 using EndPoint.WebSite.Models.Comment.LikeComment;
 using EndPoint.WebSite.Models.Comment.LoadComments;
@@ -22,13 +23,17 @@ namespace EndPoint.WebSite.Controllers
         private readonly ICommentFacad _commentFacad;
         private readonly IProductFacad _productFacad;
         private readonly ClaimUtility _claimUtility;
+        private readonly IMapper _mapper;
+
         public CommentController(ICommentFacad commentFacad,
             IProductFacad productFacad,
-            ClaimUtility claimUtility)
+            ClaimUtility claimUtility,
+            IMapper mapper)
         {
             _commentFacad = commentFacad;
             _productFacad = productFacad;
             _claimUtility = claimUtility;
+            _mapper = mapper;
         }
 
         [HttpPost]
@@ -40,19 +45,8 @@ namespace EndPoint.WebSite.Controllers
 
             if (res.IsSuccess)
             {
-                model = res.Data.Select(c => new LoadCommentsViewModel
-                {
-                    Id = c.Id,
-                    InsertTime = c.InsertTime,
-                    Title = c.Title,
-                    Text = c.Text,
-                    LikesCount = c.LikesCount,
-                    DislikesCount = c.DislikesCount,
-                    IRecommended = c.IRecommended,
-                    Rate = c.Rate,
-                    UserId = c.User.Id,
-                    Username = c.User.Username
-                }).OrderBy(q => q.InsertTime).ToList();
+                model = _mapper.Map<List<LoadCommentsViewModel>>(res.Data).OrderBy(q => q.InsertTime).ToList();
+
             }
             ViewBag.ProductId = productId;
             return PartialView("/Views/Comment/_LoadComments.cshtml", model);
@@ -75,15 +69,10 @@ namespace EndPoint.WebSite.Controllers
                 return Json(res);
             }
 
-            res = _commentFacad.AddCommentService.Execute(new RequestAddCommentDto
-            {
-                ProductId = req.ProductId,
-                UserId = _claimUtility.GetUserId(User),
-                Text = req.Text.Trim(),
-                Title = req.Title.Trim(),
-                IRecomended = req.IRecommend.Equals("بله")? true:false,
-                Rate = req.Rate
-            });
+            var serviceRequest = _mapper.Map<RequestAddCommentDto>(req);
+            serviceRequest.UserId = _claimUtility.GetUserId(User);
+
+            res = _commentFacad.AddCommentService.Execute(serviceRequest);
 
             return Json(res);
         }

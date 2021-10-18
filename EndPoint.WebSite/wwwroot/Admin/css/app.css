@@ -45441,7 +45441,7 @@ figure.effect-winston {
         left: 0;
         width: 100%;
         height: 100%;
-        background: url(https://pixinvent.com/demo/convex-bootstrap-admin-dashboard-template/app-assets/img/triangle.svg) no-repeat center center;
+        /*background: url(https://pixinvent.com/demo/convex-bootstrap-admin-dashboard-template/app-assets/img/triangle.svg) no-repeat center center;*/
         -webkit-background-size: 100% 100%;
         background-size: 100% 100%;
         content: '';

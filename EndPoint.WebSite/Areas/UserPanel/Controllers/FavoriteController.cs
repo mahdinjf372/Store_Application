@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EndPoint.WebSite.Areas.UserPanel.Models.Favorite.Index;
+using AutoMapper;
 
 namespace EndPoint.WebSite.Areas.UserPanel.Controllers
 {
@@ -17,15 +18,18 @@ namespace EndPoint.WebSite.Areas.UserPanel.Controllers
         private readonly IFavoriteFacad _favoriteFacad;
         private readonly ClaimUtility _claimUtility;
         private readonly CookiesManager _cookiesManager;
+        private readonly IMapper _mapper;
 
         public FavoriteController(
             IFavoriteFacad favoriteFacad,
             ClaimUtility claimUtility,
-            CookiesManager cookiesManager)
+            CookiesManager cookiesManager,
+            IMapper mapper)
         {
             _favoriteFacad = favoriteFacad;
             _claimUtility = claimUtility;
             _cookiesManager = cookiesManager;
+            _mapper = mapper;
         }
 
         public IActionResult Index()
@@ -44,17 +48,7 @@ namespace EndPoint.WebSite.Areas.UserPanel.Controllers
 
             if (res.IsSuccess)
             {
-                model = res.Data.Select(f => new FavoriteListViewModel()
-                {
-                    Id = f.Id,
-                    Title = f.Title,
-                    Price = f.Price,
-                    ProductId = f.ProductId,
-                    PriceWithDiscount = f.PriceWithDiscount,
-                    DiscountAmount = f.DiscountAmount,
-                    Rate = f.Rate,
-                    ImageName = f.ImageName
-                }).ToList();
+                model = _mapper.Map<List<FavoriteListViewModel>>(res.Data);
             }
 
             ViewBag.FavorityListIsActived = "active";

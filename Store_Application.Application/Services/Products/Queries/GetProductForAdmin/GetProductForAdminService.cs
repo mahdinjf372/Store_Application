@@ -40,6 +40,7 @@ namespace Store_Application.Application.Services.Products.Queries.GetProductForA
                             IsMainImages = i.IsMainImage
                         }).ToList(),
             }).SingleOrDefault(p => p.Id.Equals(productId));
+          
             product.Decription = DecodeDescriptionMedia(product.Decription);
             return new ResultDto<ResultGetProductForAdminDto>
             {

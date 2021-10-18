@@ -69,26 +69,28 @@ function Delete(brandId) {
         confirmButtonText: 'بله، مطمئن هستم',
         cancelButtonText: 'خیر'
     }).then((result) => {
-        $.post("/Admin/BrandSlider/Delete/" + brandId,
-            function (data) {
-                if (data.isSuccess == true) {
-                    swal.fire(
-                        'موفق!',
-                        data.message,
-                        'success'
-                    ).then(function (isConfirm) {
+        if (result.value) {
+            $.post("/Admin/BrandSlider/Delete/" + brandId,
+                function (data) {
+                    if (data.isSuccess == true) {
+                        swal.fire(
+                            'موفق!',
+                            data.message,
+                            'success'
+                        ).then(function (isConfirm) {
 
-                        $("#Brand" + brandId).hide(1000);
-                    });
-                } else {
-                    swal.fire(
-                        'خطا!',
-                        data.message,
-                        'warning'
-                    );
+                            $("#Brand" + brandId).hide(1000);
+                        });
+                    } else {
+                        swal.fire(
+                            'خطا!',
+                            data.message,
+                            'warning'
+                        );
+                    }
                 }
-            }
-        );
+            );
+        }
     });
 }
 

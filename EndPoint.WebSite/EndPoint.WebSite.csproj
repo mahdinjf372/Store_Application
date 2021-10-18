@@ -27,10 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Mapper\Admin\" />
-    <Folder Include="Mapper\UserPanel\" />
     <Folder Include="wwwroot\images\menu-main\card\" />
-    <Folder Include="wwwroot\images\slider-brand\" />
   </ItemGroup>
 
   <ItemGroup>

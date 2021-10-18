@@ -1,4 +1,5 @@
-﻿using EndPoint.WebSite.Areas.UserPanel.Models.Order.Index;
+﻿using AutoMapper;
+using EndPoint.WebSite.Areas.UserPanel.Models.Order.Index;
 using EndPoint.WebSite.Areas.UserPanel.Models.Order.ShowOrderInfo;
 using EndPoint.WebSite.Utilities;
 using Microsoft.AspNetCore.Authorization;
@@ -17,10 +18,14 @@ namespace EndPoint.WebSite.Areas.UserPanel.Controllers
     {
         private readonly IOrderFacad _orderFacad;
         private readonly ClaimUtility _claimUtility;
-        public OrderController(IOrderFacad orderFacad, ClaimUtility claimUtility)
+        private readonly IMapper _mapper;
+        public OrderController(IOrderFacad orderFacad,
+            ClaimUtility claimUtility,
+            IMapper mapper)
         {
             _claimUtility = claimUtility;
             _orderFacad = orderFacad;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -31,24 +36,7 @@ namespace EndPoint.WebSite.Areas.UserPanel.Controllers
             List<OrdersViewModel> model = new List<OrdersViewModel>();
             if (res.IsSuccess)
             {
-                model = res.Data.Select(o => new OrdersViewModel
-                {
-                    Id = o.Id,
-                    Finished = o.Finished,
-                    FinallyDate = o.FinallyDate,
-                    PaidAmount = o.PaidAmount,
-                    State = o.State,
-                    totalAmount = o.totalAmount,
-                    OrderDetails = o.OrderDetails.Select(od => new Models.Order.Index.OrderDetailViewModel
-                    {
-                        Id = od.Id,
-                        Price = od.Price,
-                        Count = od.Count,
-                        Title = od.Title,
-                        DiscountAmount = od.DiscountAmount,
-                        PriceWithDiscount = od.PriceWithDiscount
-                    }).ToList()
-                }).ToList();
+                model = _mapper.Map<List<OrdersViewModel>>(res.Data);
             }
 
             return View(model);
@@ -61,24 +49,7 @@ namespace EndPoint.WebSite.Areas.UserPanel.Controllers
             ShowOrderInfoViewModel model = new ShowOrderInfoViewModel();
             if (res.IsSuccess)
             {
-                model = new ShowOrderInfoViewModel()
-                {
-                    Id = res.Data.Id,
-                    Address = res.Data.Address,
-                    PostCode = res.Data.PostCode,
-                    ReceiverName = res.Data.ReceiverName,
-                    ReceiverPhone = res.Data.ReceiverPhone,
-                    totalAmount = res.Data.totalAmount,
-                    OrderDetails = res.Data.OrderDetails.Select(od => new Models.Order.ShowOrderInfo.OrderDetailViewModel
-                    {
-                        Id = od.Id,
-                        Price = od.Price,
-                        Count = od.Count,
-                        Title = od.Title,
-                        DiscountAmount = od.DiscountAmount,
-                        PriceWithDiscount = od.PriceWithDiscount
-                    }).ToList()
-                };
+                model = _mapper.Map<ShowOrderInfoViewModel>(res.Data);
             }
             return View(model);
         }

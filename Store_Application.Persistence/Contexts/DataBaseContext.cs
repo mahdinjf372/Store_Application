@@ -37,6 +37,7 @@ using Store_Application.Persistence.Configurations.Entities.Order;
 using Store_Application.Persistence.Configurations.Entities.ProductSlider;
 using Store_Application.Persistence.Configurations.Entities.RequestPay;
 using Store_Application.Persistence.Configurations.Entities.Tag;
+using System.Linq;
 
 namespace Store_Application.Persistence.Contexts
 {
@@ -239,6 +240,493 @@ namespace Store_Application.Persistence.Contexts
 
         private void SeedsTestData(ModelBuilder modelBuilder)
         {
+
+            #region Advertising
+
+            modelBuilder.Entity<Advertising>().HasData(new List<Advertising>
+            {
+                new Advertising {
+                    Id = 1,
+                    Title = "بنر تستی 1",
+                    LinkTo = "",
+                    Description = "توضیحات بنر تستی 1",
+                    ImageName = "topLeft1_default.jpg",
+                    StartDate = DateTime.Now,
+                    EndDate = new DateTime(2999,12,29),
+                    InsertTime = DateTime.Now,
+                    Place = Domain.Enums.AdvertisingPlaces.TopLeft1
+                },
+                new Advertising {
+                    Id = 2,
+                    Title = "بنر تستی 2",
+                    LinkTo = "",
+                    Description = "توضیحات بنر تستی 2",
+                    ImageName = "topLeft2_default.jpg",
+                    StartDate = DateTime.Now,
+                    EndDate = new DateTime(2999,12,29),
+                    InsertTime = DateTime.Now,
+                    Place = Domain.Enums.AdvertisingPlaces.TopLeft2
+                },
+                new Advertising {
+                    Id = 3,
+                    Title = "بنر تستی 3",
+                    LinkTo = "",
+                    Description = "توضیحات بنر تستی 3",
+                    ImageName = "topRight_default.jpg",
+                    StartDate = DateTime.Now,
+                    EndDate = new DateTime(2999,12,29),
+                    InsertTime = DateTime.Now,
+                    Place = Domain.Enums.AdvertisingPlaces.TopRight
+                },
+                new Advertising {
+                    Id = 4,
+                    Title = "بنر تستی 4",
+                    LinkTo = "",
+                    Description = "توضیحات بنر تستی 4",
+                    ImageName = "bottomLong_default.jpg",
+                    StartDate = DateTime.Now,
+                    EndDate = new DateTime(2999,12,29),
+                    InsertTime = DateTime.Now,
+                    Place = Domain.Enums.AdvertisingPlaces.Long
+                },
+                new Advertising {
+                    Id = 5,
+                    Title = "بنر تستی 5",
+                    LinkTo = "",
+                    Description = "توضیحات بنر تستی 5",
+                    ImageName = "bottom1_default.jpg",
+                    StartDate = DateTime.Now,
+                    EndDate = new DateTime(2999,12,29),
+                    InsertTime = DateTime.Now,
+                    Place = Domain.Enums.AdvertisingPlaces.Bottom1
+                },
+                new Advertising {
+                    Id = 6,
+                    Title = "بنر تستی 6",
+                    LinkTo = "",
+                    Description = "توضیحات بنر تستی 6",
+                    ImageName = "bottom2_default.jpg",
+                    StartDate = DateTime.Now,
+                    EndDate = new DateTime(2999,12,29),
+                    InsertTime = DateTime.Now,
+                    Place = Domain.Enums.AdvertisingPlaces.Bottom2
+                },
+                new Advertising {
+                    Id = 7,
+                    Title = "بنر تستی 7",
+                    LinkTo = "",
+                    Description = "توضیحات بنر تستی 7",
+                    ImageName = "bottom3_default.jpg",
+                    StartDate = DateTime.Now,
+                    EndDate = new DateTime(2999,12,29),
+                    InsertTime = DateTime.Now,
+                    Place = Domain.Enums.AdvertisingPlaces.Bottom3
+                },
+                new Advertising {
+                    Id = 8,
+                    Title = "بنر تستی 8",
+                    LinkTo = "",
+                    Description = "توضیحات بنر تستی 8",
+                    ImageName = "bottom4_default.jpg",
+                    StartDate = DateTime.Now,
+                    EndDate = new DateTime(2999,12,29),
+                    InsertTime = DateTime.Now,
+                    Place = Domain.Enums.AdvertisingPlaces.Bottom4
+                },
+            });
+
+            #endregion
+
+            #region BrandSlides
+
+            modelBuilder.Entity<BrandSlider>().HasData(new List<BrandSlider>
+            {
+                new BrandSlider{
+                    Id=1,
+                    Title="هواوی",
+                    ImageName="huawei.png",
+                    LinkTo = "",
+                    InsertTime = DateTime.Now
+                },
+                new BrandSlider{
+                    Id=2,
+                    Title="سامسونگ",
+                    ImageName="samsung.png",
+                    LinkTo = "",
+                    InsertTime = DateTime.Now
+                },
+                new BrandSlider{
+                    Id=3,
+                    Title="ای دیتا",
+                    ImageName="adata.png",
+                    LinkTo = "",
+                    InsertTime = DateTime.Now
+                },
+                new BrandSlider{
+                    Id=4,
+                    Title="شهاب",
+                    ImageName="shahab.png",
+                    LinkTo = "",
+                    InsertTime = DateTime.Now
+                },
+                new BrandSlider{
+                    Id=5,
+                    Title="نوکیا",
+                    ImageName="nokia.png",
+                    LinkTo = "",
+                    InsertTime = DateTime.Now
+                },
+                new BrandSlider{
+                    Id=6,
+                    Title="پاناسونیک",
+                    ImageName="panasonic.png",
+                    LinkTo = "",
+                    InsertTime = DateTime.Now
+                },
+                new BrandSlider{
+                    Id=7,
+                    Title="پارس خزر",
+                    ImageName="parskhazar.png",
+                    LinkTo = "",
+                    InsertTime = DateTime.Now
+                },
+                new BrandSlider{
+                    Id=8,
+                    Title="ایکس ویژن",
+                    ImageName="xvison.png",
+                    LinkTo = "",
+                    InsertTime = DateTime.Now
+                },
+            });
+
+            #endregion
+
+            #region Comments
+
+            modelBuilder.Entity<Comment>().HasData(new List<Comment>
+            {
+                new Comment
+                {
+                    Id = 1,
+                    Title = "دوست داشتنی",
+                    Text = "محصول دوست داشتنی به نظر میاد",
+                    IRecommended = true,
+                    InsertTime = DateTime.Now,
+                    ProductId = 1,
+                    UserId = 1,
+                    Rate = (byte) new Random().Next(1,5),
+                    AdminIsRead = true,
+                    ConfirmedByAdmin = true,
+                },
+                new Comment
+                {
+                    Id = 2,
+                    Title = "قیمت",
+                    Text = "به نظرم قیمتش خیلی بالاس و مناسب نیس",
+                    IRecommended = false,
+                    InsertTime = DateTime.Now,
+                    ProductId = 1,
+                    UserId = 2,
+                    Rate = (byte) new Random().Next(1,5),
+                    AdminIsRead = true,
+                    ConfirmedByAdmin = true,
+                },
+                new Comment
+                {
+                    Id = 3,
+                    Title = "بهتر از آیفون",
+                    Text = "در کل سامسونگ کاربردی تر از آیفون هست ولی از نظر کیفیت تصویر و سرعت آیفون بهتره و کلاس!",
+                    IRecommended = true,
+                    InsertTime = DateTime.Now,
+                    ProductId = 1,
+                    UserId = 3,
+                    Rate = (byte) new Random().Next(1,5),
+                    AdminIsRead = true,
+                    ConfirmedByAdmin = true,
+                },
+                new Comment
+                {
+                    Id = 4,
+                    Title = "عالی و صدرصد بهتر از اپل",
+                    Text = "عالییه بنظرمن اونایی که میرن پول گوشی های ایفون با اون قیمت رو میدن با استفاده از این گوشی باید نظرشونو عوض کنن",
+                    IRecommended = true,
+                    InsertTime = DateTime.Now,
+                    ProductId = 1,
+                    UserId = 4,
+                    Rate = (byte) new Random().Next(1,5),
+                    AdminIsRead = true,
+                    ConfirmedByAdmin = true,
+                },
+                new Comment
+                {
+                    Id = 5,
+                    Title = "زشته",
+                    Text = "به نظرم طراحی خوبی نداره و زشته یکم",
+                    IRecommended = false,
+                    InsertTime = DateTime.Now,
+                    ProductId = 2,
+                    UserId = 3,
+                    Rate = (byte) new Random().Next(1,5),
+                    AdminIsRead = true,
+                    ConfirmedByAdmin = true,
+                },
+                new Comment
+                {
+                    Id = 6,
+                    Title = "خوبه",
+                    Text = "به به عجب چیزیه من که نمیتون وارد شم",
+                    IRecommended = true,
+                    InsertTime = DateTime.Now,
+                    ProductId = 2,
+                    UserId = 5,
+                    Rate = (byte) new Random().Next(1,5),
+                    AdminIsRead = true,
+                    ConfirmedByAdmin = true,
+                },
+                new Comment
+                {
+                    Id = 7,
+                    Title = "خیلیم خوب نیس",
+                    Text = "خیلیم خوب نیست به نظرم نمیصرفه",
+                    IRecommended = false,
+                    InsertTime = DateTime.Now,
+                    ProductId = 2,
+                    UserId = 2,
+                    Rate = (byte) new Random().Next(1,5),
+                    AdminIsRead = true,
+                    ConfirmedByAdmin = true,
+                },
+                new Comment
+                {
+                    Id = 8,
+                    Title = "عالیه",
+                    Text = "عاااااااالیییییه بنظرم",
+                    IRecommended = true,
+                    InsertTime = DateTime.Now,
+                    ProductId = 2,
+                    UserId = 4,
+                    Rate = (byte) new Random().Next(1,5),
+                    AdminIsRead = true,
+                    ConfirmedByAdmin = true,
+                },
+            });
+
+            #endregion
+
+            #region Likes-Dislikes
+
+            modelBuilder.Entity<Like>().HasData(new List<Like>
+            {
+                new Like
+                {
+                    Id = 1,
+                    CommentId= 1,
+                    UserId = 2,
+                    InsertTime = DateTime.Now
+                },
+                new Like
+                {
+                    Id = 2,
+                    CommentId= 1,
+                    UserId = 4,
+                    InsertTime = DateTime.Now
+                },
+                new Like
+                {
+                    Id = 3,
+                    CommentId= 1,
+                    UserId = 2,
+                    InsertTime = DateTime.Now
+                },
+                new Like
+                {
+                    Id = 4,
+                    CommentId= 1,
+                    UserId = 3,
+                    InsertTime = DateTime.Now
+                },
+                new Like
+                {
+                    Id = 5,
+                    CommentId= 2,
+                    UserId = 1,
+                    InsertTime = DateTime.Now
+                },
+                new Like
+                {
+                    Id = 6,
+                    CommentId= 2,
+                    UserId = 3,
+                    InsertTime = DateTime.Now
+                },
+                new Like
+                {
+                    Id = 7,
+                    CommentId= 3,
+                    UserId = 4,
+                    InsertTime = DateTime.Now
+                },
+                new Like
+                {
+                    Id = 8,
+                    CommentId= 3,
+                    UserId = 1,
+                    InsertTime = DateTime.Now
+                },
+            });
+
+            modelBuilder.Entity<Dislike>().HasData(new List<Dislike>
+            {
+                new Dislike
+                {
+                    Id = 1,
+                    CommentId= 1,
+                    UserId = 5,
+                    InsertTime = DateTime.Now
+                },
+                new Dislike
+                {
+                    Id = 2,
+                    CommentId= 2,
+                    UserId = 2,
+                    InsertTime = DateTime.Now
+                },
+                new Dislike
+                {
+                    Id = 3,
+                    CommentId= 2,
+                    UserId = 4,
+                    InsertTime = DateTime.Now
+                },
+                new Dislike
+                {
+                    Id = 4,
+                    CommentId= 2,
+                    UserId = 5,
+                    InsertTime = DateTime.Now
+                },
+                new Dislike
+                {
+                    Id = 5,
+                    CommentId = 3,
+                    UserId = 2,
+                    InsertTime = DateTime.Now
+                },
+                new Dislike
+                {
+                    Id = 6,
+                    CommentId = 3,
+                    UserId = 5,
+                    InsertTime = DateTime.Now
+                },
+                new Dislike
+                {
+                    Id = 7,
+                    CommentId = 3,
+                    UserId = 3,
+                    InsertTime = DateTime.Now
+                },
+            });
+
+            #endregion
+
+            #region Comments
+
+
+            modelBuilder.Entity<Question>().HasData(new List<Question>
+            {
+                new Question
+                {
+                    Id = 1,
+                    Text = "محصول دوست داشتنی به نظر میاد کسی ازش استفاده کرده؟",
+                    ParentQuestionId = null,
+                    InsertTime = DateTime.Now,
+                    ProductId = 1,
+                    UserId = 2,
+                    AdminIsRead = true,
+                    ConfirmedByAdmin = true,
+                },
+                new Question
+                {
+                    Id = 2,
+                    Text = "باتریش چند ساعت و نگه میداره؟",
+                    ParentQuestionId = null,
+                    InsertTime = DateTime.Now,
+                    ProductId = 1,
+                    UserId = 1,
+                    AdminIsRead = true,
+                    ConfirmedByAdmin = true,
+                },
+                new Question
+                {
+                    Id = 3,
+                    Text = "من دارمش راضیم ازش",
+                    ParentQuestionId = 1,
+                    InsertTime = DateTime.Now,
+                    ProductId = 1,
+                    UserId = 3,
+                    AdminIsRead = true,
+                    ConfirmedByAdmin = true,
+                },
+                new Question
+                {
+                    Id = 4,
+                    Text = "میتونه اهنگ پخش کنه؟",
+                    ParentQuestionId = null,
+                    InsertTime = DateTime.Now,
+                    ProductId = 2,
+                    UserId = 4,
+                    AdminIsRead = true,
+                    ConfirmedByAdmin = true,
+                },
+                new Question
+                {
+                    Id = 5,
+                    Text = "صفحش چند هرتزه؟",
+                    ParentQuestionId = null,
+                    InsertTime = DateTime.Now,
+                    ProductId = 2,
+                    UserId = 2,
+                    AdminIsRead = true,
+                    ConfirmedByAdmin = true,
+                },
+                new Question
+                {
+                    Id = 6,
+                    Text = "تو سایت برندش نوشته 60 هرتز",
+                    ParentQuestionId = 5,
+                    InsertTime = DateTime.Now,
+                    ProductId = 2,
+                    UserId = 5,
+                    AdminIsRead = true,
+                    ConfirmedByAdmin = true,
+                },
+                new Question
+                {
+                    Id = 7,
+                    Text = "با 10 تومن اینو بخرم یا اونو؟؟؟",
+                    ParentQuestionId = null,
+                    InsertTime = DateTime.Now,
+                    ProductId = 2,
+                    UserId = 1,
+                    AdminIsRead = true,
+                    ConfirmedByAdmin = true,
+                },
+                new Question
+                {
+                    Id = 8,
+                    Text = "هیچکدومو",
+                    ParentQuestionId = 7,
+                    InsertTime = DateTime.Now,
+                    ProductId = 2,
+                    UserId = 4,
+                    AdminIsRead = true,
+                    ConfirmedByAdmin = true,
+                },
+            });
+
+            #endregion
+
             #region Users
 
             modelBuilder.Entity<User>().HasData(new List<User>
@@ -526,70 +1014,6 @@ namespace Store_Application.Persistence.Contexts
 
             #endregion
 
-            #region brandSlider
-
-            modelBuilder.Entity<BrandSlider>().HasData(new List<BrandSlider>
-            {
-                new BrandSlider {
-                    Id = 1,
-                    InsertTime = DateTime.Now,
-                    LinkTo = null,
-                    Title = "هواوی",
-                    ImageName = "c1aae97de6894801b50b379fdf75e78d.png"
-                },
-                new BrandSlider {
-                    Id = 2,
-                    InsertTime = DateTime.Now,
-                    LinkTo = null,
-                    Title = "سامسونگ",
-                    ImageName = "8e67672e408d431da4f5710184ca8add.png"
-                },
-                new BrandSlider {
-                    Id = 3,
-                    InsertTime = DateTime.Now,
-                    LinkTo = null,
-                    Title = "ای دیتا",
-                    ImageName = "752ed3efe90e41b78fce90b68abb2bdf.png"
-                },
-                new BrandSlider {
-                    Id = 4,
-                    InsertTime = DateTime.Now,
-                    LinkTo = null,
-                    Title = "Shahab",
-                    ImageName = "c964b9f4ac4540889fc15227a0cb5aea.png"
-                },
-                new BrandSlider {
-                    Id = 5,
-                    InsertTime = DateTime.Now,
-                    LinkTo = null,
-                    Title = "هواوی",
-                    ImageName = "c1aae97de6894801b50b379fdf75e78d.png"
-                },
-                new BrandSlider {
-                    Id = 6,
-                    InsertTime = DateTime.Now,
-                    LinkTo = null,
-                    Title = "سامسونگ",
-                    ImageName = "8e67672e408d431da4f5710184ca8add.png"
-                },
-                new BrandSlider {
-                    Id = 7,
-                    InsertTime = DateTime.Now,
-                    LinkTo = null,
-                    Title = "ای دیتا",
-                    ImageName = "752ed3efe90e41b78fce90b68abb2bdf.png"
-                },
-                new BrandSlider {
-                    Id = 8,
-                    InsertTime = DateTime.Now,
-                    LinkTo = null,
-                    Title = "Shahab",
-                    ImageName = "c964b9f4ac4540889fc15227a0cb5aea.png"
-                },
-            });
-
-            #endregion
-
             #region Brands
 
             modelBuilder.Entity<Brand>().HasData(new List<Brand>
@@ -657,6 +1081,9 @@ namespace Store_Application.Persistence.Contexts
             string title2 = "اپل آیفون ایکس اس مکس – 256 گیگابایت – دو سیم کارت";
             string shortDescription = "اولین گوشی همراه سری گلکسی نوت در سال 2011 روانه بازار شد تا خانواده افسانه‌ای نوت را برای اولین بار به دنیا معرفی و تعریفی نو برای محصولات «فبلت‌» ارائه کند. حدود 8 سال پس از آن، سامسونگ برای عرضه عضو جدید خانواده نوت(Galaxy Note 10) با چالش‌های جدیدی مواجه است؛ این چالش‌ها ویژگی‌های مدرنی هستند که در محصولات رقیب دیده می‌شوند.گلکسی نوت‌ها به‌طور عمومی شبیه سری Galaxy S هستند؛ با این تفاوت که صفحه‌نمایش بزرگ‌تر و یک قلم دیجیتال S Pen دارند.گوشی موبایل Samsung Galaxy Note10 با دوربین سه گانه در قاب پشتی روانه بازار شده است؛ این سه سنسور با داشتن ویژگی‌هایی مانند لرزشگیر تصویر و قابلیت فیلم‌برداری 4K خروجی تصویر مطلوبی را برای جدیدترین عضو خانواده Note به همراه دارند.پردازش محاسبات در این تازه‌وارد از طریق تراشه‌ی Exynos 9825 انجام می‌شود که در رده تراشه‌های 7 نانومتری قرار می‌گیرد و با سرعت بالای خود، گلکسی نوت 10 را برای انجام کارهای بسیار سنگین کاربردی کرده است.تراشه‌ی گرافیکی Mali - G76 هم در اجرای بازی‌های سنگین و پردازش‌های گرافیکی، گلکسی نوت 10 را سربلند خواهد بود. صفحه‌نمایش سوپر آمولد با رزولوشن 1080 در 2280 و قابلیت نمایش 401 پیکسل در هر اینچ، تجربه‌ی تصویری شفاف و بسیار مطلوب را برای کاربران فراهم می‌کند.نسخه 256 گیگابایتی گوشی گلکسی نوت 10 با 8 گیگابایت رم عرضه شده است تا میزان مطلوبی از فضا و حافظه تصادفی را در اختیار کاربر قرار دهد.حسگر اثرانگشت زیرصفحه‌نمایش، حسگر فشارسنج و ژیروسکوپ تنها تعدادی از امکانات این دستگاه قدرتمند است و کار را برای رقبای این محصول بزرگ سخت کرده است.البته در این محصول خبری از سنسور عنبیه چشم و خروجی 3.5 میلی‌متری صدا نیست که دلیل آن را می‌توان در بزرگ شدن قاب و ظرافت در طراحی و ساخت جست‌وجو کرد. گفتنی است، باتری این محصول از نوع غیرقابل تعویض و لیتیوم‌یون با ظرفیت 3500 میلی‌آمپر ساعت است که از فناوری‌های شارژ سریع و شارژ بی‌سیم پشتیبانی می‌کند.این محصول قادر است دستگاه‌های دیگر را هم به‌صورت بی‌سیم شارژ کند و از این طریق نقش یک پاوربانک را هم ایفا کند.";
             string Description = "<h3 class=\"content-expert-title\" style=\"text-align:right;\">طراحی و ساخت؛ زیبای خاص</h3><p class=\"content-expert-title\" style=\"text-align:right;\">باید در همین ابتدا اعتراف کنیم Galaxy Note 10 یک گوشی بسیار زیباست. البته شاید این تعریف کمی شخصی به نظر برسد اما ظاهر این گوشی آن‌قدر زیباست که جایی را برای گله و شکایت باقی نمی‌گذارد. در این گوشی دوست‌داشتنی صفحه‌نمایش تقریباً تمام قاب جلویی را پوشانده است. این گوشی ابعاد بزرگی دارد و با صفحه‌نمایش 6.3 که تقریبا 0.2 اینچ بزرگتر از S10 است، در گروه فبلت‌ها جای می‌گیرد. اگر به دنبال خرید این گوشی هوشمند هستید، احتمالاً قبلاً هم گوشی بزرگی داشته‌اید و اندازه آن برایتان آزاردهنده نخواهد بود. اولین راه‌حل موفق برای ساده کردن فرمول زیبایی و کارایی بیشتر، تغییر مکان حسگر اثرانگشت در گلکسی نوت 10 است. با توجه به امنیت بالای این راه برای باز کردن گوشی، حذف آن چندان منطقی به نظر نمی‌رسد. در این گوشی خبری از حسگر اثرانگشت روی قاب جلویی نیست و در عوض این حسگر زیر صفحه‌نمایش قرار گرفته است تا Galaxy Note 10 از همه نظر به گوشی مدرن تبدیل شود. تفاوت دیگری که امسال گلکسی سری نوت با گلسی سری S &nbsp;داشته اند محل قرار گرفتن دوربین سلفی آن ها است. به طوری که دوربین سلفی در S10 در قسمت بالای سمت راست قرار گرفته و در نوت 10 در مرکز بالای صفحه نمایش تعبیه شده است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:44.36%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/84a990c5-6102-4bd2-b587-76be3df30835.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">صفحه‌نمایش؛ همان خیره‌کننده‌ی همیشگی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">مثل همیشه یکی از نقاط قوت گوشی سری محصولات Galaxy Note صفحه‌نمایش آن‌هاست. فناوری Super AMOLED به معنی تصاویر زنده و شفافیت خیره‌کننده در کنار پشتیبانی از نمایش ویدئوهای HDR است. گلکسی نوت 10 از یک صفحه نمایش 6.3 اینچی بهره می برد، که تقریبا تمام قاب جلویی را پوشانده است. سامسونگ مدت ها است که برای پرچمداران خود از صفحه نمایش هایی با لبه های منحنی شکل استفاده می کند؛ کاری که با تولید S8 آغاز کرد و گوشی Note 10 هم از این قاعده مستثنی نیست. انحنای لبه‌ها باعث می‌شود حس کنید فضای بسیار بیشتری در اختیار دارید. این نمایشگر، تراکم پیکسلی فوق‌العاده 401 در هر اینچ دارد روی نوت 10 قرار داده شده است؛ می‌توان این‌گونه در نظر گرفت که سامسونگ احتمالاً استفاده از تعداد پیکسل بالاتر را به علت مصرف باتری بیشتر و اندازه‌ی بزرگ‌تر را به علت بزرگ‌ترشدن سایز گوشی کنار گذاشته است.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.53%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/86e0699c-e0e0-401e-bdc3-84f3b5221258.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">به دلیل O شکل بودن بریدگی قسمت بالای آن، نام Infinity-O برای آن انتخاب شده است. نمایشگرهای Infinity در واقع از ویژگی های صفحه نمایش های سامسونگ است که بدون هیچ بریدگی یا Bezel تولید می شوند و برای اولین بار با به کار گیری در گوشی های&nbsp; Galaxy S8 و&nbsp; Galaxy S8+ معرفی شد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:49.3%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6154596f-bc8e-4019-b13f-1c8e4dd94aef.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نمایشگر نوت 10 هم از فناوری همیشه روشن سود می‌برد که با استفاده از بخش تنظیمات حالا می‌توانید شخصی‌سازی‌های بیشتری را برای آن در نظر بگیرید. سامسونگ موفق شده است برای این گوشی نسبت صفحه‌نمایش به بدنه 90.9 درصد را به دست آورد که برای یک گوشی امروزی هم میزان بسیار مطلوبی به‌حساب می‌آید. تراز سفیدی مناسب، نور کافی برای دیدن محتویات زیر نور‌های شدید، تراکم پیکسلی بالا که هنگام دیدن تصویر یا خواندن متن کمک می‌کند تا جزییات بیشتری را ببینید، از مشخصات نمایشگر نوت 10 هستند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.06%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/6e677979-65a3-4f8e-ba50-e80fbc53dbf5.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><h3 class=\"content-expert-title\" style=\"text-align:right;\">سخت‌افزار، سیستم‌عامل و کارایی</h3><p class=\"content-expert-title\" style=\"text-align:right;\">چیپست اگزونوس 9825 از چیپست‌های 7 نانومتری سامسونگ در قلب اس نوت 10 قرار گرفته است. چیپست 7 نانومتری به معنی قدرت بالا و مصرف بهینه باتری گوشی است. هرساله سخت‌افزارهای نسل جدیدتر برای گوشی‌های موبایل در نظر گرفته می‌شوند که این سخت‌افزار شامل چیپست هم می‌شود. واضح است که چیپست نسل جدید سامسونگ بسیار سریع است اما در عمل سرعت‌بالای آن را نمی‌توان انقلابی دانست. سری‌های قبلی محصولات گلکسی سامسونگ که از تراشه اگزونوس استفاده می‌کردند گاهی اوقات در زمان استفاده بسیار سنگین خاموش می‌شدند. به نظر می‌رسد در گلکسی جدید به خاطر وجود رم 8 گیگابیتی، خبری از این مشکل نباشد.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:48.68%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/c84c5779-be7e-4611-a384-c2b4f54c0d31.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\">نتیجه‌ی این لیست، سخت‌افزاری است که جای هیچ انتقادی را باقی نمی‌گذارد و در هر حالی بهترین بازده ممکن را دارد. سامسونگ در هر حالتی بهترین استفاده‌ی ممکن را از این سخت‌افزار کرده است. باید اطمینان داشته باشیم وقتی این سخت‌افزار برای پردازش واقعیت افزوده، فیلم‌برداری 2160 فریم بر ثانیه، تطبیق چهره و عنبیه برای بازکردن قفل گوشی طراحی و ساخته شده؛ دیگر در مورد بازی‌هایی که نهایتاً چند فریم خروجی دارند یا برنامه‌هایی که مقدار کمی از رم را اشغال می‌کنند، همچنین اجرای اندروید و رابط کاربری سامسونگ، هیچ مشکلی نخواهد داشت. پس خیالتان راحت باشد که هیچ عملیاتی وجود ندارد که گلکسی نوت 10 از پس انجام دادن آن برنیاید یا در انجام دادن آن کم‌کاری کند.</p><div class=\"content-expert-img mr-auto ml-auto image image_resized\" style=\"width:33.33%;\"><img class=\"w-100\" src=\"/images/page-single-product/tab-content/4c9c6d5a-7d86-4c77-a8ea-467358b61fba.jpeg\"></div><p class=\"content-expert-title\" style=\"text-align:right;\">&nbsp;</p><p class=\"content-expert-title\" style=\"text-align:right;\"><u>اندازه بزرگ‌تر در بیشتر گوشی‌های موبایل نوید باتری با ظرفیت بیشتر را می‌دهد؛ البته باتری در گوشی نوت 10 تفاوت چشمگیری را به خود ندیده است و ظرفیت آن برابر با 3500 میلی‌آمپر است که با توجه به چیپست مدرن این گوشی باید تا مدت‌زمان مطلوبی انرژی را در خود نگه دارد. البته رزولوشن بالای صفحه‌نمایش باعث شده است که باتری به میزان بیشتری مصرف شود و از باتری گوشی انتظار روشن نگه‌داشتن آن تا بیش از یک روز را نداشته باشیم. این گوشی مانند پاوربانکی پرقدرت امکان شارژ بی‌سیم دیگر دستگاه‌ها را دارد. اما این نکته را نباید فراموش کنیم که گلکسی نوت 10 شارژ بی‌سیم گوشی‌های دیگر را با سرعت بسیار بالا (با توان 9 واتی) انجام می‌دهد. همان‌طور که گفتیم این گوشی می‌تواند دیگر گوشی‌ها و گجت‌های دارای فناوری شارژ بی‌سیم را شارژ کند. یکی از ویژگی‌های خاص و البته دوست‌داشتنی در مورد گوشی‌های سامسونگ امکان صفحه‌نمایش همیشه روشن است. این امکان نوتیفیکیشن‌ها را بدون نیاز به باز کردن گوشی برای کاربر به نمایش در می‌آورد.</u></p>";
+            string[] tags1 = { "سامسونگ", "samsung", "Galaxy", "Note", "256 گیگابایت", "Note_10", "Galaxy_Note_10", "موبایل", "گوشی", "mobile" };
+            string[] tags2 = { "اپل", "آیفون", "apple", "iphone", "ایکس اس مکس", "256 گیگابایت", "xs_max", "موبایل", "گوشی", "mobile" };
+
             modelBuilder.Entity<Product>().HasData(new List<Product>
             {
                 new Product {
@@ -671,18 +1098,7 @@ namespace Store_Application.Persistence.Contexts
                     ShortDescription = shortDescription,
                     Description = Description,
                     BrandId = 1,
-                    //Images = new List<ProductImage>()
-                    //{
-                       
-                    //},
-                    //Features = new List<ProductFeature>()
-                    //{
-
-                    //},
-                    //ProductSliders = new List<ProductSlider>()
-                    //{
-     
-                    //}
+                    TagsForSearch = string.Join("-", tags1)
                 },
 
                 new Product {
@@ -697,18 +1113,7 @@ namespace Store_Application.Persistence.Contexts
                     ShortDescription = shortDescription,
                     Description = Description,
                     BrandId = 2,
-                    //Images = new List<ProductImage>()
-                    //{
-                     
-                    //},
-                    //Features = new List<ProductFeature>()
-                    //{
-                       
-                    //},
-                    //ProductSliders = new List<ProductSlider>()
-                    //{
-
-                    //}
+                    TagsForSearch = string.Join("-", tags2)
                 },
 
                 new Product {
@@ -723,18 +1128,7 @@ namespace Store_Application.Persistence.Contexts
                     ShortDescription = shortDescription,
                     Description = Description,
                     BrandId = 3,
-                    //Images = new List<ProductImage>()
-                    //{
-                        
-                    //},
-                    //Features = new List<ProductFeature>()
-                    //{
-                       
-                    //},
-                    //ProductSliders = new List<ProductSlider>()
-                    //{
-
-                    //}
+                    TagsForSearch = string.Join("-", tags1)
                 },
 
                 new Product {
@@ -749,18 +1143,7 @@ namespace Store_Application.Persistence.Contexts
                     ShortDescription = shortDescription,
                     Description = Description,
                     BrandId = 1,
-                    //Images = new List<ProductImage>()
-                    //{
-                       
-                    //},
-                    //Features = new List<ProductFeature>()
-                    //{
-                       
-                    //},
-                    //ProductSliders = new List<ProductSlider>()
-                    //{
-
-                    //}
+                    TagsForSearch = string.Join("-", tags2)
                 },
 
                 new Product {
@@ -775,18 +1158,7 @@ namespace Store_Application.Persistence.Contexts
                     ShortDescription = shortDescription,
                     Description = Description,
                     BrandId = 1,
-                    //Images = new List<ProductImage>()
-                    //{
-                        
-                    //},
-                    //Features = new List<ProductFeature>()
-                    //{
-
-                    //},
-                    //ProductSliders = new List<ProductSlider>()
-                    //{
-
-                    //}
+                    TagsForSearch = string.Join("-", tags2)
                 },
 
                 new Product {
@@ -801,18 +1173,7 @@ namespace Store_Application.Persistence.Contexts
                     ShortDescription = shortDescription,
                     Description = Description,
                     BrandId = 1,
-                    //Images = new List<ProductImage>()
-                    //{
-                        
-                    //},
-                    //Features = new List<ProductFeature>()
-                    //{
-                       
-                    //},
-                    //ProductSliders = new List<ProductSlider>()
-                    //{
-
-                    //}
+                    TagsForSearch = string.Join("-", tags1)
                 },
 
                 new Product {
@@ -827,18 +1188,7 @@ namespace Store_Application.Persistence.Contexts
                     ShortDescription = shortDescription,
                     Description = Description,
                     BrandId = 1,
-                    //Images = new List<ProductImage>()
-                    //{
-                      
-                    //},
-                    //Features = new List<ProductFeature>()
-                    //{
-                      
-                    //},
-                    //ProductSliders = new List<ProductSlider>()
-                    //{
-
-                    //}
+                    TagsForSearch = string.Join("-", tags2)
                 },
 
                 new Product {
@@ -846,25 +1196,14 @@ namespace Store_Application.Persistence.Contexts
                     InsertTime = DateTime.Now,
                     Title = title1,
                     CategoryId = 13,
-                    Price = 1600000,
+                    Price = 16000000,
                     DiscountAmount = 6500000,
                     Displayed = true,
                     Inventory = 5,
                     ShortDescription = shortDescription,
                     Description = Description,
                     BrandId = 1,
-                    //Images = new List<ProductImage>()
-                    //{
-                        
-                    //},
-                    //Features = new List<ProductFeature>()
-                    //{
-                        
-                    //},
-                    //ProductSliders = new List<ProductSlider>()
-                    //{
-
-                    //}
+                    TagsForSearch = string.Join("-", tags1)
                 },
 
                 new Product {
@@ -879,18 +1218,7 @@ namespace Store_Application.Persistence.Contexts
                     ShortDescription = shortDescription,
                     Description = Description,
                     BrandId = 1,
-                    //Images = new List<ProductImage>()
-                    //{
-              
-                    //},
-                    //Features = new List<ProductFeature>()
-                    //{
-                        
-                    //},
-                    //ProductSliders = new List<ProductSlider>()
-                    //{
-
-                    //}
+                    TagsForSearch = string.Join("-", tags2)
                 },
 
                 new Product {
@@ -905,18 +1233,7 @@ namespace Store_Application.Persistence.Contexts
                     ShortDescription = shortDescription,
                     Description = Description,
                     BrandId = 1,
-                    //Images = new List<ProductImage>()
-                    //{
-                        
-                    //},
-                    //Features = new List<ProductFeature>()
-                    //{
-                        
-                    //},
-                    //ProductSliders = new List<ProductSlider>()
-                    //{
-
-                    //}
+                    TagsForSearch = string.Join("-", tags2)
                 },
 
                 new Product {
@@ -931,18 +1248,7 @@ namespace Store_Application.Persistence.Contexts
                     ShortDescription = shortDescription,
                     Description = Description,
                     BrandId = 1,
-                    //Images = new List<ProductImage>()
-                    //{
-                       
-                    //},
-                    //Features = new List<ProductFeature>()
-                    //{
-                        
-                    //},
-                    //ProductSliders = new List<ProductSlider>()
-                    //{
-
-                    //}
+                    TagsForSearch = string.Join("-", tags1)
                 },
 
                 new Product {
@@ -957,18 +1263,7 @@ namespace Store_Application.Persistence.Contexts
                     ShortDescription = shortDescription,
                     Description = Description,
                     BrandId = 1,
-                    //Images = new List<ProductImage>()
-                    //{
-                        
-                    //},
-                    //Features = new List<ProductFeature>()
-                    //{
-
-                    //},
-                    //ProductSliders = new List<ProductSlider>()
-                    //{
-
-                    //}
+                    TagsForSearch = string.Join("-", tags2)
                 },
             });
             #endregion
@@ -1844,7 +2139,6 @@ namespace Store_Application.Persistence.Contexts
 
             #region ProductFetures
 
-
             modelBuilder.Entity<ProductFeature>().HasData(new List<ProductFeature>
             {
 
@@ -2614,6 +2908,147 @@ namespace Store_Application.Persistence.Contexts
             });
 
 
+
+            #endregion
+
+            #region Tags
+            List<Tag> tags = new List<Tag>();
+
+            int id = 0;
+            for (int i = 0; i < 10; i++)
+            {
+                id++;
+                tags.Add(new Tag
+                {
+                    Id = id,
+                    Title = tags1[i],
+                    InsertTime = DateTime.Now,
+                    ProductId = 1
+                });
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                id++;
+                tags.Add(new Tag
+                {
+                    Id = id,
+                    Title = tags2[i],
+                    InsertTime = DateTime.Now,
+                    ProductId = 2
+                });
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                id++;
+                tags.Add(new Tag
+                {
+                    Id = id,
+                    Title = tags1[i],
+                    InsertTime = DateTime.Now,
+                    ProductId = 3
+                });
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                id++;
+                tags.Add(new Tag
+                {
+                    Id = id,
+                    Title = tags2[i],
+                    InsertTime = DateTime.Now,
+                    ProductId = 4
+                });
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                id++;
+                tags.Add(new Tag
+                {
+                    Id = id,
+                    Title = tags2[i],
+                    InsertTime = DateTime.Now,
+                    ProductId = 5
+                });
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                id++;
+                tags.Add(new Tag
+                {
+                    Id = id,
+                    Title = tags1[i],
+                    InsertTime = DateTime.Now,
+                    ProductId = 6
+                });
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                id++;
+                tags.Add(new Tag
+                {
+                    Id = id,
+                    Title = tags2[i],
+                    InsertTime = DateTime.Now,
+                    ProductId = 7
+                });
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                id++;
+                tags.Add(new Tag
+                {
+                    Id = id,
+                    Title = tags1[i],
+                    InsertTime = DateTime.Now,
+                    ProductId = 8
+                });
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                id++;
+                tags.Add(new Tag
+                {
+                    Id = id,
+                    Title = tags2[i],
+                    InsertTime = DateTime.Now,
+                    ProductId = 9
+                });
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                id++;
+                tags.Add(new Tag
+                {
+                    Id = id,
+                    Title = tags2[i],
+                    InsertTime = DateTime.Now,
+                    ProductId = 10
+                });
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                id++;
+                tags.Add(new Tag
+                {
+                    Id = id,
+                    Title = tags1[i],
+                    InsertTime = DateTime.Now,
+                    ProductId = 11
+                });
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                id++;
+                tags.Add(new Tag
+                {
+                    Id = id,
+                    Title = tags2[i],
+                    InsertTime = DateTime.Now,
+                    ProductId = 12
+                });
+            }
+
+            modelBuilder.Entity<Tag>().HasData(tags);
 
             #endregion
         }

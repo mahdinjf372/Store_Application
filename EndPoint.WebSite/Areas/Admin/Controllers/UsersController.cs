@@ -1,4 +1,5 @@
-﻿using EndPoint.WebSite.Areas.Admin.Models.Common;
+﻿using AutoMapper;
+using EndPoint.WebSite.Areas.Admin.Models.Common;
 using EndPoint.WebSite.Areas.Admin.Models.Users.EditUser;
 using EndPoint.WebSite.Areas.Admin.Models.Users.LoadUsers;
 using EndPoint.WebSite.Areas.Admin.Models.Users.RegisterUser;
@@ -23,10 +24,12 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
     public class UsersController : Controller
     {
         private readonly IUserFacad _userFacad;
+        private readonly IMapper _mapper;
 
-        public UsersController(IUserFacad userFacad)
+        public UsersController(IUserFacad userFacad, IMapper mapper)
         {
             _userFacad = userFacad;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -49,22 +52,8 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
             var res = _userFacad.GetUsersForAdminService.Execute(new RequestGetUsersForAdminDto() { Page = page, Searchkey = searchKey, Take = take });
 
             LoadUsersViewModel model = new LoadUsersViewModel();
-
-            model.Users = res.Data.users.Select(u => new UserViewModel
-            {
-                Id = u.Id,
-                Email = u.Email,
-                isActive = u.isActive,
-                isRemoved = u.isRemoved,
-                RolesName = u.RolesName,
-                Username = u.Username
-            }).ToList();
-
-            model.Paging = new PagingViewModel
-            {
-                CurrentPage = res.Data.CurrentPage,
-                PageCount = res.Data.PageCount
-            };
+            model.Users = _mapper.Map<List<UserViewModel>>(res.Data.users);
+            model.Paging = _mapper.Map<PagingViewModel>(res.Data);
 
             return PartialView("/Areas/Admin/Views/Users/_LoadUsers.cshtml", model);
         }
@@ -90,16 +79,9 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
                 return View(req);
             }
 
-            var dbRes = _userFacad.RegisterUserForAdminService.Execute(new RequestRegisterUserForAdminDto
-            {
-                Email = req.Email,
-                Password = req.Password,
-                Roles = req.Roles.Select(r=> new RegisterRoleDto
-                {
-                    Id = r,
-                }).ToList(),
-                Username = req.Username
-            });
+            var serviceRequest = _mapper.Map<RequestRegisterUserForAdminDto>(req);
+
+            var dbRes = _userFacad.RegisterUserForAdminService.Execute(serviceRequest);
 
             if (!dbRes.IsSuccess)
             {
@@ -165,20 +147,9 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
                 return View(req);
             }
 
-            _userFacad.EditUserForAdminService.Execute(new RequestEditUserForAdminDto()
-            {
-                Address = req.Address,
-                age = req.age,
-                FullName = req.FullName,
-                Id = req.Id,
-                Password = req.Password,
-                Phone = req.Phone,
-                Roles = req.Roles.Select(r=> new EditRoleDto 
-                {
-                    Id = r
-                }).ToList(),
-                Username = req.Username,
-            });
+            var serviceRequest = _mapper.Map<RequestEditUserForAdminDto>(req);
+
+            _userFacad.EditUserForAdminService.Execute(serviceRequest);
 
             return Redirect($"/Admin/Users/Index?searchKey={searchKey}&page={page}&take={take}");
         }

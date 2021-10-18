@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using EndPoint.WebSite.Areas.UserPanel.Models.Comment.Index;
 using EndPoint.WebSite.Utilities;
 using Store_Application.Application.Interfaces.FacadPattern;
+using AutoMapper;
 
 namespace EndPoint.WebSite.Areas.UserPanel.Controllers
 {
@@ -14,10 +15,12 @@ namespace EndPoint.WebSite.Areas.UserPanel.Controllers
     {
         private readonly ICommentFacad _commentFacad;
         private readonly ClaimUtility _claimUtility;
-        public CommentController(ICommentFacad commentFacad, ClaimUtility claimUtility)
+        private readonly IMapper _mapper;
+        public CommentController(ICommentFacad commentFacad, ClaimUtility claimUtility, IMapper mapper)
         {
             _commentFacad = commentFacad;
             _claimUtility = claimUtility;
+            _mapper = mapper;
         }
 
         public IActionResult Index()
@@ -30,23 +33,7 @@ namespace EndPoint.WebSite.Areas.UserPanel.Controllers
 
             if (res.IsSuccess)
             {
-                model = res.Data.Select(c => new UserCommentViewModel()
-                {
-                    Id = c.Id,
-                    ConfirmedByAdmin = c.ConfirmedByAdmin,
-                    ProductId = c.ProductId,
-                    Rate = c.Rate,
-                    Recommend = c.Recommend,
-                    Title = c.Title,
-                    Text = c.Text,
-                    AdminIsRead = c.AdminIsRead,
-                    Product = new ProductViewModel()
-                    {
-                        Id = c.Product.Id,
-                        Title = c.Product.Title,
-                        ImageName = c.Product.ImageName
-                    }
-                }).ToList();
+                model = _mapper.Map<List<UserCommentViewModel>>(res.Data);
             }
 
             return View(model);

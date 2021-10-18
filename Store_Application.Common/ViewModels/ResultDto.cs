@@ -17,10 +17,4 @@ namespace Store_Application.Common.ViewModels
         public string Message { get; set; }
         public T Data { get; set; }
     }
-    public class RegisterUserViewModel<T>
-    {
-        public bool IsSuccess { get; set; }
-        public string Message { get; set; }
-        public T Data { get; set; }
-    }
 }

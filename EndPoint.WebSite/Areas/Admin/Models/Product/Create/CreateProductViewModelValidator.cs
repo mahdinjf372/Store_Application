@@ -87,7 +87,8 @@ namespace EndPoint.WebSite.Areas.Admin.Models.Product.Create
         }
         private bool TitleValidation(string title)
         {
-            return !_productFacad.isExistProductService.Execute(title).Data;
+            var res = !_productFacad.isExistProductService.Execute(title).Data;
+            return true;
         }
     }
 }

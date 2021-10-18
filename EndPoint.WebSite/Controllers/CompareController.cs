@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using EndPoint.WebSite.Models.Compare.Index;
 using EndPoint.WebSite.Utilities;
 using Store_Application.Application.Interfaces.FacadPattern;
+using AutoMapper;
 
 namespace EndPoint.WebSite.Controllers
 {
@@ -14,12 +15,17 @@ namespace EndPoint.WebSite.Controllers
         private readonly ClaimUtility _claimUtility;
         private readonly CookiesManager _cookiesManager;
         private readonly ICompareFacad _compareFacad;
+        private readonly IMapper _mapper;
 
-        public CompareController(ClaimUtility claimUtility, CookiesManager cookiesManager, ICompareFacad compareFacad)
+        public CompareController(ClaimUtility claimUtility,
+            CookiesManager cookiesManager,
+            ICompareFacad compareFacad,
+            IMapper mapper)
         {
             _claimUtility = claimUtility;
             _cookiesManager = cookiesManager;
-            _compareFacad = compareFacad;   
+            _compareFacad = compareFacad;
+            _mapper = mapper;
         }
 
         public IActionResult Index()
@@ -42,31 +48,11 @@ namespace EndPoint.WebSite.Controllers
                 {
                     var compareItem = new CompareViewModel();
 
-                    compareItem.Product = new ProductCompareViewModel()
-                    {
-                        Id = compare.Product.Id,
-                        Price = compare.Product.Price,
-                        DiscountAmount = compare.Product.DiscountAmount,
-                        PriceWithDiscount = compare.Product.PriceWithDiscount,
-                        ImageName = compare.Product.ImageName,
-                        Title = compare.Product.Title,
-                        Inventory = compare.Product.Inventory
-                    };
+                    compareItem.Product = _mapper.Map<ProductCompareViewModel>(compare.Product);
 
-                    compareItem.Feature = compare.Feature.Select(f => new FeatureViewModel()
-                    {
-                        Id = f.Id,
-                        Title = f.Title
-                    }).ToList();
+                    compareItem.Feature = _mapper.Map<List<FeatureViewModel>>(compare.Feature);
 
-                    compareItem.ProductFeature = compare.ProductFeature.Select(pf => new ProductFeatureViewModel()
-                    {
-                        Id = pf.Id,
-                        FeatureId = pf.FeatureId,
-                        IsBold = pf.IsBold,
-                        ProductId = pf.ProductId,
-                        Value = pf.Value
-                    }).ToList();
+                    compareItem.ProductFeature = _mapper.Map<List<ProductFeatureViewModel>>(compare.ProductFeature);
 
                     model.Add(compareItem);
                 }

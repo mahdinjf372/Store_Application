@@ -33,10 +33,10 @@ namespace Store_Application.Application.Services.Products.Queries.GetProductsFor
                     products = products.Where(p => p.Title.Contains(req.Searchkey) || p.TagsForSearch.Contains(tagSearchKey));
                 }
 
-                if (req.CategoryId != null && _db.Categories.Any(c=> c.Id.Equals(req.CategoryId)))
-                {
-                    products = products.Where(p => p.CategoryId.Equals(req.CategoryId));
-                }
+                //if (req.CategoryId != null && _db.Categories.Any(c=> c.Id.Equals(req.CategoryId)))
+                //{
+                //    products = products.Where(p => p.CategoryId.Equals(req.CategoryId));
+                //}
 
                 switch (req.SortBy)
                 {

@@ -64,9 +64,9 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
                 return Json(res);
             }
 
-            if (_productFacad.GetCategoriesForAdminService.Execute(IgnoreFilters:false).Data.Count() >= 6)
+            if (_productFacad.GetCategoriesForAdminService.Execute(IgnoreFilters:false).Data.Count() >= 7)
             {
-                res.Message = "به دلیل محدودیت های قالب سایت نمیتوان بیش از ۶ دسته بندی ثبت کرد";
+                res.Message = "به دلیل محدودیت های قالب سایت نمیتوان بیش از 7 دسته بندی ثبت کرد";
                 return Json(res);
             }
 
@@ -154,8 +154,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
                 ImageName = null,
                 ParentCategoryId = req.ParentCategoryId
             });
-            //res.IsSuccess = true;
-            //res.Message = "helllllooooooo";
+
             return Json(res);
         }
 

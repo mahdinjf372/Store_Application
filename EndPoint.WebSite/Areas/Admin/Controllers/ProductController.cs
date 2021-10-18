@@ -1,4 +1,5 @@
-﻿using EndPoint.WebSite.Areas.Admin.Models.Common;
+﻿using AutoMapper;
+using EndPoint.WebSite.Areas.Admin.Models.Common;
 using EndPoint.WebSite.Areas.Admin.Models.Product.ChangeProductSliders;
 using EndPoint.WebSite.Areas.Admin.Models.Product.Create;
 using EndPoint.WebSite.Areas.Admin.Models.Product.Edit;
@@ -40,19 +41,21 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         private readonly IBrandFacad _brandFacad;
         private readonly IProductSlidersFacad _productSlidersFacad;
         private readonly ISlidersFacad _slidersFacad;
-
+        private readonly IMapper _mapper;
 
         public ProductController(IProductFacad productFacad,
             ICategoryFacad categoryFacad,
             IBrandFacad brandFacad,
             IProductSlidersFacad productSlidersFacad,
-            ISlidersFacad slidersFacad)
+            ISlidersFacad slidersFacad,
+            IMapper mapper)
         {
             _productFacad = productFacad;
             _categoryFacad = categoryFacad;
             _brandFacad = brandFacad;
             _productSlidersFacad = productSlidersFacad;
             _slidersFacad = slidersFacad;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -103,24 +106,8 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
                 return View(req);
             }
 
-            RequestAddProductDto product = new RequestAddProductDto()
-            {
-                BrandId = req.BrandId,
-                CategoryId = req.CategoryId,
-                GroupId = req.GroupId,
-                SubGroupId = req.SubGroupId,
-                Description = req.Description,
-                Tags = req.Tags,
-                Displayed = req.Displayed,
-                DiscountAmount = req.DiscountAmount,
-                Inventory = req.Inventory,
-                Price = req.Price,
-                ShortDescription = req.ShortDescription,
-                Title = req.Title,
-                MainImage = req.MainImage,
-                GalleryImages = req.GalleryImages
-            };
-
+            RequestAddProductDto product = _mapper.Map<RequestAddProductDto>(req);
+            
             _productFacad.AddProductService.Execute(product);
             return Redirect("/Admin/Product");
         }
@@ -144,23 +131,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
                 ResultDto<List<ResultGetBrandsForAdminDto>> brands = _brandFacad.GetBrandsForAdminService.Execute(IgnoreFilters: false);
                 ViewBag.Brands = new SelectList(brands.Data, "Id", "Name", product.BrandId);
 
-                var model = new EditProductViewModel()
-                {
-                    Id = product.Id,
-                    Title = product.Title,
-                    ShortDescription = product.ShortDescription,
-                    Description = product.Decription,
-                    Tags = string.Join("-",product.Tags),
-                    Inventory = product.Inventory,
-                    Price = product.Price,
-                    DiscountAmount = product.DiscountAmount,
-                    CategoryId = product.CategoryId,
-                    GroupId = product.GroupId,
-                    SubgroupId = product.SubgroupId,
-                    BrandId = product.BrandId,
-                    Displayed = product.Displayed,
-                    Image = product.Images.SingleOrDefault(i => i.IsMainImages).Name,
-                };
+                var model = _mapper.Map<EditProductViewModel>(product);
 
                 return View(model);
             }
@@ -192,24 +163,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
                 return View(req);
             }
 
-            RequestEditProductDto product = new RequestEditProductDto()
-            {
-                Id = req.Id,
-                BrandId = req.BrandId,
-                CategoryId = req.CategoryId,
-                GroupId = req.GroupId,
-                SubGroupId = req.SubgroupId,
-                Tags = req.Tags,
-                Description = req.Description,
-                Displayed = req.Displayed,
-                DiscountAmount = req.DiscountAmount,
-                Inventory = req.Inventory,
-                Price = req.Price,
-                ShortDescription = req.ShortDescription,
-                Title = req.Title,
-                Image = req.Image,
-                MainImage = req.MainImage
-            };
+            RequestEditProductDto product = _mapper.Map<RequestEditProductDto>(req);
 
             _productFacad.EditProductService.Execute(product);
             return Redirect("/Admin/Product");

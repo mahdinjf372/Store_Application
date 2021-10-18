@@ -20,7 +20,7 @@ namespace EndPoint.WebSite.Areas.Admin.Models.Order.Common
         public DateTime? ToDatePay { get; set; }
 
 
-        public void BinSearchValuesToFields()
+        public void BindSearchValuesToFields()
         {
 
             string[] filters = new string[6];

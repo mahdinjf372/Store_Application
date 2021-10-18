@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using EndPoint.WebSite.Utilities;
 using Store_Application.Domain.Enums;
+using AutoMapper;
 
 namespace EndPoint.WebSite.Areas.UserPanel.Controllers
 {
@@ -21,28 +22,20 @@ namespace EndPoint.WebSite.Areas.UserPanel.Controllers
     {
         private IUserFacad _userFacad;
         private readonly ClaimUtility _claimUtility;
+        private readonly IMapper _mapper;
 
-        public AccountController(IUserFacad userFacad, ClaimUtility claimUtility)
+        public AccountController(IUserFacad userFacad, ClaimUtility claimUtility, IMapper mapper)
         {
             _claimUtility = claimUtility;
             _userFacad = userFacad;
+            _mapper = mapper;
         }
 
         public IActionResult Index()
         {
             int userId = _claimUtility.GetUserId(User);
             var user = _userFacad.GetUserByIdForUserPanelService.Execute(userId);
-            UserPanelViewModel model = new UserPanelViewModel()
-            {
-                FullName = user.Data.FullName,
-                age = user.Data.age,
-                Address = user.Data.Address,
-                Email = user.Data.Email,
-                Username = user.Data.Username,
-                RegisterDate = user.Data.RegisterDate,
-                IsActive = user.Data.IsActive,
-                Phone = user.Data.Phone
-            };
+            UserPanelViewModel model = _mapper.Map<UserPanelViewModel>(user.Data);
             
             ViewBag.ProfileIsActived = "active";
 

@@ -107,7 +107,7 @@ namespace EndPoint.WebSite
             {
                 endpoints.MapControllerRoute(
                     name: "areas",
-                    pattern: "{area:exists}/{controller=Users}/{action=Index}/{id?}");
+                    pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
 
                 endpoints.MapControllerRoute(
                     name: "default",

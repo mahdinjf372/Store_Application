@@ -1,4 +1,5 @@
-﻿using EndPoint.WebSite.Areas.Admin.Models.Advertising.Create;
+﻿using AutoMapper;
+using EndPoint.WebSite.Areas.Admin.Models.Advertising.Create;
 using EndPoint.WebSite.Areas.Admin.Models.Advertising.Edit;
 using EndPoint.WebSite.Areas.Admin.Models.Advertising.LoadAdvertisings;
 using EndPoint.WebSite.Areas.Admin.Models.Common;
@@ -23,12 +24,15 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
     public class AdvertisingController : Controller
     {
         private readonly IAdvertisingFacad _advertisingFacad;
-        public AdvertisingController(IAdvertisingFacad advertisingFacad)
+        private readonly IMapper _mapper;
+
+        public AdvertisingController(IAdvertisingFacad advertisingFacad, IMapper mapper)
         {
             _advertisingFacad = advertisingFacad;
+            _mapper = mapper;
         }
 
-        public IActionResult Index(int page=1, int take=10)
+        public IActionResult Index(int page = 1, int take = 10)
         {
             ViewBag.page = page;
             ViewBag.take = take;
@@ -40,7 +44,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         {
             ViewBag.page = page;
             ViewBag.take = take;
-            var res = _advertisingFacad.GetAdvertisingsForAdminService.Execeute(page,take);
+            var res = _advertisingFacad.GetAdvertisingsForAdminService.Execeute(page, take);
 
             var ads = res.Data.Ads.Select(a => new AdvertisingViewModel
             {
@@ -54,6 +58,8 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
                 StartDate = a.StartDate,
                 isRemoved = a.IsRemoved
             }).ToList();
+
+            var adss = _mapper.Map<List<AdvertisingViewModel>>(res.Data.Ads);
 
             LoadAdvertisingViewModel model = new LoadAdvertisingViewModel();
             model.ads = ads;
@@ -87,16 +93,9 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
                 return Json(res);
             }
 
-            res = _advertisingFacad.AddAdvertisingService.Execute(new RequestAddAdvertisingDto
-            {
-                Title = req.Title,
-                Image = req.Image,
-                Description = req.Description,
-                LinkTo = req.LinkTo,
-                Place = req.Place,
-                EndDate = req.EndDate,
-                StartDate = req.StartDate,
-            });
+            var serviceRequest = _mapper.Map<RequestAddAdvertisingDto>(req);
+
+            res = _advertisingFacad.AddAdvertisingService.Execute(serviceRequest);
 
             return Json(res);
         }
@@ -129,18 +128,9 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
                 return Json(res);
             }
 
-            res = _advertisingFacad.EditAdvertisingService.Execute(new RequestEditAdvertisingDto
-            {
-                Id = req.Id,
-                Title = req.Title,
-                Description = req.Description,
-                EndDate = req.EndDate,
-                Image = req.Image,
-                ImageName = req.ImageName,
-                LinkTo = req.LinkTo,
-                Place = req.Place,
-                StartDate = req.StartDate
-            });
+            var serviceRequest = _mapper.Map<RequestEditAdvertisingDto>(req);
+
+            res = _advertisingFacad.EditAdvertisingService.Execute(serviceRequest);
 
             return Json(res);
         }

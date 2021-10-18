@@ -47,7 +47,7 @@ namespace Store_Application.Application.Services.SiteRequest.Queries.GetSiteRequ
             switch (perTime)
             {
                 case PerTime.Minutely:
-                    for (int i = 6*60; i > 0; i--)
+                    for (int i = 2*60; i > 0; i--)
                     {
                         var time = new TimeRange();
 
