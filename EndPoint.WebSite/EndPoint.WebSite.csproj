@@ -27,10 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\menu-main\card\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="Views\Error\NotFound.cshtml" />
     <None Include="wwwroot\Admin\lib\ckeditor5\build\ckeditor.js" />
     <None Include="wwwroot\Admin\lib\ckeditor5\build\ckeditor.js.map" />
